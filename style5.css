@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: Orbitron;
   letter-spacing: 1.5px;
+	border-width: 2px;
+	border-color: red;
+	border-style: solid;
 }
 
 body {
@@ -28,8 +31,8 @@ body {
   position: absolute;
   margin: 0;
   padding: 0;
-  color: #FF0000;    /*#f9f1e9*/
   text-align: center;
+	color: white;
   top: 50%;
   left: 50%;
   -webkit-transform: translate3d(-50%,-50%,0);
@@ -41,7 +44,7 @@ body {
 }
 
 .small-title{
-  font-size: 20px;
+  font-size: 28px;
 }
 
 @media only screen and (max-width: 1000px){
@@ -53,23 +56,18 @@ body {
                               /* ABOUT ME*/
 
 .about-me-section{
-  width: 100%;
   background-color: #111;
   display: inline-block;
 } 
 
 .about-me-header {
-  width: 500px;
-  padding-top: 50px;
-  padding-left: 50px;
-  text-align: left;
+  text-align: center;
   color: white;
 }
 
 .description {
-  width: 2050px;
   color: white;
-  text-align: left;
+  text-align: center;
   margin: 20px 50px;
 }
 
@@ -129,9 +127,7 @@ font-size: 11px;
 
 .interests .icon-box {
 position: relative;
-width: 200px;
 display: flex;
-flex-grow: 1;
 align-items: center;
 padding: 8px;
 background: #111;
@@ -412,4 +408,26 @@ a:hover {
   border: 0px;
   
 
+}
+
+
+.flex {
+	display: flex;
+}
+.about-me-item {
+	width: 50%;
+}
+@media only screen and (max-width: 400px) {
+	.flex {
+		display: flex;
+		flex-direction: column;
+	}
+	.about-me-item {
+		width: 100%;
+	}
+}
+
+.tech-items {
+	display: flex;
+	flex-wrap: wrap;
 }
