@@ -72,12 +72,17 @@ body {
   margin: 20px 50px;
 }
 
+/* RESUME BUTON */ 
+
+  
+
+
 /* SOCIAL MEDIA LINKS */
 
 .link{
   width: 500px;
   height: 500px;
-  padding-left: 78px;
+  padding-left: 150px;
   text-decoration: none;
   color: #007bff;
   transition: all 0.3s;
@@ -88,7 +93,6 @@ body {
   transition: all 0.3s;
 }
 .social-links li {
-  
   list-style: none;
   display: inline-block;
 }
@@ -114,11 +118,22 @@ body {
   transition: all 0.3s;
 }
 .social-links li a:hover {
-  color: #111;
+  color: #fff;
   transition: all 0.3s;
 }
 
-
+button {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+  color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  color: #fff;
+}
 
                   /* TECH I'm familiar with */
 .interests{
@@ -384,7 +399,27 @@ html {
 
 
 
+/* BLOGS 
+
+.blogs-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, .9);
+  padding: 60px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.medium-blog {
+  width: 100%;
+}
+
+*/
+
 /* BLOGS */
+
 .blogs {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -394,10 +429,6 @@ html {
 
 .blogs-container {
   text-align: center;
-}
-
-.medium-blog {
-  width: 100%;
 }
 
 .img-fluid {
@@ -411,10 +442,12 @@ html {
 .contact-me {
   position: relative;
   height: 90vh;
+  margin: 100px 65px;
 }
 
 .contact-me-form {
   display: grid;
+  position: relative;
   grid-template-columns: 50% 50%;
   grid-template-rows: repeat(4, 40px);
   grid-gap: 20px;
@@ -456,6 +489,24 @@ html {
   grid-row: 3/5;
   padding: 20px;
 }
+
+.footer {
+  background: #111111;
+  font-family: Orbitron;
+  color: #50d890;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa {
+  color: red;
+}
+
+
+  
+
+
 
 
 /* Functional components */
