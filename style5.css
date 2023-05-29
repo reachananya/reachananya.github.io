@@ -16,15 +16,63 @@ body {
 	background-color: #111111;
 }
 
+/* NAVBAR */
+.flex {
+  display: flex;
+  gap: var(--gap,4rem);
+}
+
+.primary-header {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.primary-navigation {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  background: hsl(0 0% 0% / 0.5);
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+  .primary-navigation {
+    background: hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(1rem);
+  }
+
+}
+
+.primary-navigation a {
+  text-decoration: none;
+}
+
+.primary-navigation a > [aria-hidden="true"] {
+  font-weight: 700;
+  margin-inline-end: 0.75em;
+}
+
+@media (max-width: 35em) {
+  .primary-navigation{
+    --gap: 2em;
+    position: fixed;
+    inset: 0 0 0 30%;
+
+    flex-direction: column;
+    padding: min(20vh, 10rem) 2rem;
+    
+
+  }
+}
 /* Title section*/
 
-.large-header{
+.large-header {
   position: relative;
   width: 100%;
   z-index: 1;
 }
 
-.demo .large-header{
+.demo .large-header {
   background-image: url("https://i.ibb.co/Ctrbs9J/backgroun1-portfolio.jpg");
 }
 
@@ -40,11 +88,11 @@ body {
   transform: translate(-50%,-50%,0);
 }
 
-.main-title-header{
+.main-title-header {
   font-size: 75px;
 }
 
-.small-title{
+.small-title {
   font-size: 28px;
 }
 
@@ -487,7 +535,7 @@ html {
 
 .message {
   grid-row: 3/5;
-  padding: 20px;
+  padding: 0px;
 }
 
 .footer {
@@ -495,6 +543,7 @@ html {
   font-family: Orbitron;
   color: #50d890;
   text-align: center;
+  padding-bottom: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
