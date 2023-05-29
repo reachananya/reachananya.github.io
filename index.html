@@ -38,6 +38,27 @@
   <!-- MAIN PART -->
 
   <body>
+    <nav>
+      <ul id="primary-navigation" class="primary-navigation flex">
+        <li class="active">
+          <a class="ff-sans-cond uppercase text-white letter-spacing-2" href="">
+            <span aria-hidden="true">00</span>Home
+          </a>
+        <li>
+          <a class="ff-sans-cond uppercase text-white letter-spacing-2" href="">
+            <span 
+              aria-hidden="true">01</span>Experience
+            </a> 
+        <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="">
+          <span 
+              aria-hidden="true">02</span>Awards
+            </a>  
+        <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="">
+          <span 
+              aria-hidden="true">03</span>Projects
+            </a>  
+      </ul>
+    </nav>
     <header class="title">
       <div class="demo">
         <div id="large-header" class="large-header">
@@ -122,14 +143,6 @@
             <ion-icon name="logo-youtube"></ion-icon>
           </a>
         </li>
-        <!-- <li>
-          <a
-            href="https://drive.google.com/file/d/1R_FH9KW7SWniVdN1ywZfSk59_pLV72OI/view?usp=sharing"
-            target="_blank"
-          >
-            <button>Resume</button>
-          </a>
-        </li> -->
         <li>
           <a
             href="https://drive.google.com/file/d/1R_FH9KW7SWniVdN1ywZfSk59_pLV72OI/view?usp=sharing"
@@ -138,10 +151,6 @@
             <ion-icon name="document-text-outline"></ion-icon>
           </a>
         </li>
-
-        <!-- <li>
-          <button onclick="window.open('path/to/pdf_file.pdf', '_blank')">Resume</button>
-        </li> -->
       </ul>
       <br />
       <br />
@@ -212,6 +221,21 @@
       <div class="container" div data-aos="zoom-in-up">
         <div class="timeline">
           <ul>
+            <li>
+              <div class="timeline-content">
+                <h3 class="date">May, 2023 - July, 2023</h3>
+                <h1>
+                  <span style="color: #50d890">
+                    SDE Intern @Dell</span
+                  >
+                </h1>
+                <p>
+                  Conducted retrispection on 0502 Release testing cycle for programs like MCC & GOP. Identified product team level defect trend analysis.<br />
+                  Suggested process improvements for effective methods for faster defect resolution per product team. Supported 0802 GOP testing cycle in IST timezone.
+                  <br /> <font color="#a7f2ca">Skills developed: Transformer · FSL · Medical Imaging </font>
+                </p>
+              </div>
+            </li>
             <li>
               <div class="timeline-content">
                 <h3 class="date">January, 2023 - April, 2023</h3>
@@ -319,7 +343,6 @@
                 </p>
               </div>
             </li>
-            
             <li>
               <div class="timeline-content">
                 <h3 class="date">8th April, 2021 - Present</h3>
@@ -348,8 +371,6 @@
           </ul>
         </div>
       </div>
-
-
       <br />
       <br />
 
@@ -359,6 +380,48 @@
       <section id="projects" style="height: 1500px">
         <div class="container">
           <div class="project-wrapper">
+            <!-- 1st-->
+            <div class="row">
+              <div class="col-lg-4 col-sm-12" data-aos="fade-right">
+                <div class="project-wrapper__text">
+                  <h3 class="project-wrapper__text-title">MentorME: Mentoring Application</h3>
+                  <div>
+                    <p class="mb-4"> <font color="#a7f2ca">Technologies used: JavaScript, react, socket-io-client, mui</font>
+                      <br />
+                      <br />
+                      MentorMe is a community-based collaborative platform built to help students overcome challenges in the academic and professional 
+                      environment by providing them with a platform to find the right guidance to help them succeed.
+                    </p>
+                  </div>
+                  <a
+                    class="cta-btn cta-btn--hero"
+                    href="https://mentor-me-client.vercel.app/"
+                    target="_blank"
+                    >See Live
+                  </a>
+                  <a
+                    class="cta-btn text-color-main"
+                    href="https://github.com/can-ishk/mentor-me-client"
+                    target="_blank"
+                    >Source Code</a
+                  >
+                </div>
+              </div>
+              <div class="col-lg-8 col-sm-12" data-aos="fade-left">
+                <div class="project-wrapper__image">
+                  <a href="#!" target="_blank">
+                    <div data-tilt class="thumbnail rounded">
+                      <img
+                        class="img-fluid"
+                        src="img/ezgif.com-gif-maker.gif"
+                        style="width: 670px; height: 420px"
+                      />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- 2nd--->
             <div class="row">
               <div class="col-lg-4 col-sm-12" data-aos="fade-right">
                 <div class="project-wrapper__text">
@@ -482,7 +545,7 @@
     
 
     <!-- Footer -->
-    <div class="footer">
+    <div class="footer" style = "margin-top: 550px;">
       <span>
         Made with <i class="fa fa-heart pulse"></i> by <a>Ananya</a>
       </span>
