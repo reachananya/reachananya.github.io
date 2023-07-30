@@ -21,12 +21,16 @@ body {
   display: flex;
   gap: var(--gap,4rem);
 	background-color: transparent;
+  margin-left: 90px;
+  margin-top: 50px;
 }
 
 .primary-header {
   align-items: center;
   justify-content: space-between;
 	background-color: transparent;
+  margin-left: 90px;
+  margin-top: 50px;
 }
 
 .primary-navigation {
@@ -35,6 +39,8 @@ body {
   margin: 0;
   background-color: transparent;
   background: hsl(0 0% 0% / 0.5);
+	  margin-left: 90px;
+  margin-top: 50px;
 }
 
 /* @supports (backdrop-filter: blur(1rem)) {
@@ -49,12 +55,16 @@ body {
 .primary-navigation a {
   text-decoration: none;
 	background-color: transparent;
+	  margin-left: 90px;
+  margin-top: 50px;
 }
 
 .primary-navigation a > [aria-hidden="true"] {
   font-weight: 700;
   margin-inline-end: 0.75em;
 	background-color: transparent;
+	  margin-left: 90px;
+  margin-top: 50px;
 }
 
 /* @media (max-width: 35em) {
