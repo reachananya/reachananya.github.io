@@ -37,14 +37,14 @@ body {
   background: hsl(0 0% 0% / 0.5);
 }
 
-@supports (backdrop-filter: blur(1rem)) {
+/* @supports (backdrop-filter: blur(1rem)) {
   .primary-navigation {
     background: hsl(0 0% 100% / 0.1);
     backdrop-filter: blur(1rem);
 	  background-color: transparent;
   }
 
-}
+} */
 
 .primary-navigation a {
   text-decoration: none;
@@ -57,7 +57,7 @@ body {
 	background-color: transparent;
 }
 
-@media (max-width: 35em) {
+/* @media (max-width: 35em) {
   .primary-navigation{
     --gap: 2em;
     position: fixed;
@@ -67,8 +67,8 @@ background-color: transparent;
     padding: min(20vh, 10rem) 2rem;
     
 
-  }
-}
+  } */
+/*}
 /* Title section*/
 
 .large-header {
