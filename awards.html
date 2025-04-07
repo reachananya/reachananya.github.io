@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ananya Singhal - Awards</title>
+
+    <!-- Bootstrap Scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="Screenshot 2021-06-16 225806.jpg" />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style5.css" />
+    <link rel="stylesheet" href="awards-styles.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Header Background -->
+    <div class="page-header">
+      <div class="header-content">
+        <h1>Awards & Achievements</h1>
+        <div class="header-subtitle">Recognition for Excellence</div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="awards-container">
+      
+      <!-- Filter Section -->
+      <div class="category-filter">
+        <button class="filter-btn active" data-filter="all">All Awards</button>
+        <button class="filter-btn" data-filter="research">Research</button>
+        <button class="filter-btn" data-filter="academic">Academic</button>
+        <button class="filter-btn" data-filter="leadership">Leadership</button>
+        <button class="filter-btn" data-filter="grants">Grants</button>
+      </div>
+      
+      <!-- Awards Grid -->
+      <div class="awards-grid">
+        <!-- Award Item 1 -->
+        <div class="award-card" data-category="research">
+          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
+            <div class="award-year">2023</div>
+            <div class="category-tag">Research</div>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Best Paper Award - ICCV 2023</h3>
+            <div class="award-issuer">
+              <div class="issuer-logo">
+                <i class="fas fa-microscope"></i>
+              </div>
+              <div class="issuer-name">International Conference on Computer Vision</div>
+            </div>
+            <div class="award-description">
+              <p>Awarded for the groundbreaking paper "Novel Deep Learning Approaches for Early Diagnosis of Neurological Conditions Using Diffusion MRI" which introduced innovative techniques that significantly improved diagnostic accuracy.</p>
+            </div>
+            <div class="award-footer">
+              <div class="award-badge">
+                <i class="fas fa-award badge-icon"></i>
+                <span class="badge-text">First Place</span>
+              </div>
+              <a href="#" class="award-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Details</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Award Item 2 -->
+        <div class="award-card" data-category="academic">
+          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
+            <div class="award-year">2022</div>
+            <div class="category-tag">Academic</div>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Dean's Distinguished Fellowship</h3>
+            <div class="award-issuer">
+              <div class="issuer-logo">
+                <i class="fas fa-university"></i>
+              </div>
+              <div class="issuer-name">Stanford University</div>
+            </div>
+            <div class="award-description">
+              <p>Prestigious fellowship awarded to exceptional graduate students demonstrating outstanding academic achievement and research potential in computer science and artificial intelligence.</p>
+            </div>
+            <div class="award-footer">
+              <div class="award-badge">
+                <i class="fas fa-star badge-icon"></i>
+                <span class="badge-text">Full Scholarship</span>
+              </div>
+              <a href="#" class="award-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Details</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Award Item 3 -->
+        <div class="award-card" data-category="innovation">
+          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
+            <div class="award-year">2022</div>
+            <div class="category-tag">Innovation</div>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Healthcare Innovation Challenge Winner</h3>
+            <div class="award-issuer">
+              <div class="issuer-logo">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <div class="issuer-name">MIT Health Tech Initiative</div>
+            </div>
+            <div class="award-description">
+              <p>First place in the annual Health Tech Innovation Challenge for developing an AI-powered mobile application that helps predict and prevent seizures in epilepsy patients using wearable device data.</p>
+            </div>
+            <div class="award-footer">
+              <div class="award-badge">
+                <i class="fas fa-trophy badge-icon"></i>
+                <span class="badge-text">$25,000 Grant</span>
+              </div>
+              <a href="#" class="award-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Details</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Award Item 4 -->
+        <div class="award-card" data-category="leadership">
+          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
+            <div class="award-year">2021</div>
+            <div class="category-tag">Leadership</div>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Women in Technology Leadership Award</h3>
+            <div class="award-issuer">
+              <div class="issuer-logo">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="issuer-name">Women in AI Global Network</div>
+            </div>
+            <div class="award-description">
+              <p>Recognized for outstanding leadership in promoting diversity and inclusion in AI research, including organizing workshops, mentoring programs, and community initiatives focused on increasing representation.</p>
+            </div>
+            <div class="award-footer">
+              <div class="award-badge">
+                <i class="fas fa-certificate badge-icon"></i>
+                <span class="badge-text">Annual Honoree</span>
+              </div>
+              <a href="#" class="award-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Details</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Award Item 5 - Moved from research to grants category -->
+        <div class="award-card" data-category="grants">
+          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
+            <div class="award-year">2021</div>
+            <div class="category-tag">Grants</div>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Young Investigator Grant</h3>
+            <div class="award-issuer">
+              <div class="issuer-logo">
+                <i class="fas fa-flask"></i>
+              </div>
+              <div class="issuer-name">National Science Foundation</div>
+            </div>
+            <div class="award-description">
+              <p>Competitive research grant awarded to promising early-career researchers for innovative work in AI applications for healthcare diagnostics, specifically focusing on interpretable machine learning models.</p>
+            </div>
+            <div class="award-footer">
+              <div class="award-badge">
+                <i class="fas fa-dollar-sign badge-icon"></i>
+                <span class="badge-text">$120,000 Grant</span>
+              </div>
+              <a href="#" class="award-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Details</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Award Item 6 -->
+        <div class="award-card" data-category="academic">
+          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
+            <div class="award-year">2020</div>
+            <div class="category-tag">Academic</div>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Outstanding Graduate Student Award</h3>
+            <div class="award-issuer">
+              <div class="issuer-logo">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="issuer-name">Department of Computer Science</div>
+            </div>
+            <div class="award-description">
+              <p>Recognized for exceptional academic performance, research contributions, and service to the department. Maintained a perfect GPA while publishing multiple papers in top-tier conferences.</p>
+            </div>
+            <div class="award-footer">
+              <div class="award-badge">
+                <i class="fas fa-medal badge-icon"></i>
+                <span class="badge-text">Department Honor</span>
+              </div>
+              <a href="#" class="award-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Details</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Grant Item -->
+        <div class="award-card" data-category="grants">
+          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
+            <div class="award-year">2023</div>
+            <div class="category-tag">Grants</div>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">AI for Good Research Grant</h3>
+            <div class="award-issuer">
+              <div class="issuer-logo">
+                <i class="fas fa-hand-holding-heart"></i>
+              </div>
+              <div class="issuer-name">Google AI</div>
+            </div>
+            <div class="award-description">
+              <p>$180,000 grant awarded for research on applying machine learning to improve accessibility in healthcare systems and develop inclusive AI solutions for underserved communities.</p>
+            </div>
+            <div class="award-footer">
+              <div class="award-badge">
+                <i class="fas fa-dollar-sign badge-icon"></i>
+                <span class="badge-text">$180,000 Grant</span>
+              </div>
+              <a href="#" class="award-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Details</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Back to Home Button -->
+      <div class="back-home">
+        <a href="index.html" class="back-btn">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span>
+        Made with <i class="fa fa-heart pulse"></i> by <a>Ananya</a>
+      </span>
+    </div>
+
+    <!-- Scripts -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="awards-script.js"></script>
+
+    <script>
+        // Initialize AOS (Animate on Scroll)
+        AOS.init();
+
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', () => {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const awardCards = document.querySelectorAll('.award-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            // Get filter value
+            const filterValue = button.getAttribute('data-filter');
+            
+            // Filter the award cards
+            awardCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100);
+                } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+                }
+            });
+            });
+        });
+        });
+    </script>
+  </body>
+</html>
