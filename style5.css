@@ -112,12 +112,25 @@ body {
   text-align: left;
   margin-bottom: 1.5rem;
   line-height: 1.6;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Barlow', sans-serif;
   font-size: 16px;
   letter-spacing: 0.5px;
 }
 
+.description a {
+  color: #50d890;
+  font-style: italic;
+  text-decoration: none; /* Optional: removes the underline */
+  font-family: 'Barlow', sans-serif; /* Ensures the font remains the same */
+}
+
+/* Optional: add hover effect */
+.description a:hover {
+  text-decoration: underline;
+}
+
 .education-box {
+  font-style: italic;
   background-color: rgba(80, 216, 144, 0.1);
   border-left: 3px solid #50d890;
   padding: 1.5rem;
@@ -129,6 +142,7 @@ body {
   color: #50d890;
   margin-bottom: 1rem;
   font-size: 1.5rem;
+  font-style: normal;
 }
 
 .highlight {
@@ -529,6 +543,471 @@ body {
 
 
 
+
+
+
+
+/* in the main page - added projects bubble */
+
+
+/* New parent wrapper to handle hover states for all elements */
+.projects-group {
+  position: relative;
+}
+
+/* Sync all color changes on hover of any relevant element */
+.projects-group:hover .arrow,
+.project-bubble:hover ~ .custom-arrow-svg .arrow,
+.custom-arrow-svg:hover .arrow {
+  stroke: #50d890;
+}
+
+.projects-group:hover .bubble,
+.project-bubble:hover .bubble,
+.custom-arrow-svg:hover ~ .project-bubble .bubble {
+  stroke: #50d890;
+}
+
+.projects-group:hover .text,
+.project-bubble:hover .text,
+.custom-arrow-svg:hover ~ .project-bubble .text {
+  fill: #50d890;
+}
+
+/* Arrow styling */
+.arrow {
+  stroke: white;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+/* Bubble styling */
+.bubble {
+  fill: transparent;
+  stroke: white;
+  stroke-width: 2;
+  transition: all 0.3s ease;
+}
+
+/* Text styling */
+.text {
+  font-family: Orbitron, sans-serif;
+  font-size: 22px;
+  fill: white;
+  text-anchor: middle;
+  letter-spacing: 1px;
+  transition: fill 0.3s ease;
+}
+
+/* Update the projects-indicator styles */
+.projects-indicator {
+  position: absolute;
+  left: -20%;
+  bottom: -15vh;
+  width: 300px;
+  height: 200px;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+/* The custom arrow SVG styling */
+.custom-arrow-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto; /* Changed to auto to capture hover */
+}
+
+/* The projects bubble styling */
+.project-bubble {
+  position: absolute;
+  bottom: 0;
+  left: -25%;
+  width: 180px;
+  height: 80px;
+  text-decoration: none;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.custom-bubble-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Keep your responsive adjustments unchanged */
+@media only screen and (max-width: 992px) {
+  .projects-indicator {
+    left: 15%;
+    bottom: -12vh;
+    width: 250px;
+    height: 160px;
+  }
+  
+  .project-bubble {
+    width: 150px;
+    height: 70px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .projects-indicator {
+    left: 10%;
+    bottom: -10vh;
+    width: 200px;
+    height: 140px;
+  }
+  
+  .project-bubble {
+    width: 120px;
+    height: 60px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .projects-indicator {
+    left: 25%;
+    bottom: -8vh;
+    width: 160px;
+    height: 120px;
+  }
+  
+  .project-bubble {
+    width: 100px;
+    height: 50px;
+  }
+}
+
+
+
+
+
+/* Code Arrow Styling - Similar to projects but positioned differently */
+.code-group {
+  position: relative;
+}
+
+/* Sync all color changes on hover of any relevant element */
+.code-group:hover .arrow,
+.code-bubble:hover ~ .code-arrow-svg .arrow,
+.code-arrow-svg:hover .arrow {
+  stroke: #50d890;
+}
+
+.code-group:hover .bubble,
+.code-bubble:hover .bubble,
+.code-arrow-svg:hover ~ .code-bubble .bubble {
+  stroke: #50d890;
+}
+
+.code-group:hover .text,
+.code-bubble:hover .text,
+.code-arrow-svg:hover ~ .code-bubble .text {
+  fill: #50d890;
+}
+
+/* Update the code-indicator styles */
+.code-indicator {
+  position: absolute;
+  right: 300px;  /* Position to the right of "write code" */
+  bottom: -15vh;
+  width: 300px;
+  height: 200px;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+/* The custom arrow SVG styling for code */
+.code-arrow-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+/* The code bubble styling */
+.code-bubble {
+  position: absolute;
+  bottom: -60px;
+  left: 25%;
+  width: 180px;
+  height: 80px;
+  text-decoration: none;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.code-bubble-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive adjustments for code elements */
+@media only screen and (max-width: 992px) {
+  .code-indicator {
+    right: -50px;
+    bottom: -12vh;
+    width: 250px;
+    height: 160px;
+  }
+  
+  .code-bubble {
+    width: 150px;
+    height: 70px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .code-indicator {
+    right: -30px;
+    bottom: -10vh;
+    width: 200px;
+    height: 140px;
+  }
+  
+  .code-bubble {
+    width: 120px;
+    height: 60px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .code-indicator {
+    right: 0;
+    bottom: -8vh;
+    width: 160px;
+    height: 120px;
+  }
+  
+  .code-bubble {
+    width: 100px;
+    height: 50px;
+    left: 15%;
+  }
+}
+
+/* Position adjustments to ensure both arrows don't overlap */
+@media only screen and (max-width: 768px) {
+  .projects-indicator {
+    left: 0;
+  }
+  
+  .code-indicator {
+    right: 0;
+  }
+}
+
+
+
+/* Research Arrow Styling - Similar to projects and code but positioned differently */
+.research-group {
+  position: relative;
+}
+
+/* Sync all color changes on hover of any relevant element */
+.research-group:hover .arrow,
+.research-bubble:hover ~ .research-arrow-svg .arrow,
+.research-arrow-svg:hover .arrow {
+  stroke: #50d890;
+}
+
+.research-group:hover .bubble,
+.research-bubble:hover .bubble,
+.research-arrow-svg:hover ~ .research-bubble .bubble {
+  stroke: #50d890;
+}
+
+.research-group:hover .text,
+.research-bubble:hover .text,
+.research-arrow-svg:hover ~ .research-bubble .text {
+  fill: #50d890;
+}
+
+
+
+/* Update the research-indicator styles */
+.research-indicator {
+  position: absolute;
+  right: -150px;  /* Position to the right of "decode brains" */
+  bottom: -15vh;
+  width: 300px;
+  height: 200px;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+/* The custom arrow SVG styling for research */
+.research-arrow-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+/* The research bubble styling */
+.research-bubble {
+  position: absolute;
+  bottom: 30px;
+  left: 90%;
+  width: 200px;
+  height: 90px;
+  text-decoration: none;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.research-bubble-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive adjustments for research elements */
+@media only screen and (max-width: 992px) {
+  .research-indicator {
+    right: -70px;
+    bottom: -18vh;
+    width: 250px;
+    height: 160px;
+  }
+  
+  .research-bubble {
+    width: 180px;
+    height: 80px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .research-indicator {
+    right: -40px;
+    bottom: -14vh;
+    width: 200px;
+    height: 140px;
+  }
+  
+  .research-bubble {
+    width: 180px;
+    height: 70px;
+    left: 35%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .research-indicator {
+    right: -20px;
+    bottom: -10vh;
+    width: 160px;
+    height: 120px;
+  }
+  
+  .research-bubble {
+    width: 140px;
+    height: 60px;
+    left: 20%;
+  }
+}
+
+/* Position adjustments for all three arrows */
+@media only screen and (max-width: 768px) {
+  .projects-indicator {
+    left: -10px;
+    bottom: -20vh;
+  }
+  
+  .code-indicator {
+    right: -10px;
+    bottom: -35vh;
+  }
+  
+  .research-indicator {
+    right: -10px;
+    bottom: -50vh;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .projects-indicator,
+  .code-indicator,
+  .research-indicator {
+    transform: scale(0.8);
+  }
+}
+
+
+
+
+
+/* scroll button below the main front page */
+
+
+.scroll-down-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.scroll-down-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+  opacity: 0.8;
+  padding: 10px;
+}
+
+.scroll-down-link:hover {
+  transform: translateY(5px);
+  opacity: 1;
+  color: #50d890;
+}
+
+.scroll-down-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-text {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.scroll-arrow {
+  animation: bounce 2s infinite;
+}
+
+.scroll-down-link:hover .scroll-arrow svg path {
+  fill: #50d890;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
 
 
 

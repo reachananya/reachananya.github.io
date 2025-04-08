@@ -34,7 +34,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
       rel="stylesheet"
@@ -44,43 +44,146 @@
   <!-- MAIN PART -->
 
   <body>
-
     <header class="title">
       <div class="demo">
         <div id="large-header" class="large-header">
           <canvas id="demo-canvas" width="100%"></canvas>
           <div class="main-title">
             <h1 class="main-title-header"><strong>Ananya Singhal</strong></h1>
+            <!-- Add this to your small-title paragraph in the main-title div -->
             <p class="small-title">
-              <strong
-                >An ML Researcher with a passion to empower communities</strong
-              >
+              <strong>
+                I build things<span class="project-pointer-container">,</span>
+                <span class="code-pointer-container"> write code</span>,
+                <span class="research-pointer-container"> and decode brains.</span>
+              </strong>
             </p>
+            <!-- Projects arrow group -->
+            <div class="projects-group">
+              <div class="projects-indicator">
+                <!-- Custom arrow SVG -->
+                <svg class="custom-arrow-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                  <g class="arrow">
+                    <!-- Main arrow path - smoother curve -->
+                    <path d="M 170,30 C 190,80 100,190 60,160" />
+                    <!-- Arrow head aligned with the direction of the path -->
+                    <path d="M 75,130 L 60,160 L 75,175" />
+                  </g>
+                </svg>
+                <!-- Custom bubble with projects link -->
+                <a href="projects.html" class="project-bubble">
+                  <svg class="custom-bubble-svg" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse class="bubble" cx="120" cy="60" rx="110" ry="50" />
+                    <text class="text" x="120" y="60">projects</text>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Code arrow group -->
+            <div class="code-group">
+              <div class="code-indicator">
+                <!-- Custom arrow SVG for code -->
+                <svg class="code-arrow-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                  <g class="arrow">
+                    <!-- Main arrow path - curved down with a slight curve -->
+                    <path d="M 150,30 C 120,90 160,100 120,170" />
+                    <!-- Arrow head facing right -->
+                    <path d="M 100,150 L 120,170 L 149,149" />
+                  </g>
+                </svg>
+                <!-- Custom bubble with code link -->
+                <a href="experience.html" class="code-bubble">
+                  <svg class="code-bubble-svg" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse class="bubble" cx="120" cy="60" rx="110" ry="50" />
+                    <text class="text" x="120" y="60">experience</text>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            
+            <!-- New Research/Decode Brains arrow group -->
+            <div class="research-group">
+              <div class="research-indicator">
+                <!-- Custom arrow SVG for research -->
+                <svg class="research-arrow-svg" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                  <g class="arrow">
+                    <!-- Main arrow path with smooth curve, subtle loop, and slightly upward arrow end -->
+                    <path d="
+                      M 70,10 
+                      C 70,50 110,100 140,85 
+                      C 145,83 148,77 145,72 
+                      C 140,65 130,70 135,78 
+                      C 140,85 160,90 180,95 
+                      C 200,100 230,100 250,98 
+                      C 260,97 265,96 275,95" />
+                    
+                    <!-- Arrow head tilted slightly upward -->
+                    <path d="M 260,88 L 275,95 L 258,104" />
+                  </g>
+                </svg>
+                <!-- Custom bubble with research/publications link -->
+                <a href="publications.html" class="research-bubble">
+                  <svg class="research-bubble-svg" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse class="bubble" cx="120" cy="60" rx="110" ry="50" />
+                    <text class="text" x="120" y="68">
+                      <tspan x="120" dy="-10">publications/</tspan>
+                      <tspan x="120" dy="22">research exp</tspan>
+                    </text>
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </header>
 
 
+    <!-- Add scroll down component here -->
+    <div class="scroll-down-container">
+      <a href="#aboutme" class="scroll-down-link">
+        <div class="scroll-down-content">
+          <div class="scroll-text">Scroll Down</div>
+          <div class="scroll-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_scroll_arrow" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                <rect width="24" height="24" fill="#50d890"/>
+              </mask>
+              <g mask="url(#mask0_scroll_arrow)">
+                <path d="M12 19.0001L6 13.0001L7.4 11.6001L12 16.1751L16.6 11.6001L18 13.0001L12 19.0001ZM12 13.0001L6 7.0001L7.4 5.6001L12 10.1751L16.6 5.6001L18 7.0001L12 13.0001Z" fill="white"></path>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </a>
+    </div>
+
     <div class="about-me-section" id="aboutme">
       <h1 class="section-header">about me</h1>
       <div class="about-me-container">
         <div class="about-me-bio">
           <p class="description">
-            I'm a Computer Science & Engineering student at Shiv Nadar Institute of Eminence with a minor in Mathematics, graduating in May 2024. My academic journey has been marked by consistent excellence, earning me a place on the Dean's List with a GPA of 8.41/10.
+            I'm currently an AI Researcher at <a href="https://www.gehealthcare.in/">GE Healthcare</a> in the Advanced Technology group where I work on medical image analysis.  
+            I am interested in the practice and theory of diffusion tensor imaging analysis, including correlating diffusion-weighted imaging signals, estimating principal components of diffusion tensors using deep neural networks, and denoising high b-value data in diffusion MRI.
+            
           </p>
           <p class="description">
-            My research focuses on applying deep learning techniques to medical imaging, particularly in the early diagnosis of neurological conditions using diffusion MRI. I've published work at prestigious conferences including ICCV and ACML, and have professional experience at GE Healthcare, Dell Technologies, and ZKTeco.
+            Prior to GE, I was an Undergraduate student at <a href="https://snu.edu.in/home/">Shiv Nadar Institute of Eminence</a>, pursuing a Bachelor's degree in <a href="https://snu.edu.in/schools/school-of-engineering/departments/department-of-computer-science-and-engineering/">Computer Science and Engineering</a> with a minor in <a href="https://snu.edu.in/schools/school-of-natural-sciences/departments/department-of-mathematics/">Mathematics</a>. At SNIoE, I closely collaborated with <a href="https://snu.edu.in/faculty/saurabh-janardan-shigwan/">Dr. Saurabh J. Shigwan</a> on reseach in diffusion MRI, particularly in the early diagnosis of neurodegenerative diseases. 
+            During my Undergraduate years I have also interned at <a href="https://www.dell.com/en-in">Dell Technologies</a>, <a href="https://www.nus.edu.sg/">National University of Singapore</a>, <a href="https://cvit.iiit.ac.in/">IIIT Hyderabad, CVIT Lab</a> and <a href="https://www.zkteco.com/en/">ZKTeco</a>. 
+            
           </p>
           <p class="description">
-            I'm passionate about building innovative solutions, as evidenced by my projects like MentorME and Diama. Beyond technical skills, I've been recognized with awards including the Generation Google Scholarship (APAC) and the Diversity, Equity & Inclusion Travel Grant.
+            Beyond technical skills, I've been recognized with awards including the <a href="https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship-apac">Generation Google Scholarship (APAC)</a> and the <a href="https://iccv2023.thecvf.com/diversity.equity.and.inclusion-363500-3-33-35.php">Diversity, Equity & Inclusion Travel Grant</a>.
           </p>
           <div class="education-box">
             <h2>Education</h2>
-            <p><span class="highlight">B.Tech, Computer Science & Engineering</span><br>
+            <p class="description">
+              <span class="highlight">B.Tech, Computer Science & Engineering</span><br>
             Minor in Mathematics | Honors: Dean's List<br>
             Shiv Nadar Institute of Eminence (SNIoE)<br>
-            GPA: 8.41/10 | Aug 2020 - May 2024</p>
+            GPA: 8.41/10 | Aug 2020 - May 2024
+          </p>
           </div>
         </div>
         <div class="about-me-social">
