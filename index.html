@@ -61,19 +61,20 @@
             <!-- Projects arrow group -->
             <div class="projects-group">
               <div class="projects-indicator">
-                <!-- Custom arrow SVG -->
+
                 <svg class="custom-arrow-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                   <g class="arrow">
-                    <!-- Main arrow path - smoother curve -->
-                    <path d="M 170,30 C 190,80 100,190 60,160" />
-                    <!-- Arrow head aligned with the direction of the path -->
-                    <path d="M 75,130 L 60,160 L 75,175" />
+                    <!-- Main arrow path -->
+                    <path class="arrow-line" d="M 170,30 C 190,80 100,190 60,160" />
+                    <!-- Arrow head -->
+                    <path class="arrow-head" d="M 75,130 L 60,160 L 75,175" />
                   </g>
                 </svg>
+
                 <!-- Custom bubble with projects link -->
                 <a href="projects.html" class="project-bubble">
                   <svg class="custom-bubble-svg" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse class="bubble" cx="120" cy="60" rx="110" ry="50" />
+                    <!-- <ellipse class="bubble" cx="120" cy="60" rx="110" ry="50" /> -->
                     <text class="text" x="120" y="60">projects</text>
                   </svg>
                 </a>
@@ -87,15 +88,14 @@
                 <svg class="code-arrow-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                   <g class="arrow">
                     <!-- Main arrow path - curved down with a slight curve -->
-                    <path d="M 150,30 C 120,90 160,100 120,170" />
-                    <!-- Arrow head facing right -->
-                    <path d="M 100,150 L 120,170 L 149,149" />
+                    <path class="arrow-line" d="M 150,30 C 120,90 160,100 170,155" />
+                    <path class="arrow-head" d="M 150,140 L 170,155 L 190,139" />
                   </g>
                 </svg>
                 <!-- Custom bubble with code link -->
-                <a href="experience.html" class="code-bubble">
-                  <svg class="code-bubble-svg" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse class="bubble" cx="120" cy="60" rx="110" ry="50" />
+                <a href="experience.html" class="code-bubble" style="bottom: -40px; left: 40%;">
+                <svg class="code-bubble-svg" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- <ellipse class="bubble" cx="120" cy="60" rx="110" ry="50" /> -->
                     <text class="text" x="120" y="60">experience</text>
                   </svg>
                 </a>
@@ -109,7 +109,7 @@
                 <svg class="research-arrow-svg" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
                   <g class="arrow">
                     <!-- Main arrow path with smooth curve, subtle loop, and slightly upward arrow end -->
-                    <path d="
+                    <path class="arrow-line" d="
                       M 70,10 
                       C 70,50 110,100 140,85 
                       C 145,83 148,77 145,72 
@@ -119,16 +119,16 @@
                       C 260,97 265,96 275,95" />
                     
                     <!-- Arrow head tilted slightly upward -->
-                    <path d="M 260,88 L 275,95 L 258,104" />
+                    <path class="arrow-head" d="M 260,88 L 275,95 L 258,104" />
                   </g>
                 </svg>
                 <!-- Custom bubble with research/publications link -->
                 <a href="publications.html" class="research-bubble">
-                  <svg class="research-bubble-svg" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse class="bubble" cx="120" cy="60" rx="110" ry="50" />
-                    <text class="text" x="120" y="68">
-                      <tspan x="120" dy="-10">publications/</tspan>
-                      <tspan x="120" dy="22">research exp</tspan>
+                  <svg class="research-bubble-svg" viewBox="0 0 240 130" xmlns="http://www.w3.org/2000/svg">
+                    <!-- <ellipse class="bubble" cx="120" cy="60" rx="110" ry="50" /> -->
+                    <text class="text" x="130" y="68">
+                      <tspan x="130" dy="-10">publications/</tspan>
+                      <tspan x="130" dy="35">research exp</tspan>
                     </text>
                   </svg>
                 </a>
@@ -249,66 +249,74 @@
 
             <div class="updates-timeline">
               <div class="update-item">
-                <div class="update-date">September 2023</div>
+                <div class="update-date">3<sup>rd</sup> Sept.<br>2021</div>
                 <div class="update-content">
-                  <h3>ICCV Conference in Paris</h3>
-                  <p>Visited the International Conference on Computer Vision (ICCV) in Paris, France. Presented my research on deep learning techniques for medical imaging.</p>
+                  <h3>GGS Feedback Award</h3>
+                  <p>Won the Feedback Star award at the Generation Google Scholars community forum.</p>
                 </div>
               </div>
               
               <div class="update-item">
-                <div class="update-date">June 2023</div>
+                <div class="update-date">26<sup>th</sup> June<br>2021</div>
                 <div class="update-content">
-                  <h3>Started Internship at Dell</h3>
-                  <p>Began my SDE internship at Dell Technologies working on retrospection of testing cycles and defect trend analysis.</p>
+                  <h3>GGS Retreat</h3>
+                  <p>Participated in the Generation Google Scholarship retreat, networking with fellow scholars and Google professionals.</p>
                 </div>
               </div>
               
               <div class="update-item">
-                <div class="update-date">May 2023</div>
+                <div class="update-date">31<sup>st</sup> May<br>2021</div>
                 <div class="update-content">
-                  <h3>Research Paper Accepted</h3>
-                  <p>My research paper on "Novel Approaches in Computer Vision for Healthcare" was accepted for presentation at ICCV 2023.</p>
+                  <h3>Generation Google Scholarship</h3>
+                  <p>Selected as a Generation Google Scholar and was awarded USD 1,000. One of only three first-year students selected among applicants from 14 countries.</p>
                 </div>
               </div>
-  
+              
               <div class="update-item">
-                <div class="update-date">March 2023</div>
+                <div class="update-date">2<sup>nd</sup> May<br>2021</div>
+                <div class="update-content">
+                  <h3>Conducted my First Workshop as MLSA</h3>
+                  <p>Conducted my inaugural workshop on "Introduction to AI on Azure" as an Alpha-level Microsoft Learn Student Ambassador.</p>
+                </div>
+              </div>
+              
+              <div class="update-item">
+                <div class="update-date">8<sup>th</sup> April<br>2021</div>
                 <div class="update-content">
                   <h3>Dean's List Recognition</h3>
-                  <p>Received Dean's List recognition for academic excellence in the Fall 2022 semester.</p>
-                </div>
-              </div>
-  
-              <div class="update-item">
-                <div class="update-date">June 2023</div>
-                <div class="update-content">
-                  <h3>Started Internship at Dell</h3>
-                  <p>Began my SDE internship at Dell Technologies working on retrospection of testing cycles and defect trend analysis.</p>
+                  <p>Awarded place on the Dean's List for academic excellence in first semester.</p>
                 </div>
               </div>
               
               <div class="update-item">
-                <div class="update-date">May 2023</div>
+                <div class="update-date">5<sup>th</sup> March<br>2021</div>
                 <div class="update-content">
-                  <h3>Research Paper Accepted</h3>
-                  <p>My research paper on "Novel Approaches in Computer Vision for Healthcare" was accepted for presentation at ICCV 2023.</p>
+                  <h3>Research Internship at IIIT Hyderabad</h3>
+                  <p>Started a summer internship under Prof. Anoop Namboodiri at the Computer Vision and Intelligence Lab (CVIT), focusing on facial recognition and computer vision research.</p>
                 </div>
               </div>
-  
+              
               <div class="update-item">
-                <div class="update-date">March 2023</div>
+                <div class="update-date">March<br>2021</div>
                 <div class="update-content">
-                  <h3>Dean's List Recognition</h3>
-                  <p>Received Dean's List recognition for academic excellence in the Fall 2022 semester.</p>
+                  <h3>Microsoft Learn Student Ambassador (MLSA)</h3>
+                  <p>Joined the MLSA program that encourages contributing to community engagement, workshops, and mentorship.</p>
                 </div>
               </div>
-  
+              
               <div class="update-item">
-                <div class="update-date">January 2023</div>
+                <div class="update-date">18<sup>th</sup> March<br>2021</div>
                 <div class="update-content">
-                  <h3>Research Grant Awarded</h3>
-                  <p>Received a research grant for my work on machine learning applications in healthcare diagnostics.</p>
+                  <h3>Problem Setter for cryptic hunt</h3>
+                  <p>Created cryptic challenges for Breeze, the annual Inter-College Techno-Cultural Fest of Shiv Nadar University.</p>
+                </div>
+              </div>
+              
+              <div class="update-item">
+                <div class="update-date">14<sup>th</sup> August<br>2020</div>
+                <div class="update-content">
+                  <h3>The Beginning</h3>
+                  <p>Started my Bachelor of Technology in Computer Science @Shiv Nadar University.</p>
                 </div>
               </div>
             </div>
@@ -344,9 +352,27 @@
         Made with <i class="fa fa-heart pulse"></i> by <a>Ananya</a>
       </span>
     </div>
+
     
 
     <!-- Scripts -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mainTitle = document.querySelector(".main-title");
+        const header = document.querySelector(".large-header");
+    
+        let revealed = false;
+    
+        mainTitle.addEventListener("mouseenter", function () {
+          if (!revealed) {
+            header.classList.add("reveal");
+            revealed = true;
+          }
+        });
+      });
+    </script>
+    
 
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"

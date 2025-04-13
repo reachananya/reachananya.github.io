@@ -52,6 +52,420 @@ body {
 }
 
 
+
+
+
+
+/* Common styles for all pointer groups (projects, code, research) */
+.projects-group, .code-group, .research-group {
+  position: relative;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in;
+}
+
+/* Common arrow styling */
+.arrow {
+  stroke: white;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+/* Text styling */
+.text {
+  font-family: Orbitron, sans-serif;
+  font-size: 33px;
+  fill: white;
+  text-anchor: middle;
+  letter-spacing: 1px;
+  transition: fill 0.3s ease;
+}
+
+/* Common indicator styles */
+.projects-indicator, .code-indicator, .research-indicator {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  pointer-events: auto;
+  z-index: 10;
+  bottom: -15vh;
+}
+
+/* Common arrow SVG styling */
+.custom-arrow-svg, .code-arrow-svg, .research-arrow-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+/* Common bubble styling */
+.project-bubble, .code-bubble, .research-bubble {
+  position: absolute;
+  text-decoration: none;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+/* Common bubble SVG styling */
+.custom-bubble-svg, .code-bubble-svg, .research-bubble-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Initial state for arrow LINE */
+.arrow-line {
+  stroke: white;
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: none;
+}
+
+/* Initial state for arrow HEAD */
+.arrow-head {
+  stroke: white;
+  stroke-width: 2;
+  fill: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Bubble text initially hidden */
+.project-bubble .text,
+.code-bubble .text,
+.research-bubble .text {
+  opacity: 0;
+  transition: opacity 0.5s ease-in 1.5s;
+}
+
+/* ====== HOVER EFFECTS FOR ALL GROUPS ====== */
+/* Combined hover effect for all groups */
+
+/* Project hover effects */
+.project-pointer-container:hover ~ .projects-group .arrow-line,
+.project-pointer-container:hover ~ .projects-group .arrow-head,
+.projects-group:hover .arrow-line,
+.projects-group:hover .arrow-head,
+.project-bubble:hover ~ .custom-arrow-svg .arrow-line,
+.project-bubble:hover ~ .custom-arrow-svg .arrow-head,
+.custom-arrow-svg:hover .arrow-line,
+.custom-arrow-svg:hover .arrow-head {
+  stroke: #50d890;
+}
+
+.project-pointer-container:hover ~ .projects-group .text,
+.projects-group:hover .text,
+.project-bubble:hover .text,
+.custom-arrow-svg:hover ~ .project-bubble .text {
+  fill: #50d890;
+}
+
+/* Code hover effects */
+.code-pointer-container:hover ~ .code-group .arrow-line,
+.code-pointer-container:hover ~ .code-group .arrow-head,
+.code-group:hover .arrow-line,
+.code-group:hover .arrow-head,
+.code-bubble:hover ~ .code-arrow-svg .arrow-line,
+.code-bubble:hover ~ .code-arrow-svg .arrow-head,
+.code-arrow-svg:hover .arrow-line,
+.code-arrow-svg:hover .arrow-head {
+  stroke: #50d890;
+}
+
+.code-pointer-container:hover ~ .code-group .text,
+.code-group:hover .text,
+.code-bubble:hover .text,
+.code-arrow-svg:hover ~ .code-bubble .text {
+  fill: #50d890;
+}
+
+/* Research hover effects */
+.research-pointer-container:hover ~ .research-group .arrow-line,
+.research-pointer-container:hover ~ .research-group .arrow-head,
+.research-group:hover .arrow-line,
+.research-group:hover .arrow-head,
+.research-bubble:hover ~ .research-arrow-svg .arrow-line,
+.research-bubble:hover ~ .research-arrow-svg .arrow-head,
+.research-arrow-svg:hover .arrow-line,
+.research-arrow-svg:hover .arrow-head {
+  stroke: #50d890;
+}
+
+.research-pointer-container:hover ~ .research-group .text,
+.research-group:hover .text,
+.research-bubble:hover .text,
+.research-arrow-svg:hover ~ .research-bubble .text {
+  fill: #50d890;
+}
+
+/* Make sure the pointer-containers are properly styled for hover interactions */
+.project-pointer-container,
+.code-pointer-container,
+.research-pointer-container {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+/* ====== SPECIFIC POSITIONING FOR EACH GROUP ====== */
+/* Projects specific positioning */
+.projects-indicator {
+  left: -20%;
+}
+
+.project-bubble {
+  bottom: 0;
+  left: -25%;
+  width: 180px;
+  height: 80px;
+}
+
+/* Code specific positioning */
+.code-indicator {
+  right: 300px;
+}
+
+.code-bubble {
+  bottom: -60px;
+  left: 25%;
+  width: 180px;
+  height: 80px;
+}
+
+/* Research specific positioning */
+.research-indicator {
+  right: -150px;
+}
+
+.research-bubble {
+  bottom: 30px;
+  left: 90%;
+  width: 200px;
+  height: 90px;
+}
+
+/* ====== REVEAL ANIMATIONS ====== */
+/* Reveal state */
+.reveal .projects-group,
+.reveal .code-group,
+.reveal .research-group {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Animate arrow line drawing */
+.reveal .arrow-line {
+  animation: draw-line 1.5s forwards ease-out;
+}
+
+/* Fade in arrow head after line is drawn */
+.reveal .arrow-head {
+  animation: fade-in-head 0.5s forwards ease;
+  animation-delay: 1.5s;
+}
+
+/* Show bubble text */
+.reveal .project-bubble .text,
+.reveal .code-bubble .text,
+.reveal .research-bubble .text {
+  opacity: 1;
+}
+
+/* ====== SCROLL BUTTON STYLES ====== */
+.scroll-down-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.scroll-down-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+  opacity: 0.8;
+  padding: 10px;
+}
+
+.scroll-down-link:hover {
+  transform: translateY(5px);
+  opacity: 1;
+  color: #50d890;
+}
+
+.scroll-down-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-text {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.scroll-arrow {
+  animation: bounce 2s infinite;
+}
+
+.scroll-down-link:hover .scroll-arrow svg path {
+  fill: #50d890;
+}
+
+/* ====== RESPONSIVE ADJUSTMENTS ====== */
+/* 992px breakpoint */
+@media only screen and (max-width: 992px) {
+  .projects-indicator, .code-indicator, .research-indicator {
+    width: 250px;
+    height: 160px;
+  }
+  
+  .projects-indicator {
+    left: 15%;
+    bottom: -12vh;
+  }
+  
+  .code-indicator {
+    right: -50px;
+    bottom: -12vh;
+  }
+  
+  .research-indicator {
+    right: -70px;
+    bottom: -18vh;
+  }
+  
+  .code-bubble, .project-bubble {
+    width: 150px;
+    height: 70px;
+  }
+  
+  .research-bubble {
+    width: 180px;
+    height: 80px;
+  }
+}
+
+/* 768px breakpoint */
+@media only screen and (max-width: 768px) {
+  .projects-indicator, .code-indicator, .research-indicator {
+    width: 200px;
+    height: 140px;
+  }
+  
+  .projects-indicator {
+    left: -10px;
+    bottom: -20vh;
+  }
+  
+  .code-indicator {
+    right: -10px;
+    bottom: -35vh;
+  }
+  
+  .research-indicator {
+    right: -10px;
+    bottom: -50vh;
+  }
+  
+  .project-bubble, .code-bubble {
+    width: 120px;
+    height: 60px;
+  }
+  
+  .research-bubble {
+    width: 180px;
+    height: 70px;
+    left: 35%;
+  }
+}
+
+/* 480px breakpoint */
+@media only screen and (max-width: 480px) {
+  .projects-indicator, .code-indicator, .research-indicator {
+    transform: scale(0.8);
+    width: 160px;
+    height: 120px;
+  }
+  
+  .projects-indicator {
+    left: 25%;
+    bottom: -8vh;
+  }
+  
+  .code-indicator {
+    right: 0;
+    bottom: -8vh;
+  }
+  
+  .research-indicator {
+    right: -20px;
+    bottom: -10vh;
+  }
+  
+  .project-bubble, .code-bubble {
+    width: 100px;
+    height: 50px;
+  }
+  
+  .code-bubble {
+    left: 15%;
+  }
+  
+  .research-bubble {
+    width: 140px;
+    height: 60px;
+    left: 20%;
+  }
+}
+
+/* ====== ANIMATION KEYFRAMES ====== */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade-in-head {
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
 /* ABOUT ME SECTION */
 .about-me-section {
   background-color: #111;
@@ -541,473 +955,6 @@ body {
 }
 
 
-
-
-
-
-
-
-/* in the main page - added projects bubble */
-
-
-/* New parent wrapper to handle hover states for all elements */
-.projects-group {
-  position: relative;
-}
-
-/* Sync all color changes on hover of any relevant element */
-.projects-group:hover .arrow,
-.project-bubble:hover ~ .custom-arrow-svg .arrow,
-.custom-arrow-svg:hover .arrow {
-  stroke: #50d890;
-}
-
-.projects-group:hover .bubble,
-.project-bubble:hover .bubble,
-.custom-arrow-svg:hover ~ .project-bubble .bubble {
-  stroke: #50d890;
-}
-
-.projects-group:hover .text,
-.project-bubble:hover .text,
-.custom-arrow-svg:hover ~ .project-bubble .text {
-  fill: #50d890;
-}
-
-/* Arrow styling */
-.arrow {
-  stroke: white;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-  transition: stroke 0.3s ease;
-}
-
-/* Bubble styling */
-.bubble {
-  fill: transparent;
-  stroke: white;
-  stroke-width: 2;
-  transition: all 0.3s ease;
-}
-
-/* Text styling */
-.text {
-  font-family: Orbitron, sans-serif;
-  font-size: 22px;
-  fill: white;
-  text-anchor: middle;
-  letter-spacing: 1px;
-  transition: fill 0.3s ease;
-}
-
-/* Update the projects-indicator styles */
-.projects-indicator {
-  position: absolute;
-  left: -20%;
-  bottom: -15vh;
-  width: 300px;
-  height: 200px;
-  pointer-events: auto;
-  z-index: 10;
-}
-
-/* The custom arrow SVG styling */
-.custom-arrow-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: auto; /* Changed to auto to capture hover */
-}
-
-/* The projects bubble styling */
-.project-bubble {
-  position: absolute;
-  bottom: 0;
-  left: -25%;
-  width: 180px;
-  height: 80px;
-  text-decoration: none;
-  pointer-events: auto;
-  z-index: 20;
-}
-
-.custom-bubble-svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* Keep your responsive adjustments unchanged */
-@media only screen and (max-width: 992px) {
-  .projects-indicator {
-    left: 15%;
-    bottom: -12vh;
-    width: 250px;
-    height: 160px;
-  }
-  
-  .project-bubble {
-    width: 150px;
-    height: 70px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .projects-indicator {
-    left: 10%;
-    bottom: -10vh;
-    width: 200px;
-    height: 140px;
-  }
-  
-  .project-bubble {
-    width: 120px;
-    height: 60px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .projects-indicator {
-    left: 25%;
-    bottom: -8vh;
-    width: 160px;
-    height: 120px;
-  }
-  
-  .project-bubble {
-    width: 100px;
-    height: 50px;
-  }
-}
-
-
-
-
-
-/* Code Arrow Styling - Similar to projects but positioned differently */
-.code-group {
-  position: relative;
-}
-
-/* Sync all color changes on hover of any relevant element */
-.code-group:hover .arrow,
-.code-bubble:hover ~ .code-arrow-svg .arrow,
-.code-arrow-svg:hover .arrow {
-  stroke: #50d890;
-}
-
-.code-group:hover .bubble,
-.code-bubble:hover .bubble,
-.code-arrow-svg:hover ~ .code-bubble .bubble {
-  stroke: #50d890;
-}
-
-.code-group:hover .text,
-.code-bubble:hover .text,
-.code-arrow-svg:hover ~ .code-bubble .text {
-  fill: #50d890;
-}
-
-/* Update the code-indicator styles */
-.code-indicator {
-  position: absolute;
-  right: 300px;  /* Position to the right of "write code" */
-  bottom: -15vh;
-  width: 300px;
-  height: 200px;
-  pointer-events: auto;
-  z-index: 10;
-}
-
-/* The custom arrow SVG styling for code */
-.code-arrow-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: auto;
-}
-
-/* The code bubble styling */
-.code-bubble {
-  position: absolute;
-  bottom: -60px;
-  left: 25%;
-  width: 180px;
-  height: 80px;
-  text-decoration: none;
-  pointer-events: auto;
-  z-index: 20;
-}
-
-.code-bubble-svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* Responsive adjustments for code elements */
-@media only screen and (max-width: 992px) {
-  .code-indicator {
-    right: -50px;
-    bottom: -12vh;
-    width: 250px;
-    height: 160px;
-  }
-  
-  .code-bubble {
-    width: 150px;
-    height: 70px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .code-indicator {
-    right: -30px;
-    bottom: -10vh;
-    width: 200px;
-    height: 140px;
-  }
-  
-  .code-bubble {
-    width: 120px;
-    height: 60px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .code-indicator {
-    right: 0;
-    bottom: -8vh;
-    width: 160px;
-    height: 120px;
-  }
-  
-  .code-bubble {
-    width: 100px;
-    height: 50px;
-    left: 15%;
-  }
-}
-
-/* Position adjustments to ensure both arrows don't overlap */
-@media only screen and (max-width: 768px) {
-  .projects-indicator {
-    left: 0;
-  }
-  
-  .code-indicator {
-    right: 0;
-  }
-}
-
-
-
-/* Research Arrow Styling - Similar to projects and code but positioned differently */
-.research-group {
-  position: relative;
-}
-
-/* Sync all color changes on hover of any relevant element */
-.research-group:hover .arrow,
-.research-bubble:hover ~ .research-arrow-svg .arrow,
-.research-arrow-svg:hover .arrow {
-  stroke: #50d890;
-}
-
-.research-group:hover .bubble,
-.research-bubble:hover .bubble,
-.research-arrow-svg:hover ~ .research-bubble .bubble {
-  stroke: #50d890;
-}
-
-.research-group:hover .text,
-.research-bubble:hover .text,
-.research-arrow-svg:hover ~ .research-bubble .text {
-  fill: #50d890;
-}
-
-
-
-/* Update the research-indicator styles */
-.research-indicator {
-  position: absolute;
-  right: -150px;  /* Position to the right of "decode brains" */
-  bottom: -15vh;
-  width: 300px;
-  height: 200px;
-  pointer-events: auto;
-  z-index: 10;
-}
-
-/* The custom arrow SVG styling for research */
-.research-arrow-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: auto;
-}
-
-/* The research bubble styling */
-.research-bubble {
-  position: absolute;
-  bottom: 30px;
-  left: 90%;
-  width: 200px;
-  height: 90px;
-  text-decoration: none;
-  pointer-events: auto;
-  z-index: 20;
-}
-
-.research-bubble-svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* Responsive adjustments for research elements */
-@media only screen and (max-width: 992px) {
-  .research-indicator {
-    right: -70px;
-    bottom: -18vh;
-    width: 250px;
-    height: 160px;
-  }
-  
-  .research-bubble {
-    width: 180px;
-    height: 80px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .research-indicator {
-    right: -40px;
-    bottom: -14vh;
-    width: 200px;
-    height: 140px;
-  }
-  
-  .research-bubble {
-    width: 180px;
-    height: 70px;
-    left: 35%;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .research-indicator {
-    right: -20px;
-    bottom: -10vh;
-    width: 160px;
-    height: 120px;
-  }
-  
-  .research-bubble {
-    width: 140px;
-    height: 60px;
-    left: 20%;
-  }
-}
-
-/* Position adjustments for all three arrows */
-@media only screen and (max-width: 768px) {
-  .projects-indicator {
-    left: -10px;
-    bottom: -20vh;
-  }
-  
-  .code-indicator {
-    right: -10px;
-    bottom: -35vh;
-  }
-  
-  .research-indicator {
-    right: -10px;
-    bottom: -50vh;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .projects-indicator,
-  .code-indicator,
-  .research-indicator {
-    transform: scale(0.8);
-  }
-}
-
-
-
-
-
-/* scroll button below the main front page */
-
-
-.scroll-down-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 5px;
-  left: 0;
-  right: 0;
-  z-index: 10;
-}
-
-.scroll-down-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: white;
-  font-size: 14px;
-  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
-  opacity: 0.8;
-  padding: 10px;
-}
-
-.scroll-down-link:hover {
-  transform: translateY(5px);
-  opacity: 1;
-  color: #50d890;
-}
-
-.scroll-down-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-}
-
-.scroll-text {
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
-.scroll-arrow {
-  animation: bounce 2s infinite;
-}
-
-.scroll-down-link:hover .scroll-arrow svg path {
-  fill: #50d890;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-8px);
-  }
-  60% {
-    transform: translateY(-4px);
-  }
-}
 
 
 
