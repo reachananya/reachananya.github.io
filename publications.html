@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ananya Singhal - Publications</title>
 
-    <!-- links documentaion start -->
-    <!-- Bootstrap Scripts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Links and Scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,30 +14,875 @@
       crossorigin="anonymous"
     />
     <link rel="icon" href="Screenshot 2021-06-16 225806.jpg" />
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-      crossorigin="anonymous"
-    ></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style5.css" />
-    <link rel="stylesheet" href="publications.css" />
-    <script src="http://lesscss.googlecode.com/files/less-1.0.30.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
       rel="stylesheet"
     />
+    
+    <style>
+      /* Base Styles */
+      body {
+        background-color: #111;
+        color: #fff;
+        /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif */
+        font-family: Orbitron;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      } 
+      
+      /* Navigation Bar */
+      .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(17, 17, 17, 0.9);
+        padding: 1rem 2rem;
+        z-index: 100;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+
+      .nav-scrolled {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        background-color: rgba(17, 17, 17, 0.95);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px; /* Increased from 1300px */
+        margin: 0 auto;
+      }
+
+      .nav-logo a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-logo a:hover {
+        color: #50d890;
+      }
+
+      .bold-name {
+        font-weight: 700;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .nav-number {
+        color: #50d890;
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .nav-text {
+        position: relative;
+        font-size: 0.9rem;
+        text-transform: lowercase;
+      }
+
+      .nav-text::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #50d890;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .nav-item:hover .nav-text::after {
+        visibility: visible;
+        width: 100%;
+        background-color: #50d890; /* Fixing the hover color to ensure it's green */
+      }
+
+      .active-number, .active .nav-number {
+        color: #50d890;
+        font-weight: 900;
+      }
+
+      .active-text, .active .nav-text {
+        color: #50d890;
+      }
+
+      .active .nav-text::after, .active-text::after {
+        visibility: visible;
+        width: 100%;
+        background-color: #50d890;
+      }
+      
+      /* Page Header */
+      .page-header {
+        position: relative;
+        height: 400px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-bottom: 4rem;
+        padding: 40px 20px;
+        margin-top: 70px;
+      }
+
+      .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .video-background iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        height: 56.25vw;
+        min-height: 100%;
+        min-width: 177.77vh;
+        pointer-events: none;
+      }
+
+      .header-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .page-header h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        letter-spacing: 3px;
+      }
+
+      .header-subtitle {
+        font-size: 1.5rem;
+        opacity: 0.85;
+        padding-bottom: 15px;
+        position: relative;
+      }
+
+      .header-subtitle::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: #50d890;
+      }
+      
+      /* Publication Types Legend */
+      .publication-types {
+        text-align: right;
+        font-style: italic;
+        font-size: 0.9rem;
+        color: #cccccc;
+        max-width: 1400px;
+        margin: -2rem auto 2rem;
+        padding: 0 1rem;
+      }
+      
+      /* Publications Container */
+      .publications-container {
+        max-width: 1400px; /* Increased from 1200px */
+        margin: 0 auto;
+        padding: 0 1rem; /* Reduced from 2rem */
+      }
+      
+      /* Publication Item */
+      .publication-item {
+        display: grid;
+        grid-template-columns: 500px 1fr 120px; /* Changed from 450px 1fr 100px */
+        grid-gap: 40px; /* Increased from 30px */
+        margin-bottom: 50px;
+        position: relative;
+        padding: 20px 0;
+        transition: all 0.3s ease;
+      }
+      
+      /* 3D Card Gallery Styles */
+      .pub-image {
+        grid-column: 1;
+        perspective: 1000px;
+      }
+      
+      .gallery-3d {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-gap: 20px;
+        transform-style: preserve-3d;
+      }
+      
+      .card-container {
+        position: relative;
+        width: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+      }
+      
+      .card-main {
+        height: 280px;
+        background-color: #111; /* Changed from rgba(40, 44, 52, 0.8) to match body background */
+        border-radius: 12px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        transform-style: preserve-3d;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        border: 1px solid rgba(80, 216, 144, 0.15); /* Added subtle border */
+      }
+      
+      .card-main:hover {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: 0 20px 40px rgba(80, 216, 144, 0.2);
+      }
+      
+      .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+      }
+      
+      .card-thumbnails {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        transform-style: preserve-3d;
+      }
+      
+      .card-thumbnail {
+        position: relative;
+        height: 180px;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #111; /* Changed from rgba(40, 44, 52, 0.8) to match body background */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(80, 216, 144, 0.15); /* Added subtle border */
+      }
+      
+      .card-thumbnail:hover {
+        transform: translateY(-8px) rotateX(5deg) rotateY(var(--rotate-y));
+        box-shadow: 0 15px 30px rgba(80, 216, 144, 0.25);
+      }
+      
+      .card-thumbnail:nth-child(1) {
+        --rotate-y: -5deg;
+      }
+      
+      .card-thumbnail:nth-child(2) {
+        --rotate-y: 5deg;
+      }
+      
+      .card-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+      }
+      
+      .card-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(to top, rgba(17,17,17,0.9), transparent); /* Adjusted to match body background */
+        color: white;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+      }
+      
+      .card-main:hover .card-overlay,
+      .card-thumbnail:hover .card-overlay {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Pulsing Effect for Cards */
+      @keyframes pulse-glow {
+        0% {
+          box-shadow: 0 0 0 0 rgba(80, 216, 144, 0.1);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(80, 216, 144, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(80, 216, 144, 0);
+        }
+      }
+      
+      .card-main, .card-thumbnail {
+        animation: pulse-glow 3s infinite;
+      }
+      
+      .card-thumbnail:nth-child(2) {
+        animation-delay: 1s;
+      }
+      
+      /* Publication Content */
+      .pub-content {
+        grid-column: 2;
+      }
+      
+      .pub-header {
+        margin-bottom: 15px;
+      }
+
+      .pub-title {
+        font-size: 1.8rem;
+        color: white;
+        margin-bottom: 12px;
+        line-height: 1.4;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      
+      /* Adding space between [w.1] and title text */
+      .pub-title .pub-id {
+        display: inline-block;
+        margin-right: 1.5em; /* Increased spacing - 3 times normal space */
+      }
+
+      .pub-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background-color: #50d890;
+      }
+
+      .pub-conference {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 12px;
+        margin-top: 15px;
+      }
+
+      .conference-badge {
+        background-color: rgba(80, 216, 144, 0.15);
+        color: #50d890;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      
+      .conference-badge:hover {
+        background-color: rgba(80, 216, 144, 0.25);
+        color: #50d890;
+      }
+
+      .conference-location {
+        color: #cccccc;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .conference-location i {
+        margin-right: 5px;
+        color: #50d890;
+      }
+      
+      /* Award Badge */
+      .award-badge {
+        background-color: rgba(255, 215, 0, 0.15);
+        color: #ffd700;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+      }
+      
+      .award-badge i {
+        margin-right: 5px;
+      }
+      
+      /* Authors */
+      .pub-authors {
+        color: #e0e0e0;
+        margin-bottom: 20px;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .author-highlight {
+        color: #50d890;
+        font-weight: bold;
+      }
+      
+      /* Abstract */
+      .pub-abstract {
+        color: #cccccc;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 0.5px;
+      }
+
+      .abstract-toggle {
+        background: none;
+        border: none;
+        color: #50d890;
+        font-size: 0.9rem;
+        padding: 5px 0;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 8px;
+        transition: all 0.3s;
+      }
+
+      .abstract-toggle:hover {
+        color: #3cb371;
+        text-decoration: underline;
+      }
+
+      .abstract-extended {
+        /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      
+      /* Publication Links */
+      .pub-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .pub-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 15px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .paper-link {
+        background-color: rgba(240, 100, 100, 0.15);
+        color: #f06464;
+      }
+
+      .paper-link:hover {
+        background-color: rgba(240, 100, 100, 0.25);
+        color: #f06464;
+        transform: translateY(-3px);
+      }
+
+      .code-link {
+        background-color: rgba(100, 149, 237, 0.15);
+        color: #6495ed;
+      }
+
+      .code-link:hover {
+        background-color: rgba(100, 149, 237, 0.25);
+        color: #6495ed;
+        transform: translateY(-3px);
+      }
+
+      .poster-link {
+        background-color: rgba(147, 112, 219, 0.15);
+        color: #9370db;
+      }
+
+      .poster-link:hover {
+        background-color: rgba(147, 112, 219, 0.25);
+        color: #9370db;
+        transform: translateY(-3px);
+      }
+
+      .video-link {
+        background-color: rgba(255, 165, 0, 0.15);
+        color: #ffa500;
+      }
+
+      .video-link:hover {
+        background-color: rgba(255, 165, 0, 0.25);
+        color: #ffa500;
+        transform: translateY(-3px);
+      }
+      
+      /* Publication Year */
+      .pub-year {
+        grid-column: 3;
+        font-family: 'Orbitron';
+        font-size: 1.5rem; /* Increased from 2.2rem */
+        font-weight: bold;
+        color: #50d890;
+        opacity: 0.8;
+        transition: all 0.3s ease;
+        text-align: right;
+        align-self: start;
+        padding-top: 5px;
+        margin-right: 30px; /* Added right margin */
+      }
+
+      .pub-year.active {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+      
+      /* Divider */
+      .dotted-divider {
+        width: 100%;
+        height: 2px;
+        background-image: linear-gradient(to right, #50d890 50%, transparent 50%);
+        background-size: 20px 1px;
+        background-repeat: repeat-x;
+        margin: 0 auto 50px;
+        opacity: 0.5;
+      }
+      
+      /* Modal */
+      .image-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      
+      .image-modal.show {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+      }
+      
+      .modal-content {
+        position: relative;
+        width: 80%;
+        max-width: 1200px;
+        max-height: 85vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: scale(0.9);
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      
+      .image-modal.show .modal-content {
+        transform: scale(1);
+        opacity: 1;
+      }
+      
+      .modal-image-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .modal-image {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        background-color: #111; /* Added to match page background */
+      }
+      
+      .modal-close {
+        position: absolute;
+        top: -40px;
+        right: -40px;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border: 2px solid rgba(80, 216, 144, 0.3);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      
+      .modal-close:hover {
+        background-color: rgba(80, 216, 144, 0.8);
+        transform: rotate(90deg);
+      }
+      
+      .modal-arrows {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+      
+      .modal-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 60px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border: 2px solid rgba(80, 216, 144, 0.3);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        pointer-events: auto;
+        transition: all 0.3s ease;
+      }
+      
+      .modal-arrow:hover {
+        background-color: rgba(80, 216, 144, 0.8);
+      }
+      
+      .modal-prev {
+        left: -80px;
+      }
+      
+      .modal-next {
+        right: -80px;
+      }
+      
+      .modal-nav {
+        margin-top: 20px;
+        display: flex;
+        gap: 15px;
+      }
+      
+      .modal-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .modal-dot.active {
+        background-color: #50d890;
+        transform: scale(1.2);
+      }
+      
+      .modal-caption {
+        position: absolute;
+        bottom: -40px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: #ffffff;
+        padding: 10px;
+        font-size: 1rem;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 50px;
+        color: #a0aec0;
+        font-size: 0.9rem;
+      }
+
+      .footer .fa-heart {
+        color: #f06464;
+        margin: 0 5px;
+      }
+
+      .pulse {
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      /* Media Queries */
+      @media (max-width: 1400px) {
+        .publication-item {
+          grid-template-columns: 450px 1fr 100px;
+          grid-gap: 30px;
+        }
+      }
+      
+      @media (max-width: 1200px) {
+        .publication-item {
+          grid-template-columns: 400px 1fr 80px;
+        }
+      }
+      
+      @media (max-width: 992px) {
+        .publication-item {
+          grid-template-columns: 350px 1fr 80px;
+        }
+        
+        .modal-arrow {
+          width: 50px;
+          height: 50px;
+        }
+        
+        .modal-prev {
+          left: -60px;
+        }
+        
+        .modal-next {
+          right: -60px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .page-header h1 {
+          font-size: 3rem;
+        }
+        
+        .publication-item {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto auto;
+        }
+        
+        .pub-image {
+          grid-column: 1;
+          grid-row: 1;
+          margin-bottom: 20px;
+        }
+        
+        .pub-content {
+          grid-column: 1;
+          grid-row: 2;
+        }
+        
+        .pub-year {
+          grid-column: 1;
+          grid-row: 1;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          background-color: rgba(0, 0, 0, 0.7);
+          padding: 5px 15px;
+          border-radius: 20px;
+          font-size: 1.5rem;
+          z-index: 1;
+        }
+        
+        .modal-arrows {
+          display: none;
+        }
+        
+        .modal-content {
+          width: 90%;
+        }
+        
+        .modal-close {
+          top: 20px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .card-thumbnails {
+          grid-template-columns: 1fr;
+        }
+        
+        .card-main {
+          height: 220px;
+        }
+        
+        .card-thumbnail {
+          height: 160px;
+        }
+        
+        .pub-title {
+          font-size: 1.4rem;
+        }
+        
+        .page-header h1 {
+          font-size: 2.5rem;
+        }
+        
+        .header-subtitle {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -73,207 +917,351 @@
       </div>
     </nav>
 
-    <!-- Header Background -->
+    <!-- Header Background with Video -->
     <div class="page-header">
+      <div class="video-background">
+        <!-- Updated video embed with improved loading parameters -->
+        <iframe src="https://player.vimeo.com/video/912625754?h=496ea80218&muted=1&autoplay=1&loop=1&background=1&app_id=122963&quality=auto&preload=auto" 
+                frameborder="0" 
+                allow="autoplay; fullscreen" 
+                allowfullscreen
+                loading="eager">
+        </iframe>
+      </div>
+      <div class="header-overlay"></div>
       <div class="header-content">
         <h1>Publications</h1>
         <div class="header-subtitle">Research Work & Academic Contributions</div>
       </div>
     </div>
 
-    <!-- PUBLICATIONS -->
+    <!-- Publication Types Legend -->
+    <div class="publication-types">
+      <em>S = In Submission, C = Conference, W = Workshop, J = Journal</em>
+    </div>
+
+    <!-- PUBLICATIONS - REDESIGNED LAYOUT -->
     <div class="publications-container">
-      <!-- Publications Timeline -->
-      <div class="pub-timeline-container">
-        <div class="timeline-line"></div>
-        
-        <!-- Publication Item 1 -->
-        <div class="publication-item" data-aos="fade-up" data-aos-duration="800">
-          <div class="pub-year">2023</div>
-          <div class="pub-content">
-            <div class="pub-header">
-              <h2 class="pub-title">Novel Deep Learning Approaches for Early Diagnosis of Neurological Conditions Using Diffusion MRI</h2>
-              <div class="pub-conference">
-                <span class="conference-badge">ICCV 2023</span>
-                <span class="conference-location"><i class="fas fa-map-marker-alt"></i> Paris, France</span>
+
+      <!-- Publication Item with 3D Cards -->
+      <div class="publication-item" data-aos="fade-up" data-aos-duration="1000">
+        <div class="pub-image">
+          <!-- 3D Card Gallery -->
+          <div class="gallery-3d">
+            <div class="card-container" data-index="0">
+              <div class="card-main">
+                <img src="img/iccv_poster1.jpeg" alt="Publication 1 Main Image" class="card-image">
+                <div class="card-overlay">
+                  <h4>Framework</h4>
+                </div>
               </div>
             </div>
-            
-            <div class="pub-authors">
-              <span class="author-highlight">Ananya Singhal</span>, Rahul Sharma, Priya Patel, Dr. Jennifer Wu
-            </div>
-            
-            <div class="pub-abstract">
-              <p>This research presents groundbreaking techniques for leveraging deep learning in the analysis of diffusion MRI data, enabling more accurate and earlier diagnosis of neurological conditions. Our approach demonstrates a 23% improvement in detection sensitivity compared to traditional methods.</p>
-              <button class="abstract-toggle">Show More</button>
-              <div class="abstract-extended">
-                <p>We proposed a novel architecture that combines convolutional neural networks with attention mechanisms to identify subtle patterns in diffusion tensor imaging that are indicative of early-stage neurological disorders. Our method was validated on a diverse dataset comprising over 1,200 patient scans, and results indicate significant improvement in both accuracy and detection lead time.</p>
+            <div class="card-thumbnails">
+              <div class="card-thumbnail" data-index="1">
+                <img src="img/iccv_poster2.png" alt="Publication 1 Thumbnail 1" class="card-thumbnail-img">
+                <div class="card-overlay">
+                  <h4>Results-21diff</h4>
+                </div>
               </div>
-            </div>
-            
-            <div class="pub-links">
-              <a href="#" class="pub-link paper-link">
-                <i class="fas fa-file-pdf"></i>
-                <span>Paper</span>
-              </a>
-              <a href="#" class="pub-link code-link">
-                <i class="fas fa-code"></i>
-                <span>Code</span>
-              </a>
-              <a href="#" class="pub-link poster-link">
-                <i class="fas fa-image"></i>
-                <span>Poster</span>
-              </a>
-              <a href="#" class="pub-link video-link">
-                <i class="fas fa-video"></i>
-                <span>Talk</span>
-              </a>
+              <div class="card-thumbnail" data-index="2">
+                <img src="img/iccv_poster3.png" alt="Publication 1 Thumbnail 2" class="card-thumbnail-img">
+                <div class="card-overlay">
+                  <h4>Results-5diff</h4>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         
-        <!-- Publication Item 2 -->
-        <div class="publication-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-          <div class="pub-year">2023</div>
-          <div class="pub-content">
-            <div class="pub-header">
-              <h2 class="pub-title">Transformer-Based Feature Extraction for Medical Image Classification</h2>
-              <div class="pub-conference">
-                <span class="conference-badge">ACML 2023</span>
-                <span class="conference-location"><i class="fas fa-map-marker-alt"></i> Singapore</span>
-              </div>
-            </div>
-            
-            <div class="pub-authors">
-              <span class="author-highlight">Ananya Singhal</span>, Mark Thompson, Sarah Chen
-            </div>
-            
-            <div class="pub-abstract">
-              <p>Our work explores the application of transformer architectures to medical image feature extraction, specifically targeting improvements in classification accuracy for complex diagnostic tasks.</p>
-              <button class="abstract-toggle">Show More</button>
-              <div class="abstract-extended">
-                <p>By adapting vision transformer models to the unique challenges of medical imaging, we were able to achieve state-of-the-art results on multiple public healthcare datasets. Our approach demonstrates particular strength in scenarios with limited training data, making it especially valuable for rare medical conditions where large datasets are difficult to obtain.</p>
-              </div>
-            </div>
-            
-            <div class="pub-links">
-              <a href="#" class="pub-link paper-link">
-                <i class="fas fa-file-pdf"></i>
-                <span>Paper</span>
-              </a>
-              <a href="#" class="pub-link code-link">
-                <i class="fas fa-code"></i>
-                <span>Code</span>
-              </a>
-              <a href="#" class="pub-link slide-link">
-                <i class="fas fa-file-powerpoint"></i>
-                <span>Slides</span>
-              </a>
+        <div class="pub-content">
+          <div class="pub-header">
+            <h2 class="pub-title">
+              <span class="pub-id">[W.1]</span>   <!-- Added more space between [W.1] and title -->
+              Deep Learning Framework using Sparse Diffusion MRI for Diagnosis of Frontotemporal Dementia
+            </h2>
+            <div class="pub-conference">
+              <a href="https://www.bioimagecomputing.com/bioimage-computing-iccv-2023/" class="conference-badge">BioImage Computing@ICCV 2023</a> <!-- Added href to make conference-badge a link -->
+              <span class="conference-location"><i class="fas fa-map-marker-alt"></i> Paris, France</span>
+              <span class="award-badge"><i class="fas fa-award"></i> DEI Scholar</span> <!-- Added DEI award badge -->
             </div>
           </div>
-        </div>
-        
-        <!-- Publication Item 3 -->
-        <div class="publication-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-          <div class="pub-year">2022</div>
-          <div class="pub-content">
-            <div class="pub-header">
-              <h2 class="pub-title">Explainable AI for Healthcare: Making Deep Learning Models Transparent for Clinical Decision Support</h2>
-              <div class="pub-conference">
-                <span class="conference-badge">NeurIPS Workshop</span>
-                <span class="conference-location"><i class="fas fa-map-marker-alt"></i> Virtual</span>
-              </div>
-            </div>
-            
-            <div class="pub-authors">
-              Dr. Michael Lee, <span class="author-highlight">Ananya Singhal</span>, Preethi Narayanan
-            </div>
-            
-            <div class="pub-abstract">
-              <p>This workshop paper addresses the critical need for transparency in deep learning models when deployed in clinical settings. We propose a framework for generating human-interpretable explanations for model decisions.</p>
-              <button class="abstract-toggle">Show More</button>
-              <div class="abstract-extended">
-                <p>Our approach combines gradient-based attention maps with semantic concept association to provide clinicians with both visual and conceptual explanations for model predictions. User studies with practicing radiologists showed that our explanation method significantly improved trust and acceptance of AI-assisted diagnoses compared to black-box alternatives.</p>
-              </div>
-            </div>
-            
-            <div class="pub-links">
-              <a href="#" class="pub-link paper-link">
-                <i class="fas fa-file-pdf"></i>
-                <span>Paper</span>
-              </a>
-              <a href="#" class="pub-link video-link">
-                <i class="fas fa-video"></i>
-                <span>Presentation</span>
-              </a>
+          <div class="pub-authors">
+            Abhishek Tiwari, <span class="author-highlight">Ananya Singhal</span>, Saurabh J. Shigwan, <br> Rajeev Kumar Singh
+          </div>
+          <div class="pub-abstract">
+            <p>This research presents a novel deep learning framework for early diagnosis of Frontotemporal dementia (FTD), a devastating neurodegenerative disorder affecting the frontal and temporal lobes of the brain. FTD leads to cognitive decline and behavioral changes, occurring in approximately 15-22 people per 100,000 worldwide (1.2-1.8 million people globally). Early and accurate diagnosis is crucial for timely interventions and appropriate patient care.</p>
+            <button class="abstract-toggle">Read More</button>
+            <div class="abstract-extended">
+              <p>Our approach utilizes sparse diffusion measures extracted from neuroimaging data combined with advanced deep learning techniques to automatically learn relevant features from the data. The experimental results demonstrate promising potential in effectively distinguishing between healthy individuals and those with FTD, improving diagnostic accuracy and paving the way for future research in this critical area.</p>
             </div>
           </div>
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/document/10350377" class="pub-link paper-link"><i class="fas fa-file-pdf"></i> Paper</a>
+            <!-- <a href="#" class="pub-link code-link"><i class="fas fa-code"></i> Code</a> -->
+            <a href="#" class="pub-link poster-link" data-poster-index="5"><i class="fas fa-image"></i> Poster</a>
+            <!-- <a href="#" class="pub-link video-link"><i class="fas fa-video"></i> Video</a> -->
+          </div>
         </div>
+        <div class="pub-year">BIC@ICCV <br> 2023</div>
       </div>
+      
+      <div class="dotted-divider"></div>
+      
+      <!-- Publication Item 2 -->
+      <div class="publication-item" data-aos="fade-up" data-aos-duration="1000">
+        <div class="pub-image">
+          <div class="gallery-3d">
+            <!-- <div class="card-container" data-index="3">
+              <div class="card-main">
+                <img src="pub2_main.jpg" alt="Publication 2 Main Image" class="card-image">
+                <div class="card-overlay">
+                  <h4>Main Visualization</h4>
+                </div>
+              </div>
+            </div> -->
+            <div class="card-thumbnails">
+              <div class="card-thumbnail" data-index="4">
+                <img src="img/ACML_poster2.png" alt="Publication 2 Thumbnail 1" class="card-thumbnail-img">
+                <div class="card-overlay">
+                  <h4>Cingulum Abnormalities</h4>
+                </div>
+              </div>
+              <div class="card-thumbnail" data-index="5">
+                <img src="img/ACML_poster3.png" alt="Publication 2 Thumbnail 2" class="card-thumbnail-img">
+                <div class="card-overlay">
+                  <h4>Uncinat Abnormalities</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pub-content">
+          <div class="pub-header">
+            <h2 class="pub-title">
+              <span class="pub-id">[C.1]</span>   <!-- Added more space between [C.1] and title -->
+              Early Diagnosis of Alzheimer through Swin-Transformer-Based Deep Learning Framework using Sparse Diffusion Measures
+            </h2>
+            <div class="pub-conference">
+              <a href="https://www.acml-conf.org/2023/" class="conference-badge">ACML 2023</a> <!-- Added href to make conference-badge a link -->
+              <span class="conference-location"><i class="fas fa-map-marker-alt"></i> İstanbul, Turkey.</span>
+            </div>
+          </div>
+          <div class="pub-authors">
+            Abhishek Tiwari, <span class="author-highlight">Ananya Singhal</span>, Saurabh J. Shigwan, <br> Rajeev Kumar Singh
+          </div>
+          <div class="pub-abstract">
+            <p>Our research investigates using Transformer-based deep learning to accelerate diffusion tensor imaging (DTI) processing and improve early Alzheimer's disease diagnosis. By applying advanced attention mechanisms, we've developed a model that generates critical quantitative measures using significantly fewer diffusion directions than traditional methods.
+            </p>
+            <button class="abstract-toggle">Read More</button>
+            <div class="abstract-extended">
+              <p>Our Swin-Transformer framework successfully generates fractional anisotropy (FA), axial diffusivity (AxD), and mean diffusivity (MD) measurements using just 5 and 21 diffusion directions.
+                Testing on the Alzheimer's Disease Neuroimaging Initiative (ADNI) dataset demonstrates that our approach outperforms traditional linear least square methods while reducing scanning time by more than half. This breakthrough has significant implications for improving both the accessibility and accuracy of early AD diagnosis in clinical settings.</p>
+            </div>
+          </div>
+          <div class="pub-links">
+            <a href="https://proceedings.mlr.press/v222/tiwari24a/tiwari24a.pdf" class="pub-link paper-link"><i class="fas fa-file-pdf"></i> Paper</a>
+            <a href="https://github.com/reachananya/Tract-based-fast-classification-for-Alzheimer-Disease" class="pub-link code-link"><i class="fas fa-code"></i> Code</a>
+            <a href="#" class="pub-link poster-link" data-poster-index="6"><i class="fas fa-image"></i> Poster</a>
+            <!-- <a href="#" class="pub-link video-link"><i class="fas fa-video"></i> Video</a> -->
+          </div>
+        </div>
+        <div class="pub-year">ACML <br> 2023</div>
+      </div>
+      
+      <div class="dotted-divider"></div>
+      
+    </div>
+
+    <!-- Image Modal -->
+    <div class="image-modal">
+      <div class="modal-content">
+        <div class="modal-image-container">
+          <img src="" alt="Modal Image" class="modal-image">
+        </div>
+        <div class="modal-arrows">
+          <div class="modal-arrow modal-prev">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <div class="modal-arrow modal-next">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+        <div class="modal-close">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-nav"></div>
+        <div class="modal-caption"></div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <div class="footer">
-      <span>
-        Made with <i class="fa fa-heart pulse"></i> by <a>Ananya</a>
-      </span>
+      <p>
+        Built with <i class="fas fa-heart pulse"></i> by Ananya Singhal 
+      </p>
     </div>
 
     <!-- Scripts -->
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
-    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+      // Initialize AOS
       AOS.init();
-    </script>
-    
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // Toggle abstract extended content
-        const toggleButtons = document.querySelectorAll('.abstract-toggle');
-        
-        toggleButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            const abstractExtended = button.nextElementSibling;
-            
-            if (abstractExtended.style.maxHeight) {
-              abstractExtended.style.maxHeight = null;
-              button.textContent = 'Show More';
-            } else {
-              abstractExtended.style.maxHeight = abstractExtended.scrollHeight + 'px';
-              button.textContent = 'Show Less';
-            }
-          });
-        });
-        
-        // Publication item hover effects
-        const publicationItems = document.querySelectorAll('.publication-item');
-        
-        publicationItems.forEach(item => {
-          item.addEventListener('mouseenter', () => {
-            const year = item.querySelector('.pub-year');
-            year.classList.add('active');
-          });
-          
-          item.addEventListener('mouseleave', () => {
-            const year = item.querySelector('.pub-year');
-            year.classList.remove('active');
-          });
-        });
-        
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-          const navbar = document.querySelector('.main-nav');
-          if (window.scrollY > 50) {
-            navbar.classList.add('nav-scrolled');
+      
+      // Navigation scroll effect
+      window.addEventListener('scroll', function() {
+        const nav = document.querySelector('.main-nav');
+        if (window.scrollY > 50) {
+          nav.classList.add('nav-scrolled');
+        } else {
+          nav.classList.remove('nav-scrolled');
+        }
+      });
+      
+      // Abstract toggle functionality
+      const abstractToggles = document.querySelectorAll('.abstract-toggle');
+      abstractToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+          const extendedAbstract = this.nextElementSibling;
+          if (extendedAbstract.style.maxHeight) {
+            extendedAbstract.style.maxHeight = null;
+            this.textContent = 'Read More';
           } else {
-            navbar.classList.remove('nav-scrolled');
+            extendedAbstract.style.maxHeight = extendedAbstract.scrollHeight + 'px';
+            this.textContent = 'Read Less';
           }
         });
+      });
+      
+      // Modal functionality
+      const modal = document.querySelector('.image-modal');
+      const modalImage = document.querySelector('.modal-image');
+      const modalClose = document.querySelector('.modal-close');
+      const modalPrev = document.querySelector('.modal-prev');
+      const modalNext = document.querySelector('.modal-next');
+      const modalNav = document.querySelector('.modal-nav');
+      const modalCaption = document.querySelector('.modal-caption');
+      
+      // Gallery images
+      const galleryImages = [
+        { src: 'img/iccv_poster1.jpeg', caption: 'Publication 1 - Architecture' },
+        { src: 'img/iccv_poster2.png', caption: 'Publication 1 - Research results - 21 diffusion directions' },
+        { src: 'img/iccv_poster3.png', caption: 'Publication 1 - Research results - 5 diffusion directions' },
+        { src: 'img/ACML_poster2.png', caption: 'Publication 2 - Cingulum Abnormalities' },
+        { src: 'img/ACML_poster3.png', caption: 'Publication 2 - Uncinat Abnormalities' },
+        // poster images here:
+        { src: 'img/poster_ICCV2023_final_mod-1.png', caption: 'ICCV 2023 Poster' },
+        { src: 'img/poster_ACML2023_final-1.png', caption: 'ACML 2023 Poster' }
+      ];
+      
+      // Current image index
+      let currentIndex = 0;
+      
+      // Open modal
+      const openModal = (index) => {
+        currentIndex = index;
+        modalImage.src = galleryImages[index].src;
+        modalCaption.textContent = galleryImages[index].caption;
+        modal.classList.add('show');
+        updateNavDots();
+        document.body.style.overflow = 'hidden';
+      };
+      
+      // Close modal
+      const closeModal = () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+      };
+      
+      // Navigate to prev/next image
+      const navigateModal = (direction) => {
+        if (direction === 'prev') {
+          currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+        } else {
+          currentIndex = (currentIndex + 1) % galleryImages.length;
+        }
+        
+        modalImage.src = galleryImages[currentIndex].src;
+        modalCaption.textContent = galleryImages[currentIndex].caption;
+        updateNavDots();
+      };
+      
+      // Update navigation dots
+      const updateNavDots = () => {
+        modalNav.innerHTML = '';
+        
+        galleryImages.forEach((_, index) => {
+          const dot = document.createElement('div');
+          dot.className = 'modal-dot' + (index === currentIndex ? ' active' : '');
+          dot.addEventListener('click', () => {
+            currentIndex = index;
+            modalImage.src = galleryImages[index].src;
+            modalCaption.textContent = galleryImages[index].caption;
+            updateNavDots();
+          });
+          modalNav.appendChild(dot);
+        });
+      };
+      
+      // Add click event to cards
+      document.querySelectorAll('.card-container, .card-thumbnail').forEach(card => {
+        card.addEventListener('click', function() {
+          const index = parseInt(this.getAttribute('data-index'));
+          openModal(index);
+        });
+      });
+      
+      // Add click event to poster links
+      document.querySelectorAll('.poster-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault(); // Prevent default link behavior
+          const index = parseInt(this.getAttribute('data-poster-index'));
+          openModal(index);
+        });
+      });
+
+      // Modal close button
+      modalClose.addEventListener('click', closeModal);
+      
+      // Modal navigation
+      modalPrev.addEventListener('click', () => navigateModal('prev'));
+      modalNext.addEventListener('click', () => navigateModal('next'));
+      
+      // Close modal on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') navigateModal('prev');
+        if (e.key === 'ArrowRight') navigateModal('next');
+      });
+      
+      // Close modal when clicking outside of content
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      
+      // Intersection Observer for Publication Year Animation
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const yearElement = entry.target.querySelector('.pub-year');
+          if (entry.isIntersecting) {
+            yearElement.classList.add('active');
+          } else {
+            yearElement.classList.remove('active');
+          }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('.publication-item').forEach(item => {
+        observer.observe(item);
       });
     </script>
   </body>
 </html>
+
+              
