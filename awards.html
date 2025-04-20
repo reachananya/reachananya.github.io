@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ananya Singhal - Awards</title>
 
-    <!-- Bootstrap Scripts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Links and Scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,33 +14,533 @@
       crossorigin="anonymous"
     />
     <link rel="icon" href="Screenshot 2021-06-16 225806.jpg" />
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-      crossorigin="anonymous"
-    ></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style5.css" />
-    <link rel="stylesheet" href="awards-styles.css" />
-
-    <!-- Google Fonts -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <style>
+      /* Base Styles */
+      body {
+        background-color: #111;
+        color: #fff;
+        font-family: Orbitron;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      } 
+      
+      /* Navigation Bar */
+      .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(17, 17, 17, 0.9);
+        padding: 1rem 2rem;
+        z-index: 100;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+
+      .nav-scrolled {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        background-color: rgba(17, 17, 17, 0.95);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .nav-logo a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-logo a:hover {
+        color: #50d890;
+      }
+
+      .bold-name {
+        font-weight: 700;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .nav-number {
+        color: #50d890;
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .nav-text {
+        position: relative;
+        font-size: 0.9rem;
+        text-transform: lowercase;
+      }
+
+      .nav-text::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #50d890;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .nav-item:hover .nav-text::after {
+        visibility: visible;
+        width: 100%;
+        background-color: #50d890;
+      }
+
+      .active-number, .active .nav-number {
+        color: #50d890;
+        font-weight: 900;
+      }
+
+      .active-text, .active .nav-text {
+        color: #50d890;
+      }
+
+      .active .nav-text::after, .active-text::after {
+        visibility: visible;
+        width: 100%;
+        background-color: #50d890;
+      }
+      
+      /* Page Header with Particles */
+      .page-header {
+        position: relative;
+        height: 400px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-bottom: 4rem;
+        padding: 40px 20px;
+        margin-top: 70px;
+      }
+
+      /* Particle Animation Styles */
+      .particle-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .wrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0; 
+        height: 0; 
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        animation: rotate 14s infinite linear;
+      }
+
+      @keyframes rotate {
+        100% {
+          transform: rotateY(360deg) rotateX(360deg);
+        }
+      }
+
+      .c {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        opacity: 0; 
+      }
+
+      .header-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .page-header h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        letter-spacing: 3px;
+      }
+
+      .header-subtitle {
+        font-size: 1.5rem;
+        opacity: 0.85;
+        padding-bottom: 15px;
+        position: relative;
+      }
+
+      .header-subtitle::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: #50d890;
+      }
+      
+      /* CSS For Awards Section */
+      .awards-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 30px 20px;
+        position: relative;
+      }
+      
+      .category-filter {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+        gap: 15px;
+      }
+      
+      .filter-btn {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+      
+      .filter-btn:hover {
+        background-color: rgba(80, 216, 144, 0.2);
+        transform: translateY(-3px);
+      }
+      
+      .filter-btn.active {
+        background-color: rgba(80, 216, 144, 0.8);
+        color: #111;
+        font-weight: bold;
+      }
+      
+      .awards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 30px;
+      }
+      
+      .award-card {
+        background-color: rgba(30, 30, 30, 0.5);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(80, 216, 144, 0.1);
+        transition: all 0.3s ease;
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .award-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        border-color: rgba(80, 216, 144, 0.3);
+      }
+      
+      .award-banner {
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 15px;
+      }
+      
+      .award-year {
+        background-color: rgba(80, 216, 144, 0.9);
+        color: #111;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+      
+      .category-tag {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+      }
+      
+      .award-content {
+        padding: 25px;
+      }
+      
+      .award-title {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: #fff;
+        line-height: 1.4;
+      }
+      
+      .award-issuer {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      
+      .issuer-logo {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(80, 216, 144, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: #50d890;
+      }
+      
+      .issuer-logo i {
+        font-size: 1.2rem;
+      }
+      
+      .issuer-name {
+        font-size: 0.9rem;
+        color: #ccc;
+      }
+      
+      .award-description {
+        color: #aaa;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-family: 'Montserrat', sans-serif;
+      }
+      
+      .award-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 15px;
+      }
+      
+      .award-badge {
+        display: flex;
+        align-items: center;
+        background-color: rgba(80, 216, 144, 0.1);
+        padding: 5px 12px;
+        border-radius: 20px;
+        color: #50d890;
+      }
+      
+      .badge-icon {
+        margin-right: 8px;
+        font-size: 0.9rem;
+      }
+      
+      .badge-text {
+        font-size: 0.8rem;
+      }
+      
+      .award-link {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+      
+      .award-link:hover {
+        color: #50d890;
+      }
+      
+      .award-link i {
+        margin-right: 5px;
+        font-size: 0.8rem;
+      }
+      
+      .back-home {
+        text-align: center;
+        margin-top: 50px;
+      }
+      
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        background-color: rgba(80, 216, 144, 0.1);
+        color: #50d890;
+        padding: 10px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      
+      .back-btn:hover {
+        background-color: rgba(80, 216, 144, 0.2);
+        transform: translateY(-3px);
+        color: #50d890;
+      }
+      
+      .back-btn i {
+        margin-right: 10px;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 50px;
+        color: #a0aec0;
+        font-size: 0.9rem;
+      }
+
+      .footer .fa-heart {
+        color: #f06464;
+        margin: 0 5px;
+      }
+
+      .pulse {
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      /* Media Queries */
+      @media (max-width: 992px) {
+        .awards-grid {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .page-header h1 {
+          font-size: 3rem;
+        }
+        
+        .awards-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .page-header h1 {
+          font-size: 2.5rem;
+        }
+        
+        .header-subtitle {
+          font-size: 1.2rem;
+        }
+        
+        .category-filter {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .filter-btn {
+          width: 80%;
+        }
+      }
+    </style>
   </head>
 
   <body>
-    <!-- Header Background -->
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="index.html"><span class="bold-name">Ananya</span> Singhal</a>
+        </div>
+        <div class="nav-links">
+          <a href="index.html" class="nav-item">
+            <span class="nav-number">00</span>
+            <span class="nav-text">about</span>
+          </a>
+          <a href="publications.html" class="nav-item">
+            <span class="nav-number">01</span>
+            <span class="nav-text">publications</span>
+          </a>
+          <a href="experience.html" class="nav-item">
+            <span class="nav-number">02</span>
+            <span class="nav-text">experience</span>
+          </a>
+          <a href="projects.html" class="nav-item">
+            <span class="nav-number">03</span>
+            <span class="nav-text">projects</span>
+          </a>
+          <a href="awards.html" class="nav-item active">
+            <span class="nav-number active-number">04</span>
+            <span class="nav-text active-text">awards</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Background with Particles -->
     <div class="page-header">
+      <div class="particle-container">
+        <div class="wrap" id="particleWrap">
+          <!-- Particles will be dynamically added here via JS -->
+        </div>
+      </div>
+      <div class="header-overlay"></div>
       <div class="header-content">
         <h1>Awards & Achievements</h1>
         <div class="header-subtitle">Recognition for Excellence</div>
@@ -53,37 +553,67 @@
       <!-- Filter Section -->
       <div class="category-filter">
         <button class="filter-btn active" data-filter="all">All Awards</button>
-        <button class="filter-btn" data-filter="research">Research</button>
+        <!-- <button class="filter-btn" data-filter="research">Research</button> -->
         <button class="filter-btn" data-filter="academic">Academic</button>
-        <button class="filter-btn" data-filter="leadership">Leadership</button>
+        <!-- <button class="filter-btn" data-filter="leadership">Leadership</button> -->
         <button class="filter-btn" data-filter="grants">Grants</button>
       </div>
       
       <!-- Awards Grid -->
       <div class="awards-grid">
         <!-- Award Item 1 -->
-        <div class="award-card" data-category="research">
+        <div class="award-card" data-category="grants">
           <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2023</div>
-            <div class="category-tag">Research</div>
+            <div class="award-year">2024</div>
+            <div class="category-tag">Grants</div>
           </div>
           <div class="award-content">
-            <h3 class="award-title">Best Paper Award - ICCV 2023</h3>
+            <h3 class="award-title">Education Scholarship Scheme for Army</h3>
             <div class="award-issuer">
               <div class="issuer-logo">
                 <i class="fas fa-microscope"></i>
               </div>
-              <div class="issuer-name">International Conference on Computer Vision</div>
+              <div class="issuer-name">Army Welfare Education Society </div>
             </div>
             <div class="award-description">
-              <p>Awarded for the groundbreaking paper "Novel Deep Learning Approaches for Early Diagnosis of Neurological Conditions Using Diffusion MRI" which introduced innovative techniques that significantly improved diagnostic accuracy.</p>
+              <p>Awarded Rs. 10,000 in recognition of my achievements.</p>
             </div>
             <div class="award-footer">
               <div class="award-badge">
                 <i class="fas fa-award badge-icon"></i>
-                <span class="badge-text">First Place</span>
+                <span class="badge-text">Rs. 20,000</span>
               </div>
               <a href="#" class="award-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Details</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Award Item 2 -->
+        <div class="award-card" data-category="grants">
+          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
+            <div class="award-year">2024</div>
+            <div class="category-tag">Grants</div>
+          </div>
+          <div class="award-content">
+            <h3 class="award-title">Generation Google Scholarship (APAC)'21</h3>
+            <div class="award-issuer">
+              <div class="issuer-logo">
+                <i class="fas fa-microscope"></i>
+              </div>
+              <div class="issuer-name">Google </div>
+            </div>
+            <div class="award-description">
+              <p>One of the 70 scholars from 14 countries, making it through 25,000 applications and 1250 interview calls. Awarded with a cash prize of USD $1000 and invited to Google's Annual Retreat, based on the strength of each candidate’s impact on diversity, demonstrated technical skills, leadership, and academic accomplishments.</p>
+            </div>
+            <div class="award-footer">
+              <div class="award-badge">
+                <i class="fas fa-award badge-icon"></i>
+                <span class="badge-text">USD 1,000</span>
+              </div>
+              <a href="https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship-apac" class="award-link">
                 <i class="fas fa-external-link-alt"></i>
                 <span>Details</span>
               </a>
@@ -124,7 +654,7 @@
         <!-- Award Item 3 -->
         <div class="award-card" data-category="innovation">
           <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2022</div>
+            <div class="award-year">2023</div>
             <div class="category-tag">Innovation</div>
           </div>
           <div class="award-content">
@@ -181,7 +711,7 @@
           </div>
         </div>
         
-        <!-- Award Item 5 - Moved from research to grants category -->
+        <!-- Award Item 5 -->
         <div class="award-card" data-category="grants">
           <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
             <div class="award-year">2021</div>
@@ -288,53 +818,87 @@
     </div>
 
     <!-- Scripts -->
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
-    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="awards-script.js"></script>
-
     <script>
         // Initialize AOS (Animate on Scroll)
         AOS.init();
+        
+        // Create particles
+        document.addEventListener('DOMContentLoaded', function() {
+            const particleContainer = document.getElementById('particleWrap');
+            const colors = ['#50d890', '#ffffff', '#a8ff3e', '#32CD32'];
+            
+            // Create 200 particles
+            for (let i = 0; i < 200; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'c';
+                
+                // Random position
+                const x = Math.random() * 1000 - 500;
+                const y = Math.random() * 1000 - 500;
+                const z = Math.random() * 1000 - 500;
+                
+                // Random size
+                const size = Math.random() * 6 + 2;
+                
+                // Random color
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Set styles
+                particle.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.backgroundColor = color;
+                particle.style.opacity = Math.random() * 0.8 + 0.2;
+                
+                particleContainer.appendChild(particle);
+            }
+        });
 
         // Filter functionality
         document.addEventListener('DOMContentLoaded', () => {
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const awardCards = document.querySelectorAll('.award-card');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const awardCards = document.querySelectorAll('.award-card');
             
-            // Add active class to clicked button
-            button.classList.add('active');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    // Filter the award cards
+                    awardCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
             
-            // Get filter value
-            const filterValue = button.getAttribute('data-filter');
-            
-            // Filter the award cards
-            awardCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                card.style.display = 'block';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 100);
+            // Scroll functions for navigation
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('.main-nav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('nav-scrolled');
                 } else {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 300);
+                    nav.classList.remove('nav-scrolled');
                 }
             });
-            });
-        });
         });
     </script>
   </body>

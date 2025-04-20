@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ananya Singhal - Experience</title>
 
-    <!-- Bootstrap Scripts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Links and Scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,28 +14,641 @@
       crossorigin="anonymous"
     />
     <link rel="icon" href="Screenshot 2021-06-16 225806.jpg" />
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-      crossorigin="anonymous"
-    ></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style5.css" />
-    <link rel="stylesheet" href="experience-style.css" />
-    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <style>
+      /* Base Styles */
+      body {
+        background-color: #111;
+        color: #fff;
+        font-family: Orbitron;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      } 
+      
+      /* Navigation Bar */
+      .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(17, 17, 17, 0.9);
+        padding: 1rem 2rem;
+        z-index: 100;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+
+      .nav-scrolled {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        background-color: rgba(17, 17, 17, 0.95);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .nav-logo a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-logo a:hover {
+        color: #50d890;
+      }
+
+      .bold-name {
+        font-weight: 700;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .nav-number {
+        color: #50d890;
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .nav-text {
+        position: relative;
+        font-size: 0.9rem;
+        text-transform: lowercase;
+      }
+
+      .nav-text::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #50d890;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .nav-item:hover .nav-text::after {
+        visibility: visible;
+        width: 100%;
+        background-color: #50d890;
+      }
+
+      .active-number, .active .nav-number {
+        color: #50d890;
+        font-weight: 900;
+      }
+
+      .active-text, .active .nav-text {
+        color: #50d890;
+      }
+
+      .active .nav-text::after, .active-text::after {
+        visibility: visible;
+        width: 100%;
+        background-color: #50d890;
+      }
+      
+      /* Page Header with Particles */
+      .page-header {
+        position: relative;
+        height: 400px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-bottom: 4rem;
+        padding: 40px 20px;
+        margin-top: 70px;
+      }
+
+      /* Particle Animation Styles */
+      .particle-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .wrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0; 
+        height: 0; 
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        animation: rotate 14s infinite linear;
+      }
+
+      @keyframes rotate {
+        100% {
+          transform: rotateY(360deg) rotateX(360deg);
+        }
+      }
+
+      .c {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        opacity: 0; 
+      }
+
+      .header-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .page-header h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        letter-spacing: 3px;
+      }
+
+      .header-subtitle {
+        font-size: 1.5rem;
+        opacity: 0.85;
+        padding-bottom: 15px;
+        position: relative;
+      }
+
+      .header-subtitle::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: #50d890;
+      }
+      
+      /* Timeline Container */
+      .timeline-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        position: relative;
+      }
+      
+      /* Timeline Vertical Line */
+      .timeline-line {
+        position: absolute;
+        left: 255px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, 
+          rgba(80, 216, 144, 0) 0%,
+          rgba(80, 216, 144, 0.8) 20%, 
+          rgba(80, 216, 144, 0.8) 80%,
+          rgba(80, 216, 144, 0) 100%);
+        z-index: 1;
+      }
+      
+      /* Experience Item in Timeline Layout */
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 180px 80px 1fr;
+        grid-gap: 20px;
+        margin-bottom: 100px;
+        position: relative;
+      }
+      
+      /* Year Column */
+      .timeline-year {
+        text-align: right;
+        color: #50d890;
+        font-weight: 700;
+        opacity: 0.8;
+        transition: all 0.5s ease;
+        padding-top: 15px;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      
+      .timeline-year .year {
+        font-size: 1.5rem;
+      }
+      
+      .timeline-year .month {
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+      
+      .timeline-year.active {
+        opacity: 1;
+        transform: scale(1.1);
+        text-shadow: 0 0 15px rgba(80, 216, 144, 0.5);
+      }
+      
+      /* Node Column */
+      .timeline-node {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        z-index: 2;
+      }
+      
+      .timeline-dot {
+        width: 30px;
+        height: 30px;
+        background-color: #111;
+        border: 3px solid #50d890;
+        border-radius: 50%;
+        margin-top: 20px;
+        position: relative;
+        z-index: 3;
+        transition: all 0.5s ease;
+        box-shadow: 0 0 0 5px rgba(80, 216, 144, 0.2);
+      }
+      
+      .timeline-item:hover .timeline-dot {
+        transform: scale(1.3);
+        background-color: #50d890;
+        box-shadow: 0 0 0 8px rgba(80, 216, 144, 0.3), 0 0 20px rgba(80, 216, 144, 0.5);
+      }
+      
+      /* Horizontal connectors */
+      .timeline-connector {
+        position: absolute;
+        top: 35px;
+        left: 30px;
+        width: 70px;
+        height: 2px;
+        background: linear-gradient(to right, rgba(80, 216, 144, 0.8), rgba(80, 216, 144, 0.4));
+        z-index: 1;
+      }
+      
+      /* Content Column */
+      .timeline-content {
+        background-color: rgba(30, 30, 30, 0.4);
+        border-radius: 15px;
+        padding: 30px;
+        transition: all 0.5s ease;
+        border: 1px solid rgba(80, 216, 144, 0.15);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 2;
+      }
+      
+      .timeline-item:hover .timeline-content {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        border-color: rgba(80, 216, 144, 0.3);
+        background-color: rgba(30, 30, 30, 0.6);
+      }
+      
+      /* Content Styles */
+      .timeline-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      
+      .timeline-title-area {
+        flex: 1;
+        min-width: 250px;
+      }
+      
+      .timeline-title {
+        font-size: 1.8rem;
+        color: white;
+        margin-bottom: 12px;
+        line-height: 1.4;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      
+      .timeline-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background-color: #50d890;
+      }
+      
+      .timeline-company {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 5px;
+        flex-wrap: wrap;
+      }
+      
+      .company-badge {
+        background-color: rgba(80, 216, 144, 0.15);
+        color: #50d890;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      
+      .company-badge:hover {
+        background-color: rgba(80, 216, 144, 0.25);
+        color: #50d890;
+      }
+      
+      .company-location {
+        color: #cccccc;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+      }
+      
+      .company-location i {
+        margin-right: 5px;
+        color: #50d890;
+      }
+      
+      .timeline-logo {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-left: 20px;
+      }
+      
+      .timeline-logo i {
+        font-size: 40px;
+        color: #50d890;
+      }
+      
+      .timeline-description {
+        color: #cccccc;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 0.5px;
+      }
+      
+      .timeline-description ul {
+        padding-left: 20px;
+        margin-bottom: 15px;
+      }
+      
+      .timeline-description li {
+        margin-bottom: 10px;
+        position: relative;
+      }
+      
+      .timeline-description li::before {
+        content: "•";
+        color: #50d890;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+      
+      .timeline-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      
+      .skill-tag {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #e0e0e0;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+      
+      .skill-tag:hover {
+        background-color: rgba(80, 216, 144, 0.15);
+        color: #50d890;
+        transform: translateY(-3px);
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 50px;
+        color: #a0aec0;
+        font-size: 0.9rem;
+      }
+
+      .footer .fa-heart {
+        color: #f06464;
+        margin: 0 5px;
+      }
+
+      .pulse {
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      /* Add additional timeline items with animation */
+      .timeline-item:nth-child(even) .timeline-dot {
+        animation: pulse-even 4s infinite;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-dot {
+        animation: pulse-odd 4s infinite;
+      }
+      
+      @keyframes pulse-even {
+        0%, 100% {
+          box-shadow: 0 0 0 5px rgba(80, 216, 144, 0.2);
+        }
+        50% {
+          box-shadow: 0 0 0 10px rgba(80, 216, 144, 0.3);
+        }
+      }
+      
+      @keyframes pulse-odd {
+        0%, 100% {
+          box-shadow: 0 0 0 5px rgba(80, 216, 144, 0.2);
+        }
+        50% {
+          box-shadow: 0 0 0 10px rgba(80, 216, 144, 0.3);
+        }
+      }
+      
+      /* Media Queries */
+      @media (max-width: 992px) {
+        .timeline-line {
+          left: 130px;
+        }
+        
+        .timeline-item {
+          grid-template-columns: 130px 60px 1fr;
+          grid-gap: 15px;
+        }
+        
+        .timeline-connector {
+          width: 50px;
+          left: 20px;
+        }
+        
+        .timeline-year .year {
+          font-size: 1.3rem;
+        }
+        
+        .timeline-year .month {
+          font-size: 0.9rem;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .page-header h1 {
+          font-size: 3rem;
+        }
+        
+        .timeline-line {
+          left: 35px;
+        }
+        
+        .timeline-item {
+          grid-template-columns: 70px 1fr;
+          grid-template-areas: 
+            "node year"
+            "node content";
+        }
+        
+        .timeline-year {
+          grid-area: year;
+          text-align: left;
+          padding-left: 30px;
+          align-items: flex-start;
+        }
+        
+        .timeline-year .year {
+          font-size: 1.2rem;
+        }
+        
+        .timeline-year .month {
+          font-size: 0.8rem;
+        }
+        
+        .timeline-node {
+          grid-area: node;
+          justify-content: flex-start;
+          padding-left: 20px;
+        }
+        
+        .timeline-content {
+          grid-area: content;
+          margin-top: 10px;
+        }
+        
+        .timeline-connector {
+          width: 40px;
+          left: 35px;
+          transform: rotate(90deg);
+          top: 60px;
+        }
+        
+        .timeline-title {
+          font-size: 1.5rem;
+        }
+        
+        .timeline-header {
+          flex-direction: column;
+        }
+        
+        .timeline-logo {
+          margin-left: 0;
+          margin-bottom: 15px;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .page-header h1 {
+          font-size: 2.5rem;
+        }
+        
+        .header-subtitle {
+          font-size: 1.2rem;
+        }
+        
+        .timeline-title {
+          font-size: 1.3rem;
+        }
+        
+        .timeline-content {
+          padding: 20px;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -70,156 +683,360 @@
       </div>
     </nav>
 
-    <!-- Experience Header Section -->
-    <header class="experience-header">
+    <!-- Header Background with Particles -->
+    <div class="page-header">
+      <div class="particle-container">
+        <div class="wrap" id="particleWrap">
+          <!-- Particles will be dynamically added here via JS -->
+        </div>
+      </div>
+      <div class="header-overlay"></div>
       <div class="header-content">
-        <h1 class="section-title">Work Experience</h1>
-        <div class="section-line"></div>
+        <h1>Experience</h1>
+        <div class="header-subtitle">Professional Journey & Skills</div>
       </div>
-    </header>
+    </div>
 
-    <!-- Experience Timeline Section -->
-    <section class="experience-timeline">
-      <div class="timeline-container">
-        <!-- Dell Technologies Experience -->
-        <div class="experience-card" data-aos="fade-up" data-aos-duration="800">
-          <div class="experience-icon">
-            <i class="fa-solid fa-laptop-code"></i>
-          </div>
-          <div class="experience-content">
-            <div class="experience-title">
-              <h3>Software Development Engineer Intern</h3>
-              <span class="company">Dell Technologies</span>
-            </div>
-            <div class="experience-time">
-              <span class="duration">May 2023 - July 2023</span>
-              <span class="location">Bangalore, India</span>
-            </div>
-            <div class="experience-description">
-              <ul>
-                <li>Developed and implemented an end-to-end automation system for retrospective analysis of testing cycles using Python and Tableau, resulting in a 40% reduction in manual effort and improved data-driven decision making.</li>
-                <li>Created interactive dashboards for defect trend analysis and testing efficiency metrics, enabling the team to identify and address bottlenecks in the development process.</li>
-                <li>Collaborated with cross-functional teams to streamline test automation processes, implementing CI/CD pipelines that reduced deployment time by 30%.</li>
-              </ul>
-            </div>
-            <div class="skills-used">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">Tableau</span>
-              <span class="skill-tag">Data Analysis</span>
-              <span class="skill-tag">CI/CD</span>
-              <span class="skill-tag">Git</span>
-            </div>
-          </div>
+    <!-- TIMELINE EXPERIENCE LAYOUT -->
+    <div class="timeline-container">
+      <!-- Vertical Timeline Line -->
+      <div class="timeline-line"></div>
+      
+      <!-- GE Experience -->
+      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000">
+        <div class="timeline-year">
+          <span class="month">Aug 2024</span>
+          <span class="year">Present</span>
         </div>
-
-        <!-- GE Healthcare Experience -->
-        <div class="experience-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-          <div class="experience-icon">
-            <i class="fa-solid fa-microscope"></i>
-          </div>
-          <div class="experience-content">
-            <div class="experience-title">
-              <h3>Research Intern</h3>
-              <span class="company">GE Healthcare</span>
-            </div>
-            <div class="experience-time">
-              <span class="duration">May 2022 - July 2022</span>
-              <span class="location">Bangalore, India</span>
-            </div>
-            <div class="experience-description">
-              <ul>
-                <li>Researched and implemented deep learning models for medical image analysis, focusing on early detection of neurological conditions using diffusion MRI data.</li>
-                <li>Developed a novel preprocessing pipeline that improved model accuracy by 15%, enhancing the diagnostic capabilities of the imaging system.</li>
-                <li>Presented research findings to senior leadership, resulting in the continuation of the project and integration into the product development roadmap.</li>
-              </ul>
-            </div>
-            <div class="skills-used">
-              <span class="skill-tag">Deep Learning</span>
-              <span class="skill-tag">PyTorch</span>
-              <span class="skill-tag">Medical Imaging</span>
-              <span class="skill-tag">Image Processing</span>
-              <span class="skill-tag">TensorFlow</span>
-            </div>
-          </div>
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
         </div>
-
-        <!-- ZKTeco Experience -->
-        <div class="experience-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-          <div class="experience-icon">
-            <i class="fa-solid fa-fingerprint"></i>
-          </div>
-          <div class="experience-content">
-            <div class="experience-title">
-              <h3>Machine Learning Research Intern</h3>
-              <span class="company">ZKTeco</span>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div class="timeline-title-area">
+              <h2 class="timeline-title">GE Healthcare</h2>
+              <div class="timeline-company">
+                <span class="company-badge">AI Researcher</span>
+                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
+              </div>
             </div>
-            <div class="experience-time">
-              <span class="duration">Dec 2021 - Jan 2022</span>
-              <span class="location">Remote</span>
-            </div>
-            <div class="experience-description">
-              <ul>
-                <li>Developed and optimized face recognition algorithms for biometric security systems, improving recognition accuracy in low-light conditions by 25%.</li>
-                <li>Implemented data augmentation techniques to enhance model robustness and reduce false positive rates in facial recognition systems.</li>
-                <li>Created a comprehensive documentation system for model versioning and performance metrics, facilitating easier troubleshooting and continuous improvement.</li>
-              </ul>
-            </div>
-            <div class="skills-used">
-              <span class="skill-tag">Computer Vision</span>
-              <span class="skill-tag">OpenCV</span>
-              <span class="skill-tag">Face Recognition</span>
-              <span class="skill-tag">Data Augmentation</span>
-              <span class="skill-tag">Machine Learning</span>
+            <div class="timeline-logo">
+              <i class="fa-solid fa-microscope"></i>
             </div>
           </div>
-        </div>
-
-        <!-- Research Lab Experience -->
-        <div class="experience-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-          <div class="experience-icon">
-            <i class="fa-solid fa-flask"></i>
+          <div class="timeline-description">
+            <ul>
+              <li>Working on denoising high b-value diffusion MRI brain data by obtaining brain tissue microstructure information from T2 relaxometry MRI data using multi-compartment models.</li>
+              <!-- <li></li> -->
+              <!-- <li></li> -->
+            </ul>
           </div>
-          <div class="experience-content">
-            <div class="experience-title">
-              <h3>Undergraduate Researcher</h3>
-              <span class="company">Computer Vision Lab, SNIoE</span>
-            </div>
-            <div class="experience-time">
-              <span class="duration">Jan 2021 - Present</span>
-              <span class="location">Greater Noida, India</span>
-            </div>
-            <div class="experience-description">
-              <ul>
-                <li>Led research on novel deep learning applications for medical image analysis, with a focus on neurological disorders and early diagnosis methods.</li>
-                <li>Published research papers at prestigious conferences including ICCV and ACML, contributing to the field of computer vision in healthcare.</li>
-                <li>Mentored junior researchers and coordinated collaborative projects with international research institutions, fostering knowledge exchange and innovation.</li>
-              </ul>
-            </div>
-            <div class="skills-used">
-              <span class="skill-tag">Research</span>
-              <span class="skill-tag">Paper Writing</span>
-              <span class="skill-tag">Deep Learning</span>
-              <span class="skill-tag">Algorithm Design</span>
-              <span class="skill-tag">Data Analysis</span>
-            </div>
+          <div class="timeline-skills">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Diffusion MRI (dMRI)</span>
+            <span class="skill-tag">DIPY</span>
+            <span class="skill-tag">TensorFlow</span>
+            <!-- <span class="skill-tag">Git</span> -->
           </div>
         </div>
       </div>
-    </section>
+
+      <!-- SNU - Reseach assistantship -->
+      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <div class="timeline-year">
+          <span class="month">May 2024</span>
+          <span class="year">Aug 2024</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div class="timeline-title-area">
+              <h2 class="timeline-title">Shiv Nadar Institute of Eminance</h2>
+              <div class="timeline-company">
+                <span class="company-badge">Research Assistant</span>
+                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Delhi NCR, India</span>
+              </div>
+            </div>
+            <div class="timeline-logo">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+          </div>
+          <div class="timeline-description">
+            <ul>
+              <li>Developed a tract-based classification method leveraging sparse diffusion measurements for early detection of Alzheimer’s disease, improving early diagnostic accuracy and reducing the need for extensive data acquisition</li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="timeline-skills">
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Data Analysis</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Data Science</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Dell Experience 1 (SWE Intern) -->
+      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <div class="timeline-year">
+          <span class="month">Jan 2024</span>
+          <span class="year">Aug 2024</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div class="timeline-title-area">
+              <h2 class="timeline-title">Dell Technologies</h2>
+              <div class="timeline-company">
+                <span class="company-badge">SWE Intern</span>
+                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
+              </div>
+            </div>
+            <div class="timeline-logo">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+          </div>
+          <div class="timeline-description">
+            <ul>
+              <li>Developed a ML model to estimate order fulfillment status and predict the likelihood of order sales based on configurations.</li>
+              <li>Utilized SQL Server to analyze data and reduce idle inventory by identifying configurations less likely to sell.</li>
+            </ul>
+          </div>
+          <div class="timeline-skills">
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Data Analysis</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Data Science</span>
+          </div>
+        </div>
+      </div>
+
+      
+      
+      <!-- Dell Experience 2 (Summer Intern) -->
+      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <div class="timeline-year">
+          <span class="month">May 2023</span>
+          <span class="year">Aug 2023</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div class="timeline-title-area">
+              <h2 class="timeline-title">Dell Technologies</h2>
+              <div class="timeline-company">
+                <span class="company-badge">Summer Intern</span>
+                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
+              </div>
+            </div>
+            <div class="timeline-logo">
+              <i class="fa-solid fa-code"></i>
+            </div>
+          </div>
+          <div class="timeline-description">
+            <ul>
+              <li>Developed a private ChatGPT system for internal document-based PDF-Q&A tasks using the GPT4ALL language model and LangChain framework, enabling employees to query information from the company's knowledge repository.</li>
+            </ul>
+          </div>
+          <div class="timeline-skills">
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">LangChain</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">AI</span>
+            <span class="skill-tag">LLMs</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- SNU - Undergrad. Researcher  -->
+      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <div class="timeline-year">
+          <span class="month">October 2022</span>
+          <span class="year">Aug 2023</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div class="timeline-title-area">
+              <h2 class="timeline-title">Shiv Nadar Institute of Eminance</h2>
+              <div class="timeline-company">
+                <span class="company-badge">Undergraduate Research Fellow</span>
+                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
+              </div>
+            </div>
+            <div class="timeline-logo">
+              <i class="fa-solid fa-code"></i>
+            </div>
+          </div>
+          <div class="timeline-description">
+            <ul>
+              <li> Investigated the potential of Transformer based deep learning techniques to accelerate the processing of diffusion tensor imaging (DTI) measures and improve the early diagnosis of Alzheimer's disease (AD) using sparse data on ADNI dataset</li>
+              <li> The proposed model leverages the attention mechanism to generate quantitative measures of fractional anisotropy (FA), axial diffusivity (AxD), and mean diffusivity (MD) using 5 and 21 diffusion directions, making it useful for clinical diagnosis through reduced scanning time of more than half.</li>
+            </ul>
+          </div>
+          <div class="timeline-skills">
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">FSL</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">AI</span>
+            <span class="skill-tag">LLMs</span>
+          </div>
+        </div>
+      </div>
+
+      <!--ZKteco Research Intern) -->
+      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <div class="timeline-year">
+          <span class="month">July 2022</span>
+          <span class="year">October 2022</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div class="timeline-title-area">
+              <h2 class="timeline-title">ZKTeco</h2>
+              <div class="timeline-company">
+                <span class="company-badge">Research Intern</span>
+                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
+              </div>
+            </div>
+            <div class="timeline-logo">
+              <i class="fa-solid fa-code"></i>
+            </div>
+          </div>
+          <div class="timeline-description">
+            <ul>
+              <li>Working on a 3D-Structured Light Facial Recognition model that projects speckle light spots to calculate depth for anti-spoofing.</li>
+            </ul>
+          </div>
+          <div class="timeline-skills">
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">LangChain</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">AI</span>
+            <span class="skill-tag">LLMs</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!--NUS Research Intern) -->
+      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <div class="timeline-year">
+          <span class="month">May 2022</span>
+          <span class="year">Aug 2022</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div class="timeline-title-area">
+              <h2 class="timeline-title">National University of Singapore</h2>
+              <div class="timeline-company">
+                <span class="company-badge">Academic Intern</span>
+                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Singapore</span>
+              </div>
+            </div>
+            <div class="timeline-logo">
+              <i class="fa-solid fa-code"></i>
+            </div>
+          </div>
+          <div class="timeline-description">
+            <ul>
+              <li>Designed and developed a system for real-time violence detection through surveillance cameras by optimizing LRCN model that uses both CNN and LSTM. The model is trained on a novel dataset that consists of 150 videos each for ‘Fight’ and ‘noFight’.</li>
+              <li>Created a web-app using Steamlit that sends notifications and generates the map depicting exactly where the Fight is detected based on the database of the location of the surveillance cameras.</li>
+            </ul>
+          </div>
+          <div class="timeline-skills">
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">LangChain</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">AI</span>
+            <span class="skill-tag">LLMs</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!--IIT Hyd -->
+      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <div class="timeline-year">
+          <span class="month">May 2021</span>
+          <span class="year">December 2021</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div class="timeline-title-area">
+              <h2 class="timeline-title">International Institute of Information Technology Hyderabad (IIITH)</h2>
+              <div class="timeline-company">
+                <span class="company-badge">Research Intern @CVIT Lab</span>
+                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Singapore</span>
+              </div>
+            </div>
+            <div class="timeline-logo">
+              <i class="fa-solid fa-code"></i>
+            </div>
+          </div>
+          <div class="timeline-description">
+            <ul>
+              <li>Worked on a task of mitigating biasing of facial Recognition in Computer Vision under Dr. Anoop Namboodiri.</li>
+              <li>Created a novel publicly available dataset of 30,000 face images pertaining to famous Indian personalities (identified by similarity score), along with a web annotation system. </li>
+              <li>Mapped different races in terms of the average difference between two observable quantities, computed the error rate of facial recognition system in different parts of the space, and found a correlation between the accuracy and the location of the space.</li>
+            </ul>
+          </div>
+          <div class="timeline-skills">
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">LangChain</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">AI</span>
+            <span class="skill-tag">LLMs</span>
+          </div>
+        </div>
+      </div>
+
+
+      
+    </div>
 
     <!-- Footer -->
     <div class="footer">
-      <span>
-        Made with <i class="fa fa-heart pulse"></i> by <a>Ananya</a>
-      </span>
+      <p>
+        Built with <i class="fas fa-heart pulse"></i> by Ananya Singhal 
+      </p>
     </div>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+      // Initialize AOS
       AOS.init();
       
-      // Fixed navigation on scroll
+      // Navigation scroll effect
       window.addEventListener('scroll', function() {
         const nav = document.querySelector('.main-nav');
         if (window.scrollY > 50) {
@@ -229,17 +1046,76 @@
         }
       });
       
-      // Add active class to current navigation item
-      document.addEventListener('DOMContentLoaded', function() {
-        const currentPage = window.location.pathname.split('/').pop();
-        const navLinks = document.querySelectorAll('.nav-item');
-        
-        navLinks.forEach(link => {
-          const linkPage = link.getAttribute('href');
-          if (linkPage === currentPage) {
-            link.classList.add('active');
+      // Intersection Observer for Timeline Year Animation
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const yearElement = entry.target.querySelector('.timeline-year');
+          if (entry.isIntersecting) {
+            yearElement.classList.add('active');
+          } else {
+            yearElement.classList.remove('active');
           }
         });
+      }, observerOptions);
+      
+      document.querySelectorAll('.timeline-item').forEach(item => {
+        observer.observe(item);
+      });
+      
+      // Particle Animation Setup
+      document.addEventListener('DOMContentLoaded', function() {
+        const particleWrap = document.getElementById('particleWrap');
+        const totalParticles = 300;
+        const orbSize = 300;
+        const greenColor = '#50d890';
+        
+        // Create 300 particles
+        for (let i = 1; i <= totalParticles; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'c';
+          
+          // Generate random angles
+          const randomZ = Math.random() * 360;
+          const randomY = Math.random() * 360;
+          
+          // Set animation styles inline
+          particle.style.animation = `orbit${i} 14s infinite`;
+          particle.style.animationDelay = `${i * 0.01}s`;
+          particle.style.backgroundColor = greenColor;
+          
+          // Add to DOM
+          particleWrap.appendChild(particle);
+          
+          // Create keyframe animation for this specific particle
+          const keyframes = `
+            @keyframes orbit${i} {
+              20% {
+                opacity: 1;
+              }
+              30% {
+                transform: rotateZ(-${randomZ}deg) rotateY(${randomY}deg) translateX(${orbSize}px) rotateZ(${randomZ}deg);
+              }
+              80% {
+                transform: rotateZ(-${randomZ}deg) rotateY(${randomY}deg) translateX(${orbSize}px) rotateZ(${randomZ}deg);
+                opacity: 1;
+              }
+              100% {
+                transform: rotateZ(-${randomZ}deg) rotateY(${randomY}deg) translateX(${orbSize * 4}px) rotateZ(${randomZ}deg);
+              }
+            }
+          `;
+          
+          // Add keyframes to the document
+          const style = document.createElement('style');
+          style.innerHTML = keyframes;
+          document.head.appendChild(style);
+        }
       });
     </script>
   </body>
