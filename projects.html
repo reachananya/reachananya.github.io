@@ -1,1 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ananya Singhal - Projects</title>
 
+    <!-- Links and Scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    
+    <style>
+      /* Base Styles */
+      body {
+        background-color: #111;
+        color: #fff;
+        font-family: Orbitron;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      } 
+      
+      /* Navigation Bar */
+      .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(17, 17, 17, 0.9);
+        padding: 1rem 2rem;
+        z-index: 100;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+
+      .nav-scrolled {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        background-color: rgba(17, 17, 17, 0.95);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .nav-logo a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-logo a:hover {
+        color: #50d890;
+      }
+
+      .bold-name {
+        font-weight: 700;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .nav-number {
+        color: #50d890;
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .nav-text {
+        position: relative;
+        font-size: 0.9rem;
+        text-transform: lowercase;
+      }
+
+      .nav-text::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #50d890;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .nav-item:hover .nav-text::after {
+        visibility: visible;
+        width: 100%;
+        background-color: #50d890;
+      }
+
+      .active-number, .active .nav-number {
+        color: #50d890;
+        font-weight: 900;
+      }
+
+      .active-text, .active .nav-text {
+        color: #50d890;
+      }
+
+      .active .nav-text::after, .active-text::after {
+        visibility: visible;
+        width: 100%;
+        background-color: #50d890;
+      }
+      
+      /* Page Header */
+      .page-header {
+        position: relative;
+        height: 400px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-bottom: 4rem;
+        padding: 40px 20px;
+        margin-top: 70px;
+      }
+
+      .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .video-background iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        height: 56.25vw;
+        min-height: 100%;
+        min-width: 177.77vh;
+        pointer-events: none;
+      }
+
+      .header-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .page-header h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        letter-spacing: 3px;
+      }
+
+      .header-subtitle {
+        font-size: 1.5rem;
+        opacity: 0.85;
+        padding-bottom: 15px;
+        position: relative;
+      }
+
+      .header-subtitle::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: #50d890;
+      }
+      
+      /* Project Types Legend */
+      .project-types {
+        text-align: right;
+        font-style: italic;
+        font-size: 0.9rem;
+        color: #cccccc;
+        max-width: 1400px;
+        margin: -2rem auto 2rem;
+        padding: 0 1rem;
+      }
+      
+      /* Projects Container */
+      .projects-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      
+      /* Projects Timeline */
+      .projects-timeline {
+        position: relative;
+        padding: 2rem 0;
+      }
+      
+      /* FIXED: Adjusted timeline positioning and width */
+      .timeline-line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background: linear-gradient(to bottom, rgba(80, 216, 144, 0.2), rgba(80, 216, 144, 0.8), rgba(80, 216, 144, 0.2));
+        transform: translateX(-50%);
+        z-index: 1;
+      }
+      
+      /* Individual Project Container */
+      .project-item {
+        position: relative;
+        display: flex;
+        margin-bottom: 8rem;
+        z-index: 2;
+        align-items: flex-start; /* FIXED: Align items at the top */
+      }
+      
+      .project-item:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+      
+      /* FIXED: Project Timeline Node positioning */
+      .project-node {
+        position: absolute;
+        left: 50%;
+        top: 80px; /* FIXED: Adjusted to better align with content */
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #50d890;
+        transform: translateX(-50%);
+        z-index: 3;
+        box-shadow: 0 0 0 8px rgba(80, 216, 144, 0.2);
+        transition: all 0.3s ease;
+      }
+      
+      .project-item:hover .project-node {
+        transform: translateX(-50%) scale(1.3);
+        box-shadow: 0 0 0 12px rgba(80, 216, 144, 0.3), 0 0 20px rgba(80, 216, 144, 0.6);
+      }
+      
+      /* Project Video Container */
+      /* FIXED: Adjusted width and margin for better spacing */
+      .project-video-container {
+        width: 48%; /* Increased from 42% */
+        position: relative;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        perspective: 1000px;
+        margin: 0 2%; /* Adjusted margin from 4% to 2% */
+      }
+      
+      .project-video-wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      .project-video-wrapper video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Video controls */
+      .video-controls {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        display: flex;
+        gap: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .project-video-container:hover .video-controls {
+        opacity: 1;
+      }
+
+      .video-control-btn {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .video-control-btn:hover {
+        background-color: rgba(80, 216, 144, 0.8);
+        transform: scale(1.1);
+      }
+      
+      .project-item:hover .project-video-wrapper {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: 0 20px 40px rgba(80, 216, 144, 0.2);
+      }
+      
+      .project-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+      
+      .project-video iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      
+      /* For static images instead of videos */
+      .project-image {
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .project-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      
+      .project-video-wrapper:hover .project-image img {
+        transform: scale(1.05);
+      }
+      
+      /* Project Content */
+      /* FIXED: Adjusted width and margin for better spacing */
+      .project-content {
+        width: 48%; /* Increased from 42% */
+        padding: 2rem;
+        background-color: rgba(17, 17, 17, 0.7);
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        position: relative;
+        transform: translateZ(0);
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(80, 216, 144, 0.15);
+        margin: 0 2%; /* Adjusted margin from 4% to 2% */
+      }
+      
+      .project-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        background: linear-gradient(135deg, rgba(80, 216, 144, 0.1), rgba(17, 17, 17, 0)) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: destination-out;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+      
+      .project-item:hover .project-content {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+      
+      .project-header {
+        margin-bottom: 1.5rem;
+      }
+      
+      .project-title {
+        font-size: 1.8rem;
+        color: white;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      
+      .project-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background-color: #50d890;
+      }
+      
+      .project-date {
+        font-size: 1rem;
+        color: #50d890;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 1.5rem;
+        margin-top: 1rem;
+      }
+      
+      .project-tag {
+        background-color: rgba(80, 216, 144, 0.15);
+        color: #50d890;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      
+      .project-description {
+        color: #cccccc;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 0.3px;
+      }
+      
+      .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 15px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+      
+      .demo-link {
+        background-color: rgba(80, 216, 144, 0.15);
+        color: #50d890;
+      }
+      
+      .demo-link:hover {
+        background-color: rgba(80, 216, 144, 0.25);
+        color: #50d890;
+        transform: translateY(-3px);
+      }
+      
+      .code-link {
+        background-color: rgba(100, 149, 237, 0.15);
+        color: #6495ed;
+      }
+      
+      .code-link:hover {
+        background-color: rgba(100, 149, 237, 0.25);
+        color: #6495ed;
+        transform: translateY(-3px);
+      }
+      
+      .details-link {
+        background-color: rgba(147, 112, 219, 0.15);
+        color: #9370db;
+      }
+      
+      .details-link:hover {
+        background-color: rgba(147, 112, 219, 0.25);
+        color: #9370db;
+        transform: translateY(-3px);
+      }
+      
+      /* Featured Badge */
+      .featured-badge {
+        position: absolute;
+        top: -12px;
+        right: 20px;
+        background-color: rgba(255, 215, 0, 0.9);
+        color: #111;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        z-index: 2;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      /* Project Status */
+      .project-status {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      
+      .status-completed {
+        color: #4CAF50;
+      }
+      
+      .status-in-progress {
+        color: #FFC107;
+      }
+      
+      /* Futuristic Tech Details */
+      .tech-details {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .tech-details::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(80, 216, 144, 0.05) 0%, rgba(17, 17, 17, 0) 70%);
+        z-index: -1;
+      }
+      
+      .tech-title {
+        font-size: 1rem;
+        color: #50d890;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .tech-item {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        color: #e0e0e0;
+      }
+      
+      /* Glowing Effect for Featured Projects */
+      @keyframes glow {
+        0% {
+          box-shadow: 0 0 5px rgba(80, 216, 144, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(80, 216, 144, 0.6);
+        }
+        100% {
+          box-shadow: 0 0 5px rgba(80, 216, 144, 0.3);
+        }
+      }
+      
+      .project-item.featured .project-node {
+        animation: glow 3s infinite;
+      }
+      
+      /* No Results */
+      .no-results {
+        text-align: center;
+        padding: 3rem 0;
+        color: #a0aec0;
+      }
+      
+      .no-results i {
+        font-size: 3rem;
+        color: #50d890;
+        margin-bottom: 1rem;
+        opacity: 0.5;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 50px;
+        color: #a0aec0;
+        font-size: 0.9rem;
+      }
+      
+      .footer .fa-heart {
+        color: #f06464;
+        margin: 0 5px;
+      }
+      
+      .pulse {
+        animation: pulse 1.5s infinite;
+      }
+      
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      /* Media Queries */
+      @media (max-width: 992px) {
+        .project-item, .project-item:nth-child(even) {
+          flex-direction: column;
+        }
+        
+        .project-node {
+          display: none;
+        }
+        
+        .project-video-container, .project-content {
+          width: 100%;
+          margin: 0; /* Reset margin on mobile */
+        }
+        
+        .project-content {
+          margin-top: 2rem;
+        }
+        
+        /* FIXED: Better mobile timeline placement */
+        .timeline-line {
+          left: 20px;
+          width: 3px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .page-header h1 {
+          font-size: 3rem;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .project-title {
+          font-size: 1.4rem;
+        }
+        
+        .page-header h1 {
+          font-size: 2.5rem;
+        }
+        
+        .header-subtitle {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="index.html"><span class="bold-name">Ananya</span> Singhal</a>
+        </div>
+        <div class="nav-links">
+          <a href="index.html" class="nav-item">
+            <span class="nav-number">00</span>
+            <span class="nav-text">about</span>
+          </a>
+          <a href="publications.html" class="nav-item">
+            <span class="nav-number">01</span>
+            <span class="nav-text">publications</span>
+          </a>
+          <a href="experience.html" class="nav-item">
+            <span class="nav-number">02</span>
+            <span class="nav-text">experience</span>
+          </a>
+          <a href="projects.html" class="nav-item active">
+            <span class="nav-number active-number">03</span>
+            <span class="nav-text active-text">projects</span>
+          </a>
+          <a href="awards.html" class="nav-item">
+            <span class="nav-number">04</span>
+            <span class="nav-text">awards</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Background with Video -->
+    <div class="page-header">
+      <!-- <div class="video-background">
+        <iframe src="https://player.vimeo.com/video/912625754?h=496ea80218&muted=1&autoplay=1&loop=1&background=1&app_id=122963&quality=auto&preload=auto" 
+                frameborder="0" 
+                allow="autoplay; fullscreen" 
+                allowfullscreen
+                loading="eager">
+        </iframe>
+      </div> -->
+
+      <!-- implemneting particles.js -->
+      <div id="particles"></div>
+      <div class="background"></div>
+      <div class="header-overlay"></div>
+      <div class="header-content">
+        <h1>Projects</h1>
+        <div class="header-subtitle">Technical Innovation & Creative Solutions</div>
+      </div>
+    </div>
+
+    <!-- Commented out Project Filters section -->
+    <!--
+    <div class="filter-container">
+      <div class="filter-buttons">
+        <button class="filter-button active" data-filter="all">All Projects</button>
+        <button class="filter-button" data-filter="machine-learning">Machine Learning</button>
+        <button class="filter-button" data-filter="web-development">Web Development</button>
+        <button class="filter-button" data-filter="computer-vision">Computer Vision</button>
+        <button class="filter-button" data-filter="robotics">Robotics</button>
+      </div>
+      
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-input" placeholder="Search projects by keyword...">
+      </div>
+    </div>
+    -->
+
+    <!-- Projects Timeline -->
+    <div class="projects-container">
+      <div class="projects-timeline">
+        <div class="timeline-line"></div>
+        
+        <!-- Project 1 -->
+        <div class="project-item featured" data-aos="fade-up" data-aos-duration="1000" data-categories="web-development pwa">
+            <div class="project-node"></div>
+            <div class="project-video-container">
+                <div class="project-video-wrapper">
+                    <video class="project-video" autoplay muted loop playsinline>
+                        <source src="/img/projects/Diama_project_rec.mp4" type="video/mp4">
+                        <!-- Fallback for browsers that don't support the video format -->
+                        <!-- <img src="/api/placeholder/640/360" alt="Diama - Code Editor"> -->
+                    </video>
+                    <div class="video-controls">
+                        <button class="video-control-btn expand-btn" title="Fullscreen"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-content">
+                <!-- <div class="featured-badge">
+                    <i class="fas fa-star"></i> Featured
+                </div> -->
+                <div class="project-header">
+                    <div class="project-date">
+                        <i class="far fa-calendar-alt"></i> November 2022 
+                    </div>
+                    <div class="project-title">Diama: Lightweight Collaborative Code Editor</div>
+                </div>
+
+                <div class="project-tags">
+                    <div class="project-tag"><i class="fas fa-code-branch"></i> Collaborative Editing</div>
+                    <div class="project-tag"><i class="fas fa-file-alt"></i> File System Access</div>
+                    <div class="project-tag"><i class="fas fa-mobile-alt"></i> PWA</div>
+                    <div class="project-tag"><i class="fas fa-project-diagram"></i> Algorithm Visualization</div>
+                </div>
+
+                <div class="project-description">
+                    Diama ("CODE" in Mandarin) is an innovative browser-based IDE designed specifically for novice developers, featuring a lightweight architecture (50% smaller footprint than conventional editors) with essential development tools. Built on Monaco editor core (the same engine powering VS Code), it delivers professional-grade syntax highlighting and IntelliSense while maintaining a simplified interface. Key features include real-time collaborative editing via WebRTC, full filesystem access through the File System Access API, and interactive algorithm visualizations for enhanced learning.
+                </div>
+
+                <!-- Added paragraph under See More button -->
+                <div class="additional-details" style="margin-top: 1.5rem; display: none;">
+                    <div class="project-description">
+                      The editor implements a multi-panel interface with draggable/resizable components, supporting concurrent file editing (tested with 15+ simultaneous tabs). Our custom PWA implementation using Workbox achieves 95% Lighthouse scores with offline-first capabilities. The algorithm visualizer component includes time complexity comparisons for sort algorithms (QuickSort, MergeSort, BubbleSort) and pathfinding visualization using Dijkstra's algorithm.
+                    </div>
+                  </div>
+
+                <div class="tech-details">
+                    <div class="tech-title"><i class="fas fa-cogs"></i> Technical Architecture</div>
+                    <div class="tech-list">
+                        <div class="tech-item"><i class="fab fa-react"></i> React (Vite)</div>
+                        <div class="tech-item"><i class="fas fa-network-wired"></i> Y-js CRDT Framework</div>
+                        <div class="tech-item"><i class="fas fa-comments"></i> WebRTC Peer Connections</div>
+                        <div class="tech-item"><i class="fab fa-node-js"></i> EasyPeasy State Management</div>
+                        <div class="tech-item"><i class="fas fa-cloud"></i> Netlify Edge Functions</div>
+                        <div class="tech-item"><i class="fas fa-paint-brush"></i> SCSS Modules</div>
+                    </div>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://diama-editor.netlify.app" class="project-link demo-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <a href="https://github.com/yourusername/diama-editor" class="project-link code-link" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                    <a href="#" class="project-link details-link see-more-btn"><i class="fas fa-file-alt"></i> See More</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Project 2 -->
+        <div class="project-item featured" data-aos="fade-up" data-aos-duration="1000" data-categories="web-development pwa">
+            <div class="project-node"></div>
+            <div class="project-video-container">
+                <div class="project-video-wrapper">
+                    <video class="project-video" autoplay muted loop playsinline>
+                        <source src="/img/projects/mentor-me_project.mp4" type="video/mp4">
+                        <!-- Fallback for browsers that don't support the video format -->
+                        <!-- <img src="/api/placeholder/640/360" alt="Diama - Code Editor"> -->
+                    </video>
+                    <div class="video-controls">
+                        <button class="video-control-btn expand-btn" title="Fullscreen"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-content">
+                <!-- <div class="featured-badge">
+                    <i class="fas fa-star"></i> Featured
+                </div> -->
+                <div class="project-header">
+                    <div class="project-date">
+                        <i class="far fa-calendar-alt"></i> November 2022 
+                    </div>
+                    <div class="project-title">Mentor Me </div>
+                </div>
+
+                <div class="project-tags">
+                    <div class="project-tag"><i class="fas fa-code-branch"></i> Collaborative Editing</div>
+                    <div class="project-tag"><i class="fas fa-file-alt"></i> File System Access</div>
+                    <div class="project-tag"><i class="fas fa-mobile-alt"></i> PWA</div>
+                    <div class="project-tag"><i class="fas fa-project-diagram"></i> Algorithm Visualization</div>
+                </div>
+
+                <div class="project-description">
+                    Diama ("CODE" in Mandarin) is an innovative browser-based IDE designed specifically for novice developers, featuring a lightweight architecture (50% smaller footprint than conventional editors) with essential development tools. Built on Monaco editor core (the same engine powering VS Code), it delivers professional-grade syntax highlighting and IntelliSense while maintaining a simplified interface. Key features include real-time collaborative editing via WebRTC, full filesystem access through the File System Access API, and interactive algorithm visualizations for enhanced learning.
+                </div>
+
+                <!-- Added paragraph under See More button -->
+                <div class="additional-details" style="margin-top: 1.5rem; display: none;">
+                    <div class="project-description">
+                      The editor implements a multi-panel interface with draggable/resizable components, supporting concurrent file editing (tested with 15+ simultaneous tabs). Our custom PWA implementation using Workbox achieves 95% Lighthouse scores with offline-first capabilities. The algorithm visualizer component includes time complexity comparisons for sort algorithms (QuickSort, MergeSort, BubbleSort) and pathfinding visualization using Dijkstra's algorithm.
+                    </div>
+                  </div>
+
+                <div class="tech-details">
+                    <div class="tech-title"><i class="fas fa-cogs"></i> Technical Architecture</div>
+                    <div class="tech-list">
+                        <div class="tech-item"><i class="fab fa-react"></i> React (Vite)</div>
+                        <div class="tech-item"><i class="fas fa-network-wired"></i> Y-js CRDT Framework</div>
+                        <div class="tech-item"><i class="fas fa-comments"></i> WebRTC Peer Connections</div>
+                        <div class="tech-item"><i class="fab fa-node-js"></i> EasyPeasy State Management</div>
+                        <div class="tech-item"><i class="fas fa-cloud"></i> Netlify Edge Functions</div>
+                        <div class="tech-item"><i class="fas fa-paint-brush"></i> SCSS Modules</div>
+                    </div>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://diama-editor.netlify.app" class="project-link demo-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <a href="https://github.com/yourusername/diama-editor" class="project-link code-link" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                    <a href="#" class="project-link details-link see-more-btn"><i class="fas fa-file-alt"></i> See More</a>
+                </div>
+
+                
+            </div>
+        </div>
+
+        <!-- No Results Message (Initially Hidden) -->
+        <div class="no-results" style="display: none;">
+          <i class="fas fa-search"></i>
+          <h3>No projects found</h3>
+          <p>Try adjusting your search criteria or filters</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Designed & Built with <i class="fas fa-heart pulse"></i> by Ananya Singhal</p>
+      <p>&copy; 2025 All Rights Reserved</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize AOS animation library
+        AOS.init({
+          once: true,
+          duration: 800,
+          easing: 'ease-in-out-quad'
+        });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.main-nav');
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 50) {
+            navbar.classList.add('nav-scrolled');
+          } else {
+            navbar.classList.remove('nav-scrolled');
+          }
+        });
+
+        // Auto-play project videos when they come into view
+        const projectVideos = document.querySelectorAll('.project-video');
+        
+        const videoObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const video = entry.target;
+              video.play().catch(e => console.log("Autoplay prevented:", e));
+            }
+          });
+        }, { threshold: 0.5 });
+
+        projectVideos.forEach(video => {
+          videoObserver.observe(video);
+        });
+
+        // Fullscreen functionality for project videos
+        document.addEventListener('click', function(e) {
+          if (e.target.closest('.expand-btn')) {
+            const videoContainer = e.target.closest('.project-video-container');
+            const video = videoContainer.querySelector('video');
+            
+            if (video) {
+              if (document.fullscreenElement) {
+                document.exitFullscreen();
+              } else {
+                video.requestFullscreen().catch(err => {
+                  console.error(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+              }
+            }
+          }
+
+          // Toggle additional details when "See More" is clicked
+          if (e.target.closest('.see-more-btn')) {
+            e.preventDefault();
+            const detailsSection = e.target.closest('.project-content').querySelector('.additional-details');
+            detailsSection.style.display = detailsSection.style.display === 'none' ? 'block' : 'none';
+            e.target.querySelector('i').className = detailsSection.style.display === 'none' ? 'fas fa-file-alt' : 'fas fa-times';
+            e.target.innerHTML = detailsSection.style.display === 'none' ? 
+              '<i class="fas fa-file-alt"></i> See More' : 
+              '<i class="fas fa-times"></i> Show Less';
+          }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+            });
+          });
+        });
+
+        // Particles JS implementation
+        const circle = '<svg viewBox="0 0 67.4 67.4"><circle class="circle" cx="33.7" cy="33.7" r="33.7"/></svg>';
+        
+        class Particle {
+            constructor(svg, coordinates, friction) {
+            this.svg = svg;
+            this.steps = ($(window).height()) / 2;
+            this.item = null;
+            this.friction = friction * 0.5; // Reduced speed by half as requested
+            this.coordinates = coordinates;
+            this.position = this.coordinates.y;
+            this.dimensions = this.render();
+            this.move();
+            this.rotation = Math.random() > 0.5 ? "-" : "+";
+            this.scale = 0.4 + (Math.random() * 2);
+            this.siner = $(window).width() / 2.5 * Math.random();
+            }
+            
+            destroy() {
+            this.item.remove();
+            }
+
+            move() {
+            this.position = this.position - this.friction;
+            let top = this.position;
+            let left = this.coordinates.x + Math.sin(this.position * Math.PI / this.steps) * this.siner;
+            this.item.css({
+                transform: "translateX(" + left + "px) translateY(" + top + "px) scale(" + this.scale + ") rotate(" + (this.rotation) + (this.position + this.dimensions.height) + "deg)"
+            });
+            
+            if (this.position < -(this.dimensions.height)) {
+                this.destroy();
+                return false;
+            } else {
+                return true;
+            }
+            }
+
+            render() {
+            this.item = $(this.svg, {
+                css: {
+                transform: "translateX(" + this.coordinates.x + "px) translateY(" + this.coordinates.y + "px)"
+                }
+            });
+            $("#particles").append(this.item);
+            return {
+                width: this.item.width(),
+                height: this.item.height()
+            };
+            }
+        }
+
+        let isPaused = false;
+        window.onblur = function() {
+            isPaused = true;
+        }.bind(this);
+        
+        window.onfocus = function() {
+            isPaused = false;
+        }.bind(this);
+        
+        let particles = [];
+        
+        setInterval(function() {
+            if (!isPaused) {
+            particles.push(
+                new Particle(circle, {
+                "x": (Math.random() * $(window).width()),
+                "y": $(window).height() + 100
+                }, (1 + Math.random()) * 0.5) // Reduced speed by half
+            );
+            }
+        }, 180);
+        
+        function update() {
+            particles = particles.filter(function(p) {
+            return p.move();
+            });
+            requestAnimationFrame(update.bind(this));
+        }
+        
+        $(document).ready(function() {
+            update();
+        });
+      });
+    </script>
+  </body>
+</html>
