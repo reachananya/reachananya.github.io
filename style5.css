@@ -846,23 +846,55 @@ body {
 }
 
 /* Footer */
+
+/* Footer */
 .footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 50px;
+  color: #a0aec0;
+  font-size: 0.9rem;
+}
+
+.footer .fa-heart {
+  color: #f06464;
+  margin: 0 5px;
+}
+
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* .footer {
   background: #111111;
   color: #50d890;
   text-align: center;
   padding: 20px 0;
   margin-top: 3rem;
-}
+} */
 
 /* Fix the margin-top in the HTML by adding this rule */
-.footer[style="margin-top: 550px;"] {
-  margin-top: 50px !important; /* Override the inline style */
-}
+/* .footer[style="margin-top: 550px;"] {
+  margin-top: 50px !important;
+} */
 
-.fa-heart {
+/* .fa-heart {
   color: red;
   animation: pulse 1.5s infinite;
-}
+} */
 
 @keyframes pulse {
   0% { transform: scale(1); }
