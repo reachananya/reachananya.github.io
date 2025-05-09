@@ -53,7 +53,167 @@ body {
 
 
 
+/* IMPROVED ARROW RESPONSIVENESS */
+@media only screen and (max-width: 768px) {
+  /* Hide arrow indicators on mobile */
+  .projects-group, .code-group, .research-group {
+    display: none;
+  }
+  
+  /* Make the small title text more readable on small screens */
+  .small-title {
+    font-size: 20px;
+    line-height: 1.5;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  /* Adjust main title text */
+  .main-title-header {
+    font-size: 42px;
+  }
+}
 
+/* CONTENT SHOWCASE SECTION FIXES */
+@media only screen and (max-width: 992px) {
+  .content-showcase {
+    padding: 6rem 2rem; /* Reduce padding on smaller screens */
+  }
+  
+  .showcase-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .updates-wrapper {
+    height: auto;
+    max-height: 500px; /* Limit height on tablets */
+  }
+  
+  .vertical-navigation {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+  
+  .nav-item {
+    padding: 0.8rem;
+    min-width: 160px;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .content-showcase {
+    padding: 4rem 1rem; /* Further reduce padding on mobile */
+  }
+  
+  .update-item {
+    flex-direction: column;
+    padding-left: 20px;
+  }
+  
+  .update-date {
+    margin-bottom: 10px;
+    padding-right: 0;
+  }
+  
+  .updates-header::after {
+    left: 50%; /* Center the underline on mobile */
+  }
+  
+  .updates-header {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .vertical-navigation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .nav-number {
+    font-size: 1.5rem;
+  }
+  
+  .nav-text {
+    font-size: 1rem;
+  }
+}
+
+/* ABOUT ME SECTION RESPONSIVENESS */
+@media only screen and (max-width: 768px) {
+  .about-me-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .education-box {
+    padding: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .resume-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .social-links {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+}
+
+/* IMPROVED HEADER RESPONSIVENESS */
+@media only screen and (max-width: 480px) {
+  .main-title-header {
+    font-size: 32px;
+  }
+  
+  .small-title {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+  
+  .section-header {
+    font-size: 2rem;
+  }
+  
+  .scroll-down-container {
+    bottom: 2px;
+  }
+  
+  .scroll-text {
+    font-size: 12px;
+  }
+}
+
+/* TIMELINE FIXES */
+@media only screen and (max-width: 480px) {
+  .update-item::before {
+    width: 10px;
+    height: 10px;
+    top: 2px;
+  }
+  
+  .update-item::after {
+    left: 4px;
+  }
+  
+  .update-content {
+    padding: 12px;
+  }
+  
+  .update-content h3 {
+    font-size: 1rem;
+  }
+  
+  .update-content p {
+    font-size: 0.85rem;
+  }
+}
 
 
 /* Common styles for all pointer groups (projects, code, research) */
@@ -846,8 +1006,6 @@ body {
 }
 
 /* Footer */
-
-/* Footer */
 .footer {
   text-align: center;
   padding: 30px 0;
@@ -877,24 +1035,6 @@ body {
   }
 }
 
-
-/* .footer {
-  background: #111111;
-  color: #50d890;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 3rem;
-} */
-
-/* Fix the margin-top in the HTML by adding this rule */
-/* .footer[style="margin-top: 550px;"] {
-  margin-top: 50px !important;
-} */
-
-/* .fa-heart {
-  color: red;
-  animation: pulse 1.5s infinite;
-} */
 
 @keyframes pulse {
   0% { transform: scale(1); }
@@ -986,241 +1126,6 @@ body {
 	margin: 50px 0px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Awards Page Specific Styles */
-.awards-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem 4rem;
-}
-
-.category-filter {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.filter-btn {
-  background: transparent;
-  border: 2px solid #50d890;
-  color: #50d890;
-  padding: 8px 20px;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.filter-btn:hover {
-  background-color: rgba(80, 216, 144, 0.1);
-  transform: translateY(-3px);
-}
-
-.filter-btn.active {
-  background-color: #50d890;
-  color: #111;
-}
-
-.awards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 30px;
-  margin-top: 2rem;
-}
-
-.award-card {
-  background-color: #1e1f22;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  border-top: 3px solid #50d890;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.award-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.award-banner {
-  height: 160px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.award-banner::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
-}
-
-.award-year {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: #50d890;
-  color: #111;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-weight: bold;
-  z-index: 1;
-}
-
-.category-tag {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background-color: rgba(30, 31, 34, 0.8);
-  color: #fff;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  z-index: 1;
-}
-
-.award-content {
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.award-title {
-  font-size: 1.4rem;
-  color: white;
-  margin-bottom: 15px;
-  line-height: 1.4;
-}
-
-.award-issuer {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.issuer-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #333;
-  margin-right: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: #fff;
-}
-
-.issuer-name {
-  color: #e0e0e0;
-  font-size: 1rem;
-}
-
-.award-description {
-  color: #cccccc;
-  font-size: 0.95rem;
-  margin-bottom: 20px;
-  line-height: 1.6;
-  flex-grow: 1;
-}
-
-.award-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 15px;
-  margin-top: auto;
-}
-
-.award-badge {
-  display: flex;
-  align-items: center;
-}
-
-.badge-icon {
-  color: #ffd700;
-  margin-right: 8px;
-  font-size: 1.2rem;
-}
-
-.badge-text {
-  color: #e0e0e0;
-  font-size: 0.9rem;
-}
-
-.award-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 15px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  background-color: rgba(80, 216, 144, 0.15);
-  color: #50d890;
-}
-
-.award-link:hover {
-  background-color: rgba(80, 216, 144, 0.25);
-  transform: translateY(-3px);
-}
-
-.back-home {
-  margin-top: 3rem;
-  text-align: center;
-}
-
-.back-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  background-color: rgba(80, 216, 144, 0.15);
-  color: #50d890;
-}
-
-.back-btn:hover {
-  background-color: rgba(80, 216, 144, 0.25);
-  transform: translateY(-3px);
-}
 
 /* Animations */
 @keyframes fadeUp {
