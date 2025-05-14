@@ -10,7 +10,12 @@ body {
   text-align: center;
   transition: all 1s ease;
   overflow-x: hidden;
-	background-color: #111111;
+  background-color: #111111;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  min-height: 100vh; /* Ensure full viewport height */
+  width: 100%; /* Ensure full width */
+  position: relative; /* For proper positioning context */
 }
 
 /* Title section */
@@ -19,10 +24,26 @@ body {
   position: relative;
   width: 100%;
   z-index: 1;
+  overflow: hidden; /* Prevent content from spilling outside */
+  min-height: 100vh; /* Ensure it covers the viewport height */
 }
 
 .demo .large-header {
-  background-image: url("https://i.ibb.co/Ctrbs9J/backgroun1-portfolio.jpg");
+  background-image: url("https://i.ibb.co/Ctrbs9J/backgroun1-portfolio.jpg"); /*url("https://i.ibb.co/Ctrbs9J/backgroun1-portfolio.jpg")*/
+  background-size: 80% 100%; /* 2 images horizontally, 3 vertically */
+  background-position: center center; /* Center the background */
+  background-repeat: repeat; /* Repeat the image */
+  background-attachment: fixed; /* Keep background fixed when scrolling */
+}
+
+/* Canvas element styling */
+#demo-canvas {
+  position: absolute;
+  width: 100% !important; /* Force full width */
+  height: 100% !important; /* Force full height */
+  left: 0;
+  top: 0;
+  z-index: 1;
 }
 
 .main-title{
@@ -35,6 +56,7 @@ body {
   left: 50%;
   -webkit-transform: translate3d(-50%,-50%,0);
   transform: translate(-50%,-50%,0);
+  z-index: 2; /* Ensure it's above the canvas */
 }
 
 .main-title-header {
