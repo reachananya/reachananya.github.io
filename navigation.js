@@ -163,4 +163,58 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
+    
+    // Mobile Sidebar Navigation
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const hamburgerIcon = document.querySelector('.hamburger-icon');
+    const mobileSidebar = document.querySelector('.mobile-sidebar');
+    const sidebarClose = document.querySelector('.sidebar-close');
+    const sidebarOverlay = document.querySelector('.sidebar-overlay');
+    
+    // Toggle sidebar when hamburger is clicked
+    if (hamburgerMenu) {
+      hamburgerMenu.addEventListener('click', function() {
+        hamburgerIcon.classList.toggle('hamburger-active');
+        mobileSidebar.classList.toggle('active');
+        sidebarOverlay.classList.toggle('active');
+        
+        // Prevent scrolling when sidebar is open
+        if (mobileSidebar.classList.contains('active')) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+      });
+    }
+    
+    // Close sidebar when close button is clicked
+    if (sidebarClose) {
+      sidebarClose.addEventListener('click', function() {
+        hamburgerIcon.classList.remove('hamburger-active');
+        mobileSidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+    
+    // Close sidebar when overlay is clicked
+    if (sidebarOverlay) {
+      sidebarOverlay.addEventListener('click', function() {
+        hamburgerIcon.classList.remove('hamburger-active');
+        mobileSidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+    
+    // Close sidebar when a menu item is clicked
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
+    sidebarItems.forEach(item => {
+      item.addEventListener('click', function() {
+        hamburgerIcon.classList.remove('hamburger-active');
+        mobileSidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
   });

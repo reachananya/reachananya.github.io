@@ -1201,6 +1201,234 @@ body {
   }
 }
 
+/* Hamburger Menu Styles - Futuristic redesign */
+.hamburger-menu {
+  display: none; /* Hidden by default on desktop */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.hamburger-menu:hover {
+  transform: scale(1.1);
+}
+
+.hamburger-icon {
+  width: 28px;
+  height: 20px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+}
+
+.hamburger-icon span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #50d890;
+  border-radius: 0;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+  box-shadow: 0 0 8px rgba(80, 216, 144, 0.7);
+}
+
+.hamburger-icon span:nth-child(1) {
+  top: 0px;
+  width: 60%;
+  right: 0;
+  left: auto;
+}
+
+.hamburger-icon span:nth-child(2) {
+  top: 9px;
+}
+
+.hamburger-icon span:nth-child(3) {
+  top: 18px;
+  width: 75%;
+}
+
+.hamburger-active span {
+  box-shadow: 0 0 10px rgba(80, 216, 144, 0.9);
+}
+
+.hamburger-active span:nth-child(1) {
+  top: 9px;
+  width: 100%;
+  left: 0;
+  transform: rotate(135deg);
+}
+
+.hamburger-active span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.hamburger-active span:nth-child(3) {
+  top: 9px;
+  width: 100%;
+  transform: rotate(-135deg);
+}
+
+/* Mobile Sidebar Styles - Clean, minimal redesign */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Start off-screen */
+  width: 280px;
+  height: 100vh;
+  background-color: #111111;
+  box-shadow: -2px 0 20px rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  padding: 60px 25px 25px;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.mobile-sidebar.active {
+  right: 0; /* Slide in when active */
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 40px;
+  padding-bottom: 15px;
+  border-bottom: none;
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  right: 25px;
+}
+
+.sidebar-logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.sidebar-close {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+}
+
+.sidebar-close:hover {
+  color: #ffffff;
+}
+
+.sidebar-subtitle {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 65px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
+  padding: 12px;
+  transition: all 0.25s ease;
+  background-color: transparent;
+  border-bottom: none;
+}
+
+.sidebar-item:hover {
+  transform: translateX(5px);
+  background-color: transparent;
+  border-bottom: none;
+}
+
+.sidebar-item .nav-number {
+  color: #50d890;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.sidebar-item .nav-text {
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-item:hover .nav-number {
+  opacity: 1;
+}
+
+.sidebar-footer {
+  margin-top: 40px;
+  padding-top: 15px;
+  border-top: none;
+}
+
+.sidebar-copyright {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 5px;
+  text-align: center;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Show hamburger only on mobile */
+@media only screen and (max-width: 992px) {
+  .hamburger-menu {
+    display: block;
+  }
+  
+  .vertical-navigation {
+    display: none; /* Hide the default navigation */
+  }
+}
+
+/* Ensure proper sidebar behavior on smaller screens */
+@media only screen and (max-width: 480px) {
+  .mobile-sidebar {
+    width: 85%; /* Wider sidebar on very small screens */
+  }
+}
+
 
 
 
