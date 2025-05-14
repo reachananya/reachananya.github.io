@@ -55,9 +55,9 @@ body {
 
 /* IMPROVED ARROW RESPONSIVENESS */
 @media only screen and (max-width: 768px) {
-  /* Hide arrow indicators on mobile */
+  /* Hide arrow indicators on mobile - fallback if JS doesn't work */
   .projects-group, .code-group, .research-group {
-    display: none;
+    display: none !important; /* Use !important to override the JS setting */
   }
   
   /* Make the small title text more readable on small screens */
@@ -221,7 +221,7 @@ body {
   position: relative;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.5s ease-in;
+  transition: opacity 0s; /* Remove transition delay */
 }
 
 /* Common arrow styling */
@@ -251,7 +251,7 @@ body {
   height: 200px;
   pointer-events: auto;
   z-index: 10;
-  bottom: -15vh;
+  /* Remove bottom property - will be set by JavaScript */
 }
 
 /* Common arrow SVG styling */
@@ -381,6 +381,7 @@ body {
 }
 
 .project-bubble {
+  /* Position relative to parent indicator */
   bottom: 0;
   left: -25%;
   width: 180px;
@@ -393,7 +394,8 @@ body {
 }
 
 .code-bubble {
-  bottom: -60px;
+  /* Position relative to parent indicator */
+  bottom: -8vh;
   left: 25%;
   width: 180px;
   height: 80px;
@@ -405,7 +407,8 @@ body {
 }
 
 .research-bubble {
-  bottom: 30px;
+  /* Position relative to parent indicator */
+  bottom: 4vh;
   left: 90%;
   width: 200px;
   height: 90px;
@@ -494,32 +497,25 @@ body {
   .projects-indicator, .code-indicator, .research-indicator {
     width: 250px;
     height: 160px;
+    /* Bottom property will be set by JavaScript */
   }
   
   .projects-indicator {
     left: 15%;
-    bottom: -12vh;
+    /* Remove bottom property */
   }
   
   .code-indicator {
     right: -50px;
-    bottom: -12vh;
+    /* Remove bottom property */
   }
   
   .research-indicator {
     right: -70px;
-    bottom: -18vh;
+    /* Remove bottom property */
   }
   
-  .code-bubble, .project-bubble {
-    width: 150px;
-    height: 70px;
-  }
-  
-  .research-bubble {
-    width: 180px;
-    height: 80px;
-  }
+  /* Keep bubble positioning relative to indicators */
 }
 
 /* 768px breakpoint */
@@ -527,33 +523,25 @@ body {
   .projects-indicator, .code-indicator, .research-indicator {
     width: 200px;
     height: 140px;
+    /* Bottom property will be set by JavaScript */
   }
   
   .projects-indicator {
     left: -10px;
-    bottom: -20vh;
+    /* Remove bottom property */
   }
   
   .code-indicator {
     right: -10px;
-    bottom: -35vh;
+    /* Remove bottom property */
   }
   
   .research-indicator {
     right: -10px;
-    bottom: -50vh;
+    /* Remove bottom property */
   }
   
-  .project-bubble, .code-bubble {
-    width: 120px;
-    height: 60px;
-  }
-  
-  .research-bubble {
-    width: 180px;
-    height: 70px;
-    left: 35%;
-  }
+  /* Keep bubble positioning relative to indicators */
 }
 
 /* 480px breakpoint */
@@ -562,37 +550,25 @@ body {
     transform: scale(0.8);
     width: 160px;
     height: 120px;
+    /* Bottom property will be set by JavaScript */
   }
   
   .projects-indicator {
     left: 25%;
-    bottom: -8vh;
+    /* Remove bottom property */
   }
   
   .code-indicator {
     right: 0;
-    bottom: -8vh;
+    /* Remove bottom property */
   }
   
   .research-indicator {
     right: -20px;
-    bottom: -10vh;
+    /* Remove bottom property */
   }
   
-  .project-bubble, .code-bubble {
-    width: 100px;
-    height: 50px;
-  }
-  
-  .code-bubble {
-    left: 15%;
-  }
-  
-  .research-bubble {
-    width: 140px;
-    height: 60px;
-    left: 20%;
-  }
+  /* Keep bubble positioning relative to indicators */
 }
 
 /* ====== ANIMATION KEYFRAMES ====== */
