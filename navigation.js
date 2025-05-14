@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (projectsGroup) {
         const projectsIndicator = projectsGroup.querySelector('.projects-indicator');
         if (projectsIndicator) {
-          projectsIndicator.style.top = (projectRect.bottom - mainTitleRect.top - 170) + 'px';
+          projectsIndicator.style.top = (projectRect.bottom - mainTitleRect.top - 140) + 'px';
           projectsIndicator.style.bottom = 'auto'; // Override any bottom setting
         }
       }
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (codeGroup) {
         const codeIndicator = codeGroup.querySelector('.code-indicator');
         if (codeIndicator) {
-          codeIndicator.style.top = (codeRect.bottom - mainTitleRect.top - 170) + 'px';
+          codeIndicator.style.top = (codeRect.bottom - mainTitleRect.top - 140) + 'px';
           codeIndicator.style.bottom = 'auto'; // Override any bottom setting
         }
       }
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (researchGroup) {
         const researchIndicator = researchGroup.querySelector('.research-indicator');
         if (researchIndicator) {
-          researchIndicator.style.top = (researchRect.bottom - mainTitleRect.top - 170) + 'px';
+          researchIndicator.style.top = (researchRect.bottom - mainTitleRect.top - 145) + 'px';
           researchIndicator.style.bottom = 'auto'; // Override any bottom setting
         }
       }
@@ -145,4 +145,22 @@ document.addEventListener('DOMContentLoaded', function() {
         positionArrows();
       }, 250);
     });
+    
+    // Handle scroll down button
+    const scrollDownLink = document.querySelector('.scroll-down-link');
+    if (scrollDownLink) {
+      scrollDownLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          // Smooth scroll to target
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    }
   });

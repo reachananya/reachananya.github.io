@@ -20,9 +20,17 @@ body {
 
 /* Title section */
 
+.title {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ensure the title takes up the full viewport height */
+  overflow: hidden;
+}
+
 .large-header {
   position: relative;
   width: 100%;
+  height: 100%; /* Fill the title container */
   z-index: 1;
   overflow: hidden; /* Prevent content from spilling outside */
   min-height: 100vh; /* Ensure it covers the viewport height */
@@ -30,7 +38,7 @@ body {
 
 .demo .large-header {
   background-image: url("https://i.ibb.co/Ctrbs9J/backgroun1-portfolio.jpg"); /*url("https://i.ibb.co/Ctrbs9J/backgroun1-portfolio.jpg")*/
-  background-size: 80% 100%; /* 2 images horizontally, 3 vertically */
+  background-size: 60% 100%; /* 2 images horizontally, 3 vertically */
   background-position: center center; /* Center the background */
   background-repeat: repeat; /* Repeat the image */
   background-attachment: fixed; /* Keep background fixed when scrolling */
@@ -60,16 +68,16 @@ body {
 }
 
 .main-title-header {
-  font-size: 75px;
+  font-size: 52.5px;
 }
 
 .small-title {
-  font-size: 28px;
+  font-size: 19.6px;
 }
 
 @media only screen and (max-width: 1000px){
   .demo .main-title{
-      font-size: 3em;
+      font-size: 2.1em;
   }
 }
 
@@ -84,7 +92,7 @@ body {
   
   /* Make the small title text more readable on small screens */
   .small-title {
-    font-size: 20px;
+    font-size: 14px;
     line-height: 1.5;
     max-width: 90%;
     margin: 0 auto;
@@ -92,7 +100,12 @@ body {
   
   /* Adjust main title text */
   .main-title-header {
-    font-size: 42px;
+    font-size: 29.4px;
+  }
+  
+  /* Adjust the scroll down arrow for mobile */
+  .scroll-down-container {
+    bottom: 30px; /* Slightly larger value on mobile to ensure visibility */
   }
 }
 
@@ -158,11 +171,11 @@ body {
   }
   
   .nav-number {
-    font-size: 1.5rem;
+    font-size: 1.05rem;
   }
   
   .nav-text {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -179,7 +192,7 @@ body {
   
   .resume-btn {
     padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
+    font-size: 0.63rem;
   }
   
   .social-links {
@@ -191,16 +204,16 @@ body {
 /* IMPROVED HEADER RESPONSIVENESS */
 @media only screen and (max-width: 480px) {
   .main-title-header {
-    font-size: 32px;
+    font-size: 22.4px;
   }
   
   .small-title {
-    font-size: 16px;
+    font-size: 11.2px;
     padding: 0 10px;
   }
   
   .section-header {
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
   
   .scroll-down-container {
@@ -208,7 +221,7 @@ body {
   }
   
   .scroll-text {
-    font-size: 12px;
+    font-size: 8.4px;
   }
 }
 
@@ -229,11 +242,11 @@ body {
   }
   
   .update-content h3 {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
   
   .update-content p {
-    font-size: 0.85rem;
+    font-size: 0.6rem;
   }
 }
 
@@ -259,7 +272,7 @@ body {
 /* Text styling */
 .text {
   font-family: Orbitron, sans-serif;
-  font-size: 33px;
+  font-size: 23.1px;
   fill: white;
   text-anchor: middle;
   letter-spacing: 1px;
@@ -399,25 +412,25 @@ body {
 /* ====== SPECIFIC POSITIONING FOR EACH GROUP ====== */
 /* Projects specific positioning */
 .projects-indicator {
-  left: -20%;
+  left: -29%;
 }
 
 .project-bubble {
   /* Position relative to parent indicator */
   bottom: 0;
-  left: -25%;
+  left: -10%;
   width: 180px;
   height: 80px;
 }
 
 /* Code specific positioning */
 .code-indicator {
-  right: 300px;
+  right: 200px;
 }
 
 .code-bubble {
   /* Position relative to parent indicator */
-  bottom: -8vh;
+  bottom: 8vh;
   left: 25%;
   width: 180px;
   height: 80px;
@@ -431,7 +444,7 @@ body {
 .research-bubble {
   /* Position relative to parent indicator */
   bottom: 4vh;
-  left: 90%;
+  left: 85%;
   width: 200px;
   height: 90px;
 }
@@ -469,10 +482,12 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 5px;
+  bottom: 20px; /* Fixed distance from bottom of title section */
   left: 0;
   right: 0;
   z-index: 10;
+  pointer-events: auto; /* Ensure clickable */
+  width: 100%; /* Ensure full width */
 }
 
 .scroll-down-link {
@@ -481,7 +496,7 @@ body {
   align-items: center;
   text-decoration: none;
   color: white;
-  font-size: 14px;
+  font-size: 9.8px;
   transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
   opacity: 0.8;
   padding: 10px;
@@ -634,7 +649,7 @@ body {
 .section-header {
   text-align: center;
   color: white;
-  font-size: 2.5rem;
+  font-size: 1.89rem;
   margin-bottom: 3rem;
   position: relative;
 }
@@ -677,6 +692,7 @@ body {
 .about-me-social h2 {
   margin-bottom: 1.5rem;
   color: #50d890;
+  font-size: 1.13rem;
 }
 
 .description {
@@ -685,7 +701,7 @@ body {
   margin-bottom: 1.5rem;
   line-height: 1.6;
   font-family: 'Barlow', sans-serif;
-  font-size: 16px;
+  font-size: 12.1px;
   letter-spacing: 0.5px;
 }
 
@@ -713,14 +729,14 @@ body {
 .education-box h2 {
   color: #50d890;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.13rem;
   font-style: normal;
 }
 
 .highlight {
   color: #50d890;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 0.83rem;
 }
 
 /* UPDATED CONTENT/SHOWCASE SECTION */
@@ -750,7 +766,7 @@ body {
 .updates-header {
   text-align: left;
   color: white;
-  font-size: 2rem;
+  font-size: 1.51rem;
   margin-bottom: 2rem;
   position: relative;
   display: inline-block;
@@ -853,12 +869,12 @@ body {
 
 .update-content h3 {
   margin-bottom: 6px;
-  font-size: 1.1rem;
+  font-size: 0.83rem;
   color: #e0e0e0;
 }
 
 .update-content p {
-  font-size: 0.9rem;
+  font-size: 0.68rem;
   line-height: 1.5;
   color: #cccccc;
   font-family: 'Montserrat', sans-serif;
@@ -895,11 +911,11 @@ body {
 .nav-number {
   color: #50d890;
   font-weight: 900;
-  font-size: 2rem; /* Added font size */
+  font-size: 1.51rem;
 }
 
 .nav-text {
-  font-size: 1.2rem;
+  font-size: 0.91rem;
   position: relative;
   color: white; /* Explicitly set to white */
 }
@@ -959,7 +975,7 @@ body {
 }
 
 .social-links li a i {
-  font-size: 24px;
+  font-size: 18.1px;
   display: inline-block;
   color: #50d890;
   transition: color 0.3s ease;
@@ -994,6 +1010,7 @@ body {
   font-weight: bold;
   text-decoration: none;
   transition: all 0.3s;
+  font-size: 0.68rem;
 }
 
 .resume-btn:hover {
@@ -1009,7 +1026,7 @@ body {
   padding: 30px 0;
   margin-top: 50px;
   color: #a0aec0;
-  font-size: 0.9rem;
+  font-size: 0.68rem;
 }
 
 .footer .fa-heart {
@@ -1079,11 +1096,11 @@ body {
   }
   
   .main-title-header {
-    font-size: 50px;
+    font-size: 35px;
   }
   
   .small-title {
-    font-size: 18px;
+    font-size: 12.6px;
   }
 }
   
@@ -1174,13 +1191,13 @@ body {
   }
   
   .award-year, .category-tag {
-    font-size: 0.8rem;
+    font-size: 0.56rem;
     padding: 3px 10px;
   }
   
   .filter-btn {
     padding: 6px 15px;
-    font-size: 0.8rem;
+    font-size: 0.56rem;
   }
 }
 
