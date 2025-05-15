@@ -1283,7 +1283,7 @@ body {
 .mobile-sidebar {
   position: fixed;
   top: 0;
-  right: -300px; /* Start off-screen */
+  right: -350px; /* Increase negative position to ensure it's completely off-screen */
   width: 280px;
   height: 100vh;
   background-color: #111111;
