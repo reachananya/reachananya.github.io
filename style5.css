@@ -118,6 +118,9 @@ body {
   .showcase-container {
     flex-direction: column;
     gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
   }
   
   .updates-wrapper {
@@ -142,12 +145,38 @@ body {
 
 @media only screen and (max-width: 768px) {
   .content-showcase {
-    padding: 4rem 1rem; /* Further reduce padding on mobile */
+    padding: 4rem 1rem;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .showcase-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    gap: 1.5rem;
+  }
+  
+  .updates-section {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  
+  .updates-wrapper {
+    width: 100%;
+    max-height: 600px;
+  }
+  
+  .updates-timeline {
+    padding-right: 10px;
   }
   
   .update-item {
     flex-direction: column;
     padding-left: 20px;
+    width: 100%;
   }
   
   .update-date {
@@ -155,8 +184,13 @@ body {
     padding-right: 0;
   }
   
+  .update-content {
+    width: 100%;
+    max-width: 100%;
+  }
+  
   .updates-header::after {
-    left: 50%; /* Center the underline on mobile */
+    left: 50%;
   }
   
   .updates-header {
@@ -168,6 +202,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    width: 100%;
   }
   
   .nav-number {
@@ -176,6 +211,64 @@ body {
   
   .nav-text {
     font-size: 0.7rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .updates-timeline {
+    padding-right: 5px;
+  }
+  
+  .updates-section {
+    padding: 0;
+  }
+  
+  .updates-wrapper {
+    max-height: 550px;
+  }
+  
+  .update-item::before {
+    width: 10px;
+    height: 10px;
+    top: 2px;
+  }
+  
+  .update-item::after {
+    left: 4px;
+  }
+  
+  .update-content {
+    padding: 12px;
+    width: calc(100% - 5px);
+    max-width: 100%;
+    margin-right: 5px;
+  }
+  
+  .update-content h3 {
+    font-size: 0.8rem;
+  }
+  
+  .update-content p {
+    font-size: 0.7rem;
+  }
+}
+
+/* Additional mobile fixes for the smallest screens */
+@media only screen and (max-width: 380px) {
+  .updates-wrapper {
+    max-height: 500px;
+  }
+  
+  .update-content h3 {
+    font-size: 0.75rem;
+  }
+  
+  .update-content p {
+    font-size: 0.65rem;
+  }
+  
+  .update-date {
+    font-size: 0.8rem;
   }
 }
 
@@ -752,15 +845,15 @@ body {
   margin: 0 auto;
   gap: 4rem;
   align-items: flex-start;
+  width: 100%;
 }
 
 /* Left Side - Updates Timeline */
 .updates-section {
   flex: 3;
   position: relative;
-  /* background-color: rgba(30, 31, 34, 0.3);
-  padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); */
+  width: 100%;
+  max-width: 100%;
 }
 
 .updates-header {
@@ -1062,6 +1155,10 @@ body {
 @media only screen and (max-width: 992px) {
   .showcase-container {
     flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
   }
   
   .vertical-navigation {
