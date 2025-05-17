@@ -22,6 +22,9 @@
     
     <!-- External CSS file -->
     <link rel="stylesheet" href="styles_projects.css" />
+    
+    <!-- particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   </head>
 
   <body>
@@ -53,32 +56,31 @@
             <span class="nav-text">awards</span>
           </a>
         </div>
+        
+        <!-- Hamburger Menu Button (visible on mobile only) -->
+        <div class="hamburger-menu">
+          <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
     </nav>
 
     <!-- Header Background with Video -->
     <div class="page-header">
-      <!-- <div class="video-background">
-        <iframe src="https://player.vimeo.com/video/912625754?h=496ea80218&muted=1&autoplay=1&loop=1&background=1&app_id=122963&quality=auto&preload=auto" 
-                frameborder="0" 
-                allow="autoplay; fullscreen" 
-                allowfullscreen
-                loading="eager">
-        </iframe>
-      </div> -->
-
-      <!-- implementing particles.js -->
-      <div id="particles"></div>
-      <div class="background"></div>
+      <!-- particles.js container -->
+      <div id="particles-js"></div>
       <div class="header-overlay"></div>
       <div class="header-content">
         <h1>Projects</h1>
-        <div class="header-subtitle">Technical Innovation & Creative Solutions</div>
+        <!-- <div class="header-subtitle">Technical Innovation & Creative Solutions</div> -->
       </div>
     </div>
 
     <!-- Projects Timeline -->
-    <div class="projects-container">
+    <div class="projects-container" style="padding-left: 30px; padding-right: 30px;">
       <div class="projects-timeline">
         <div class="timeline-line"></div>
         
@@ -376,7 +378,148 @@
       <p>&copy; 2025 All Rights Reserved</p>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Mobile Sidebar Navigation (hidden by default) -->
+    <div class="mobile-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-close"></div>
+      </div>
+      <div class="sidebar-content">
+        <!-- <a href="index.html" class="sidebar-item">
+          <span class="nav-number">00</span>
+          <span class="nav-text">About</span>
+        </a> -->
+        <a href="publications.html" class="sidebar-item">
+          <span class="nav-number">01</span>
+          <span class="nav-text">Publications</span>
+        </a>
+        <a href="experience.html" class="sidebar-item">
+          <span class="nav-number">02</span>
+          <span class="nav-text">Experience</span>
+        </a>
+        <a href="projects.html" class="sidebar-item">
+          <span class="nav-number">03</span>
+          <span class="nav-text">Projects</span>
+        </a>
+        <a href="awards.html" class="sidebar-item">
+          <span class="nav-number">04</span>
+          <span class="nav-text">Awards</span>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- Scripts for particles.js -->
+    <script>
+      particlesJS("particles-js", {
+        "particles": {
+          "number": {
+            "value": 80, /* Increased from 20 to 50 */
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#2a9d5c" /* Darkened from #50d890 to #2a9d5c (darker green) */
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+            "polygon": {
+              "nb_sides": 5
+            }
+          },
+          "opacity": {
+            "value": 2, /* Increased opacity from 0.3 to 0.5 */
+            "random": false,
+            "anim": {
+              "enable": false,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3, /* Increased size from 2 to 3 */
+            "random": true,
+            "anim": {
+              "enable": false,
+              "speed": 40,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#2a9d5c", /* Darkened from #50d890 to #2a9d5c */
+            "opacity": 1, /* Increased from 0.2 to 0.4 */
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 2, /* Kept slow speed for subtle movement */
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 140,
+              "line_linked": {
+                "opacity": 0.6 /* Reduced from 1 to 0.6 */
+              }
+            },
+            "bubble": {
+              "distance": 400,
+              "size": 40,
+              "duration": 2,
+              "opacity": 8,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 200,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    </script>
+    
+    <!-- Other existing scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -438,7 +581,7 @@
             detailsSection.style.display = detailsSection.style.display === 'none' ? 'block' : 'none';
             e.target.querySelector('i').className = detailsSection.style.display === 'none' ? 'fas fa-file-alt' : 'fas fa-times';
             e.target.innerHTML = detailsSection.style.display === 'none' ? 
-              '<i class="fas fa-file-alt"></i> See More' : 
+              '<i class="fas fa-file-alt"></i> Read More' : 
               '<i class="fas fa-times"></i> Show Less';
           }
         });
@@ -452,96 +595,59 @@
             });
           });
         });
-
-        // Particles JS implementation
-        const circle = '<svg viewBox="0 0 67.4 67.4"><circle class="circle" cx="33.7" cy="33.7" r="33.7"/></svg>';
         
-        class Particle {
-            constructor(svg, coordinates, friction) {
-            this.svg = svg;
-            this.steps = ($(window).height()) / 1.5;
-            this.item = null;
-            this.friction = friction * 0.3;
-            this.coordinates = coordinates;
-            this.position = this.coordinates.y;
-            this.dimensions = this.render();
-            this.move();
-            this.rotation = Math.random() > 0.5 ? "-" : "+";
-            this.scale = 0.15 + (Math.random() * 0.25);
-            this.siner = $(window).width() / 3.5 * Math.random();
-            }
+        // Mobile Sidebar Navigation
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const mobileSidebar = document.querySelector('.mobile-sidebar');
+        const sidebarClose = document.querySelector('.sidebar-close');
+        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+        
+        // Toggle sidebar when hamburger is clicked
+        if (hamburgerMenu) {
+          hamburgerMenu.addEventListener('click', function() {
+            hamburgerIcon.classList.toggle('hamburger-active');
+            mobileSidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
             
-            destroy() {
-            this.item.remove();
-            }
-
-            move() {
-            this.position = this.position - this.friction;
-            let top = this.position;
-            let left = this.coordinates.x + Math.sin(this.position * Math.PI / this.steps) * this.siner;
-            this.item.css({
-                transform: "translateX(" + left + "px) translateY(" + top + "px) scale(" + this.scale + ") rotate(" + (this.rotation) + (this.position * 0.5) + "deg)"
-            });
-            
-            if (this.position < -(this.dimensions.height)) {
-                this.destroy();
-                return false;
+            // Prevent scrolling when sidebar is open
+            if (mobileSidebar.classList.contains('active')) {
+              document.body.style.overflow = 'hidden';
             } else {
-                return true;
+              document.body.style.overflow = '';
             }
-            }
-
-            render() {
-            this.item = $(this.svg, {
-                css: {
-                transform: "translateX(" + this.coordinates.x + "px) translateY(" + this.coordinates.y + "px)"
-                }
-            });
-            $("#particles").append(this.item);
-            return {
-                width: this.item.width(),
-                height: this.item.height()
-            };
-            }
-        }
-
-        let isPaused = false;
-        window.onblur = function() {
-            isPaused = true;
-        }.bind(this);
-        
-        window.onfocus = function() {
-            isPaused = false;
-        }.bind(this);
-        
-        let particles = [];
-        
-        setInterval(function() {
-            if (!isPaused) {
-            particles.push(
-                new Particle(circle, {
-                "x": (Math.random() * $(window).width()),
-                "y": $(window).height() + 100
-                }, (0.5 + Math.random() * 0.5) * 0.3)
-            );
-            }
-        }, 300);
-        
-        function update() {
-            particles = particles.filter(function(p) {
-            return p.move();
-            });
-            requestAnimationFrame(update.bind(this));
+          });
         }
         
-        $(document).ready(function() {
-            setInterval(function() {
-              if (particles.length > 20) {
-                particles = particles.slice(-20);
-              }
-            }, 1000);
-            
-            update();
+        // Close sidebar when close button is clicked
+        if (sidebarClose) {
+          sidebarClose.addEventListener('click', function() {
+            hamburgerIcon.classList.remove('hamburger-active');
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        }
+        
+        // Close sidebar when overlay is clicked
+        if (sidebarOverlay) {
+          sidebarOverlay.addEventListener('click', function() {
+            hamburgerIcon.classList.remove('hamburger-active');
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        }
+        
+        // Close sidebar when a menu item is clicked
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+        sidebarItems.forEach(item => {
+          item.addEventListener('click', function() {
+            hamburgerIcon.classList.remove('hamburger-active');
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
         });
       });
     </script>
