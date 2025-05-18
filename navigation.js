@@ -164,57 +164,112 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
     
-    // Mobile Sidebar Navigation
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const hamburgerIcon = document.querySelector('.hamburger-icon');
-    const mobileSidebar = document.querySelector('.mobile-sidebar');
-    const sidebarClose = document.querySelector('.sidebar-close');
-    const sidebarOverlay = document.querySelector('.sidebar-overlay');
-    
-    // Toggle sidebar when hamburger is clicked
-    if (hamburgerMenu) {
-      hamburgerMenu.addEventListener('click', function() {
-        hamburgerIcon.classList.toggle('hamburger-active');
-        mobileSidebar.classList.toggle('active');
-        sidebarOverlay.classList.toggle('active');
+    // Mobile Sidebar Navigation - Completely rewritten for reliability
+    document.addEventListener('click', function(event) {
+      // Handle hamburger menu click
+      if (event.target.closest('.hamburger-menu') || event.target.matches('.hamburger-icon span')) {
+        console.log('Hamburger clicked through event delegation');
         
-        // Prevent scrolling when sidebar is open
-        if (mobileSidebar.classList.contains('active')) {
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const mobileSidebar = document.querySelector('.mobile-sidebar');
+        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+        
+        // Toggle classes
+        if (hamburgerIcon) hamburgerIcon.classList.toggle('hamburger-active');
+        if (mobileSidebar) mobileSidebar.classList.toggle('active');
+        if (sidebarOverlay) sidebarOverlay.classList.toggle('active');
+        
+        // Toggle body scroll
+        if (mobileSidebar && mobileSidebar.classList.contains('active')) {
           document.body.style.overflow = 'hidden';
         } else {
           document.body.style.overflow = '';
         }
-      });
-    }
-    
-    // Close sidebar when close button is clicked
-    if (sidebarClose) {
-      sidebarClose.addEventListener('click', function() {
-        hamburgerIcon.classList.remove('hamburger-active');
-        mobileSidebar.classList.remove('active');
-        sidebarOverlay.classList.remove('active');
+      }
+      
+      // Handle sidebar close button click
+      if (event.target.closest('.sidebar-close')) {
+        console.log('Close button clicked through event delegation');
+        
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const mobileSidebar = document.querySelector('.mobile-sidebar');
+        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+        
+        // Remove active classes
+        if (hamburgerIcon) hamburgerIcon.classList.remove('hamburger-active');
+        if (mobileSidebar) mobileSidebar.classList.remove('active');
+        if (sidebarOverlay) sidebarOverlay.classList.remove('active');
         document.body.style.overflow = '';
-      });
-    }
-    
-    // Close sidebar when overlay is clicked
-    if (sidebarOverlay) {
-      sidebarOverlay.addEventListener('click', function() {
-        hamburgerIcon.classList.remove('hamburger-active');
-        mobileSidebar.classList.remove('active');
-        sidebarOverlay.classList.remove('active');
+      }
+      
+      // Handle sidebar overlay click
+      if (event.target.closest('.sidebar-overlay')) {
+        console.log('Overlay clicked through event delegation');
+        
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const mobileSidebar = document.querySelector('.mobile-sidebar');
+        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+        
+        // Remove active classes
+        if (hamburgerIcon) hamburgerIcon.classList.remove('hamburger-active');
+        if (mobileSidebar) mobileSidebar.classList.remove('active');
+        if (sidebarOverlay) sidebarOverlay.classList.remove('active');
         document.body.style.overflow = '';
-      });
-    }
-    
-    // Close sidebar when a menu item is clicked
-    const sidebarItems = document.querySelectorAll('.sidebar-item');
-    sidebarItems.forEach(item => {
-      item.addEventListener('click', function() {
-        hamburgerIcon.classList.remove('hamburger-active');
-        mobileSidebar.classList.remove('active');
-        sidebarOverlay.classList.remove('active');
+      }
+      
+      // Handle sidebar item click
+      if (event.target.closest('.sidebar-item')) {
+        console.log('Sidebar item clicked through event delegation');
+        
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const mobileSidebar = document.querySelector('.mobile-sidebar');
+        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+        
+        // Remove active classes
+        if (hamburgerIcon) hamburgerIcon.classList.remove('hamburger-active');
+        if (mobileSidebar) mobileSidebar.classList.remove('active');
+        if (sidebarOverlay) sidebarOverlay.classList.remove('active');
         document.body.style.overflow = '';
-      });
+      }
+    });
+    
+    // Debug logging on page load
+    window.addEventListener('load', function() {
+      console.log('Page fully loaded - navigation elements:');
+      console.log('- hamburgerMenu:', !!document.querySelector('.hamburger-menu'));
+      console.log('- hamburgerIcon:', !!document.querySelector('.hamburger-icon'));
+      console.log('- mobileSidebar:', !!document.querySelector('.mobile-sidebar'));
+      console.log('- sidebarClose:', !!document.querySelector('.sidebar-close'));
+      console.log('- sidebarOverlay:', !!document.querySelector('.sidebar-overlay'));
     });
   });
+  
+  // Immediate initialization for mobile navigation
+  console.log('Immediate navigation check:');
+  console.log('- hamburgerMenu:', !!document.querySelector('.hamburger-menu'));
+  console.log('- hamburgerIcon:', !!document.querySelector('.hamburger-icon'));
+  console.log('- mobileSidebar:', !!document.querySelector('.mobile-sidebar'));
+  console.log('- sidebarClose:', !!document.querySelector('.sidebar-close'));
+  console.log('- sidebarOverlay:', !!document.querySelector('.sidebar-overlay'));
+  
+  // Add click handlers outside DOMContentLoaded if needed
+  const hamburgerMenuDirect = document.querySelector('.hamburger-menu');
+  if (hamburgerMenuDirect) {
+    console.log('Adding direct click handler to hamburger menu');
+    hamburgerMenuDirect.addEventListener('click', function() {
+      console.log('Direct hamburger click detected');
+      const hamburgerIcon = document.querySelector('.hamburger-icon');
+      const mobileSidebar = document.querySelector('.mobile-sidebar');
+      const sidebarOverlay = document.querySelector('.sidebar-overlay');
+      
+      if (hamburgerIcon) hamburgerIcon.classList.toggle('hamburger-active');
+      if (mobileSidebar) mobileSidebar.classList.toggle('active');
+      if (sidebarOverlay) sidebarOverlay.classList.toggle('active');
+      
+      if (mobileSidebar && mobileSidebar.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }

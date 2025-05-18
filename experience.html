@@ -27,6 +27,8 @@
     
     <!-- External CSS file -->
     <link rel="stylesheet" href="styles_experience.css" />
+    <!-- Mobile Navigation CSS -->
+    <link rel="stylesheet" href="mobile-nav.css" />
   </head>
 
   <body>
@@ -69,6 +71,40 @@
         </div>
       </div>
     </nav>
+    
+    <!-- Mobile Sidebar Navigation (hidden by default) -->
+    <div class="mobile-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-close"></div>
+      </div>
+      <div class="sidebar-content">
+        <a href="index.html" class="sidebar-item">
+          <span class="nav-number">00</span>
+          <span class="nav-text">About</span>
+        </a>
+        <a href="publications.html" class="sidebar-item">
+          <span class="nav-number">01</span>
+          <span class="nav-text">Publications</span>
+        </a>
+        <a href="experience.html" class="sidebar-item">
+          <span class="nav-number">02</span>
+          <span class="nav-text">Experience</span>
+        </a>
+        <a href="projects.html" class="sidebar-item">
+          <span class="nav-number">03</span>
+          <span class="nav-text">Projects</span>
+        </a>
+        <a href="awards.html" class="sidebar-item">
+          <span class="nav-number">04</span>
+          <span class="nav-text">Awards</span>
+        </a>
+      </div>
+      <div class="sidebar-footer">
+      </div>
+    </div>
+    
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay"></div>
 
     <!-- Header Background with Particles -->
     <div class="page-header">
@@ -429,38 +465,6 @@
       <p>&copy; 2025 All Rights Reserved</p>
     </div>
     
-    <!-- Mobile Sidebar Navigation (hidden by default) -->
-    <div class="mobile-sidebar">
-      <div class="sidebar-header">
-        <div class="sidebar-close"></div>
-      </div>
-      <div class="sidebar-content">
-        <a href="index.html" class="sidebar-item">
-          <span class="nav-number">00</span>
-          <span class="nav-text">About</span>
-        </a>
-        <a href="publications.html" class="sidebar-item">
-          <span class="nav-number">01</span>
-          <span class="nav-text">Publications</span>
-        </a>
-        <a href="experience.html" class="sidebar-item">
-          <span class="nav-number">02</span>
-          <span class="nav-text">Experience</span>
-        </a>
-        <a href="projects.html" class="sidebar-item">
-          <span class="nav-number">03</span>
-          <span class="nav-text">Projects</span>
-        </a>
-        <a href="awards.html" class="sidebar-item">
-          <span class="nav-number">04</span>
-          <span class="nav-text">Awards</span>
-        </a>
-      </div>
-    </div>
-    
-    <!-- Sidebar Overlay -->
-    <div class="sidebar-overlay"></div>
-
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -497,60 +501,6 @@
       
       document.querySelectorAll('.timeline-item').forEach(item => {
         observer.observe(item);
-      });
-      
-      // Mobile Sidebar Navigation
-      const hamburgerMenu = document.querySelector('.hamburger-menu');
-      const hamburgerIcon = document.querySelector('.hamburger-icon');
-      const mobileSidebar = document.querySelector('.mobile-sidebar');
-      const sidebarClose = document.querySelector('.sidebar-close');
-      const sidebarOverlay = document.querySelector('.sidebar-overlay');
-      
-      // Toggle sidebar when hamburger is clicked
-      if (hamburgerMenu) {
-        hamburgerMenu.addEventListener('click', function() {
-          hamburgerIcon.classList.toggle('hamburger-active');
-          mobileSidebar.classList.toggle('active');
-          sidebarOverlay.classList.toggle('active');
-          
-          // Prevent scrolling when sidebar is open
-          if (mobileSidebar.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-          } else {
-            document.body.style.overflow = '';
-          }
-        });
-      }
-      
-      // Close sidebar when close button is clicked
-      if (sidebarClose) {
-        sidebarClose.addEventListener('click', function() {
-          hamburgerIcon.classList.remove('hamburger-active');
-          mobileSidebar.classList.remove('active');
-          sidebarOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-        });
-      }
-      
-      // Close sidebar when overlay is clicked
-      if (sidebarOverlay) {
-        sidebarOverlay.addEventListener('click', function() {
-          hamburgerIcon.classList.remove('hamburger-active');
-          mobileSidebar.classList.remove('active');
-          sidebarOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-        });
-      }
-      
-      // Close sidebar when a menu item is clicked
-      const sidebarItems = document.querySelectorAll('.sidebar-item');
-      sidebarItems.forEach(item => {
-        item.addEventListener('click', function() {
-          hamburgerIcon.classList.remove('hamburger-active');
-          mobileSidebar.classList.remove('active');
-          sidebarOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-        });
       });
       
       // Particle Animation Setup
@@ -603,5 +553,7 @@
         }
       });
     </script>
+    <!-- Include navigation.js for mobile menu functionality -->
+    <script src="navigation.js"></script>
   </body>
 </html>

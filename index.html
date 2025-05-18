@@ -30,6 +30,8 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style5.css" />
+    <!-- Mobile Navigation CSS -->
+    <link rel="stylesheet" href="mobile-nav.css" />
     <script src="http://lesscss.googlecode.com/files/less-1.0.30.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
@@ -39,11 +41,105 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
       rel="stylesheet"
     />
+    
+    <!-- Custom Style Overrides for Index Page -->
+    <style>
+      /* Mobile navigation container */
+      .mobile-nav-container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        padding: 20px;
+        z-index: 1000;
+        display: flex;
+        justify-content: flex-end;
+        pointer-events: none; /* Allow clicks to pass through to elements below */
+      }
+      
+      /* Override hamburger menu positioning for index page */
+      .hamburger-menu {
+        position: relative;
+        top: unset;
+        right: unset;
+        display: none;
+        z-index: 1000;
+        pointer-events: auto; /* Make hamburger clickable */
+        background-color: rgba(17, 17, 17, 0.5); /* Semi-transparent background */
+        backdrop-filter: blur(5px); /* Blur effect */
+        border-radius: 4px; /* Rounded corners */
+        cursor: pointer; /* Ensure cursor shows this is clickable */
+      }
+      
+      /* Show hamburger menu only on mobile */
+      @media only screen and (max-width: 992px) {
+        .hamburger-menu {
+          display: block;
+        }
+        
+        .vertical-navigation {
+          display: none;
+        }
+      }
+      
+      /* Ensure sidebar is visible when active */
+      .mobile-sidebar.active {
+        right: 0 !important;
+        visibility: visible !important;
+        transform: translateX(0) !important;
+      }
+    </style>
   </head>
 
   <!-- MAIN PART -->
 
   <body>
+    <!-- Mobile Navigation (mimicking the structure from publications.html) -->
+    <div class="mobile-nav-container">
+      <!-- Hamburger Menu Button on right side with inline onclick handler -->
+      <div class="hamburger-menu" onclick="toggleMobileNav(event)">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Sidebar Navigation (hidden by default) -->
+    <div class="mobile-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-close"></div>
+      </div>
+      <div class="sidebar-content">
+        <a href="index.html" class="sidebar-item">
+          <span class="nav-number">00</span>
+          <span class="nav-text">About</span>
+        </a>
+        <a href="publications.html" class="sidebar-item">
+          <span class="nav-number">01</span>
+          <span class="nav-text">Publications</span>
+        </a>
+        <a href="experience.html" class="sidebar-item">
+          <span class="nav-number">02</span>
+          <span class="nav-text">Experience</span>
+        </a>
+        <a href="projects.html" class="sidebar-item">
+          <span class="nav-number">03</span>
+          <span class="nav-text">Projects</span>
+        </a>
+        <a href="awards.html" class="sidebar-item">
+          <span class="nav-number">04</span>
+          <span class="nav-text">Awards</span>
+        </a>
+      </div>
+      <div class="sidebar-footer">
+      </div>
+    </div>
+    
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay"></div>
+
     <header class="title">
       <div class="demo">
         <div id="large-header" class="large-header">
@@ -501,15 +597,6 @@
           </div>
         </div>
         
-        <!-- Hamburger Menu Button (visible on mobile only) -->
-        <div class="hamburger-menu">
-          <div class="hamburger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        
         <!-- Right Side: Vertical Navigation -->
         <div class="vertical-navigation">
           <a href="experience.html" class="nav-item">
@@ -530,33 +617,6 @@
             <span class="nav-number">08</span>
             <span class="nav-text">awards</span>
           </a>
-        </div>
-        
-        <!-- Mobile Sidebar Navigation (hidden by default) -->
-        <div class="mobile-sidebar">
-          <div class="sidebar-header">
-            <div class="sidebar-close"></div>
-          </div>
-          <div class="sidebar-content">
-            <a href="experience.html" class="sidebar-item">
-              <span class="nav-number">08</span>
-              <span class="nav-text">Experience</span>
-            </a>
-            <a href="publications.html" class="sidebar-item">
-              <span class="nav-number">02</span>
-              <span class="nav-text">Publications</span>
-            </a>
-            <a href="projects.html" class="sidebar-item">
-              <span class="nav-number">04</span>
-              <span class="nav-text">Projects</span>
-            </a>
-            <a href="awards.html" class="sidebar-item">
-              <span class="nav-number">08</span>
-              <span class="nav-text">Awards</span>
-            </a>
-          </div>
-          <div class="sidebar-footer">
-          </div>
         </div>
       </div>
     </section>
@@ -621,7 +681,65 @@
     <script src="navigation.js"></script>
     <script src="canvas-handler.js"></script>
     
-    <!-- Sidebar Overlay -->
-    <div class="sidebar-overlay"></div>
+    <!-- Index-specific mobile navigation fix -->
+    <script>
+      // Wait for DOM to be fully loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get the hamburger menu and related elements
+        const hamburger = document.querySelector('.hamburger-menu');
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const mobileSidebar = document.querySelector('.mobile-sidebar');
+        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+        const sidebarClose = document.querySelector('.sidebar-close');
+        
+        // Explicitly add click event to hamburger for index page
+        if (hamburger) {
+          hamburger.addEventListener('click', function() {
+            console.log('Index page hamburger clicked');
+            hamburgerIcon.classList.toggle('hamburger-active');
+            mobileSidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+            
+            if (mobileSidebar.classList.contains('active')) {
+              document.body.style.overflow = 'hidden';
+            } else {
+              document.body.style.overflow = '';
+            }
+          });
+        }
+        
+        // Explicitly add click event to close button
+        if (sidebarClose) {
+          sidebarClose.addEventListener('click', function() {
+            console.log('Index page sidebar close clicked');
+            hamburgerIcon.classList.remove('hamburger-active');
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        }
+        
+        // Explicitly add click event to overlay
+        if (sidebarOverlay) {
+          sidebarOverlay.addEventListener('click', function() {
+            console.log('Index page overlay clicked');
+            hamburgerIcon.classList.remove('hamburger-active');
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        }
+        
+        // Also handle click on sidebar items
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+          item.addEventListener('click', function() {
+            hamburgerIcon.classList.remove('hamburger-active');
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+      });
+    </script>
   </body>
 </html>

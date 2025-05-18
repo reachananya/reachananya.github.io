@@ -163,13 +163,13 @@ body {
 }
 
 .page-header h1 {
-  font-size: 4rem;
+  font-size: 2.8rem;
   margin-bottom: 1rem;
   letter-spacing: 3px;
 }
 
 .header-subtitle {
-  font-size: 1.51rem;
+  font-size: 1.1rem;
   opacity: 0.85;
   padding-bottom: 15px;
   position: relative;
@@ -712,7 +712,11 @@ body {
 
 @media (max-width: 768px) {
   .page-header h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
+  }
+  
+  .header-subtitle {
+    font-size: 1rem;
   }
   
   .projects-container {
@@ -726,11 +730,11 @@ body {
   }
   
   .page-header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   .header-subtitle {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
   
   .projects-container {
