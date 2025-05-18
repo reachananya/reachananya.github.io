@@ -177,6 +177,10 @@
         .vertical-navigation {
           display: none;
         }
+        
+        .nav-links {
+          display: none;
+        }
       }
       
       /* Ensure sidebar is visible when active */
@@ -274,7 +278,7 @@
         transform: translateX(-50%);
         width: 80px;
         height: 3px;
-        background-color: #50d890;
+        background-color: #fff;
       }
       
       /* CSS For Awards Section */
@@ -305,12 +309,12 @@
       }
       
       .filter-btn:hover {
-        background-color: rgba(80, 216, 144, 0.2);
+        background-color: rgba(255, 255, 255, 0.2);
         transform: translateY(-3px);
       }
       
       .filter-btn.active {
-        background-color: rgba(80, 216, 144, 0.8);
+        background-color: rgba(255, 255, 255, 0.8);
         color: #111;
         font-weight: bold;
       }
@@ -326,7 +330,7 @@
         border-radius: 15px;
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        border: 1px solid rgba(80, 216, 144, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         transition: all 0.3s ease;
         opacity: 1;
         transform: translateY(0);
@@ -335,7 +339,7 @@
       .award-card:hover {
         transform: translateY(-10px) scale(1.02);
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        border-color: rgba(80, 216, 144, 0.3);
+        border-color: rgba(255, 255, 255, 0.3);
       }
       
       .award-banner {
@@ -350,7 +354,7 @@
       }
       
       .award-year {
-        background-color: rgba(80, 216, 144, 0.9);
+        background-color: rgba(255, 255, 255, 0.9);
         color: #111;
         padding: 5px 15px;
         border-radius: 20px;
@@ -386,13 +390,13 @@
       .issuer-logo {
         width: 40px;
         height: 40px;
-        background-color: rgba(80, 216, 144, 0.1);
+        background-color: rgba(255, 255, 255, 0.1);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         margin-right: 15px;
-        color: #50d890;
+        color: #fff;
       }
       
       .issuer-logo i {
@@ -423,10 +427,10 @@
       .award-badge {
         display: flex;
         align-items: center;
-        background-color: rgba(80, 216, 144, 0.1);
+        background-color: rgba(255, 255, 255, 0.1);
         padding: 5px 12px;
         border-radius: 20px;
-        color: #50d890;
+        color: #fff;
       }
       
       .badge-icon {
@@ -448,7 +452,7 @@
       }
       
       .award-link:hover {
-        color: #50d890;
+        color: #fff;
       }
       
       .award-link i {
@@ -464,8 +468,8 @@
       .back-btn {
         display: inline-flex;
         align-items: center;
-        background-color: rgba(80, 216, 144, 0.1);
-        color: #50d890;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
         padding: 10px 20px;
         border-radius: 30px;
         text-decoration: none;
@@ -473,9 +477,9 @@
       }
       
       .back-btn:hover {
-        background-color: rgba(80, 216, 144, 0.2);
+        background-color: rgba(255, 255, 255, 0.2);
         transform: translateY(-3px);
-        color: #50d890;
+        color: #fff;
       }
       
       .back-btn i {
@@ -555,6 +559,14 @@
       
       .sidebar-item:hover .nav-text::after {
         display: none !important;
+      }
+      
+      .sidebar-item .nav-number {
+        color: #50d890 !important;
+      }
+      
+      .sidebar-item .nav-text {
+        color: #fff !important;
       }
     </style>
   </head>
