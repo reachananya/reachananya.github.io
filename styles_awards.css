@@ -226,13 +226,13 @@ body {
 }
 
 .page-header h1 {
-  font-size: 4rem;
+  font-size: 2.24rem;
   margin-bottom: 1rem;
   letter-spacing: 3px;
 }
 
 .header-subtitle {
-  font-size: 1.5rem;
+  font-size: 0.88rem;
   opacity: 0.85;
   padding-bottom: 15px;
   position: relative;
@@ -246,14 +246,14 @@ body {
   transform: translateX(-50%);
   width: 80px;
   height: 3px;
-  background-color: #fff;
+  background-color: #50d890;
 }
 
 /* CSS For Awards Section */
 .awards-container {
-  max-width: 1400px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 24px 16px;
   position: relative;
 }
 
@@ -261,19 +261,19 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 40px;
-  gap: 15px;
+  margin-bottom: 32px;
+  gap: 12px;
 }
 
 .filter-btn {
   background-color: rgba(255, 255, 255, 0.1);
   color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 30px;
+  padding: 8px 16px;
+  border-radius: 24px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 0.9rem;
+  font-size: 0.72rem;
 }
 
 .filter-btn:hover {
@@ -289,15 +289,15 @@ body {
 
 .awards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+  gap: 24px;
 }
 
 .award-card {
   background-color: rgba(30, 30, 30, 0.5);
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   opacity: 1;
@@ -311,76 +311,76 @@ body {
 }
 
 .award-banner {
-  height: 150px;
+  height: 120px;
   background-size: cover;
   background-position: center;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 15px;
+  padding: 12px;
 }
 
 .award-year {
   background-color: rgba(255, 255, 255, 0.9);
   color: #111;
-  padding: 5px 15px;
-  border-radius: 20px;
+  padding: 4px 12px;
+  border-radius: 16px;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .category-tag {
   background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.64rem;
 }
 
 .award-content {
-  padding: 25px;
+  padding: 20px;
 }
 
 .award-title {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-  color: #fff;
+  font-size: 1.12rem;
+  margin-bottom: 12px;
+  color: #50d890;
   line-height: 1.4;
 }
 
 .award-issuer {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .issuer-logo {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 15px;
+  margin-right: 12px;
   color: #fff;
 }
 
 .issuer-logo i {
-  font-size: 1.2rem;
+  font-size: 0.96rem;
 }
 
 .issuer-name {
-  font-size: 0.9rem;
+  font-size: 0.72rem;
   color: #ccc;
 }
 
 .award-description {
   color: #aaa;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  font-size: 0.72rem;
+  line-height: 1.28;
+  margin-bottom: 16px;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -389,31 +389,33 @@ body {
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 15px;
+  padding-top: 12px;
 }
 
 .award-badge {
   display: flex;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 5px 12px;
-  border-radius: 20px;
-  color: #fff;
+  padding: 4px 10px;
+  border-radius: 16px;
+  color: #50d890;
 }
 
 .badge-icon {
-  margin-right: 8px;
-  font-size: 0.9rem;
+  margin-right: 6px;
+  font-size: 0.72rem;
+  color: #50d890;
 }
 
 .badge-text {
-  font-size: 0.8rem;
+  font-size: 0.64rem;
+  color: #50d890;
 }
 
 .award-link {
   color: #ccc;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.72rem;
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
@@ -424,8 +426,8 @@ body {
 }
 
 .award-link i {
-  margin-right: 5px;
-  font-size: 0.8rem;
+  margin-right: 4px;
+  font-size: 0.64rem;
 }
 
 .back-home {
