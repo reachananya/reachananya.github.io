@@ -25,6 +25,63 @@
     <link rel="stylesheet" href="styles_publications.css" />
     <!-- Mobile Navigation CSS -->
     <link rel="stylesheet" href="mobile-nav.css" />
+    
+    <!-- Custom Style Overrides for Mobile Navigation -->
+    <style>
+      /* Mobile navigation container */
+      .mobile-nav-container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        padding: 20px;
+        z-index: 1000;
+        display: flex;
+        justify-content: flex-end;
+        pointer-events: none; /* Allow clicks to pass through to elements below */
+      }
+      
+      /* Override hamburger menu positioning for index page */
+      .hamburger-menu {
+        position: relative;
+        top: unset;
+        right: unset;
+        display: none;
+        z-index: 1000;
+        pointer-events: auto; /* Make hamburger clickable */
+        background-color: rgba(17, 17, 17, 0.5); /* Semi-transparent background */
+        backdrop-filter: blur(5px); /* Blur effect */
+        border-radius: 4px; /* Rounded corners */
+        cursor: pointer; /* Ensure cursor shows this is clickable */
+      }
+      
+      /* Show hamburger menu only on mobile */
+      @media only screen and (max-width: 992px) {
+        .hamburger-menu {
+          display: block;
+        }
+        
+        .vertical-navigation {
+          display: none;
+        }
+      }
+      
+      /* Ensure sidebar is visible when active */
+      .mobile-sidebar.active {
+        right: 0 !important;
+        visibility: visible !important;
+        transform: translateX(0) !important;
+      }
+      
+      /* Custom style to remove underlines */
+      .sidebar-item .nav-text::after {
+        display: none !important;
+      }
+      
+      .sidebar-item:hover .nav-text::after {
+        display: none !important;
+      }
+    </style>
   </head>
 
   <body>
@@ -56,28 +113,27 @@
             <span class="nav-text">awards</span>
           </a>
         </div>
-        
-        <!-- Hamburger Menu Button (visible on mobile only) -->
-        <div class="hamburger-menu">
-          <div class="hamburger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
       </div>
     </nav>
+    
+    <!-- Mobile Navigation (mimicking the structure from index.html) -->
+    <div class="mobile-nav-container">
+      <!-- Hamburger Menu Button on right side with inline onclick handler -->
+      <div class="hamburger-menu" onclick="toggleMobileNav(event)">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
     
     <!-- Mobile Sidebar Navigation (hidden by default) -->
     <div class="mobile-sidebar">
       <div class="sidebar-header">
-        <div class="sidebar-close"></div>
+        <!-- Removing the sidebar-close div that's creating the gray cross -->
       </div>
       <div class="sidebar-content">
-        <a href="index.html" class="sidebar-item">
-          <span class="nav-number">00</span>
-          <span class="nav-text">About</span>
-        </a>
         <a href="publications.html" class="sidebar-item">
           <span class="nav-number">01</span>
           <span class="nav-text">Publications</span>
@@ -446,8 +502,75 @@
       });
     </script>
     
-    <!-- Add navigation.js for mobile menu functionality -->
+    <!-- Include navigation.js for mobile menu functionality -->
     <script src="navigation.js"></script>
+    
+    <!-- Page-specific mobile navigation fix -->
+    <script>
+      // Wait for DOM to be fully loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get the hamburger menu and related elements
+        const hamburger = document.querySelector('.hamburger-menu');
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const mobileSidebar = document.querySelector('.mobile-sidebar');
+        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+        
+        // Explicitly add click event to hamburger for index page
+        if (hamburger) {
+          hamburger.addEventListener('click', function() {
+            console.log('Publications page hamburger clicked');
+            hamburgerIcon.classList.toggle('hamburger-active');
+            mobileSidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+            
+            if (mobileSidebar.classList.contains('active')) {
+              document.body.style.overflow = 'hidden';
+            } else {
+              document.body.style.overflow = '';
+            }
+          });
+        }
+        
+        // Explicitly add click event to overlay
+        if (sidebarOverlay) {
+          sidebarOverlay.addEventListener('click', function() {
+            console.log('Publications page overlay clicked');
+            hamburgerIcon.classList.remove('hamburger-active');
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        }
+        
+        // Also handle click on sidebar items
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+          item.addEventListener('click', function() {
+            hamburgerIcon.classList.remove('hamburger-active');
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+      });
+      
+      // Function to toggle mobile navigation
+      function toggleMobileNav(event) {
+        event.stopPropagation();
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const mobileSidebar = document.querySelector('.mobile-sidebar');
+        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+        
+        hamburgerIcon.classList.toggle('hamburger-active');
+        mobileSidebar.classList.toggle('active');
+        sidebarOverlay.classList.toggle('active');
+        
+        if (mobileSidebar.classList.contains('active')) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+      }
+    </script>
   </body>
 </html>
 

@@ -130,6 +130,13 @@
   height: 30px;
   padding: 15px;
   margin: -15px;
+  /* Hide sidebar-close except when inside the active sidebar */
+  visibility: hidden;
+}
+
+/* Only show the sidebar-close element when the sidebar is active */
+.mobile-sidebar.active .sidebar-close {
+  visibility: visible;
 }
 
 .sidebar-close:before, .sidebar-close:after {
@@ -185,6 +192,7 @@
   border-bottom: none;
 }
 
+/* Fixed color styling for sidebar items */
 .sidebar-item .nav-number {
   color: #50d890;
   font-size: 1.1rem;
@@ -192,12 +200,17 @@
 }
 
 .sidebar-item .nav-text {
+  color: white; /* Explicitly set to white */
   font-size: 0.95rem;
   letter-spacing: 0.5px;
 }
 
 .sidebar-item:hover .nav-number {
   opacity: 1;
+}
+
+.sidebar-item:hover .nav-text {
+  color: white; /* Keep text white on hover */
 }
 
 .sidebar-footer {

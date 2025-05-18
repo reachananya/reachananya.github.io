@@ -25,6 +25,10 @@
       rel="stylesheet"
     />
     
+    <!-- Mobile Navigation CSS -->
+    <link rel="stylesheet" href="mobile-nav.css" />
+    
+    <!-- Custom Style Overrides for Mobile Navigation -->
     <style>
       /* Base Styles */
       body {
@@ -135,6 +139,51 @@
         visibility: visible;
         width: 100%;
         background-color: #50d890;
+      }
+      
+      /* Mobile navigation container */
+      .mobile-nav-container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        padding: 20px;
+        z-index: 1000;
+        display: flex;
+        justify-content: flex-end;
+        pointer-events: none; /* Allow clicks to pass through to elements below */
+      }
+      
+      /* Override hamburger menu positioning for index page */
+      .hamburger-menu {
+        position: relative;
+        top: unset;
+        right: unset;
+        display: none;
+        z-index: 1000;
+        pointer-events: auto; /* Make hamburger clickable */
+        background-color: rgba(17, 17, 17, 0.5); /* Semi-transparent background */
+        backdrop-filter: blur(5px); /* Blur effect */
+        border-radius: 4px; /* Rounded corners */
+        cursor: pointer; /* Ensure cursor shows this is clickable */
+      }
+      
+      /* Show hamburger menu only on mobile */
+      @media only screen and (max-width: 992px) {
+        .hamburger-menu {
+          display: block;
+        }
+        
+        .vertical-navigation {
+          display: none;
+        }
+      }
+      
+      /* Ensure sidebar is visible when active */
+      .mobile-sidebar.active {
+        right: 0 !important;
+        visibility: visible !important;
+        transform: translateX(0) !important;
       }
       
       /* Page Header with Particles */
@@ -498,6 +547,15 @@
           width: 80%;
         }
       }
+      
+      /* Custom style to remove underlines */
+      .sidebar-item .nav-text::after {
+        display: none !important;
+      }
+      
+      .sidebar-item:hover .nav-text::after {
+        display: none !important;
+      }
     </style>
   </head>
 
@@ -532,6 +590,48 @@
         </div>
       </div>
     </nav>
+    
+    <!-- Mobile Navigation (mimicking the structure from index.html) -->
+    <div class="mobile-nav-container">
+      <!-- Hamburger Menu Button on right side with inline onclick handler -->
+      <div class="hamburger-menu" onclick="toggleMobileNav(event)">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Sidebar Navigation (hidden by default) -->
+    <div class="mobile-sidebar">
+      <div class="sidebar-header">
+        <!-- Removing the sidebar-close div that's creating the gray cross -->
+      </div>
+      <div class="sidebar-content">
+        <a href="publications.html" class="sidebar-item">
+          <span class="nav-number">01</span>
+          <span class="nav-text">Publications</span>
+        </a>
+        <a href="experience.html" class="sidebar-item">
+          <span class="nav-number">02</span>
+          <span class="nav-text">Experience</span>
+        </a>
+        <a href="projects.html" class="sidebar-item">
+          <span class="nav-number">03</span>
+          <span class="nav-text">Projects</span>
+        </a>
+        <a href="awards.html" class="sidebar-item">
+          <span class="nav-number">04</span>
+          <span class="nav-text">Awards</span>
+        </a>
+      </div>
+      <div class="sidebar-footer">
+      </div>
+    </div>
+    
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay"></div>
 
     <!-- Header Background with Particles -->
     <div class="page-header">
@@ -575,7 +675,7 @@
               <div class="issuer-name">Google </div>
             </div>
             <div class="award-description">
-              <p>Selected as one of 70 scholars from over 25,000 applicants across 14 countries, following a rigorous process that included 1,250 interview calls. Among the scholars, I was one of only four first-year students to be awarded this honor. The Generation Google Scholarship recognized my contributions to diversity in tech, technical proficiency, leadership, and academic excellence. The award included a USD $1,000 cash prize and an invitation to Google’s Annual Retreat.</p>
+              <p>Selected as one of 70 scholars from over 25,000 applicants across 14 countries, following a rigorous process that included 1,250 interview calls. Among the scholars, I was one of only four first-year students to be awarded this honor. The Generation Google Scholarship recognized my contributions to diversity in tech, technical proficiency, leadership, and academic excellence. The award included a USD $1,000 cash prize and an invitation to Google's Annual Retreat.</p>
             </div>
             <div class="award-footer">
               <div class="award-badge">
@@ -1027,6 +1127,76 @@
                 }
             });
         });
+    </script>
+    
+    <!-- Include navigation.js for mobile menu functionality -->
+    <script src="navigation.js"></script>
+    
+    <!-- Page-specific mobile navigation fix -->
+    <script>
+      // Wait for DOM to be fully loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get the hamburger menu and related elements
+        const hamburger = document.querySelector('.hamburger-menu');
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const mobileSidebar = document.querySelector('.mobile-sidebar');
+        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+        
+        // Explicitly add click event to hamburger for index page
+        if (hamburger) {
+          hamburger.addEventListener('click', function() {
+            console.log('Awards page hamburger clicked');
+            hamburgerIcon.classList.toggle('hamburger-active');
+            mobileSidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+            
+            if (mobileSidebar.classList.contains('active')) {
+              document.body.style.overflow = 'hidden';
+            } else {
+              document.body.style.overflow = '';
+            }
+          });
+        }
+        
+        // Explicitly add click event to overlay
+        if (sidebarOverlay) {
+          sidebarOverlay.addEventListener('click', function() {
+            console.log('Awards page overlay clicked');
+            hamburgerIcon.classList.remove('hamburger-active');
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        }
+        
+        // Also handle click on sidebar items
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+          item.addEventListener('click', function() {
+            hamburgerIcon.classList.remove('hamburger-active');
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+      });
+      
+      // Function to toggle mobile navigation
+      function toggleMobileNav(event) {
+        event.stopPropagation();
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const mobileSidebar = document.querySelector('.mobile-sidebar');
+        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+        
+        hamburgerIcon.classList.toggle('hamburger-active');
+        mobileSidebar.classList.toggle('active');
+        sidebarOverlay.classList.toggle('active');
+        
+        if (mobileSidebar.classList.contains('active')) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+      }
     </script>
   </body>
 </html>
