@@ -210,7 +210,7 @@
 }
 
 .sidebar-item:hover .nav-text {
-  color: white; /* Keep text white on hover */
+  color: #50d890; /* Change from white to green on hover */
 }
 
 .sidebar-footer {
@@ -262,4 +262,23 @@
   .mobile-sidebar {
     width: 85%; /* Wider sidebar on very small screens */
   }
+}
+
+/* Ensure ALL navigation links turn green on hover, not blue */
+.sidebar-item:hover,
+.sidebar-item:hover .nav-text,
+.nav-item:hover,
+.nav-item:hover .nav-text,
+a.sidebar-item:hover,
+a.nav-item:hover {
+  color: #50d890 !important;
+  text-decoration: none;
+}
+
+/* Override any default link hover behavior for navigation links */
+a.sidebar-item:hover,
+a.nav-item:hover,
+.sidebar-item:hover a,
+.nav-item:hover a {
+  color: #50d890 !important;
 } 
