@@ -161,13 +161,17 @@
     <!-- Header Background with Video -->
     <div class="page-header">
       <div class="video-background">
-        <!-- Updated video embed with improved loading parameters -->
-        <iframe src="https://player.vimeo.com/video/912625754?h=496ea80218&muted=1&autoplay=1&loop=1&background=1&app_id=122963&quality=auto&preload=auto" 
-                frameborder="0" 
-                allow="autoplay; fullscreen" 
-                allowfullscreen
-                loading="eager">
-        </iframe>
+        <!-- Optimized video element with preload and poster -->
+        <video 
+          autoplay 
+          muted 
+          loop 
+          playsinline
+          preload="auto"
+          class="background-video">
+          <source src="img/brain_tractography_vidoe.mp4" type="video/mp4">
+    
+        </video>
       </div>
       <div class="header-overlay"></div>
       <div class="header-content">
