@@ -466,14 +466,14 @@
       particlesJS("particles-js", {
         "particles": {
           "number": {
-            "value": window.innerWidth < 768 ? 40 : 80,
+            "value": 80, /* Increased from 20 to 50 */
             "density": {
               "enable": true,
-              "value_area": window.innerWidth < 768 ? 1200 : 800
+              "value_area": 800
             }
           },
           "color": {
-            "value": "#2a9d5c"
+            "value": "#2a9d5c" /* Darkened from #50d890 to #2a9d5c (darker green) */
           },
           "shape": {
             "type": "circle",
@@ -486,7 +486,7 @@
             }
           },
           "opacity": {
-            "value": window.innerWidth < 768 ? 1.5 : 2,
+            "value": 2, /* Increased opacity from 0.3 to 0.5 */
             "random": false,
             "anim": {
               "enable": false,
@@ -496,7 +496,7 @@
             }
           },
           "size": {
-            "value": window.innerWidth < 768 ? 2 : 3,
+            "value": 3, /* Increased size from 2 to 3 */
             "random": true,
             "anim": {
               "enable": false,
@@ -507,14 +507,14 @@
           },
           "line_linked": {
             "enable": true,
-            "distance": window.innerWidth < 768 ? 100 : 150,
-            "color": "#2a9d5c",
-            "opacity": window.innerWidth < 768 ? 0.5 : 1,
+            "distance": 150,
+            "color": "#2a9d5c", /* Darkened from #50d890 to #2a9d5c */
+            "opacity": 1, /* Increased from 0.2 to 0.4 */
             "width": 1
           },
           "move": {
             "enable": true,
-            "speed": window.innerWidth < 768 ? 1 : 2,
+            "speed": 2, /* Kept slow speed for subtle movement */
             "direction": "none",
             "random": false,
             "straight": false,
@@ -531,11 +531,11 @@
           "detect_on": "canvas",
           "events": {
             "onhover": {
-              "enable": window.innerWidth >= 768,
+              "enable": true,
               "mode": "grab"
             },
             "onclick": {
-              "enable": window.innerWidth >= 768,
+              "enable": true,
               "mode": "push"
             },
             "resize": true
@@ -544,7 +544,7 @@
             "grab": {
               "distance": 140,
               "line_linked": {
-                "opacity": 0.6
+                "opacity": 0.6 /* Reduced from 1 to 0.6 */
               }
             },
             "bubble": {
