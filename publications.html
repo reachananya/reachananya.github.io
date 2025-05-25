@@ -214,6 +214,10 @@
                 </div>
               </div>
             </div>
+            <div class="swipe-instruction">
+              <i class="fas fa-hand-point-right"></i>
+              <span>Swipe to view more</span>
+            </div>
           </div>
         </div>
         
@@ -276,6 +280,10 @@
                   <h4>Uncinat Abnormalities</h4>
                 </div>
               </div>
+            </div>
+            <div class="swipe-instruction">
+              <i class="fas fa-hand-point-right"></i>
+              <span>Swipe to view more</span>
             </div>
           </div>
         </div>
@@ -573,6 +581,93 @@
           document.body.style.overflow = '';
         }
       }
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const galleries = document.querySelectorAll('.gallery-3d');
+        
+        galleries.forEach(gallery => {
+            let startX;
+            let currentX;
+            let isDragging = false;
+            let currentIndex = 0;
+            const container = gallery.querySelector('.card-container');
+            const images = Array.from(container.querySelectorAll('img'));
+            const totalImages = images.length;
+            
+            // Create dots
+            const dotsContainer = gallery.querySelector('.card-thumbnails');
+            images.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.className = `card-thumbnail ${i === 0 ? 'active' : ''}`;
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            // Show swipe instruction on first load
+            const instruction = gallery.querySelector('.swipe-instruction');
+            instruction.classList.add('show');
+            setTimeout(() => instruction.classList.remove('show'), 3000);
+
+            function updateDots() {
+                const dots = dotsContainer.querySelectorAll('.card-thumbnail');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            function goToSlide(index) {
+                currentIndex = index;
+                container.style.transform = `translateX(-${index * 100}%)`;
+                updateDots();
+            }
+
+            gallery.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+                container.style.transition = 'none';
+            }, { passive: true });
+
+            gallery.addEventListener('touchmove', e => {
+                if (!isDragging) return;
+                
+                currentX = e.touches[0].clientX;
+                const diff = currentX - startX;
+                const translateX = -currentIndex * 100 + (diff / gallery.offsetWidth * 100);
+                
+                // Limit the swipe to the first and last images
+                if (
+                    (currentIndex === 0 && diff > 0) || 
+                    (currentIndex === totalImages - 1 && diff < 0)
+                ) {
+                    container.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    return;
+                }
+                
+                container.style.transform = `translateX(${translateX}%)`;
+            }, { passive: true });
+
+            gallery.addEventListener('touchend', e => {
+                if (!isDragging) return;
+                
+                isDragging = false;
+                container.style.transition = 'transform 0.3s ease-out';
+                
+                const diff = currentX - startX;
+                const threshold = gallery.offsetWidth * 0.2; // 20% of gallery width
+                
+                if (Math.abs(diff) > threshold) {
+                    if (diff > 0 && currentIndex > 0) {
+                        currentIndex--;
+                    } else if (diff < 0 && currentIndex < totalImages - 1) {
+                        currentIndex++;
+                    }
+                }
+                
+                goToSlide(currentIndex);
+            });
+        });
+    });
     </script>
   </body>
 </html>

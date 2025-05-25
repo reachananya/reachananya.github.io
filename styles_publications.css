@@ -446,20 +446,16 @@ body {
 }
 
 .gallery-3d {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-  grid-gap: 15px;
-  transform-style: preserve-3d;
-  width: 100%;
+  position: relative;
+  touch-action: pan-x;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .card-container {
   position: relative;
-  width: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
 }
 
 .card-main {
@@ -669,16 +665,17 @@ body {
 
 /* Abstract */
 .pub-abstract {
-  color: #cccccc;
-  margin-bottom: 15px;
-  font-size: 0.8rem;
-  line-height: 1.5;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 0.2px;
+  margin: 15px 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .pub-abstract p {
-  margin-bottom: 10px;
+  color: #fff;
+  font-size: 0.71rem;
+  line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .abstract-toggle {
@@ -1084,16 +1081,66 @@ body {
   }
   
   .gallery-3d {
-    max-width: 400px;
-    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .card-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
   }
   
   .card-main {
-    height: 200px;
+    min-width: 100%;
+    transform: none !important;
+    transition: transform 0.3s ease;
+  }
+  
+  .card-thumbnails {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
   }
   
   .card-thumbnail {
-    height: 130px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+  }
+  
+  .card-thumbnail.active {
+    background: #50d890;
+    transform: scale(1.2);
+  }
+  
+  .swipe-instruction {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .swipe-instruction.show {
+    opacity: 1;
+  }
+  
+  .swipe-instruction i {
+    font-size: 1rem;
+    color: #50d890;
   }
   
   .pub-year {

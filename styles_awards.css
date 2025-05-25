@@ -380,11 +380,12 @@ body {
 }
 
 .award-description {
-  color: #aaa;
-  font-size: 0.72rem;
-  line-height: 1.28;
-  margin-bottom: 16px;
+  color: #fff;
+  font-size: 0.71rem;
+  line-height: 1.6;
   font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+  margin: 15px 0;
 }
 
 .award-footer {
