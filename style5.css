@@ -38,18 +38,18 @@ body {
 
 .demo .large-header {
   background-image: url("img/background_img.jpg");
-  background-size: 60% 100%; /* Default size for desktop */
+  background-size: cover; /* This will maintain aspect ratio */
   background-position: center center;
-  background-repeat: repeat;
+  background-repeat: no-repeat; /* Prevent repeating */
   background-attachment: fixed;
 }
 
 /* Add responsive background sizing for mobile */
 @media only screen and (max-width: 768px) {
   .demo .large-header {
-    background-size: 300% 100%; /* This will show 2 horizontal images */
+    background-size: 133.33% auto; /* This maintains 4:3 ratio (480/360 = 1.3333) */
     background-position: center center;
-    background-repeat: repeat;
+    background-repeat: repeat-x; /* Only repeat horizontally */
     background-attachment: fixed;
   }
 }
@@ -57,9 +57,9 @@ body {
 /* For very small screens */
 @media only screen and (max-width: 480px) {
   .demo .large-header {
-    background-size: 300% 100%; /* This will show 3 horizontal images */
+    background-size: 200% auto; /* Double the width while maintaining height */
     background-position: center center;
-    background-repeat: repeat;
+    background-repeat: repeat-x; /* Only repeat horizontally */
     background-attachment: fixed;
   }
 }
