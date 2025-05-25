@@ -19,97 +19,107 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Function to adjust animation settings based on screen size
-  function adjustAnimationSettings() {
+  // Function to handle mobile vs desktop animation
+  function handleAnimation() {
     const isMobile = window.innerWidth <= 768;
-    if (window.particlesJS) {
-      // Get the current configuration
-      const config = window.particlesJS('demo-canvas', {
-        "particles": {
-          "number": {
-            "value": isMobile ? 15 : 80, // Further reduce particles on mobile
-            "density": {
+    
+    if (isMobile) {
+      // On mobile: Hide the canvas and remove any existing particles
+      canvas.style.display = 'none';
+      if (window.pJSDom && window.pJSDom.length > 0) {
+        window.pJSDom[0].pJS.fn.particlesEmpty();
+      }
+    } else {
+      // On desktop: Show the canvas and initialize particles
+      canvas.style.display = 'block';
+      if (window.particlesJS) {
+        window.particlesJS('demo-canvas', {
+          "particles": {
+            "number": {
+              "value": 80,
+              "density": {
+                "enable": true,
+                "value_area": 800
+              }
+            },
+            "color": {
+              "value": "#2a9d5c"
+            },
+            "shape": {
+              "type": "circle",
+              "stroke": {
+                "width": 0,
+                "color": "#000000"
+              },
+              "polygon": {
+                "nb_sides": 5
+              }
+            },
+            "opacity": {
+              "value": 0.5,
+              "random": false,
+              "anim": {
+                "enable": false,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+              }
+            },
+            "size": {
+              "value": 3,
+              "random": true,
+              "anim": {
+                "enable": false,
+                "speed": 40,
+                "size_min": 0.1,
+                "sync": false
+              }
+            },
+            "line_linked": {
               "enable": true,
-              "value_area": isMobile ? 2000 : 800 // Significantly increase area between particles on mobile
-            }
-          },
-          "color": {
-            "value": "#2a9d5c"
-          },
-          "shape": {
-            "type": "circle",
-            "stroke": {
-              "width": 0,
-              "color": "#000000"
+              "distance": 150,
+              "color": "#2a9d5c",
+              "opacity": 0.4,
+              "width": 1
             },
-            "polygon": {
-              "nb_sides": 5
+            "move": {
+              "enable": true,
+              "speed": 2,
+              "direction": "none",
+              "random": false,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false,
+              "attract": {
+                "enable": false,
+                "rotateX": 600,
+                "rotateY": 1200
+              }
             }
           },
-          "opacity": {
-            "value": isMobile ? 0.2 : 0.5, // Further reduce opacity on mobile
-            "random": false,
-            "anim": {
-              "enable": false,
-              "speed": 1,
-              "opacity_min": 0.1,
-              "sync": false
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": {
+                "enable": true,
+                "mode": "grab"
+              },
+              "onclick": {
+                "enable": true,
+                "mode": "push"
+              },
+              "resize": true
             }
           },
-          "size": {
-            "value": isMobile ? 1.5 : 3, // Further reduce particle size on mobile
-            "random": true,
-            "anim": {
-              "enable": false,
-              "speed": 40,
-              "size_min": 0.1,
-              "sync": false
-            }
-          },
-          "line_linked": {
-            "enable": true,
-            "distance": isMobile ? 50 : 150, // Significantly reduce connection distance on mobile
-            "color": "#2a9d5c",
-            "opacity": isMobile ? 0.1 : 0.4, // Further reduce line opacity on mobile
-            "width": isMobile ? 0.5 : 1 // Thinner lines on mobile
-          },
-          "move": {
-            "enable": true,
-            "speed": isMobile ? 1 : 2, // Slower movement on mobile
-            "direction": "none",
-            "random": false,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-              "enable": false,
-              "rotateX": 600,
-              "rotateY": 1200
-            }
-          }
-        },
-        "interactivity": {
-          "detect_on": "canvas",
-          "events": {
-            "onhover": {
-              "enable": !isMobile, // Disable hover effects on mobile
-              "mode": "grab"
-            },
-            "onclick": {
-              "enable": !isMobile, // Disable click effects on mobile
-              "mode": "push"
-            },
-            "resize": true
-          }
-        },
-        "retina_detect": true
-      });
+          "retina_detect": true
+        });
+      }
     }
   }
   
   // Run on page load
   resizeCanvas();
-  adjustAnimationSettings();
+  handleAnimation();
   
   // Run on window resize with debounce
   let resizeTimer;
@@ -117,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       resizeCanvas();
-      adjustAnimationSettings();
+      handleAnimation();
     }, 250);
   });
   
