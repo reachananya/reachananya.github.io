@@ -19,48 +19,52 @@ body {
 }
 
 /* Title section */
-
 .title {
   position: relative;
   width: 100%;
-  height: 100vh; /* Ensure the title takes up the full viewport height */
+  height: 100vh;
   overflow: hidden;
 }
 
-.large-header {
+#large-header {
   position: relative;
   width: 100%;
-  height: 100%; /* Fill the title container */
+  height: 100%;
   z-index: 1;
-  overflow: hidden; /* Prevent content from spilling outside */
-  min-height: 100vh; /* Ensure it covers the viewport height */
+  overflow: hidden;
+  min-height: 100vh;
+  background-image: url('img/background_img.jpg');
+  background-size: 60% 100%; /* 2 images horizontally, 3 vertically */
+  background-position: center center; /* Center the background */
+  background-repeat: repeat; /* Repeat the image */
+  background-attachment: fixed; /* Keep background fixed when scrolling */
+  background-color: #111;
 }
 
-.demo .large-header {
-  background-image: url("img/background_img.jpg");
-  background-size: cover; /* This will maintain aspect ratio */
-  background-position: center center;
-  background-repeat: no-repeat; /* Prevent repeating */
-  background-attachment: fixed;
+.demo #large-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(17, 17, 17, 0.6),
+    rgba(17, 17, 17, 0.5)
+  );
+  z-index: 1;
 }
 
-/* Add responsive background sizing for mobile */
+/* Remove the background grid entirely */
+.background-grid {
+  display: none;
+}
+
+/* Mobile Styles */
 @media only screen and (max-width: 768px) {
-  .demo .large-header {
-    background-size: 133.33% auto; /* This maintains 4:3 ratio (480/360 = 1.3333) */
-    background-position: center center;
-    background-repeat: repeat-x; /* Only repeat horizontally */
-    background-attachment: fixed;
-  }
-}
-
-/* For very small screens */
-@media only screen and (max-width: 480px) {
-  .demo .large-header {
-    background-size: 200% auto; /* Double the width while maintaining height */
-    background-position: center center;
-    background-repeat: repeat-x; /* Only repeat horizontally */
-    background-attachment: fixed;
+  .demo #large-header {
+    background: #111;
   }
 }
 
