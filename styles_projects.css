@@ -213,16 +213,22 @@ body {
   padding: 2rem 0;
 }
 
-/* FIXED: Adjusted timeline positioning and width */
+/* Timeline Line */
 .timeline-line {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 50%;
   width: 4px;
-  background: linear-gradient(to bottom, rgba(80, 216, 144, 0.2), rgba(80, 216, 144, 0.8), rgba(80, 216, 144, 0.2));
+  background: linear-gradient(to bottom, 
+    rgba(80, 216, 144, 0.2), 
+    rgba(80, 216, 144, 0.8) 10%,
+    rgba(80, 216, 144, 0.8) 90%,
+    rgba(80, 216, 144, 0.2)
+  );
   transform: translateX(-50%);
   z-index: 1;
+  height: calc(100% - 4rem); /* Reduce height to end after last project */
 }
 
 /* Individual Project Container */
@@ -231,7 +237,11 @@ body {
   display: flex;
   margin-bottom: 8rem;
   z-index: 2;
-  align-items: flex-start; /* FIXED: Align items at the top */
+  align-items: flex-start;
+}
+
+.project-item:last-child {
+  margin-bottom: 0; /* Remove margin from last project */
 }
 
 .project-item:nth-child(even) {
@@ -710,6 +720,7 @@ body {
   .timeline-line {
     left: 20px;
     width: 3px;
+    height: calc(100% - 2rem); /* Adjust for mobile */
   }
 }
 
