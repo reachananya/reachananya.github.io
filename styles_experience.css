@@ -270,7 +270,9 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   z-index: 2;
+  padding-top: 15px;
 }
 
 .timeline-dot {
@@ -279,11 +281,11 @@ body {
   background-color: #111;
   border: 2.25px solid #50d890;
   border-radius: 50%;
-  margin-top: 15px;
   position: relative;
   z-index: 3;
   transition: all 0.5s ease;
   box-shadow: 0 0 0 5px rgba(80, 216, 144, 0.2);
+  transform: translateX(-50%);
 }
 
 .timeline-item:hover .timeline-dot {
@@ -295,8 +297,8 @@ body {
 /* Horizontal connectors */
 .timeline-connector {
   position: absolute;
-  top: 35px;
-  left: 30px;
+  top: 26px; /* Aligns with the dot: 15px (padding-top) + 11.25px (half of dot height) */
+  left: 11.25px; /* Half of dot width */
   width: 70px;
   height: 2px;
   background: linear-gradient(to right, rgba(80, 216, 144, 0.8), rgba(80, 216, 144, 0.4));
@@ -531,7 +533,7 @@ body {
   }
   
   .timeline-logo {
-    display: none; /* Hide the logo on mobile */
+    display: none;
   }
   
   .timeline-header {
@@ -540,6 +542,20 @@ body {
   
   .timeline-title-area {
     width: 100%;
+  }
+
+  .timeline-node {
+    justify-content: flex-start;
+    padding-left: 20px;
+    padding-top: 15px;
+  }
+
+  .timeline-dot {
+    transform: translateX(-50%);
+  }
+
+  .timeline-connector {
+    display: none;
   }
 }
 
@@ -582,6 +598,8 @@ body {
     grid-area: node;
     justify-content: flex-start;
     padding-left: 20px;
+    align-items: flex-start;
+    padding-top: 15px;
   }
   
   .timeline-content {
