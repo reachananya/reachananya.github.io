@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const isMobile = window.innerWidth <= 768;
     if (window.particlesJS) {
       // Get the current configuration
-      const config = window.particlesJS('particles-js', {
+      const config = window.particlesJS('demo-canvas', {
         "particles": {
           "number": {
-            "value": isMobile ? 30 : 80, // Reduce number of particles on mobile
+            "value": isMobile ? 15 : 80, // Further reduce particles on mobile
             "density": {
               "enable": true,
-              "value_area": isMobile ? 1200 : 800 // Increase area between particles on mobile
+              "value_area": isMobile ? 2000 : 800 // Significantly increase area between particles on mobile
             }
           },
           "color": {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
           },
           "opacity": {
-            "value": isMobile ? 0.3 : 0.5, // Reduce opacity on mobile
+            "value": isMobile ? 0.2 : 0.5, // Further reduce opacity on mobile
             "random": false,
             "anim": {
               "enable": false,
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
           },
           "size": {
-            "value": isMobile ? 2 : 3, // Reduce particle size on mobile
+            "value": isMobile ? 1.5 : 3, // Further reduce particle size on mobile
             "random": true,
             "anim": {
               "enable": false,
@@ -68,12 +68,41 @@ document.addEventListener('DOMContentLoaded', function() {
           },
           "line_linked": {
             "enable": true,
-            "distance": isMobile ? 100 : 150, // Reduce connection distance on mobile
+            "distance": isMobile ? 50 : 150, // Significantly reduce connection distance on mobile
             "color": "#2a9d5c",
-            "opacity": isMobile ? 0.2 : 0.4, // Reduce line opacity on mobile
-            "width": 1
+            "opacity": isMobile ? 0.1 : 0.4, // Further reduce line opacity on mobile
+            "width": isMobile ? 0.5 : 1 // Thinner lines on mobile
+          },
+          "move": {
+            "enable": true,
+            "speed": isMobile ? 1 : 2, // Slower movement on mobile
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
           }
-        }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": !isMobile, // Disable hover effects on mobile
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": !isMobile, // Disable click effects on mobile
+              "mode": "push"
+            },
+            "resize": true
+          }
+        },
+        "retina_detect": true
       });
     }
   }
