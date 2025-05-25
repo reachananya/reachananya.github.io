@@ -69,6 +69,7 @@ body {
 
 .main-title-header {
   font-size: 52.5px;
+  color: white;
 }
 
 .small-title {
@@ -1524,6 +1525,20 @@ body {
   .mobile-sidebar {
     width: 85%; /* Wider sidebar on very small screens */
   }
+}
+
+.nav-logo a span:last-child {
+  color: #2a9d5c; /* Using the same green color as your particles */
+}
+
+/* Remove the rule that makes Singhal green in main title header */
+.main-title-header strong {
+  display: inline-block;
+}
+
+.main-title-header strong span:first-child,
+.main-title-header strong span:last-child {
+  color: white;
 }
 
 

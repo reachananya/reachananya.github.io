@@ -42,6 +42,10 @@ body {
   transition: color 0.3s ease;
 }
 
+.nav-logo a span:last-child {
+  color: #50d890;
+}
+
 .nav-logo a:hover {
   color: #50d890;
 }
