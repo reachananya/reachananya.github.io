@@ -320,21 +320,15 @@
     <!-- Image Modal -->
     <div class="image-modal">
       <div class="modal-content">
+        <button class="modal-close">&times;</button>
         <div class="modal-image-container">
-          <img src="" alt="Modal Image" class="modal-image">
+          <img src="" alt="" class="modal-image">
+          <button class="modal-arrow modal-prev"><i class="fas fa-chevron-left"></i></button>
+          <button class="modal-arrow modal-next"><i class="fas fa-chevron-right"></i></button>
         </div>
-        <div class="modal-arrows">
-          <div class="modal-arrow modal-prev">
-            <i class="fas fa-chevron-left"></i>
-          </div>
-          <div class="modal-arrow modal-next">
-            <i class="fas fa-chevron-right"></i>
-          </div>
+        <div class="modal-nav">
+          <!-- Dots will be added dynamically -->
         </div>
-        <div class="modal-close">
-          <i class="fas fa-times"></i>
-        </div>
-        <div class="modal-nav"></div>
         <div class="modal-caption"></div>
       </div>
     </div>
@@ -573,6 +567,126 @@
           document.body.style.overflow = '';
         }
       }
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.querySelector('.image-modal');
+        const modalImage = modal.querySelector('.modal-image');
+        const modalClose = modal.querySelector('.modal-close');
+        const modalPrev = modal.querySelector('.modal-prev');
+        const modalNext = modal.querySelector('.modal-next');
+        const modalNav = modal.querySelector('.modal-nav');
+        const modalCaption = modal.querySelector('.modal-caption');
+        
+        let currentImageIndex = 0;
+        let currentImages = [];
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        // Open modal when clicking on a publication image
+        document.querySelectorAll('.card-image img, .card-thumbnail img').forEach(img => {
+            img.addEventListener('click', function() {
+                const publication = this.closest('.publication-item');
+                currentImages = Array.from(publication.querySelectorAll('.card-image img, .card-thumbnail img')).map(img => ({
+                    src: img.src,
+                    alt: img.alt
+                }));
+                currentImageIndex = currentImages.findIndex(image => image.src === this.src);
+                openModal(currentImageIndex);
+            });
+        });
+        
+        // Close modal
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', e => {
+            if (e.target === modal) closeModal();
+        });
+        
+        // Navigation with arrows
+        modalPrev.addEventListener('click', showPreviousImage);
+        modalNext.addEventListener('click', showNextImage);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', e => {
+            if (!modal.classList.contains('show')) return;
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') showPreviousImage();
+            if (e.key === 'ArrowRight') showNextImage();
+        });
+        
+        // Touch events for swipe
+        modal.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        modal.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const swipeLength = touchEndX - touchStartX;
+            
+            if (Math.abs(swipeLength) > swipeThreshold) {
+                if (swipeLength > 0) {
+                    showPreviousImage();
+                } else {
+                    showNextImage();
+                }
+            }
+        }
+        
+        function openModal(index) {
+            currentImageIndex = index;
+            updateModalImage();
+            updateNavigationDots();
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        function showPreviousImage() {
+            currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+            updateModalImage();
+            updateNavigationDots();
+        }
+        
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+            updateModalImage();
+            updateNavigationDots();
+        }
+        
+        function updateModalImage() {
+            const image = currentImages[currentImageIndex];
+            modalImage.src = image.src;
+            modalImage.alt = image.alt;
+            modalCaption.textContent = image.alt;
+            
+            // Show/hide navigation arrows based on number of images
+            modalPrev.style.display = currentImages.length > 1 ? 'block' : 'none';
+            modalNext.style.display = currentImages.length > 1 ? 'block' : 'none';
+        }
+        
+        function updateNavigationDots() {
+            modalNav.innerHTML = '';
+            currentImages.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.className = `modal-dot${index === currentImageIndex ? ' active' : ''}`;
+                dot.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    updateModalImage();
+                    updateNavigationDots();
+                });
+                modalNav.appendChild(dot);
+            });
+        }
+    });
     </script>
   </body>
 </html>

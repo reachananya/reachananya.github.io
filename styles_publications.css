@@ -840,11 +840,17 @@ body {
 }
 
 .modal-image-container {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+
+/* Touch interaction styles */
+.modal-image-container {
+  touch-action: pan-y pinch-zoom;
 }
 
 .modal-image {
@@ -892,49 +898,50 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
-  background-color: rgba(0, 0, 0, 0.7);
-  border: 2px solid rgba(80, 216, 144, 0.3);
+  background: rgba(0, 0, 0, 0.5);
   color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  pointer-events: auto;
   transition: all 0.3s ease;
+  z-index: 1000;
 }
 
 .modal-arrow:hover {
-  background-color: rgba(80, 216, 144, 0.8);
+  background: rgba(80, 216, 144, 0.8);
 }
 
 .modal-prev {
-  left: -80px;
+  left: 20px;
 }
 
 .modal-next {
-  right: -80px;
+  right: 20px;
 }
 
 .modal-nav {
-  margin-top: 20px;
   display: flex;
-  gap: 15px;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .modal-dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .modal-dot.active {
-  background-color: #50d890;
+  background: #50d890;
   transform: scale(1.2);
 }
 
@@ -1131,6 +1138,24 @@ body {
     right: 15px;
     width: 35px;
     height: 35px;
+  }
+  
+  .modal-arrow {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .modal-prev {
+    left: 10px;
+  }
+  
+  .modal-next {
+    right: 10px;
+  }
+  
+  .modal-dot {
+    width: 8px;
+    height: 8px;
   }
 }
 
