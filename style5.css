@@ -47,7 +47,7 @@ body {
 /* Add responsive background sizing for mobile */
 @media only screen and (max-width: 768px) {
   .demo .large-header {
-    background-size: 200% 100%; /* This will show 2 horizontal images */
+    background-size: 300% 100%; /* This will show 2 horizontal images */
     background-position: center center;
     background-repeat: repeat;
     background-attachment: fixed;
