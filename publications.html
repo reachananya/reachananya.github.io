@@ -181,11 +181,96 @@
 
     <!-- Publication Types Legend -->
     <div class="publication-types">
-      <em>S = In Submission, C = Conference, W = Workshop, J = Journal</em>
+      <em>C = Conference, W = Workshop, ID = Invention Disclosure</em>
     </div>
 
     <!-- PUBLICATIONS - REDESIGNED LAYOUT -->
     <div class="publications-container">
+
+      <!-- Publication Item - EMBC 2026 -->
+      <div class="publication-item" data-aos="fade-up" data-aos-duration="1000">
+        <div class="pub-image">
+          <div class="gallery-3d">
+            <div class="card-thumbnails">
+              <div class="card-thumbnail">
+                <div class="card-thumbnail-img" style="background:#1a1a2e;display:flex;align-items:center;justify-content:center;height:100%;color:#50d890;font-size:11px;letter-spacing:1px;text-align:center;padding:8px">EMBC<br>2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-content">
+          <div class="pub-header">
+            <h2 class="pub-title">
+              <span class="pub-id">[C.3, ID]</span>
+              Structure-aware Adaptive Kernel MPPCA Denoising for Diffusion MRI
+            </h2>
+            <div class="pub-conference">
+              <span class="conference-badge">EMBC 2026</span>
+              <span class="conference-location"><i class="fas fa-map-marker-alt"></i> Toronto, Canada</span>
+              <span class="award-badge"><i class="fas fa-file-alt"></i> Invention Disclosure</span>
+            </div>
+          </div>
+          <div class="pub-authors">
+            <span class="author-highlight">Ananya Singhal</span>, Dattesh Dayanand Shanbhag, Sudhanya Chatterjee
+          </div>
+          <div class="pub-abstract">
+            <p>A structure-aware adaptive kernel denoising method for high b-value diffusion MRI that dynamically adjusts kernel geometry per-voxel using gradient-informed structural priors, preserving sharp tissue boundaries while aggressively suppressing noise in homogeneous regions.</p>
+            <button class="abstract-toggle">Read More</button>
+            <div class="abstract-extended">
+              <p>We invent a gradient-to-kernel mapping algorithm that clusters voxel-wise gradient magnitudes via k-means and monotonically assigns discrete odd-integer kernel sizes — small kernels for high-gradient tissue boundaries, large kernels for homogeneous regions. This generates a per-voxel kernel map that autonomously adapts MPPCA denoising to local anatomical complexity across the full brain volume. Delivered 18% SNR gain with 96% tissue boundary preservation vs. fixed-size MPPCA baselines on HCP data at b-values of 5000–10000 s/mm².</p>
+            </div>
+          </div>
+          <div class="pub-links">
+            <!-- <a href="#" class="pub-link paper-link"><i class="fas fa-file-pdf"></i> Paper</a> -->
+          </div>
+        </div>
+        <div class="pub-year">EMBC <br> 2026</div>
+      </div>
+
+      <div class="dotted-divider"></div>
+
+      <!-- Publication Item - ISBI 2026 -->
+      <div class="publication-item" data-aos="fade-up" data-aos-duration="1000">
+        <div class="pub-image">
+          <div class="gallery-3d">
+            <div class="card-thumbnails">
+              <div class="card-thumbnail">
+                <div class="card-thumbnail-img" style="background:#0d1b2a;display:flex;align-items:center;justify-content:center;height:100%;color:#50d890;font-size:11px;letter-spacing:1px;text-align:center;padding:8px">ISBI<br>2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-content">
+          <div class="pub-header">
+            <h2 class="pub-title">
+              <span class="pub-id">[C.2]</span>
+              ARMARecon: ARMA Convolutional Filter Based GNN for Neurodegenerative Dementia Classification
+            </h2>
+            <div class="pub-conference">
+              <span class="conference-badge">ISBI 2026</span>
+              <span class="conference-location"><i class="fas fa-map-marker-alt"></i> London, UK</span>
+            </div>
+          </div>
+          <div class="pub-authors">
+            Venkata Sesha, <span class="author-highlight">Ananya Singhal</span>, Saurabh J. Shigwan, Nitin Kumar
+          </div>
+          <div class="pub-abstract">
+            <p>A novel graph neural network integrating Autoregressive Moving Average (ARMA) spectral filtering with reconstruction-driven regularisation — the first approach to jointly address both over-smoothing and over-squashing in sparse-label neuroimaging graphs.</p>
+            <button class="abstract-toggle">Read More</button>
+            <div class="abstract-extended">
+              <p>The framework represents entire cohorts as connected graphs where nodes encode neuroanatomical features and edges capture inter-subject similarity, enabling robust disease pattern extraction from limited training data. ARMA convolutions produce rational filters more expressive than standard polynomial filters, capturing long-range cortical dependencies without parameter explosion. Achieved 98.3% accuracy for CN vs. MCI and 99.7% for CN vs. AD classification on ADNI (>3% above GCN/GAT baselines).</p>
+            </div>
+          </div>
+          <div class="pub-links">
+            <!-- <a href="#" class="pub-link paper-link"><i class="fas fa-file-pdf"></i> Paper</a> -->
+          </div>
+        </div>
+        <div class="pub-year">ISBI <br> 2026</div>
+      </div>
+
+      <div class="dotted-divider"></div>
 
       <!-- Publication Item with 3D Cards -->
       <div class="publication-item" data-aos="fade-up" data-aos-duration="1000">
