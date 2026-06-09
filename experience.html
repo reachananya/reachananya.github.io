@@ -42,514 +42,359 @@
       </div>
     </nav>
 
-    <!-- Header Background with Particles -->
-    <div class="page-header">
-      <div class="particle-container">
-        <div class="wrap" id="particleWrap">
-          <!-- Particles will be dynamically added here via JS -->
-        </div>
-      </div>
-      <div class="header-overlay"></div>
-      <div class="header-content">
-        <h1>Experience</h1>
-      </div>
-    </div>
+  <div class="exp-page">
 
-    <!-- TIMELINE EXPERIENCE LAYOUT -->
-    <div class="timeline-container">
-      <!-- Vertical Timeline Line -->
-      <div class="timeline-line"></div>
-      
-      <!-- GE Experience -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000">
-        <div class="timeline-year">
-          <span class="month">Aug 2024</span>
-          <span class="year">Present</span>
-        </div>
-        <div class="timeline-node">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-title-area">
-              <h2 class="timeline-title">GE Healthcare</h2>
-              <div class="timeline-company">
-                <span class="company-badge">AI Researcher</span>
-                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
-              </div>
-            </div>
-            <div class="timeline-logo">
-              <i class="fa-solid fa-brain"></i>
-            </div>
-          </div>
-          <div class="timeline-description">
-            <ul>
-              <li>Invented gradient-informed structural prior that dynamically adjusts kernel geometry per-voxel for high b-value diffusion MRI, leveraging local tissue anisotropy to preserve sharp tumor boundaries whilst aggressively suppressing noise in low-anisotropy regions. Delivered 18% SNR gain with 96% tissue boundary preservation vs. fixed-size MPPCA baselines on HCP data at b-values of 5000–10000 s/mm². Filed as Invention Disclosure, accepted at EMBC 2026.</li>
-              <li>Replaced manual FSE protocol tuning with a physics-informed optimization framework for 2D and 3D Fast Spin Echo sequences, automating echo train length, T2-weighting, and eddy current trade-off selection and reducing scan setup time from hours to minutes across 4 clinical sites.</li>
-            </ul>
-          </div>
-          <div class="timeline-skills">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Diffusion MRI</span>
-            <span class="skill-tag">DIPY</span>
-            <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">SimpleITK</span>
-            <span class="skill-tag">MRI Physics</span>
-          </div>
-        </div>
+    <!-- LEFT: COMPANY TABS -->
+    <aside class="exp-list">
+
+      <div class="exp-group-label">Industry</div>
+
+      <div class="exp-tab active" data-panel="ge" onclick="switchPanel(this)">
+        <div class="exp-tab-company">GE HealthCare</div>
+        <div class="exp-tab-role">AI Researcher</div>
+        <div class="exp-tab-date">Aug 2024 – Present</div>
       </div>
 
-      <!-- Teaching Assistant - Image Processing -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        <div class="timeline-year">
-          <span class="month">May 2024</span>
-          <span class="year">Aug 2024</span>
-        </div>
-        <div class="timeline-node">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-title-area">
-              <h2 class="timeline-title">Shiv Nadar Institute of Eminence</h2>
-              <div class="timeline-company">
-                <span class="company-badge">Teaching Assistant</span>
-                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Delhi NCR, India</span>
-              </div>
-            </div>
-            <div class="timeline-logo">
-              <i class="fa-solid fa-chalkboard-teacher"></i>
-            </div>
-          </div>
-          <div class="timeline-description">
-            <ul>
-              <li>Teaching Assistant for Image Processing (CSD357), supporting 60+ students across labs on spatial filtering, edge detection, morphological operations, and frequency-domain analysis. Assisted with MATLAB and Python assignments, graded lab reports, and held office hours.</li>
-            </ul>
-          </div>
-          <div class="timeline-skills">
-            <span class="skill-tag">Image Processing</span>
-            <span class="skill-tag">MATLAB</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Teaching</span>
-          </div>
-        </div>
+      <div class="exp-tab" data-panel="dell-winter" onclick="switchPanel(this)">
+        <div class="exp-tab-company">Dell Technologies</div>
+        <div class="exp-tab-role">SWE Winter Intern</div>
+        <div class="exp-tab-date">Jan – May 2024</div>
       </div>
 
-      <!-- Teaching Assistant - Mathematical Methods -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        <div class="timeline-year">
-          <span class="month">Aug 2023</span>
-          <span class="year">Dec 2023</span>
-        </div>
-        <div class="timeline-node">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-title-area">
-              <h2 class="timeline-title">Shiv Nadar Institute of Eminence</h2>
-              <div class="timeline-company">
-                <span class="company-badge">Teaching Assistant</span>
-                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Delhi NCR, India</span>
-              </div>
-            </div>
-            <div class="timeline-logo">
-              <i class="fa-solid fa-chalkboard-teacher"></i>
-            </div>
+      <div class="exp-tab" data-panel="dell-summer" onclick="switchPanel(this)">
+        <div class="exp-tab-company">Dell Technologies</div>
+        <div class="exp-tab-role">SWE Summer Intern</div>
+        <div class="exp-tab-date">May – Jul 2023</div>
+      </div>
+
+      <div class="exp-tab" data-panel="zkteco" onclick="switchPanel(this)">
+        <div class="exp-tab-company">ZKTeco Inc.</div>
+        <div class="exp-tab-role">Research Intern</div>
+        <div class="exp-tab-date">Jul – Oct 2022</div>
+      </div>
+
+      <div class="exp-tab" data-panel="nus" onclick="switchPanel(this)">
+        <div class="exp-tab-company">Natl. Univ. Singapore</div>
+        <div class="exp-tab-role">Academic Intern</div>
+        <div class="exp-tab-date">May – Aug 2022</div>
+      </div>
+
+      <div class="exp-group-label">Research</div>
+
+      <div class="exp-tab" data-panel="snu-ra" onclick="switchPanel(this)">
+        <div class="exp-tab-company">Shiv Nadar IoE</div>
+        <div class="exp-tab-role">Student Researcher / RA</div>
+        <div class="exp-tab-date">Jan 2023 – Aug 2024</div>
+      </div>
+
+      <div class="exp-tab" data-panel="iiit" onclick="switchPanel(this)">
+        <div class="exp-tab-company">IIIT Hyderabad</div>
+        <div class="exp-tab-role">Research Intern, CVIT</div>
+        <div class="exp-tab-date">Mar – Aug 2021</div>
+      </div>
+
+      <div class="exp-group-label">Teaching</div>
+
+      <div class="exp-tab" data-panel="ta-ip" onclick="switchPanel(this)">
+        <div class="exp-tab-company">Shiv Nadar IoE</div>
+        <div class="exp-tab-role">TA — Image Processing</div>
+        <div class="exp-tab-date">May – Aug 2024</div>
+      </div>
+
+      <div class="exp-tab" data-panel="ta-math" onclick="switchPanel(this)">
+        <div class="exp-tab-company">Shiv Nadar IoE</div>
+        <div class="exp-tab-role">TA — Math Methods I</div>
+        <div class="exp-tab-date">Aug – Dec 2023</div>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT: DETAIL PANELS -->
+    <main class="exp-detail">
+
+      <!-- GE HealthCare -->
+      <div class="detail-panel active" id="panel-ge">
+        <div class="detail-header">
+          <div class="detail-company">GE HealthCare</div>
+          <div class="detail-role">AI Researcher — Advanced Technology Group</div>
+          <div class="detail-meta">
+            <span><i class="fas fa-calendar-alt"></i> Aug 2024 – Present</span>
+            <span><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
           </div>
-          <div class="timeline-description">
-            <ul>
-              <li>Teaching Assistant for Mathematical Methods I (MAT103), supporting 80+ undergraduate students across Computer Science and Engineering. Conducted weekly problem-solving sessions on linear algebra, differential equations, and vector calculus. Graded assignments and exams.</li>
-            </ul>
-          </div>
-          <div class="timeline-skills">
-            <span class="skill-tag">Linear Algebra</span>
-            <span class="skill-tag">Calculus</span>
-            <span class="skill-tag">Teaching</span>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Voxel-Adaptive Denoising for High b-value Diffusion MRI</div>
+          <ul class="detail-bullets">
+            <li>Invented gradient-informed structural prior that dynamically adjusts kernel geometry per-voxel, leveraging local tissue anisotropy to preserve sharp tumor boundaries whilst aggressively suppressing noise in low-anisotropy regions.</li>
+            <li>Developed gradient-to-kernel mapping algorithm using k-means clustering of voxel-wise gradient magnitudes with monotonic assignment of discrete odd-integer kernel sizes — generating a per-voxel kernel map that autonomously adapts MPPCA denoising to local anatomical complexity.</li>
+            <li>Delivered 18% SNR gain with 96% tissue boundary preservation vs. fixed-size MPPCA baselines (NYU-MPPCA, DIPY-MPPCA) on HCP data at b-values of 5000–10000 s/mm².</li>
+            <li>Filed as Invention Disclosure at GE HealthCare. Accepted at EMBC 2026, Toronto.</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">MRI Acquisition Parameter Optimization in Fast Spin Echo (FSE)</div>
+          <ul class="detail-bullets">
+            <li>Replaced manual FSE protocol tuning with a physics-informed optimization framework for 2D and 3D sequences, automating echo train length, T2-weighting, and eddy current trade-off selection.</li>
+            <li>Reduced scan setup time from hours to minutes across 4 clinical sites.</li>
+            <li>Investigated critical FSE physics: echo train length optimization, refocusing pulse efficiency, eddy current compensation, chemical shift artifacts, and J-coupling effects in multi-echo sequences.</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-tags">
+            <span class="detail-tag">Python</span>
+            <span class="detail-tag">Diffusion MRI</span>
+            <span class="detail-tag">DIPY</span>
+            <span class="detail-tag">SimpleITK</span>
+            <span class="detail-tag">NumPy</span>
+            <span class="detail-tag">MRI Physics</span>
           </div>
         </div>
       </div>
 
-      <!-- SNU - Reseach assistantship -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        <div class="timeline-year">
-          <span class="month">May 2024</span>
-          <span class="year">Aug 2024</span>
-        </div>
-        <div class="timeline-node">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-title-area">
-              <h2 class="timeline-title">Shiv Nadar Institute of Eminance</h2>
-              <div class="timeline-company">
-                <span class="company-badge">Research Assistant</span>
-                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Delhi NCR, India</span>
-              </div>
-            </div>
-            <div class="timeline-logo">
-              <i class="fa-solid fa-brain"></i>
-            </div>
-          </div>
-          <div class="timeline-description">
-            <ul>
-              <li>Developed GraphNeuralMRI framework for early Alzheimer's disease detection using diffusion MRI data, achieving 98.9% accuracy in CN vs MCI classification and 97.99% in CN vs AD classification.</li>
-              <li>Engineered histogram-based connectivity features from brain networks derived from tractography fiber counts, significantly outperforming traditional machine learning approaches (68-79% accuracy).</li>
-              <li>Implemented and compared multiple graph neural network architectures (GCN, GAT, ARMAConv) in a transductive learning setup to capture subtle connectivity alterations characteristic of neurodegeneration stages.</li>
-            </ul>
-          </div>
-          <div class="timeline-skills">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">GNNs</span>
-            <span class="skill-tag">Dipy</span>
-            <!-- <span class="skill-tag">Python</span>
-            <span class="skill-tag">Data Science</span> -->
+      <!-- Dell Winter -->
+      <div class="detail-panel" id="panel-dell-winter">
+        <div class="detail-header">
+          <div class="detail-company">Dell Technologies</div>
+          <div class="detail-role">Software Engineer Winter Intern — Dell Digital</div>
+          <div class="detail-meta">
+            <span><i class="fas fa-calendar-alt"></i> Jan – May 2024</span>
+            <span><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
           </div>
         </div>
-      </div>
-      
-      <!-- Dell Experience 1 (SWE Intern) -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        <div class="timeline-year">
-          <span class="month">Jan 2024</span>
-          <span class="year">Aug 2024</span>
+        <div class="detail-section">
+          <div class="detail-section-title">ML-Driven Order Fulfillment Forecasting</div>
+          <ul class="detail-bullets">
+            <li>Designed configuration-aware scoring model and feature engineering pipeline processing 100K+ daily transactions via SQL Server.</li>
+            <li>Identified low-probability SKU configurations that reduced idle inventory by 15% in A/B testing, extracting actionable business intelligence for supply chain optimization.</li>
+            <li>Built automated drift detection triggering targeted data cleaning, reducing manual effort by 40% and enabling daily retraining for sustained model accuracy.</li>
+          </ul>
         </div>
-        <div class="timeline-node">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-title-area">
-              <h2 class="timeline-title">Dell Technologies</h2>
-              <div class="timeline-company">
-                <span class="company-badge">SWE Intern</span>
-                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
-              </div>
-            </div>
-            <div class="timeline-logo">
-              <i class="fa-solid fa-laptop-code"></i>
-            </div>
-          </div>
-          <div class="timeline-description">
-            <ul>
-              <li>Developed a ML model to estimate order fulfillment status and predict the likelihood of order sales based on configurations.</li>
-              <li>Utilized SQL Server to analyze data and reduce idle inventory by identifying configurations less likely to sell.</li>
-            </ul>
-          </div>
-          <div class="timeline-skills">
-            <span class="skill-tag">SQL Server</span>
-            <span class="skill-tag">Pandas</span>
-            <span class="skill-tag">Scikit-learn</span>
-            <span class="skill-tag">Python</span>
-            <!-- <span class="skill-tag">Data Science</span> -->
+        <div class="detail-section">
+          <div class="detail-tags">
+            <span class="detail-tag">SQL Server</span>
+            <span class="detail-tag">Python</span>
+            <span class="detail-tag">Pandas</span>
+            <span class="detail-tag">scikit-learn</span>
           </div>
         </div>
       </div>
 
-      
-      
-      <!-- Dell Experience 2 (Summer Intern) -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        <div class="timeline-year">
-          <span class="month">May 2023</span>
-          <span class="year">Aug 2023</span>
-        </div>
-        <div class="timeline-node">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-title-area">
-              <h2 class="timeline-title">Dell Technologies</h2>
-              <div class="timeline-company">
-                <span class="company-badge">Summer Intern</span>
-                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
-              </div>
-            </div>
-            <div class="timeline-logo">
-              <i class="fa-solid fa-laptop-code"></i>
-            </div>
+      <!-- Dell Summer -->
+      <div class="detail-panel" id="panel-dell-summer">
+        <div class="detail-header">
+          <div class="detail-company">Dell Technologies</div>
+          <div class="detail-role">Software Engineer Summer Intern — Dell Digital</div>
+          <div class="detail-meta">
+            <span><i class="fas fa-calendar-alt"></i> May – Jul 2023</span>
+            <span><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
           </div>
-          <div class="timeline-description">
-            <ul>
-              <li>Architected and deployed an internal knowledge management system using GPT4ALL, LangChain, FAISS vector database, and PyPDF2 that enables employees to query 100+ company documents through natural language, reducing information retrieval time. </li>
-              <li>Implemented an end-to-end document processing pipeline with sentence-transformers for embedding generation, Chroma DB for efficient vector storage, and a Flask/FastAPI backend.</li>
-            </ul>
-          </div>
-          <div class="timeline-skills">
-            <!-- <span class="skill-tag">NLP</span> -->
-            <span class="skill-tag">LangChain</span>
-            <span class="skill-tag">GPT4ALL/LLMs</span>
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">PyPDF2/PDF Processing</span>
-            <span class="skill-tag">Python</span>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">RAG-Based Enterprise Knowledge System</div>
+          <ul class="detail-bullets">
+            <li>Architected RAG pipeline with GPT4ALL, LangChain, and Pinecone vector store, engineering chunking strategy and embedding indexing over 10K+ internal documents.</li>
+            <li>Achieved 92% retrieval accuracy (MRR@5) on technical documentation queries — 3× faster than legacy keyword search.</li>
+            <li>Shipped production deployment with RBAC, audit logging, and latency monitoring. Adopted by 3 engineering teams for daily technical Q&A workflows.</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-tags">
+            <span class="detail-tag">Python</span>
+            <span class="detail-tag">LangChain</span>
+            <span class="detail-tag">Pinecone</span>
+            <span class="detail-tag">GPT4ALL</span>
+            <span class="detail-tag">RAG</span>
           </div>
         </div>
       </div>
 
-
-      <!-- SNU - Undergrad. Researcher  -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        <div class="timeline-year">
-          <span class="month">October 2022</span>
-          <span class="year">Aug 2023</span>
-        </div>
-        <div class="timeline-node">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-title-area">
-              <h2 class="timeline-title">Shiv Nadar Institute of Eminance</h2>
-              <div class="timeline-company">
-                <span class="company-badge">Undergraduate Research Fellow</span>
-                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
-              </div>
-            </div>
-            <div class="timeline-logo">
-              <i class="fa-solid fa-brain"></i>
-            </div>
+      <!-- ZKTeco -->
+      <div class="detail-panel" id="panel-zkteco">
+        <div class="detail-header">
+          <div class="detail-company">ZKTeco Inc.</div>
+          <div class="detail-role">Research Intern — Biometric Systems R&amp;D</div>
+          <div class="detail-meta">
+            <span><i class="fas fa-calendar-alt"></i> Jul – Oct 2022</span>
+            <span><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
           </div>
-          <div class="timeline-description">
-            <ul>
-              <li> Investigated the potential of Transformer based deep learning techniques to accelerate the processing of diffusion tensor imaging (DTI) measures and improve the early diagnosis of Alzheimer's disease (AD) using sparse data on ADNI dataset</li>
-              <li> The proposed model leverages the attention mechanism to generate quantitative measures of fractional anisotropy (FA), axial diffusivity (AxD), and mean diffusivity (MD) using 5 and 21 diffusion directions, making it useful for clinical diagnosis through reduced scanning time of more than half.</li>
-            </ul>
-          </div>
-          <div class="timeline-skills">
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">NiBable</span>
-            <span class="skill-tag">SimpleITK</span>
-            <span class="skill-tag">Tractography</span>
-            <span class="skill-tag">FSL (FMRIB Software Library)</span>
-            <span class="skill-tag">MRtrix3</span>
-            <span class="skill-tag">Dipy (Diffusion Imaging in Python)</span>
-            <span class="skill-tag">ANTs (Advanced Normalization Tools)</span>
-            <!-- <span class="skill-tag"></span> -->
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Multimodal Biometric Authentication System</div>
+          <ul class="detail-bullets">
+            <li>Engineered multimodal biometric pipeline fusing finger vein and fingerprint data via Siamese Networks trained with contrastive loss, significantly improving spoof resistance through feature-level fusion.</li>
+            <li>Designed preprocessing pipeline with CLAHE and ROI extraction to enhance vein pattern visibility. Achieved 95%+ verification accuracy on multi-subject test sets.</li>
+            <li>Optimized model inference for real-time deployment on embedded ARM hardware with &lt;500ms inference latency.</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-tags">
+            <span class="detail-tag">PyTorch</span>
+            <span class="detail-tag">Computer Vision</span>
+            <span class="detail-tag">OpenCV</span>
+            <span class="detail-tag">ARM Deployment</span>
           </div>
         </div>
       </div>
 
-      <!--ZKteco Research Intern) -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        <div class="timeline-year">
-          <span class="month">July 2022</span>
-          <span class="year">October 2022</span>
-        </div>
-        <div class="timeline-node">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-title-area">
-              <h2 class="timeline-title">ZKTeco</h2>
-              <div class="timeline-company">
-                <span class="company-badge">Research Intern</span>
-                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
-              </div>
-            </div>
-            <div class="timeline-logo">
-              <i class="fa-solid fa-user-check"></i>
-            </div>
+      <!-- NUS -->
+      <div class="detail-panel" id="panel-nus">
+        <div class="detail-header">
+          <div class="detail-company">National University of Singapore</div>
+          <div class="detail-role">Academic Intern</div>
+          <div class="detail-meta">
+            <span><i class="fas fa-calendar-alt"></i> May – Aug 2022</span>
+            <span><i class="fas fa-map-marker-alt"></i> Singapore</span>
+            <span>Advisor: Prof. Tan Wee Kek</span>
           </div>
-          <div class="timeline-description">
-            <ul>
-              <li>Contributed to a multimodal biometric authentication system using finger vein and fingerprint data, enhancing spoof
-                resistance through feature-level fusion. Supported preprocessing (CLAHE, ROI extraction) and deep learning-based
-                verification using Siamese networks, achieving 95%+ accuracy.</li>
-            </ul>
-          </div>
-          <div class="timeline-skills">
-            <span class="skill-tag">TensorFlow</span>
-            <span class="skill-tag">OpenCV</span>
-            <span class="skill-tag">scikit-image</span>
-            <span class="skill-tag">Siamese Networks</span>
-            <span class="skill-tag">CLAHE (Contrast Limited Adaptive Histogram Equalization)</span>
-            <span class="skill-tag">CNN/ResNet</span>
-            <span class="skill-tag">NumPy/SciPy</span>
-            <!-- <span class="skill-tag"></span> -->
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Carma — Real-time AI-Powered Violence Detection</div>
+          <ul class="detail-bullets">
+            <li>Architected end-to-end video classification system combining LRCN and ConvLSTM for temporal modeling of violent events in CCTV streams. Achieved 83% F1-score on custom surveillance dataset.</li>
+            <li>Implemented spatial-temporal feature extraction capturing both appearance and motion dynamics under occlusion and illumination variation.</li>
+            <li>Deployed full-stack pipeline: Streamlit frontend, AWS Lambda backend, Firebase real-time database with sub-second alert latency and geolocation tagging.</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-tags">
+            <span class="detail-tag">PyTorch</span>
+            <span class="detail-tag">LRCN</span>
+            <span class="detail-tag">ConvLSTM</span>
+            <span class="detail-tag">AWS Lambda</span>
+            <span class="detail-tag">Streamlit</span>
+            <span class="detail-tag">Firebase</span>
           </div>
         </div>
       </div>
 
-
-      <!--NUS Research Intern) -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        <div class="timeline-year">
-          <span class="month">May 2022</span>
-          <span class="year">Aug 2022</span>
-        </div>
-        <div class="timeline-node">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-title-area">
-              <h2 class="timeline-title">National University of Singapore</h2>
-              <div class="timeline-company">
-                <span class="company-badge">Academic Intern</span>
-                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Singapore</span>
-              </div>
-            </div>
-            <div class="timeline-logo">
-              <i class="fa-solid fa-video"></i>
-            </div>
+      <!-- SNU RA -->
+      <div class="detail-panel" id="panel-snu-ra">
+        <div class="detail-header">
+          <div class="detail-company">Shiv Nadar Institute of Eminence</div>
+          <div class="detail-role">Student Researcher &amp; Research Assistant</div>
+          <div class="detail-meta">
+            <span><i class="fas fa-calendar-alt"></i> Jan 2023 – Aug 2024</span>
+            <span><i class="fas fa-map-marker-alt"></i> Delhi NCR, India</span>
+            <span>Advisor: Prof. Saurabh J. Shigwan</span>
           </div>
-          <div class="timeline-description">
-            <ul>
-              <li>Designed and developed a system for real-time violence detection through surveillance cameras by optimizing LRCN model that uses both CNN and LSTM. The model is trained on a novel dataset that consists of 150 videos each for 'Fight' and 'noFight'.</li>
-              <li>Created a web-app using Steamlit that sends notifications and generates the map depicting exactly where the Fight is detected based on the database of the location of the surveillance cameras.</li>
-            </ul>
-          </div>
-          <div class="timeline-skills">
-            <span class="skill-tag">TensorFlow</span>
-            <span class="skill-tag">OpenCV</span>
-            <!-- <span class="skill-tag">LSTM/RNN</span> -->
-            <span class="skill-tag">LRCN (CNN + LSTM)/</span>
-            <span class="skill-tag">Streamlit</span>
-            <span class="skill-tag">Google Maps API</span>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Accelerated Sparse Diffusion MRI for Neurodegenerative Disease Detection</div>
+          <ul class="detail-bullets">
+            <li>Developed Swin-Transformer architecture maintaining diagnostic accuracy with 50%+ fewer gradient directions (5–21 vs. standard 41), enabling clinically feasible acquisition protocols for elderly patients.</li>
+            <li>Designed custom loss function with positive-definiteness constraints and domain-specific penalty terms to enforce biophysical coherence in diffusion tensor estimates.</li>
+            <li>Conducted voxel-wise TBSS analysis to map disease-specific white matter degradation for tract-level AD and FTD classification without full acquisition. Accepted at ICCV 2023 and ACML 2023.</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">ARMARecon — GNN for Sparse-Label Classification</div>
+          <ul class="detail-bullets">
+            <li>Developed novel GNN integrating ARMA spectral filtering with reconstruction-driven regularisation — the first approach to jointly address over-smoothing and over-squashing in sparse-label neuroimaging graphs.</li>
+            <li>Achieved 98.3% accuracy for CN vs. MCI and 99.7% for CN vs. AD on ADNI dataset (&gt;3% above GCN/GAT baselines). Accepted at ISBI 2026, London.</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-tags">
+            <span class="detail-tag">PyTorch</span>
+            <span class="detail-tag">PyTorch Geometric</span>
+            <span class="detail-tag">Diffusion MRI</span>
+            <span class="detail-tag">TBSS</span>
+            <span class="detail-tag">FSL</span>
+            <span class="detail-tag">DIPY</span>
           </div>
         </div>
       </div>
 
-
-      <!--IIT Hyd -->
-      <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        <div class="timeline-year">
-          <span class="month">May 2021</span>
-          <span class="year">December 2021</span>
-        </div>
-        <div class="timeline-node">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-title-area">
-              <h2 class="timeline-title">International Institute of Information Technology Hyderabad (IIITH)</h2>
-              <div class="timeline-company">
-                <span class="company-badge">Research Intern @CVIT Lab</span>
-                <span class="company-location"><i class="fas fa-map-marker-alt"></i> Hyderabad</span>
-              </div>
-            </div>
-            <div class="timeline-logo">
-              <i class="fa-solid fa-eye"></i>
-            </div>
+      <!-- IIIT -->
+      <div class="detail-panel" id="panel-iiit">
+        <div class="detail-header">
+          <div class="detail-company">IIIT Hyderabad — CVIT Lab</div>
+          <div class="detail-role">Research Intern</div>
+          <div class="detail-meta">
+            <span><i class="fas fa-calendar-alt"></i> Mar – Aug 2021</span>
+            <span><i class="fas fa-map-marker-alt"></i> Hyderabad, India</span>
+            <span>Advisor: Prof. Anoop M. Namboodiri</span>
           </div>
-          <div class="timeline-description">
-            <ul>
-              <li>Worked on a task of mitigating biasing of facial Recognition in Computer Vision under Dr. Anoop Namboodiri.</li>
-              <li>Created a novel publicly available dataset of 30,000 face images pertaining to famous Indian personalities (identified by similarity score), along with a web annotation system. </li>
-              <li>Mapped different races in terms of the average difference between two observable quantities, computed the error rate of facial recognition system in different parts of the space, and found a correlation between the accuracy and the location of the space.</li>
-            </ul>
-          </div>
-          <div class="timeline-skills">
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">OpenCV</span>
-            <span class="skill-tag">Dlib</span>
-            <span class="skill-tag">MTCNN</span>
-            <!-- <span class="skill-tag">LLMs</span> -->
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Facial Recognition Bias Assessment &amp; Mitigation</div>
+          <ul class="detail-bullets">
+            <li>Built a 30K-image annotated dataset spanning diverse Indian demographics including geographic, ethnic, and age variations.</li>
+            <li>Benchmarked 5 commercial and open-source facial recognition systems using ROC curves, AUC, FAR/FRR. Uncovered 15–20% accuracy gap on underrepresented Indian faces vs. Western-centric benchmarks.</li>
+            <li>Proposed targeted few-shot adaptation strategy that recovered 12% of the performance gap. Results presented to CVIT faculty panel.</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-tags">
+            <span class="detail-tag">Python</span>
+            <span class="detail-tag">OpenCV</span>
+            <span class="detail-tag">Face Recognition</span>
+            <span class="detail-tag">Few-Shot Learning</span>
           </div>
         </div>
       </div>
 
+      <!-- TA Image Processing -->
+      <div class="detail-panel" id="panel-ta-ip">
+        <div class="detail-header">
+          <div class="detail-company">Shiv Nadar Institute of Eminence</div>
+          <div class="detail-role">Teaching Assistant — Image Processing (CSD357)</div>
+          <div class="detail-meta">
+            <span><i class="fas fa-calendar-alt"></i> May – Aug 2024</span>
+            <span><i class="fas fa-map-marker-alt"></i> Delhi NCR, India</span>
+          </div>
+        </div>
+        <div class="detail-section">
+          <ul class="detail-bullets">
+            <li>Supported 60+ students across labs on spatial filtering, edge detection, morphological operations, and frequency-domain analysis.</li>
+            <li>Assisted with MATLAB and Python programming assignments, graded lab reports, and held office hours for debugging and conceptual clarification.</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-tags">
+            <span class="detail-tag">MATLAB</span>
+            <span class="detail-tag">Python</span>
+            <span class="detail-tag">Image Processing</span>
+            <span class="detail-tag">Teaching</span>
+          </div>
+        </div>
+      </div>
 
-      
-    </div>
+      <!-- TA Math -->
+      <div class="detail-panel" id="panel-ta-math">
+        <div class="detail-header">
+          <div class="detail-company">Shiv Nadar Institute of Eminence</div>
+          <div class="detail-role">Teaching Assistant — Mathematical Methods I (MAT103)</div>
+          <div class="detail-meta">
+            <span><i class="fas fa-calendar-alt"></i> Aug – Dec 2023</span>
+            <span><i class="fas fa-map-marker-alt"></i> Delhi NCR, India</span>
+          </div>
+        </div>
+        <div class="detail-section">
+          <ul class="detail-bullets">
+            <li>Supported 80+ undergraduate students across Computer Science and Engineering on linear algebra, differential equations, and vector calculus.</li>
+            <li>Conducted weekly problem-solving sessions, graded assignments and exams, provided one-on-one mentoring.</li>
+          </ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-tags">
+            <span class="detail-tag">Linear Algebra</span>
+            <span class="detail-tag">Calculus</span>
+            <span class="detail-tag">Teaching</span>
+          </div>
+        </div>
+      </div>
 
-    <!-- Footer -->
-    <div class="footer">
-      <p>Designed & Built with <i class="fas fa-heart pulse"></i> by Ananya Singhal</p>
-      <p>&copy; 2025 All Rights Reserved</p>
-    </div>
+    </main>
+  </div>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      // Initialize AOS
-      AOS.init();
-      
-      // Intersection Observer for Timeline Year Animation
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5
-      };
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          const yearElement = entry.target.querySelector('.timeline-year');
-          if (entry.isIntersecting) {
-            yearElement.classList.add('active');
-          } else {
-            yearElement.classList.remove('active');
-          }
-        });
-      }, observerOptions);
-      
-      document.querySelectorAll('.timeline-item').forEach(item => {
-        observer.observe(item);
-      });
-      
-      // Particle Animation Setup
-      document.addEventListener('DOMContentLoaded', function() {
-        const particleWrap = document.getElementById('particleWrap');
-        const totalParticles = 300;
-        const orbSize = 300;
-        const greenColor = '#50d890';
-        
-        // Create 300 particles
-        for (let i = 1; i <= totalParticles; i++) {
-          const particle = document.createElement('div');
-          particle.className = 'c';
-          
-          // Generate random angles
-          const randomZ = Math.random() * 360;
-          const randomY = Math.random() * 360;
-          
-          // Set animation styles inline
-          particle.style.animation = `orbit${i} 14s infinite`;
-          particle.style.animationDelay = `${i * 0.01}s`;
-          particle.style.backgroundColor = greenColor;
-          
-          // Add to DOM
-          particleWrap.appendChild(particle);
-          
-          // Create keyframe animation for this specific particle
-          const keyframes = `
-            @keyframes orbit${i} {
-              20% {
-                opacity: 1;
-              }
-              30% {
-                transform: rotateZ(-${randomZ}deg) rotateY(${randomY}deg) translateX(${orbSize}px) rotateZ(${randomZ}deg);
-              }
-              80% {
-                transform: rotateZ(-${randomZ}deg) rotateY(${randomY}deg) translateX(${orbSize}px) rotateZ(${randomZ}deg);
-                opacity: 1;
-              }
-              100% {
-                transform: rotateZ(-${randomZ}deg) rotateY(${randomY}deg) translateX(${orbSize * 4}px) rotateZ(${randomZ}deg);
-              }
-            }
-          `;
-          
-          // Add keyframes to the document
-          const style = document.createElement('style');
-          style.innerHTML = keyframes;
-          document.head.appendChild(style);
-        }
-      });
-    </script>
+  <script>
+    function switchPanel(tab) {
+      document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.detail-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+    }
+  </script>
   </body>
 </html>
