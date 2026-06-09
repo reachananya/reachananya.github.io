@@ -60,12 +60,12 @@ body {
   opacity: 0.75;
 }
 
-.nav-links {
+.top-nav-links {
   display: flex;
   gap: 32px;
 }
 
-.nav-links a {
+.top-nav-links a {
   color: var(--text-dim);
   text-decoration: none;
   font-size: 11px;
@@ -74,7 +74,7 @@ body {
   transition: color 0.2s;
 }
 
-.nav-links a:hover {
+.top-nav-links a:hover {
   color: var(--text);
 }
 
@@ -326,7 +326,7 @@ body {
     height: auto;
   }
 
-  .nav-links { gap: 16px; }
+  .top-nav-links { gap: 16px; }
 
   .page {
     flex-direction: column;

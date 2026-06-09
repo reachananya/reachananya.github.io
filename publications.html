@@ -22,141 +22,21 @@
     />
     
     <!-- Custom Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="nav.css" />
     <link rel="stylesheet" href="styles_publications.css" />
-    <!-- Mobile Navigation CSS -->
-    <link rel="stylesheet" href="mobile-nav.css" />
-    
-    <!-- Custom Style Overrides for Mobile Navigation -->
-    <style>
-      /* Mobile navigation container */
-      .mobile-nav-container {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        padding: 20px;
-        z-index: 1000;
-        display: flex;
-        justify-content: flex-end;
-        pointer-events: none; /* Allow clicks to pass through to elements below */
-      }
-      
-      /* Override hamburger menu positioning for index page */
-      .hamburger-menu {
-        position: relative;
-        top: unset;
-        right: unset;
-        display: none;
-        z-index: 1000;
-        pointer-events: auto; /* Make hamburger clickable */
-        background-color: rgba(17, 17, 17, 0.5); /* Semi-transparent background */
-        backdrop-filter: blur(5px); /* Blur effect */
-        border-radius: 4px; /* Rounded corners */
-        cursor: pointer; /* Ensure cursor shows this is clickable */
-      }
-      
-      /* Show hamburger menu only on mobile */
-      @media only screen and (max-width: 992px) {
-        .hamburger-menu {
-          display: block;
-        }
-        
-        .vertical-navigation {
-          display: none;
-        }
-      }
-      
-      /* Ensure sidebar is visible when active */
-      .mobile-sidebar.active {
-        right: 0 !important;
-        visibility: visible !important;
-        transform: translateX(0) !important;
-      }
-      
-      /* Custom style to remove underlines */
-      .sidebar-item .nav-text::after {
-        display: none !important;
-      }
-      
-      .sidebar-item:hover .nav-text::after {
-        display: none !important;
-      }
-    </style>
   </head>
 
   <body>
-    <!-- Navigation Bar -->
-    <nav class="main-nav">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <a href="index.html"><span class="bold-name">Ananya</span> <span>Singhal</span></a>
-        </div>
-        <div class="nav-links">
-          <a href="index.html" class="nav-item">
-            <span class="nav-number">00</span>
-            <span class="nav-text">about</span>
-          </a>
-          <a href="publications.html" class="nav-item active">
-            <span class="nav-number active-number">01</span>
-            <span class="nav-text active-text">publications</span>
-          </a>
-          <a href="experience.html" class="nav-item">
-            <span class="nav-number">02</span>
-            <span class="nav-text">experience</span>
-          </a>
-          <a href="projects.html" class="nav-item">
-            <span class="nav-number">03</span>
-            <span class="nav-text">projects</span>
-          </a>
-          <a href="awards.html" class="nav-item">
-            <span class="nav-number">04</span>
-            <span class="nav-text">awards</span>
-          </a>
-        </div>
+    <nav class="top-nav">
+      <a href="index.html" class="nav-back">ananya singhal</a>
+      <div class="top-nav-links">
+        <a href="experience.html">experience</a>
+        <a href="publications.html" class="active">publications</a>
+        <a href="projects.html">projects</a>
+        <a href="awards.html">awards</a>
       </div>
     </nav>
-    
-    <!-- Mobile Navigation (mimicking the structure from index.html) -->
-    <div class="mobile-nav-container">
-      <!-- Hamburger Menu Button on right side with inline onclick handler -->
-      <div class="hamburger-menu" onclick="toggleMobileNav(event)">
-        <div class="hamburger-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Mobile Sidebar Navigation (hidden by default) -->
-    <div class="mobile-sidebar">
-      <div class="sidebar-header">
-        <!-- Removing the sidebar-close div that's creating the gray cross -->
-      </div>
-      <div class="sidebar-content">
-        <a href="publications.html" class="sidebar-item">
-          <span class="nav-number">01</span>
-          <span class="nav-text">Publications</span>
-        </a>
-        <a href="experience.html" class="sidebar-item">
-          <span class="nav-number">02</span>
-          <span class="nav-text">Experience</span>
-        </a>
-        <a href="projects.html" class="sidebar-item">
-          <span class="nav-number">03</span>
-          <span class="nav-text">Projects</span>
-        </a>
-        <a href="awards.html" class="sidebar-item">
-          <span class="nav-number">04</span>
-          <span class="nav-text">Awards</span>
-        </a>
-      </div>
-      <div class="sidebar-footer">
-      </div>
-    </div>
-    
-    <!-- Sidebar Overlay -->
-    <div class="sidebar-overlay"></div>
 
     <!-- Header Background with Video -->
     <div class="page-header">

@@ -27,83 +27,20 @@
     
     <!-- External CSS file -->
     <link rel="stylesheet" href="styles_awards.css" />
-    <!-- Mobile Navigation CSS -->
-    <link rel="stylesheet" href="mobile-nav.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="nav.css" />
   </head>
 
   <body>
-    <!-- Navigation Bar -->
-    <nav class="main-nav">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <a href="index.html"><span class="bold-name">Ananya</span> <span>Singhal</span></a>
-        </div>
-        <div class="nav-links">
-          <a href="index.html" class="nav-item">
-            <span class="nav-number">00</span>
-            <span class="nav-text">about</span>
-          </a>
-          <a href="publications.html" class="nav-item">
-            <span class="nav-number">01</span>
-            <span class="nav-text">publications</span>
-          </a>
-          <a href="experience.html" class="nav-item">
-            <span class="nav-number">02</span>
-            <span class="nav-text">experience</span>
-          </a>
-          <a href="projects.html" class="nav-item">
-            <span class="nav-number">03</span>
-            <span class="nav-text">projects</span>
-          </a>
-          <a href="awards.html" class="nav-item active">
-            <span class="nav-number active-number">04</span>
-            <span class="nav-text active-text">awards</span>
-          </a>
-        </div>
+    <nav class="top-nav">
+      <a href="index.html" class="nav-back">ananya singhal</a>
+      <div class="top-nav-links">
+        <a href="experience.html">experience</a>
+        <a href="publications.html">publications</a>
+        <a href="projects.html">projects</a>
+        <a href="awards.html" class="active">awards</a>
       </div>
     </nav>
-    
-    <!-- Mobile Navigation (mimicking the structure from index.html) -->
-    <div class="mobile-nav-container">
-      <!-- Hamburger Menu Button on right side with inline onclick handler -->
-      <div class="hamburger-menu" onclick="toggleMobileNav(event)">
-        <div class="hamburger-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Mobile Sidebar Navigation (hidden by default) -->
-    <div class="mobile-sidebar">
-      <div class="sidebar-header">
-        <!-- Removing the sidebar-close div that's creating the gray cross -->
-      </div>
-      <div class="sidebar-content">
-        <a href="publications.html" class="sidebar-item">
-          <span class="nav-number">01</span>
-          <span class="nav-text">Publications</span>
-        </a>
-        <a href="experience.html" class="sidebar-item">
-          <span class="nav-number">02</span>
-          <span class="nav-text">Experience</span>
-        </a>
-        <a href="projects.html" class="sidebar-item">
-          <span class="nav-number">03</span>
-          <span class="nav-text">Projects</span>
-        </a>
-        <a href="awards.html" class="sidebar-item">
-          <span class="nav-number">04</span>
-          <span class="nav-text">Awards</span>
-        </a>
-      </div>
-      <div class="sidebar-footer">
-      </div>
-    </div>
-    
-    <!-- Sidebar Overlay -->
-    <div class="sidebar-overlay"></div>
 
     <!-- Header Background with Particles -->
     <div class="page-header">
