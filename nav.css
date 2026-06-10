@@ -4,16 +4,16 @@
   align-items: center;
   justify-content: space-between;
   padding: 18px 48px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: #111111;
+  background: var(--nav-bg);
   z-index: 100;
   height: 61px;
 }
 
 .nav-back {
-  color: #50d890;
+  color: var(--accent);
   text-decoration: none;
   font-size: 12px;
   display: flex;
@@ -21,7 +21,7 @@
   gap: 8px;
   letter-spacing: 1.5px;
   font-family: 'Orbitron', sans-serif;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, color 0.2s;
 }
 
 .nav-back::before {
@@ -30,15 +30,16 @@
   font-family: sans-serif;
 }
 
-.nav-back:hover { opacity: 0.75; color: #ffffff; }
+.nav-back:hover { opacity: 0.75; color: var(--text-bright); }
 
 .top-nav-links {
   display: flex;
   gap: 32px;
+  align-items: center;
 }
 
 .top-nav-links a {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-dim);
   text-decoration: none;
   font-size: 11px;
   letter-spacing: 1.5px;
@@ -47,8 +48,8 @@
   font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
 }
 
-.top-nav-links a:hover { color: #e0e0e0; }
-.top-nav-links a.active { color: #e0e0e0; }
+.top-nav-links a:hover { color: var(--text); }
+.top-nav-links a.active { color: var(--text); }
 
 @media (max-width: 768px) {
   .top-nav {
@@ -68,7 +69,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid var(--border);
 }
 
 .page-header-thin .video-bg {
@@ -104,6 +105,15 @@
   z-index: 1;
 }
 
+[data-theme="light"] .page-header-thin .video-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(247,247,247,0.85),
+    rgba(247,247,247,0.5),
+    rgba(247,247,247,0.85)
+  );
+}
+
 .page-header-thin .page-title {
   position: relative;
   z-index: 2;
@@ -111,7 +121,7 @@
   font-size: 13px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--text-bright);
   text-align: center;
 }
 
@@ -121,7 +131,7 @@
   margin: 6px auto 0;
   width: 32px;
   height: 1.5px;
-  background: #50d890;
+  background: var(--accent);
 }
 
 @media (max-width: 768px) {

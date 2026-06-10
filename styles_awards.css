@@ -2,8 +2,8 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  background:#111111;
-  color:#e0e0e0;
+  background:var(--bg);
+  color:var(--text);
   font-family:'Inter','Segoe UI',system-ui,sans-serif;
   font-size:13px;
   overflow-x:hidden;
@@ -26,7 +26,7 @@ body {
 
 .toggle-label {
   font-size:10px;
-  color:rgba(255,255,255,0.25);
+  color:var(--text-faint);
   letter-spacing:1px;
   text-transform:uppercase;
   margin-right:4px;
@@ -37,7 +37,7 @@ body {
   border:1px solid rgba(255,255,255,0.1);
   border-radius:3px;
   font-size:10px;
-  color:rgba(255,255,255,0.35);
+  color:var(--text-dim);
   background:transparent;
   cursor:pointer;
   letter-spacing:0.5px;
@@ -46,9 +46,9 @@ body {
 }
 
 .toggle-btn.active {
-  border-color:#50d890;
-  color:#50d890;
-  background:rgba(80,216,144,0.06);
+  border-color:var(--accent);
+  color:var(--accent);
+  background:var(--accent-muted);
 }
 
 .toggle-btn:hover:not(.active) {
@@ -61,7 +61,7 @@ body {
   display:inline-block;
   padding:2px 8px;
   border:1px solid rgba(80,216,144,0.3);
-  color:#50d890;
+  color:var(--accent);
   border-radius:3px;
   font-size:9px;
   letter-spacing:0.5px;
@@ -71,8 +71,8 @@ body {
 .amt-chip {
   display:inline-block;
   padding:2px 8px;
-  background:rgba(80,216,144,0.07);
-  color:#50d890;
+  background:var(--accent-muted);
+  color:var(--accent);
   border-radius:3px;
   font-size:9px;
   white-space:nowrap;
@@ -83,12 +83,12 @@ body {
   align-items:center;
   gap:4px;
   font-size:10px;
-  color:rgba(255,255,255,0.25);
+  color:var(--text-faint);
   text-decoration:none;
   transition:color .15s;
 }
 
-.award-link:hover { color:#50d890; }
+.award-link:hover { color:var(--accent); }
 .award-link i { font-size:9px; }
 
 /* ── VIEW A: BY YEAR ── */
@@ -107,7 +107,7 @@ body {
 
 .award-row-year {
   font-size:11px;
-  color:#50d890;
+  color:var(--accent);
   letter-spacing:0.5px;
   padding-top:2px;
   font-variant-numeric:tabular-nums;
@@ -117,7 +117,7 @@ body {
 
 .award-row-title {
   font-size:13px;
-  color:#fff;
+  color:var(--text-bright);
   font-weight:500;
   margin-bottom:3px;
   line-height:1.4;
@@ -125,14 +125,14 @@ body {
 
 .award-row-issuer {
   font-size:10px;
-  color:rgba(255,255,255,0.28);
+  color:var(--text-faint);
   margin-bottom:6px;
   letter-spacing:0.3px;
 }
 
 .award-row-desc {
   font-size:11px;
-  color:#555;
+  color:var(--text-muted);
   line-height:1.65;
   margin-bottom:6px;
 }
@@ -159,7 +159,7 @@ body {
   font-size:9px;
   letter-spacing:2.5px;
   text-transform:uppercase;
-  color:rgba(255,255,255,0.2);
+  color:var(--text-xfaint);
   margin-bottom:12px;
   padding-bottom:8px;
   border-bottom:1px solid rgba(255,255,255,0.05);
@@ -180,7 +180,7 @@ body {
   width:6px;
   height:6px;
   border-radius:50%;
-  background:#50d890;
+  background:var(--accent);
   flex-shrink:0;
   margin-top:5px;
 }
@@ -189,7 +189,7 @@ body {
 
 .award-group-title {
   font-size:12px;
-  color:#e0e0e0;
+  color:var(--text);
   font-weight:500;
   margin-bottom:2px;
   line-height:1.4;
@@ -197,7 +197,7 @@ body {
 
 .award-group-meta {
   font-size:10px;
-  color:rgba(255,255,255,0.25);
+  color:var(--text-faint);
   letter-spacing:0.3px;
 }
 
@@ -210,7 +210,7 @@ body {
 .footer {
   text-align:center;
   padding:24px 0 40px;
-  color:rgba(255,255,255,0.2);
+  color:var(--text-xfaint);
   font-size:11px;
   border-top:1px solid rgba(255,255,255,0.05);
   margin-top:0;
