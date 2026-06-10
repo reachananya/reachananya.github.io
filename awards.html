@@ -52,615 +52,225 @@
       <div class="page-title">Awards</div>
     </div>
 
-    <!-- Main Content -->
     <div class="awards-container">
-      
-      <!-- Filter Section -->
-      <div class="category-filter">
-        <button class="filter-btn active" data-filter="all">All Awards</button>
-        <button class="filter-btn" data-filter="grants">Grants</button>
-        <button class="filter-btn" data-filter="academic">Academic</button>
+
+      <div class="view-toggle">
+        <span class="toggle-label">View</span>
+        <button class="toggle-btn active" id="btn-year" onclick="setView('year')">By Year</button>
+        <button class="toggle-btn" id="btn-group" onclick="setView('group')">By Type</button>
       </div>
-      
-      <!-- Awards Grid -->
-      <div class="awards-grid">
-        
-        <!-- Grace Hopper 2024 -->
-        <div class="award-card" data-category="grants">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2024</div>
-            <div class="category-tag">Scholarship</div>
+
+      <!-- ── VIEW A: BY YEAR ── -->
+      <div id="view-year">
+
+        <div class="award-row">
+          <div class="award-row-year">2024</div>
+          <div class="award-row-body">
+            <div class="award-row-title">Grace Hopper Celebration Scholarship</div>
+            <div class="award-row-issuer">AnitaB.org India</div>
+            <div class="award-row-desc">Advancing Inclusion Scholarship to attend GHCI in Bengaluru — India's largest gathering of women and nonbinary technologists. Includes year-round AnitaB.org membership with career workshops and mentorship.</div>
+            <a href="https://ghcindia.anitab.org/" class="award-link" target="_blank"><i class="fas fa-external-link-alt"></i> Details</a>
           </div>
-          <div class="award-content">
-            <h3 class="award-title">Grace Hopper Celebration Scholarship</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-award"></i>
-              </div>
-              <div class="issuer-name">AnitaB.org India</div>
-            </div>
-            <div class="award-description">
-              <p>Received the Advancing Inclusion Scholarship from AnitaB.org India, providing the opportunity to attend the Grace Hopper Celebration India (GHCI) in Bengaluru — India's largest gathering of women and nonbinary technologists. Includes year-round AnitaB.org India membership with access to career workshops, networking, and mentorship from industry role models.</p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-award badge-icon"></i>
-                <span class="badge-text">GHCI 2024</span>
-              </div>
-              <a href="https://ghcindia.anitab.org/" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
+          <div class="award-row-right">
+            <span class="amt-chip">GHCI 2024</span>
           </div>
         </div>
 
-        <!-- Harvard WECode 2022 -->
-        <div class="award-card" data-category="grants">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2022</div>
-            <div class="category-tag">Scholarship</div>
+        <div class="award-row">
+          <div class="award-row-year">2023</div>
+          <div class="award-row-body">
+            <div class="award-row-title">Diversity, Equity &amp; Inclusion Travel Grant</div>
+            <div class="award-row-issuer">IEEE · ICCV 2023, Paris</div>
+            <div class="award-row-desc">Awarded EUR 900 for attending ICCV 2023 in Paris, recognising commitment to advancing diversity in computing research and international conference participation.</div>
+            <a href="https://iccv2023.thecvf.com/diversity.equity.and.inclusion-363500-3-33-35.php" class="award-link" target="_blank"><i class="fas fa-external-link-alt"></i> Details</a>
           </div>
-          <div class="award-content">
-            <h3 class="award-title">Harvard WECode Scholarship</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-university"></i>
-              </div>
-              <div class="issuer-name">Harvard University</div>
-            </div>
-            <div class="award-description">
-              <p>Selected for the Harvard WECode Women Engineers Code Conference Scholarship — a merit-based award enabling participation in Harvard's premier conference celebrating women in technology and engineering. Covered the full conference ticket at early bird rate and provided $200 financial aid for travel. Provided access to technical workshops, career development sessions, and networking with students, faculty, and industry professionals from leading institutions.</p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-award badge-icon"></i>
-                <span class="badge-text">USD 200</span>
-              </div>
-              <a href="https://www.harvardwecode.com/" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
+          <div class="award-row-right">
+            <span class="amt-chip">EUR 900</span>
           </div>
         </div>
 
-        <!-- Award Item 1 -->
-        <div class="award-card" data-category="grants">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2021</div>
-            <div class="category-tag">Grants</div>
+        <div class="award-row">
+          <div class="award-row-year">2022</div>
+          <div class="award-row-body">
+            <div class="award-row-title">Harvard WECode Scholarship</div>
+            <div class="award-row-issuer">Harvard University</div>
+            <div class="award-row-desc">Merit-based award enabling participation in Harvard's premier conference celebrating women in technology. Covered full conference ticket at early bird rate and provided $200 financial aid for travel.</div>
+            <a href="https://www.harvardwecode.com/" class="award-link" target="_blank"><i class="fas fa-external-link-alt"></i> Details</a>
           </div>
-          <div class="award-content">
-            <h3 class="award-title">Generation Google Scholarship (APAC)'21</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-microscope"></i>
-              </div>
-              <div class="issuer-name">Google </div>
-            </div>
-            <div class="award-description">
-              <p>Selected as one of 70 scholars from over 25,000 applicants across 14 countries, following a rigorous process that included 1,250 interview calls. Among the scholars, I was one of only four first-year students to be awarded this honor. The Generation Google Scholarship recognized my contributions to diversity in tech, technical proficiency, leadership, and academic excellence. The award included a USD $1,000 cash prize and an invitation to Google's Annual Retreat.</p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-award badge-icon"></i>
-                <span class="badge-text">USD 1,000</span>
-              </div>
-              <a href="https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship-apac" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
+          <div class="award-row-right">
+            <span class="amt-chip">USD 200</span>
           </div>
         </div>
 
-        <!-- Award Item 2 -->
-        <div class="award-card" data-category="grants">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2023</div>
-            <div class="category-tag">Grants</div>
+        <div class="award-row">
+          <div class="award-row-year">2021</div>
+          <div class="award-row-body">
+            <div class="award-row-title">Generation Google Scholarship (APAC)</div>
+            <div class="award-row-issuer">Google</div>
+            <div class="award-row-desc">One of three first-year undergraduate students awarded across 14 Asia-Pacific countries. Highly competitive program recognising exceptional academic performance, leadership, and commitment to diversity in technology.</div>
+            <a href="https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship-apac" class="award-link" target="_blank"><i class="fas fa-external-link-alt"></i> Details</a>
           </div>
-          <div class="award-content">
-            <h3 class="award-title">Diversity, Equity & Inclusion Travel Grant</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-microscope"></i>
-              </div>
-              <div class="issuer-name">IEEE </div>
-            </div>
-            <div class="award-description">
-              <p>Awarded a prestigious €900 Diversity, Equity, and Inclusion (DEI) scholarship to present my research paper at the International Conference on Computer Vision (ICCV). This competitive scholarship, recognized both the quality of my research contribution and the importance of diverse perspectives in advancing the field. The award provided essential funding for conference registration and travel expenses, enabling me to share my work with leading experts, receive valuable feedback, and establish connections with the international computer vision research community.</p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-award badge-icon"></i>
-                <span class="badge-text">EUR 900</span>
-              </div>
-              <a href="https://iccv2023.thecvf.com/diversity.equity.and.inclusion-363500-3-33-35.php" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
+          <div class="award-row-right">
+            <span class="amt-chip">USD 1,000</span>
           </div>
         </div>
 
-        <!-- Award Item 3 -->
-        <div class="award-card" data-category="grants">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2022 and 2024</div>
-            <div class="category-tag">Grants</div>
+        <div class="award-row">
+          <div class="award-row-year">2021</div>
+          <div class="award-row-body">
+            <div class="award-row-title">Microsoft Learn Student Ambassador — Beta Level</div>
+            <div class="award-row-issuer">Microsoft</div>
+            <div class="award-row-desc">Promoted to Beta Level through demonstrated technical expertise, community engagement, and leadership promoting Microsoft technologies. Organised workshops on Computer Vision and medical imaging.</div>
+            <a href="https://mvp.microsoft.com/studentambassadors" class="award-link" target="_blank"><i class="fas fa-external-link-alt"></i> Details</a>
           </div>
-          <div class="award-content">
-            <h3 class="award-title">Education Scholarship Scheme for Army</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-lightbulb"></i>
-              </div>
-              <div class="issuer-name">Army Welfare Education Society </div>
-            </div>
-            <div class="award-description">
-              <p>Awarded Rs. 10,000 in recognition of my achievements and academic performance.</p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-award badge-icon"></i>
-                <span class="badge-text">Rs. 20,000</span>
-              </div>
-              <a href="https://armywelfare.mygetepay.com/home" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
+          <div class="award-row-right">
+            <span class="year-chip">Beta</span>
           </div>
         </div>
 
-        
-        
-        <!-- Award Item 2 -->
-        <!-- <div class="award-card" data-category="academic">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2022</div>
-            <div class="category-tag">Academic</div>
+        <div class="award-row">
+          <div class="award-row-year">2021</div>
+          <div class="award-row-body">
+            <div class="award-row-title">Udacity AWS Machine Learning Scholarship</div>
+            <div class="award-row-issuer">Udacity · AWS</div>
+            <div class="award-row-desc">Selected from a competitive applicant pool based on technical aptitude and commitment to advancing machine learning skills. Provided access to the exclusive AWS MLE Foundations course.</div>
+            <a href="https://www.udacity.com/scholarships/aws-ai-ml-scholarship-program" class="award-link" target="_blank"><i class="fas fa-external-link-alt"></i> Details</a>
           </div>
-          <div class="award-content">
-            <h3 class="award-title">Dean's Distinguished Fellowship</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-university"></i>
-              </div>
-              <div class="issuer-name">Stanford University</div>
-            </div>
-            <div class="award-description">
-              <p>Prestigious fellowship awarded to exceptional graduate students demonstrating outstanding academic achievement and research potential in computer science and artificial intelligence.</p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-star badge-icon"></i>
-                <span class="badge-text">Full Scholarship</span>
-              </div>
-              <a href="#" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
-          </div>
-        </div> -->
-        
-        
-        
-        <!-- Award Item 5 -->
-        <div class="award-card" data-category="grants">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2024</div>
-            <div class="category-tag">Conference</div>
-          </div>
-          <div class="award-content">
-            <h3 class="award-title">Grace Hopper Celebration Invitation</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="issuer-name">AnitaB.org</div>
-            </div>
-            <div class="award-description">
-              <p>Invited to attend Grace Hopper Celebration, world's largest gathering of women in tech. Grace Hopper Celebration is the largest gathering of women in technology, bringing together professionals, students, and leaders in the field.</p>
-              <p>Received complimentary access to the conference based on professional profile and contributions to the tech community.</p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-certificate badge-icon"></i>
-                <span class="badge-text">Special Invitee</span>
-              </div>
-              <a href="https://ghc.anitab.org/" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
+          <div class="award-row-right">
+            <span class="year-chip">Merit</span>
           </div>
         </div>
 
-
-        <!-- Award Item 6 -->
-        <div class="award-card" data-category="academic">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2020 and 2023</div>
-            <div class="category-tag">Academic</div>
+        <div class="award-row">
+          <div class="award-row-year">×3</div>
+          <div class="award-row-body">
+            <div class="award-row-title">Education Scholarship — Indian Army</div>
+            <div class="award-row-issuer">Army Welfare Education Society</div>
+            <div class="award-row-desc">Awarded Rs. 10,000 on three occasions recognising outstanding academic excellence. Merit-based scholarship honouring dependents of military personnel.</div>
           </div>
-          <div class="award-content">
-            <h3 class="award-title">Dean's List</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="issuer-name">Shiv Nadar University</div>
-            </div>
-            <div class="award-description">
-              <p>Recognized on the Dean's List for two semesters, acknowledging exceptional academic performance. </p>
-              <p></p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-certificate badge-icon"></i>
-                <span class="badge-text">Academic Distinction</span>
-              </div>
-              <!-- <a href="" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a> -->
-            </div>
+          <div class="award-row-right">
+            <span class="amt-chip">Rs. 30,000</span>
           </div>
         </div>
 
-        <!-- Award Item 7 -->
-        <div class="award-card" data-category="academic">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2021</div>
-            <div class="category-tag">Academic</div>
+        <div class="award-row">
+          <div class="award-row-year">×2</div>
+          <div class="award-row-body">
+            <div class="award-row-title">Dean's List</div>
+            <div class="award-row-issuer">Shiv Nadar Institute of Eminence</div>
+            <div class="award-row-desc">Recognised twice for exceptional academic performance, maintaining outstanding grades and placing among top-performing students in the cohort.</div>
           </div>
-          <div class="award-content">
-            <h3 class="award-title">Beta - Microsoft Learn Student Ambassador</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="issuer-name">Microsoft</div>
-            </div>
-            <div class="award-description">
-              <p>Promoted to Beta-level Microsoft Learn Student Ambassador in recognition of my active contributions to the MLSA community—spreading awareness of Microsoft resources, driving Azure Cloud adoption, and empowering students through workshops and technical sessions. </p>
-              <p></p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-certificate badge-icon"></i>
-                <span class="badge-text">Goodies</span>
-              </div>
-              <a href="https://mvp.microsoft.com/studentambassadors" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
+          <div class="award-row-right">
+            <span class="year-chip">Distinction</span>
           </div>
         </div>
 
-        <!-- Award Item 7 -->
-        <div class="award-card" data-category="grants">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2021</div>
-            <div class="category-tag">Conference</div>
+      </div>
+
+      <!-- ── VIEW C: BY GROUP ── -->
+      <div id="view-group">
+
+        <div class="award-group">
+          <div class="award-group-label">Scholarships &amp; Grants</div>
+
+          <div class="award-group-row">
+            <div class="award-dot"></div>
+            <div class="award-group-body">
+              <div class="award-group-title">Grace Hopper Celebration Scholarship</div>
+              <div class="award-group-meta">AnitaB.org India · 2024</div>
+            </div>
+            <div class="award-group-right"><span class="amt-chip">GHCI 2024</span></div>
           </div>
-          <div class="award-content">
-            <h3 class="award-title">Harvard WECode Scholarship</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="issuer-name">Harvard University</div>
+
+          <div class="award-group-row">
+            <div class="award-dot"></div>
+            <div class="award-group-body">
+              <div class="award-group-title">Diversity, Equity &amp; Inclusion Travel Grant</div>
+              <div class="award-group-meta">IEEE · ICCV 2023, Paris · 2023</div>
             </div>
-            <div class="award-description">
-              <p>Awarded by Harvard University to attend the WECode 2025 Conference. The scholarship covered the full early-bird conference ticket and included $200 in travel and accommodation support, recognizing my potential as a future leader in tech.</p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-certificate badge-icon"></i>
-                <span class="badge-text">Full Conference Scholarship <br>+ $200 Travel Grant</span>
-              </div>
-              <a href="https://www.wecodeconference.com/scholarships-housing" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
+            <div class="award-group-right"><span class="amt-chip">EUR 900</span></div>
           </div>
+
+          <div class="award-group-row">
+            <div class="award-dot"></div>
+            <div class="award-group-body">
+              <div class="award-group-title">Harvard WECode Scholarship</div>
+              <div class="award-group-meta">Harvard University · 2022</div>
+            </div>
+            <div class="award-group-right"><span class="amt-chip">USD 200</span></div>
+          </div>
+
+          <div class="award-group-row">
+            <div class="award-dot"></div>
+            <div class="award-group-body">
+              <div class="award-group-title">Generation Google Scholarship (APAC)</div>
+              <div class="award-group-meta">Google · 2021 · 1 of 3 first-years across 14 countries</div>
+            </div>
+            <div class="award-group-right"><span class="amt-chip">USD 1,000</span></div>
+          </div>
+
+          <div class="award-group-row">
+            <div class="award-dot"></div>
+            <div class="award-group-body">
+              <div class="award-group-title">Udacity AWS Machine Learning Scholarship</div>
+              <div class="award-group-meta">Udacity · AWS · 2021</div>
+            </div>
+            <div class="award-group-right"><span class="year-chip">Merit</span></div>
+          </div>
+
+          <div class="award-group-row">
+            <div class="award-dot"></div>
+            <div class="award-group-body">
+              <div class="award-group-title">Education Scholarship — Indian Army (×3)</div>
+              <div class="award-group-meta">Army Welfare Education Society</div>
+            </div>
+            <div class="award-group-right"><span class="amt-chip">Rs. 30,000</span></div>
+          </div>
+
         </div>
 
+        <div class="award-group">
+          <div class="award-group-label">Academic Distinction</div>
 
-        <!-- Award Item 4 -->
-        <div class="award-card" data-category="grants">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2021</div>
-            <div class="category-tag">Grants</div>
+          <div class="award-group-row">
+            <div class="award-dot"></div>
+            <div class="award-group-body">
+              <div class="award-group-title">Dean's List (×2)</div>
+              <div class="award-group-meta">Shiv Nadar Institute of Eminence · 2021, 2023</div>
+            </div>
+            <div class="award-group-right"><span class="year-chip">Top Cohort</span></div>
           </div>
-          <div class="award-content">
-            <h3 class="award-title">Udacity AWS Machine Learning Scholarship</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-lightbulb"></i>
-              </div>
-              <div class="issuer-name">Udacity</div>
-            </div>
-            <div class="award-description">
-              <p>Recipient of the AWS Machine Learning Scholarship Program by Udacity, which provided access to the exclusive AWS MLE Foundations course. Selected from a competitive applicant pool based on technical aptitude and commitment to advancing machine learning skills.</p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-award badge-icon"></i>
-                <span class="badge-text">Merit Scholar</span>
-              </div>
-              <a href="https://www.udacity.com/scholarships/aws-ai-ml-scholarship-program" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
-          </div>
+
         </div>
 
-        <!-- Award Item 5 -->
-        <!-- <div class="award-card" data-category="grants">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2021</div>
-            <div class="category-tag">Grants</div>
+        <div class="award-group">
+          <div class="award-group-label">Community &amp; Leadership</div>
+
+          <div class="award-group-row">
+            <div class="award-dot"></div>
+            <div class="award-group-body">
+              <div class="award-group-title">Microsoft Learn Student Ambassador — Beta Level</div>
+              <div class="award-group-meta">Microsoft · 2021</div>
+            </div>
+            <div class="award-group-right"><span class="year-chip">Beta</span></div>
           </div>
-          <div class="award-content">
-            <h3 class="award-title">Young Investigator Grant</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-flask"></i>
-              </div>
-              <div class="issuer-name">National Science Foundation</div>
-            </div>
-            <div class="award-description">
-              <p>Competitive research grant awarded to promising early-career researchers for innovative work in AI applications for healthcare diagnostics, specifically focusing on interpretable machine learning models.</p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-dollar-sign badge-icon"></i>
-                <span class="badge-text">$120,000 Grant</span>
-              </div>
-              <a href="#" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
-          </div>
-        </div> -->
-        
-        <!-- Award Item 6 -->
-        <!-- <div class="award-card" data-category="academic">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2020</div>
-            <div class="category-tag">Academic</div>
-          </div>
-          <div class="award-content">
-            <h3 class="award-title">Outstanding Graduate Student Award</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <div class="issuer-name">Department of Computer Science</div>
-            </div>
-            <div class="award-description">
-              <p>Recognized for exceptional academic performance, research contributions, and service to the department. Maintained a perfect GPA while publishing multiple papers in top-tier conferences.</p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-medal badge-icon"></i>
-                <span class="badge-text">Department Honor</span>
-              </div>
-              <a href="#" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
-          </div>
-        </div> -->
-        
-        <!-- Additional Grant Item -->
-        <!-- <div class="award-card" data-category="grants">
-          <div class="award-banner" style="background-image: url('/api/placeholder/400/320')">
-            <div class="award-year">2023</div>
-            <div class="category-tag">Grants</div>
-          </div>
-          <div class="award-content">
-            <h3 class="award-title">AI for Good Research Grant</h3>
-            <div class="award-issuer">
-              <div class="issuer-logo">
-                <i class="fas fa-hand-holding-heart"></i>
-              </div>
-              <div class="issuer-name">Google AI</div>
-            </div>
-            <div class="award-description">
-              <p>$180,000 grant awarded for research on applying machine learning to improve accessibility in healthcare systems and develop inclusive AI solutions for underserved communities.</p>
-            </div>
-            <div class="award-footer">
-              <div class="award-badge">
-                <i class="fas fa-dollar-sign badge-icon"></i>
-                <span class="badge-text">$180,000 Grant</span>
-              </div>
-              <a href="#" class="award-link">
-                <i class="fas fa-external-link-alt"></i>
-                <span>Details</span>
-              </a>
-            </div>
-          </div>
+
         </div>
-      </div> -->
-      
-      <!-- Back to Home Button -->
-      <!-- <div class="back-home">
-        <a href="index.html" class="back-btn">
-          <i class="fas fa-arrow-left"></i> Back to Home
-        </a>
-      </div> -->
+
+      </div>
+
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-      <p>Designed & Built with <i class="fas fa-heart pulse"></i> by Ananya Singhal</p>
-      <p>&copy; 2025 All Rights Reserved</p>
-    </div>
+    <footer class="footer">
+      <p>Designed &amp; Built by Ananya Singhal &nbsp;·&nbsp; &copy; 2025</p>
+    </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS (Animate on Scroll)
-        AOS.init();
-        
-        // Create particles
-        document.addEventListener('DOMContentLoaded', function() {
-            const particleContainer = document.getElementById('particleWrap');
-            const colors = ['#50d890', '#ffffff', '#a8ff3e', '#32CD32'];
-            
-            // Create 200 particles
-            for (let i = 0; i < 200; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'c';
-                
-                // Random position
-                const x = Math.random() * 1000 - 500;
-                const y = Math.random() * 1000 - 500;
-                const z = Math.random() * 1000 - 500;
-                
-                // Random size
-                const size = Math.random() * 6 + 2;
-                
-                // Random color
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                
-                // Set styles
-                particle.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.backgroundColor = color;
-                particle.style.opacity = Math.random() * 0.8 + 0.2;
-                
-                particleContainer.appendChild(particle);
-            }
-        });
-
-        // Filter functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const awardCards = document.querySelectorAll('.award-card');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    button.classList.add('active');
-                    
-                    // Get filter value
-                    const filterValue = button.getAttribute('data-filter');
-                    
-                    // Filter the award cards
-                    awardCards.forEach(card => {
-                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                            card.style.display = 'block';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
-                            }, 100);
-                        } else {
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
-                        }
-                    });
-                });
-            });
-            
-            // Scroll functions for navigation
-            window.addEventListener('scroll', function() {
-                const nav = document.querySelector('.main-nav');
-                if (window.scrollY > 50) {
-                    nav.classList.add('nav-scrolled');
-                } else {
-                    nav.classList.remove('nav-scrolled');
-                }
-            });
-        });
-    </script>
-    
-    <!-- Include navigation.js for mobile menu functionality -->
-    <script src="navigation.js"></script>
-    
-    <!-- Page-specific mobile navigation fix -->
-    <script>
-      // Wait for DOM to be fully loaded
-      document.addEventListener('DOMContentLoaded', function() {
-        // Get the hamburger menu and related elements
-        const hamburger = document.querySelector('.hamburger-menu');
-        const hamburgerIcon = document.querySelector('.hamburger-icon');
-        const mobileSidebar = document.querySelector('.mobile-sidebar');
-        const sidebarOverlay = document.querySelector('.sidebar-overlay');
-        
-        // Explicitly add click event to hamburger for index page
-        if (hamburger) {
-          hamburger.addEventListener('click', function() {
-            console.log('Awards page hamburger clicked');
-            hamburgerIcon.classList.toggle('hamburger-active');
-            mobileSidebar.classList.toggle('active');
-            sidebarOverlay.classList.toggle('active');
-            
-            if (mobileSidebar.classList.contains('active')) {
-              document.body.style.overflow = 'hidden';
-            } else {
-              document.body.style.overflow = '';
-            }
-          });
-        }
-        
-        // Explicitly add click event to overlay
-        if (sidebarOverlay) {
-          sidebarOverlay.addEventListener('click', function() {
-            console.log('Awards page overlay clicked');
-            hamburgerIcon.classList.remove('hamburger-active');
-            mobileSidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-          });
-        }
-        
-        // Also handle click on sidebar items
-        document.querySelectorAll('.sidebar-item').forEach(item => {
-          item.addEventListener('click', function() {
-            hamburgerIcon.classList.remove('hamburger-active');
-            mobileSidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-          });
-        });
-      });
-      
-      // Function to toggle mobile navigation
-      function toggleMobileNav(event) {
-        event.stopPropagation();
-        const hamburgerIcon = document.querySelector('.hamburger-icon');
-        const mobileSidebar = document.querySelector('.mobile-sidebar');
-        const sidebarOverlay = document.querySelector('.sidebar-overlay');
-        
-        hamburgerIcon.classList.toggle('hamburger-active');
-        mobileSidebar.classList.toggle('active');
-        sidebarOverlay.classList.toggle('active');
-        
-        if (mobileSidebar.classList.contains('active')) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = '';
-        }
+      function setView(v) {
+        document.getElementById('view-year').style.display = v === 'year' ? 'block' : 'none';
+        document.getElementById('view-group').style.display = v === 'group' ? 'block' : 'none';
+        document.getElementById('btn-year').classList.toggle('active', v === 'year');
+        document.getElementById('btn-group').classList.toggle('active', v === 'group');
       }
     </script>
   </body>
