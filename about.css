@@ -13,59 +13,6 @@ body {
   overflow: hidden;
 }
 
-/* ── TOP NAV ── */
-.top-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 48px;
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  background: var(--bg);
-  z-index: 100;
-  height: 61px;
-}
-
-.nav-back {
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  letter-spacing: 1.5px;
-  font-family: 'Orbitron', sans-serif;
-  transition: opacity 0.2s;
-}
-
-.nav-back::before {
-  content: "←";
-  font-size: 14px;
-  font-family: sans-serif;
-}
-
-.nav-back:hover {
-  opacity: 0.75;
-}
-
-.top-nav-links {
-  display: flex;
-  gap: 32px;
-}
-
-.top-nav-links a {
-  color: var(--text-dim);
-  text-decoration: none;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-
-.top-nav-links a:hover {
-  color: var(--text);
-}
 
 /* ── LAYOUT ── */
 .page {
