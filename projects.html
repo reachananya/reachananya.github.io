@@ -13,16 +13,12 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- External CSS file -->
     <link rel="stylesheet" href="styles_projects.css" />
     <link rel="stylesheet" href="nav.css" />
-
-    <!-- particles.js library -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <link rel="icon" href="img/a_favicon_1.png" />
   </head>
@@ -48,489 +44,142 @@
       <div class="page-title">Projects</div>
     </div>
 
-    <!-- Projects Timeline -->
-    <div class="projects-container" style="padding-left: 30px; padding-right: 30px;">
-      <div class="projects-timeline">
-        <div class="timeline-line"></div>
-        
-        <!-- Project 1 -->
-        <div class="project-item featured" data-aos="fade-up" data-aos-duration="1000" data-categories="web-development pwa">
-            <div class="project-node"></div>
-            <div class="project-video-container">
-                <div class="project-video-wrapper">
-                    <video class="project-video" autoplay muted loop playsinline>
-                        <source src="/img/projects/Diama_project_rec.mp4" type="video/mp4">
-                        <!-- Fallback for browsers that don't support the video format -->
-                        <!-- <img src="/api/placeholder/640/360" alt="Diama - Code Editor"> -->
-                    </video>
-                    <div class="video-controls">
-                        <button class="video-control-btn expand-btn" title="Fullscreen"><i class="fas fa-expand"></i></button>
-                    </div>
-                </div>
-                <div class="project-links">
-                  <!-- <a href="#" class="project-link demo-link">Live Demo</a> -->
-                  <a href="https://diama-editor.netlify.app" class="project-link demo-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                  <a href="https://github.com/Daima-Editor/Daima" class="project-link code-link" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
-                  <!-- <a href="#" class="project-link code-link">GitHub Repository</a> -->
-              </div>
-            </div>
+    <div class="projects-container">
 
-            
-            <div class="project-content">
-                <!-- <div class="featured-badge">
-                    <i class="fas fa-star"></i> Featured
-                </div> -->
-                <div class="project-header">
-                    <div class="project-date">
-                        <i class="far fa-calendar-alt"></i> November 2022 
-                    </div>
-                    <div class="project-title">Diama: Lightweight Collaborative Code Editor</div>
-                </div>
-
-                <div class="project-tags">
-                    <div class="project-tag"><i class="fas fa-code-branch"></i> Collaborative Editing</div>
-                    <div class="project-tag"><i class="fas fa-file-alt"></i> File System Access</div>
-                    <div class="project-tag"><i class="fas fa-mobile-alt"></i> PWA</div>
-                    <div class="project-tag"><i class="fas fa-project-diagram"></i> Algorithm Visualization</div>
-                </div>
-
-                <div class="project-description">
-                    Diama ("CODE" in Mandarin) is an innovative browser-based IDE designed specifically for novice developers, featuring a lightweight architecture (50% smaller footprint than conventional editors) with essential development tools. Built on Monaco editor core (the same engine powering VS Code), it delivers professional-grade syntax highlighting and IntelliSense while maintaining a simplified interface. Key features include real-time collaborative editing via WebRTC, full filesystem access through the File System Access API, and interactive algorithm visualizations for enhanced learning.
-                </div>
-
-                <div style="text-align: right; margin: 15px 0;">
-                  <a href="#" class="project-link details-link see-more-btn">
-                      <i class="fas fa-file-alt"></i> Read More
-                  </a>
-                </div>
-
-                <div class="additional-details" style="display: none; color: #cccccc; font-size: 0.68rem; line-height: 1.6; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;">
-                    The editor implements a multi-panel interface with draggable/resizable components, supporting concurrent file editing (tested with 15+ simultaneous tabs). Our custom PWA implementation using Workbox achieves 95% Lighthouse scores with offline-first capabilities. The algorithm visualizer component includes time complexity comparisons for sort algorithms (QuickSort, MergeSort, BubbleSort) and pathfinding visualization using Dijkstra's algorithm.
-                </div>
-
-                <div class="tech-details">
-                    <div class="tech-title"><i class="fas fa-cogs"></i> Technical Architecture</div>
-                    <div class="tech-list">
-                        <div class="tech-item"><i class="fab fa-react"></i> React (Vite)</div>
-                        <div class="tech-item"><i class="fas fa-paint-brush"></i> SCSS Modules</div>
-                        <div class="tech-item"><i class="fas fa-comments"></i> Y-js CRDT Framework</div>
-                        <div class="tech-item"><i class="fas fa-network-wired"></i> WebRTC Peer Connections</div>
-                        <div class="tech-item"><i class="fas fa-network-wired"></i> EasyPeasy State Management</div>
-                        <div class="tech-item"><i class="fas fa-cloud"></i> Netlify Edge Functions</div>
-                        <div class="tech-item"><i class="fas fa-network-wired"></i> Google Workbox </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Project 2 -->
-        <div class="project-item featured" data-aos="fade-up" data-aos-duration="1000" data-categories="web-development pwa">
-            <div class="project-node"></div>
-            <div class="project-video-container">
-                <div class="project-video-wrapper">
-                    <video class="project-video" autoplay muted loop playsinline>
-                        <source src="/img/projects/mentor-me_project.mp4" type="video/mp4">
-                        <!-- Fallback for browsers that don't support the video format -->
-                        <!-- <img src="/api/placeholder/640/360" alt="Diama - Code Editor"> -->
-                    </video>
-                    <div class="video-controls">
-                        <button class="video-control-btn expand-btn" title="Fullscreen"><i class="fas fa-expand"></i></button>
-                    </div>
-                </div>
-                <div class="project-links">
-                  <!-- <a href="#" class="project-link demo-link">Live Demo</a> -->
-                  <a href="https://mentor-me-client.vercel.app/" class="project-link demo-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                  <a href="https://github.com/can-ishk/mentor-me-client" class="project-link code-link" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
-                  <!-- <a href="#" class="project-link code-link">GitHub Repository</a> -->
-              </div>
-            </div>
-            
-            <div class="project-content">
-                <!-- <div class="featured-badge">
-                    <i class="fas fa-star"></i> Featured
-                </div> -->
-                <div class="project-header">
-                    <div class="project-date">
-                        <i class="far fa-calendar-alt"></i> May 2022 
-                    </div>
-                    <div class="project-title">Mentor Me: Networking Platform</div>
-                </div>
-
-                <div class="project-tags">
-                  <div class="project-tag"><i class="fas fa-user-friends"></i> Peer Mentorship/Networking</div>
-                  <div class="project-tag"><i class="fas fa-lock"></i> Secure Authentication</div>
-                  <div class="project-tag"><i class="fas fa-comments"></i> Real-time Messaging</div>
-                  <!-- <div class="project-tag"><i class="fas fa-database"></i> MongoDB Atlas</div> -->
-                  <div class="project-tag"><i class="fas fa-mobile-alt"></i> PWA</div>
-                  <!-- <div class="project-tag"><i class="fas fa-university"></i> Academic Networking</div> -->
-              </div>
-              
-
-                <div class="project-description">
-                  MentorME is a academic and professional networking platform designed to connect students with experienced peers who have navigated similar challenges. It offers a streamlined interface for posting help queries ("Ments"), one-to-one messaging, and credibility through university database integration—solving the problem of unreliable guidance on traditional platforms like LinkedIn or WhatsApp groups.
-                </div>
-
-                <div style="text-align: right; margin: 15px 0;">
-                  <a href="#" class="project-link details-link see-more-btn">
-                      <i class="fas fa-file-alt"></i> Read More
-                  </a>
-                </div>
-
-                <div class="additional-details" style="display: none; color: #cccccc; font-size: 0.68rem; line-height: 1.6; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;">
-                    The platform includes features like tag-based searchable posts, verified mentor profiles, and a structured templating system for posting guidance requests, ensuring consistency and discoverability. Its responsive PWA design supports cross-platform usage (Android, iOS, Web), and its backend leverages MongoDB Atlas with secure API endpoints for authentication, real-time messaging, and data management. MentorME not only simplifies peer-to-peer mentorship but also creates a trusted ecosystem of academic collaboration.
-                </div>
-
-                <div class="tech-details">
-                    <div class="tech-title"><i class="fas fa-cogs"></i> Technical Architecture</div>
-                    <div class="tech-list">
-                      <div class="tech-item"><i class="fab fa-react"></i> React (Vite)</div>
-                      <div class="tech-item"><i class="fas fa-database"></i> MongoDB Atlas</div>
-                      <div class="tech-item"><i class="fas fa-code"></i> Express.js REST APIs</div>
-                      <div class="tech-item"><i class="fab fa-node-js"></i> Node.js Backend</div>
-                      <div class="tech-item"><i class="fas fa-envelope"></i> One-to-One Messaging System</div>
-                      <div class="tech-item"><i class="fas fa-bolt"></i> JWT Authentication</div>
-                      <div class="tech-item"><i class="fas fa-mobile-alt"></i> Responsive PWA (Android/iOS/Web)</div>
-                      <div class="tech-item"><i class="fas fa-cloud"></i> Vercel Deployment</div>
-                      
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Project 3 -->
-        <div class="project-item featured" data-aos="fade-up" data-aos-duration="1000" data-categories="web-development pwa">
-          <div class="project-node"></div>
-          <div class="project-video-container">
-              <div class="project-video-wrapper">
-                  <video class="project-video" autoplay muted loop playsinline preload="metadata" poster="/img/projects/Mirror_project_poster.jpg">
-                      <source src="/img/projects/Mirror_project.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                  </video>
-                  <div class="video-controls">
-                      <button class="video-control-btn expand-btn" title="Fullscreen"><i class="fas fa-expand"></i></button>
-                  </div>
-              </div>
-              <div class="project-links">
-                <!-- <a href="#" class="project-link demo-link">Live Demo</a> -->
-                <a href="https://reachananya.github.io/FR-auth-msft-engage/#" class="project-link demo-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                <a href="https://github.com/reachananya/FR-auth-msft-engage" class="project-link code-link" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
-                <!-- <a href="#" class="project-link code-link">GitHub Repository</a> -->
-            </div>
-
+      <!-- Project 1: Diama -->
+      <div class="project-item">
+        <div class="project-content">
+          <div class="project-num">01</div>
+          <div class="project-date">November 2022</div>
+          <div class="project-title">Diama: Lightweight Collaborative Code Editor</div>
+          <div class="project-desc">
+            Browser-based IDE built on Monaco editor (the same engine powering VS Code), designed for novice developers. Features real-time collaborative editing via WebRTC, full filesystem access through the File System Access API, and interactive algorithm visualisations. 50% smaller footprint than conventional editors, 95% Lighthouse score with offline-first PWA capabilities.
           </div>
-          
-          <div class="project-content">
-              <!-- <div class="featured-badge">
-                  <i class="fas fa-star"></i> Featured
-              </div> -->
-              <div class="project-header">
-                  <div class="project-date">
-                      <i class="far fa-calendar-alt"></i> November 2022 
-                  </div>
-                  <div class="project-title">Mirror </div>
-              </div>
-
-              <div class="project-tags">
-                <div class="project-tag"><i class="fas fa-user-check"></i> Biometric Authentication</div>
-                <div class="project-tag"><i class="fas fa-eye"></i> Liveness Detection</div>
-                <div class="project-tag"><i class="fas fa-lock"></i> Anti-Spoofing</div>
-                <!-- <div class="project-tag"><i class="fas fa-cloud"></i> Firebase Hosting</div> -->
-                <div class="project-tag"><i class="fas fa-microchip"></i> Deepfake Detection</div>
-                <div class="project-tag"><i class="fas fa-brain"></i> Python ML Backend</div>
-              </div>
-            
-              <div class="project-description">
-                Mirror is a face recognition-enabled web authentication service designed to provide secure, real-time user verification during web logins. Unlike traditional methods such as OTPs, Mirror enhances both security and convenience by replacing them with biometric authentication. The system ensures that only legitimate users gain access by implementing advanced liveness detection techniques, such as blink-based intent signaling and eye-closure detection. These safeguards prevent spoofing attempts using photos, videos, or masks, and ensure that authentication cannot occur without the user's conscious action—such as blinking—thereby offering an added layer of protection against forced logins.
-              </div>
-
-              <div style="text-align: right; margin: 15px 0;">
-                <a href="#" class="project-link details-link see-more-btn">
-                    <i class="fas fa-file-alt"></i> Read More
-                </a>
-              </div>
-
-              <div class="additional-details" style="display: none; color: #cccccc; font-size: 0.68rem; line-height: 1.6; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;">
-                  The prototype leverages live camera feeds through a React interface and integrates a Python-based backend for face verification. It is cloud-hosted using Firebase, allowing scalability and secure deployment. Planned improvements include quantum-resistant encryption, phone-based credential linkage, and defenses against future threats like deepfakes, doppelgangers, and digital presentation attacks using algorithms like MagNet and datasets such as IDAgender and Disguised Faces in the Wild. With the facial recognition market projected to reach $16.74 billion by 2030, Mirror is positioned to serve sectors like government, healthcare, and e-commerce by offering a fraud-proof and accessible authentication solution.
-              </div>
-
-              <div class="tech-details">
-                  <div class="tech-title"><i class="fas fa-cogs"></i> Technical Architecture</div>
-                  <div class="tech-list">
-                    <div class="tech-item"><i class="fas fa-python"></i>Python</div>
-                    <div class="tech-item"><i class="fas fa-code-branch"></i>OpenCV</div>
-                    <div class="tech-item"><i class="fas fa-code-branch"></i>PyTorch</div>
-                    <div class="tech-item"><i class="fas fa-code-branch"></i>Dlib</div>
-                    <div class="tech-item"><i class="fas fa-code"></i>JWT</div>
-                    <!-- <div class="tech-item"><i class="fas fa-network-wired"></i> REST </div> -->
-                  </div>
-              </div>
+          <div class="project-tags">
+            <span class="project-tag">React (Vite)</span>
+            <span class="project-tag">Monaco Editor</span>
+            <span class="project-tag">WebRTC</span>
+            <span class="project-tag">Y-js CRDT</span>
+            <span class="project-tag">PWA</span>
+            <span class="project-tag">Netlify Edge</span>
+          </div>
+          <div class="project-links">
+            <a href="https://diama-editor.netlify.app" class="project-link demo-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/Daima-Editor/Daima" class="project-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
-
-
-        <!-- Project 4 -->
-        <div class="project-item featured" data-aos="fade-up" data-aos-duration="1000" data-categories="web-development pwa">
-          <div class="project-node"></div>
-          <div class="project-video-container">
-              <div class="project-video-wrapper">
-                  <video class="project-video" autoplay muted loop playsinline>
-                      <source src="/img/projects/Carma_project.mp4" type="video/mp4">
-                      <!-- Fallback for browsers that don't support the video format -->
-                      <!-- <img src="/api/placeholder/640/360" alt="Diama - Code Editor"> -->
-                  </video>
-                  <div class="video-controls">
-                      <button class="video-control-btn expand-btn" title="Fullscreen"><i class="fas fa-expand"></i></button>
-                  </div>
-              </div>
-              <div class="project-links">
-                <!-- <a href="#" class="project-link demo-link">Live Demo</a> -->
-                <!-- <a href="" class="project-link demo-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a> -->
-                <a href="https://github.com/reachananya/CRIME-SURVEILLANCE" class="project-link code-link" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
-                <!-- <a href="#" class="project-link code-link">GitHub Repository</a> -->
-            </div>
-
-          </div>
-          
-          <div class="project-content">
-              <!-- <div class="featured-badge">
-                  <i class="fas fa-star"></i> Featured
-              </div> -->
-              <div class="project-header">
-                  <div class="project-date">
-                      <i class="far fa-calendar-alt"></i> November 2022 
-                  </div>
-                  <div class="project-title">Carma </div>
-              </div>
-
-              <div class="project-tags">
-                <div class="tech-item"><i class="fas fa-video"></i> CCTV Analysis</div>
-                <div class="tech-item"><i class="fas fa-exclamation-triangle"></i> Violence Detection</div>
-                <!-- <div class="project-tag"><i class="fas fa-brain"></i> Deep Learning</div> -->
-                <div class="tech-item"><i class="fas fa-server"></i> AWS Backend</div>
-                <div class="tech-item"><i class="fas fa-project-diagram"></i> LRCN & ConvLSTM</div>
-                <div class="tech-item"><i class="fas fa-desktop"></i> Streamlit Interface</div>
-              </div>
-              
-
-              <div class="project-description">
-                Carma is an AI-powered video surveillance solution designed to autonomously detect violent activities in real-time CCTV footage. As urban areas deploy thousands of surveillance cameras, the burden of manually monitoring them becomes both impractical and inefficient. Carma addresses this issue by using deep learning models—specifically LRCN (Long-term Recurrent Convolutional Networks) and ConvLSTM—to classify incoming video feeds into fight or no-fight scenarios. Once a video is uploaded to the platform, it is processed by the LRCN model, which integrates CNN for spatial feature extraction and LSTM for temporal sequence learning. The final output is a labeled version of the input video, indicating detected events of interest.
-              </div>
-
-              <div style="text-align: right; margin: 15px 0;">
-                <a href="#" class="project-link details-link see-more-btn">
-                    <i class="fas fa-file-alt"></i> Read More
-                </a>
-              </div>
-
-              <div class="additional-details" style="display: none; color: #cccccc; font-size: 0.68rem; line-height: 1.6; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;">
-                  The entire system is built on a modular architecture. The frontend is built using Streamlit, offering a clean interface for uploading and viewing classified videos. It communicates with the backend hosted on AWS via port 8501, where Python scripts handle model inference. Firebase is used for storing and retrieving data, and future enhancements aim to integrate real-time CCTV feeds, live geolocation updates, and a public crime-reporting system. The project currently achieves 73.33% accuracy using LRCN and 64.57% with ConvLSTM, and sets the foundation for scalable, intelligent public safety systems.
-              </div>
-
-              <div class="tech-details">
-                  <div class="tech-title"><i class="fas fa-cogs"></i> Technical Architecture</div>
-                  <div class="tech-list">
-                    <div class="tech-item"><i class="fab fa-python"></i> Python</div>
-                    <!-- <div class="tech-item"><i class="fas fa-video"></i> Open</div> -->
-                    <div class="tech-item"><i class="fas fa-brain"></i> LRCN (CNN + LSTM)</div>
-                    <div class="tech-item"><i class="fas fa-project-diagram"></i> ConvLSTM Architecture</div>
-                    <div class="tech-item"><i class="fas fa-server"></i>AWS</div>
-                    <div class="tech-item"><i class="fas fa-fire"></i> Firebasec</div>
-                    <div class="tech-item"><i class="fas fa-code"></i> Streamlit</div>
-                    <!-- <div class="tech-item"><i class="fas fa-network-wired"></i> REST </div> -->
-                  </div>
-              </div>
-          </div>
+        <div class="project-video-wrap">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="img/projects/Diama_project_rec.mp4" type="video/mp4">
+          </video>
+          <button class="video-overlay-btn" onclick="this.closest('.project-video-wrap').querySelector('video').requestFullscreen()" title="Fullscreen">
+            <i class="fas fa-expand"></i>
+          </button>
         </div>
-
       </div>
+
+      <!-- Project 2: Mentor Me -->
+      <div class="project-item">
+        <div class="project-content">
+          <div class="project-num">02</div>
+          <div class="project-date">May 2022</div>
+          <div class="project-title">Mentor Me: Peer Mentorship Platform</div>
+          <div class="project-desc">
+            Academic and professional networking platform connecting students with experienced peers. Structured "Ment" post system, one-to-one messaging, university database integration for credential verification, and a skill-graph recommendation engine. Responsive PWA supporting Android, iOS, and Web.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">React (Vite)</span>
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">MongoDB Atlas</span>
+            <span class="project-tag">Express.js</span>
+            <span class="project-tag">JWT Auth</span>
+            <span class="project-tag">PWA</span>
+            <span class="project-tag">Vercel</span>
+          </div>
+          <div class="project-links">
+            <a href="https://mentor-me-client.vercel.app/" class="project-link demo-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/can-ishk/mentor-me-client" class="project-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="project-video-wrap">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="img/projects/mentor-me_project.mp4" type="video/mp4">
+          </video>
+          <button class="video-overlay-btn" onclick="this.closest('.project-video-wrap').querySelector('video').requestFullscreen()" title="Fullscreen">
+            <i class="fas fa-expand"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Project 3: Mirror -->
+      <div class="project-item">
+        <div class="project-content">
+          <div class="project-num">03</div>
+          <div class="project-date">June 2022</div>
+          <div class="project-title">Mirror: Facial Recognition Web Authentication</div>
+          <div class="project-desc">
+            Biometric web authentication replacing OTPs with face recognition. Implements FaceNet + MTCNN for identification and LinearSVC for classification. Advanced liveness detection via blink-based intent signalling and eye-closure detection prevents spoofing via photos, videos, or masks. 93% accuracy on live camera feeds.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">FaceNet</span>
+            <span class="project-tag">MTCNN</span>
+            <span class="project-tag">OpenCV</span>
+            <span class="project-tag">PyTorch</span>
+            <span class="project-tag">React</span>
+            <span class="project-tag">Firebase</span>
+          </div>
+          <div class="project-links">
+            <a href="https://reachananya.github.io/FR-auth-msft-engage/#" class="project-link demo-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/reachananya/FR-auth-msft-engage" class="project-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="project-video-wrap">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="img/projects/Mirror_project.mp4" type="video/mp4">
+          </video>
+          <button class="video-overlay-btn" onclick="this.closest('.project-video-wrap').querySelector('video').requestFullscreen()" title="Fullscreen">
+            <i class="fas fa-expand"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Project 4: Carma -->
+      <div class="project-item">
+        <div class="project-content">
+          <div class="project-num">04</div>
+          <div class="project-date">August 2022</div>
+          <div class="project-title">Carma: AI-Powered Violence Detection</div>
+          <div class="project-desc">
+            Real-time CCTV violence detection using deep learning. LRCN (CNN + LSTM) classifies video feeds into fight or no-fight scenarios with 73% accuracy. Full-stack pipeline: Streamlit frontend, AWS Lambda backend, Firebase real-time database with sub-second alert latency and geolocation tagging for rapid emergency response.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">LRCN</span>
+            <span class="project-tag">ConvLSTM</span>
+            <span class="project-tag">Streamlit</span>
+            <span class="project-tag">AWS Lambda</span>
+            <span class="project-tag">Firebase</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/reachananya/CRIME-SURVEILLANCE" class="project-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="project-video-wrap">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="img/projects/Carma_project.mp4" type="video/mp4">
+          </video>
+          <button class="video-overlay-btn" onclick="this.closest('.project-video-wrap').querySelector('video').requestFullscreen()" title="Fullscreen">
+            <i class="fas fa-expand"></i>
+          </button>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
-      <p>Designed & Built with <i class="fas fa-heart pulse"></i> by Ananya Singhal</p>
-      <p>&copy; 2025 All Rights Reserved</p>
+      <p>Designed &amp; Built by Ananya Singhal &nbsp;·&nbsp; &copy; 2025</p>
     </footer>
 
-    <!-- Scripts for particles.js -->
-    <script>
-      particlesJS("particles-js", {
-        "particles": {
-          "number": {
-            "value": 80, /* Increased from 20 to 50 */
-            "density": {
-              "enable": true,
-              "value_area": 800
-            }
-          },
-          "color": {
-            "value": "#2a9d5c" /* Darkened from #50d890 to #2a9d5c (darker green) */
-          },
-          "shape": {
-            "type": "circle",
-            "stroke": {
-              "width": 0,
-              "color": "#000000"
-            },
-            "polygon": {
-              "nb_sides": 5
-            }
-          },
-          "opacity": {
-            "value": 2, /* Increased opacity from 0.3 to 0.5 */
-            "random": false,
-            "anim": {
-              "enable": false,
-              "speed": 1,
-              "opacity_min": 0.1,
-              "sync": false
-            }
-          },
-          "size": {
-            "value": 3, /* Increased size from 2 to 3 */
-            "random": true,
-            "anim": {
-              "enable": false,
-              "speed": 40,
-              "size_min": 0.1,
-              "sync": false
-            }
-          },
-          "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#2a9d5c", /* Darkened from #50d890 to #2a9d5c */
-            "opacity": 1, /* Increased from 0.2 to 0.4 */
-            "width": 1
-          },
-          "move": {
-            "enable": true,
-            "speed": 2, /* Kept slow speed for subtle movement */
-            "direction": "none",
-            "random": false,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-              "enable": false,
-              "rotateX": 600,
-              "rotateY": 1200
-            }
-          }
-        },
-        "interactivity": {
-          "detect_on": "canvas",
-          "events": {
-            "onhover": {
-              "enable": true,
-              "mode": "grab"
-            },
-            "onclick": {
-              "enable": true,
-              "mode": "push"
-            },
-            "resize": true
-          },
-          "modes": {
-            "grab": {
-              "distance": 140,
-              "line_linked": {
-                "opacity": 0.6 /* Reduced from 1 to 0.6 */
-              }
-            },
-            "bubble": {
-              "distance": 400,
-              "size": 40,
-              "duration": 2,
-              "opacity": 8,
-              "speed": 3
-            },
-            "repulse": {
-              "distance": 200,
-              "duration": 0.4
-            },
-            "push": {
-              "particles_nb": 4
-            },
-            "remove": {
-              "particles_nb": 2
-            }
-          }
-        },
-        "retina_detect": true
-      });
-    </script>
-    
-    <!-- Other existing scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Initialize AOS animation library
-        AOS.init({
-          once: true,
-          duration: 800,
-          easing: 'ease-in-out-quad'
-        });
-
-        // Auto-play project videos when they come into view
-        const projectVideos = document.querySelectorAll('.project-video');
-        
-        const videoObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const video = entry.target;
-              video.play().catch(e => console.log("Autoplay prevented:", e));
-            }
-          });
-        }, { threshold: 0.5 });
-
-        projectVideos.forEach(video => {
-          videoObserver.observe(video);
-        });
-
-        // Fullscreen functionality for project videos
-        document.addEventListener('click', function(e) {
-          if (e.target.closest('.expand-btn')) {
-            const videoContainer = e.target.closest('.project-video-container');
-            const video = videoContainer.querySelector('video');
-            
-            if (video) {
-              if (document.fullscreenElement) {
-                document.exitFullscreen();
-              } else {
-                video.requestFullscreen().catch(err => {
-                  console.error(`Error attempting to enable fullscreen: ${err.message}`);
-                });
-              }
-            }
-          }
-
-          // Toggle additional details when "See More" is clicked
-          if (e.target.closest('.see-more-btn')) {
-            e.preventDefault();
-            const detailsSection = e.target.closest('.project-content').querySelector('.additional-details');
-            detailsSection.style.display = detailsSection.style.display === 'none' ? 'block' : 'none';
-            e.target.querySelector('i').className = detailsSection.style.display === 'none' ? 'fas fa-file-alt' : 'fas fa-times';
-            e.target.innerHTML = detailsSection.style.display === 'none' ? 
-              '<i class="fas fa-file-alt"></i> Read More' : 
-              '<i class="fas fa-times"></i> Show Less';
-          }
-        });
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-              behavior: 'smooth'
-            });
-          });
-        });
-      });
-    </script>
-    
   </body>
 </html>
