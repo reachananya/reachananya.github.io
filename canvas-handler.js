@@ -2,21 +2,11 @@
 document.addEventListener('DOMContentLoaded', function() {
   const canvas = document.getElementById('demo-canvas');
   const header = document.querySelector('.large-header');
-  
+
   if (!canvas) return;
-  
-  // Function to properly size the canvas
+
   function resizeCanvas() {
-    // Set canvas width and height to match the header
-    if (canvas.width !== header.clientWidth || canvas.height !== header.clientHeight) {
-      canvas.width = header.clientWidth;
-      canvas.height = header.clientHeight;
-      
-      // If the demo.js has an init function, reinitialize it (optional)
-      if (typeof window.initCanvas === 'function') {
-        window.initCanvas();
-      }
-    }
+    // particles.js manages its own canvas sizing — nothing to do here
   }
   
   // Function to handle mobile vs desktop animation
@@ -43,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
               }
             },
             "color": {
-              "value": "#2a9d5c"
+              "value": "#c8c8c8"
             },
             "shape": {
               "type": "circle",
@@ -78,13 +68,13 @@ document.addEventListener('DOMContentLoaded', function() {
             "line_linked": {
               "enable": true,
               "distance": 150,
-              "color": "#2a9d5c",
-              "opacity": 0.4,
-              "width": 1
+              "color": "#c8c8c8",
+              "opacity": 0.25,
+              "width": 0.4
             },
             "move": {
               "enable": true,
-              "speed": 2,
+              "speed": 0.6,
               "direction": "none",
               "random": false,
               "straight": false,

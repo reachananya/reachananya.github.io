@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#111; color:#fff; padding:32px; }
+h2 { font-size:14px; letter-spacing:2px; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:24px; font-family:sans-serif; }
+.grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+.card {
+  background:#1a1a1a; border:1px solid rgba(255,255,255,0.08);
+  border-radius:6px; padding:28px 24px; cursor:pointer;
+  transition:border-color .2s;
+  position:relative;
+}
+.card:hover { border-color:rgba(255,255,255,0.3); }
+.card.selected { border-color:#50d890 !important; }
+.card.selected::after {
+  content:'✓ Selected'; position:absolute; top:10px; right:12px;
+  font-size:10px; color:#50d890; font-family:sans-serif; letter-spacing:1px;
+}
+.name { font-size:36px; margin-bottom:8px; }
+.sub { font-size:13px; margin-bottom:16px; color:rgba(255,255,255,0.7); }
+.label { font-size:10px; color:#50d890; letter-spacing:1.5px; text-transform:uppercase; font-family:sans-serif; }
+.desc { font-size:11px; color:rgba(255,255,255,0.4); margin-top:6px; font-family:sans-serif; line-height:1.5; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Space+Grotesk:wght@600&family=Syne:wght@700&family=Playfair+Display:wght@700&family=DM+Serif+Display&family=Outfit:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h2>Landing Page — Font Options</h2>
+
+<div class="grid">
+
+  <div class="card" onclick="toggleSelect(this,'a')">
+    <div class="name" style="font-family:'Orbitron',sans-serif;letter-spacing:2px">Ananya Singhal</div>
+    <div class="sub" style="font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:1px">I build things, write code,<br>and decode brains.</div>
+    <div class="label">A — Orbitron (original)</div>
+    <div class="desc">Geometric sci-fi. Bold, distinctive, instantly recognisable. The one you had before.</div>
+  </div>
+
+  <div class="card" onclick="toggleSelect(this,'b')">
+    <div class="name" style="font-family:'Space Grotesk',sans-serif;letter-spacing:-1px">Ananya Singhal</div>
+    <div class="sub" style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.5px">I build things, write code,<br>and decode brains.</div>
+    <div class="label">B — Space Grotesk</div>
+    <div class="desc">Modern, techy but human. Popular on research/engineering portfolios. Clean and confident.</div>
+  </div>
+
+  <div class="card" onclick="toggleSelect(this,'c')">
+    <div class="name" style="font-family:'Syne',sans-serif;letter-spacing:-1px">Ananya Singhal</div>
+    <div class="sub" style="font-family:'Syne',sans-serif;font-size:13px;letter-spacing:1px">I build things, write code,<br>and decode brains.</div>
+    <div class="label">C — Syne</div>
+    <div class="desc">Editorial, bold geometric. Unusual letterforms — stands out without being gimmicky.</div>
+  </div>
+
+  <div class="card" onclick="toggleSelect(this,'d')">
+    <div class="name" style="font-family:'Playfair Display',serif;letter-spacing:0px">Ananya Singhal</div>
+    <div class="sub" style="font-family:'Playfair Display',serif;font-size:13px;font-style:italic;letter-spacing:0.5px">I build things, write code,<br>and decode brains.</div>
+    <div class="label">D — Playfair Display</div>
+    <div class="desc">High-contrast serif. Elegant, academic feel. Pairs well with the dark background.</div>
+  </div>
+
+  <div class="card" onclick="toggleSelect(this,'e')">
+    <div class="name" style="font-family:'DM Serif Display',serif;letter-spacing:0px">Ananya Singhal</div>
+    <div class="sub" style="font-family:'Outfit',sans-serif;font-size:13px;letter-spacing:1px;color:rgba(255,255,255,0.7)">I build things, write code,<br>and decode brains.</div>
+    <div class="label">E — DM Serif (name) + Outfit (subtitle)</div>
+    <div class="desc">Mixed: warm serif for the name, clean sans for the tagline. Mature and distinct.</div>
+  </div>
+
+  <div class="card" onclick="toggleSelect(this,'f')">
+    <div class="name" style="font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:-1px">Ananya Singhal</div>
+    <div class="sub" style="font-family:'Outfit',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7)">I build things, write code,<br>and decode brains.</div>
+    <div class="label">F — Outfit</div>
+    <div class="desc">Friendly modern grotesque. Slightly rounded, highly readable, professional without being cold.</div>
+  </div>
+
+</div>
+
+<p style="font-family:sans-serif;font-size:11px;color:rgba(255,255,255,0.3);margin-top:20px">Click to select, then tell me in the terminal. Arrow labels ("projects", "experience") will keep Orbitron regardless of choice.</p>
+
+<script>
+function toggleSelect(el, choice) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  try {
+    fetch('/select', {method:'POST',headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({type:'click', choice, text: el.querySelector('.label').textContent})
+    });
+  } catch(e){}
+}
+</script>
+</body>
+</html>

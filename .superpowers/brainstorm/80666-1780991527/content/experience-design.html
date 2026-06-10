@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#111; color:#e0e0e0; font-family:'Inter','Segoe UI',sans-serif; padding:28px 32px; font-size:13px; }
+h2.page-title { font-size:13px; letter-spacing:2px; color:rgba(255,255,255,0.35); text-transform:uppercase; margin-bottom:24px; font-family:sans-serif; }
+.grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; }
+.option { background:#161616; border:1px solid rgba(255,255,255,0.08); border-radius:6px; overflow:hidden; cursor:pointer; transition:border-color .2s; }
+.option:hover { border-color:rgba(255,255,255,0.25); }
+.option.selected { border-color:#50d890; }
+.option.selected .opt-label { color:#50d890; }
+.opt-label { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.4); padding:10px 14px 0; font-family:sans-serif; }
+.opt-name { font-size:12px; color:#e0e0e0; padding:4px 14px 10px; font-family:sans-serif; border-bottom:1px solid rgba(255,255,255,0.06); }
+.preview { padding:16px 14px; }
+
+/* ── OPTION A: Minimal left-border cards ── */
+.a-item { margin-bottom:14px; display:flex; gap:12px; }
+.a-date { min-width:56px; font-size:9px; color:#50d890; letter-spacing:0.5px; line-height:1.6; padding-top:2px; }
+.a-card { flex:1; border-left:2px solid rgba(80,216,144,0.3); padding:8px 10px; background:#1a1a1a; border-radius:0 3px 3px 0; }
+.a-card:hover { border-left-color:#50d890; }
+.a-co { font-size:11px; color:#fff; font-weight:600; margin-bottom:2px; }
+.a-role { font-size:9px; color:#50d890; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+.a-desc { font-size:9px; color:#777; line-height:1.5; }
+.a-tags { display:flex; gap:4px; flex-wrap:wrap; margin-top:5px; }
+.a-tag { font-size:8px; padding:1px 6px; background:rgba(80,216,144,0.08); color:#50d890; border-radius:8px; }
+
+/* ── OPTION B: Two-column split ── */
+.b-wrap { display:flex; gap:0; height:100%; }
+.b-left { width:72px; flex-shrink:0; padding:12px 10px; border-right:1px solid rgba(255,255,255,0.07); display:flex; flex-direction:column; gap:14px; }
+.b-tab { font-size:8px; color:rgba(255,255,255,0.35); letter-spacing:0.5px; line-height:1.5; cursor:pointer; }
+.b-tab.active { color:#50d890; }
+.b-right { flex:1; padding:12px; }
+.b-co { font-size:13px; font-weight:600; color:#fff; margin-bottom:2px; }
+.b-role { font-size:9px; color:#50d890; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
+.b-date { font-size:9px; color:rgba(255,255,255,0.35); margin-bottom:8px; }
+.b-li { font-size:9px; color:#777; line-height:1.6; margin-bottom:3px; padding-left:8px; position:relative; }
+.b-li::before { content:'—'; position:absolute; left:0; color:#50d890; }
+.b-tags { display:flex; gap:4px; flex-wrap:wrap; margin-top:8px; }
+.b-tag { font-size:8px; padding:1px 6px; background:rgba(80,216,144,0.08); color:#50d890; border-radius:8px; }
+
+/* ── OPTION C: Table/row layout ── */
+.c-row { display:grid; grid-template-columns:60px 1fr; gap:10px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05); align-items:start; }
+.c-row:last-child { border-bottom:none; }
+.c-year { font-size:9px; color:#50d890; letter-spacing:0.5px; line-height:1.6; }
+.c-main { }
+.c-co { font-size:11px; color:#fff; font-weight:600; }
+.c-role { font-size:9px; color:rgba(255,255,255,0.5); letter-spacing:0.5px; margin-bottom:3px; }
+.c-desc { font-size:9px; color:#666; line-height:1.5; }
+.c-dot { width:6px; height:6px; border-radius:50%; background:#50d890; display:inline-block; margin-right:4px; flex-shrink:0; }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h2 class="page-title">Experience Page — Layout Options</h2>
+
+<div class="grid">
+
+  <!-- A -->
+  <div class="option" onclick="sel(this,'a')">
+    <div class="opt-label">Option A</div>
+    <div class="opt-name">Timeline cards — matches about.html</div>
+    <div class="preview">
+
+      <div class="a-item">
+        <div class="a-date">Aug '24<br>Present</div>
+        <div class="a-card">
+          <div class="a-co">GE HealthCare</div>
+          <div class="a-role">AI Researcher · Bangalore</div>
+          <div class="a-desc">Voxel-adaptive denoising for high b-value diffusion MRI. 18% SNR gain vs. fixed-size MPPCA baselines.</div>
+          <div class="a-tags"><span class="a-tag">Python</span><span class="a-tag">Diffusion MRI</span><span class="a-tag">DIPY</span></div>
+        </div>
+      </div>
+
+      <div class="a-item">
+        <div class="a-date">Jan '24<br>May '24</div>
+        <div class="a-card">
+          <div class="a-co">Dell Technologies</div>
+          <div class="a-role">SWE Intern · Bangalore</div>
+          <div class="a-desc">ML-driven order fulfillment forecasting. Reduced idle inventory by 15% in A/B testing.</div>
+          <div class="a-tags"><span class="a-tag">SQL</span><span class="a-tag">Python</span><span class="a-tag">scikit-learn</span></div>
+        </div>
+      </div>
+
+      <div class="a-item">
+        <div class="a-date">Jul '22<br>Oct '22</div>
+        <div class="a-card">
+          <div class="a-co">ZKTeco Inc.</div>
+          <div class="a-role">Research Intern · Bangalore</div>
+          <div class="a-desc">Multimodal biometric pipeline. 95%+ verification accuracy.</div>
+          <div class="a-tags"><span class="a-tag">PyTorch</span><span class="a-tag">Computer Vision</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="option" onclick="sel(this,'b')">
+    <div class="opt-label">Option B</div>
+    <div class="opt-name">Two-pane — company list left, detail right</div>
+    <div class="preview" style="padding:0">
+      <div class="b-wrap">
+        <div class="b-left">
+          <div class="b-tab active">GE HealthCare</div>
+          <div class="b-tab">Dell ×2</div>
+          <div class="b-tab">ZKTeco</div>
+          <div class="b-tab">NUS</div>
+          <div class="b-tab">IIIT-H</div>
+        </div>
+        <div class="b-right">
+          <div class="b-co">GE HealthCare</div>
+          <div class="b-role">AI Researcher — Advanced Technology Group</div>
+          <div class="b-date">Aug 2024 – Present · Bangalore, India</div>
+          <div class="b-li">Invented gradient-informed structural prior for per-voxel kernel geometry adaptation in diffusion MRI denoising.</div>
+          <div class="b-li">18% SNR gain with 96% boundary preservation vs. fixed-size MPPCA on HCP data at b=5000–10000 s/mm².</div>
+          <div class="b-li">Physics-informed FSE optimization reducing scan setup from hours to minutes across 4 clinical sites.</div>
+          <div class="b-tags"><span class="b-tag">Python</span><span class="b-tag">Diffusion MRI</span><span class="b-tag">DIPY</span><span class="b-tag">SimpleITK</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="option" onclick="sel(this,'c')">
+    <div class="opt-label">Option C</div>
+    <div class="opt-name">Dense CV-style rows — no cards</div>
+    <div class="preview">
+
+      <div class="c-row">
+        <div class="c-year">'24–now</div>
+        <div class="c-main">
+          <div class="c-co">GE HealthCare <span style="color:#50d890;font-size:8px">· AI Researcher</span></div>
+          <div class="c-role">Advanced Technology Group · Bangalore</div>
+          <div class="c-desc">Voxel-adaptive MPPCA denoising + FSE acquisition optimisation.</div>
+        </div>
+      </div>
+
+      <div class="c-row">
+        <div class="c-year">'24</div>
+        <div class="c-main">
+          <div class="c-co">Dell Technologies <span style="color:#50d890;font-size:8px">· SWE Intern</span></div>
+          <div class="c-role">Dell Digital · Bangalore</div>
+          <div class="c-desc">ML forecasting pipeline, 15% idle inventory reduction.</div>
+        </div>
+      </div>
+
+      <div class="c-row">
+        <div class="c-year">'23</div>
+        <div class="c-main">
+          <div class="c-co">Dell Technologies <span style="color:#50d890;font-size:8px">· SWE Intern</span></div>
+          <div class="c-role">Dell Digital · Bangalore</div>
+          <div class="c-desc">RAG pipeline with GPT4ALL + Pinecone. 92% MRR@5.</div>
+        </div>
+      </div>
+
+      <div class="c-row">
+        <div class="c-year">'22</div>
+        <div class="c-main">
+          <div class="c-co">ZKTeco <span style="color:#50d890;font-size:8px">· Research Intern</span></div>
+          <div class="c-role">Biometric Systems R&D · Bangalore</div>
+          <div class="c-desc">Multimodal biometric fusion via Siamese Networks. 95%+ accuracy.</div>
+        </div>
+      </div>
+
+      <div class="c-row">
+        <div class="c-year">'22</div>
+        <div class="c-main">
+          <div class="c-co">NUS <span style="color:#50d890;font-size:8px">· Academic Intern</span></div>
+          <div class="c-role">Singapore</div>
+          <div class="c-desc">Real-time violence detection, LRCN + ConvLSTM, 83% F1.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<p style="font-family:sans-serif;font-size:11px;color:rgba(255,255,255,0.25);margin-top:16px">Click to select. All options use Inter body font + Orbitron only for page heading. No particle header.</p>
+
+<script>
+function sel(el, choice) {
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  try { fetch('/select',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'click',choice,text:el.querySelector('.opt-name').textContent})}); } catch(e){}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#111; color:#e0e0e0; font-family:'Inter','Segoe UI',sans-serif; padding:24px 28px; font-size:13px; }
+h2.title { font-size:11px; letter-spacing:2px; color:rgba(255,255,255,0.3); text-transform:uppercase; margin-bottom:20px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.opt { background:#161616; border:1px solid rgba(255,255,255,0.08); border-radius:6px; overflow:hidden; cursor:pointer; transition:border-color .2s; }
+.opt:hover { border-color:rgba(255,255,255,0.2); }
+.opt.selected { border-color:#50d890; }
+.opt-label { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.35); padding:10px 14px 0; }
+.opt.selected .opt-label { color:#50d890; }
+.opt-name { font-size:12px; color:#e0e0e0; padding:3px 14px 10px; border-bottom:1px solid rgba(255,255,255,0.06); }
+.preview { padding:14px; }
+
+/* shared nav mockup */
+.mnav { background:#111; border-bottom:1px solid rgba(255,255,255,0.07); padding:8px 16px; display:flex; justify-content:space-between; align-items:center; font-size:9px; }
+.mnav-back { color:#50d890; }
+.mnav-links { display:flex; gap:12px; color:rgba(255,255,255,0.3); }
+
+/* Option A: thin video banner */
+.header-a {
+  position:relative; height:56px; overflow:hidden;
+  background: linear-gradient(135deg, #0a0a1a 0%, #111 40%, #0d1a0d 100%);
+  display:flex; align-items:center; justify-content:center;
+}
+.header-a::before {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(90deg, transparent, rgba(80,216,144,0.03), transparent);
+  animation: shimmer 3s infinite;
+}
+@keyframes shimmer { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
+.header-a-title { font-size:13px; color:#fff; letter-spacing:3px; text-transform:uppercase; z-index:1; }
+.header-a-line { position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:40px; height:2px; background:#50d890; }
+
+/* Option B: left-aligned with video strip on right */
+.header-b {
+  position:relative; height:64px; overflow:hidden;
+  background:#111; display:flex; align-items:center;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  padding:0 16px;
+}
+.header-b-text { flex:1; }
+.header-b-title { font-size:14px; color:#fff; letter-spacing:2px; text-transform:uppercase; }
+.header-b-sub { font-size:9px; color:#50d890; letter-spacing:1px; margin-top:3px; }
+.header-b-visual {
+  width:120px; height:100%; overflow:hidden; position:relative; opacity:0.4;
+  background: linear-gradient(135deg, #0a1a0a, #1a2a1a);
+}
+.header-b-visual::after {
+  content:''; position:absolute; left:0; top:0; bottom:0; width:40px;
+  background: linear-gradient(to right, #111, transparent);
+}
+/* Simulated tractography lines */
+.tline { position:absolute; height:1px; background:linear-gradient(90deg,transparent,#50d890,transparent); opacity:0.6; }
+
+/* Option C: no separate header — page title inline in content */
+.header-c { padding:16px; border-bottom:1px solid rgba(255,255,255,0.07); display:flex; align-items:baseline; gap:12px; }
+.header-c-title { font-size:15px; color:#fff; letter-spacing:2px; text-transform:uppercase; font-weight:600; }
+.header-c-count { font-size:10px; color:#50d890; }
+
+/* Option D: full-width video banner, same height as publications */
+.header-d {
+  position:relative; height:100px; overflow:hidden;
+  background: linear-gradient(135deg, #050510 0%, #0a1a0a 50%, #050510 100%);
+  display:flex; align-items:center; justify-content:center;
+}
+.header-d-title { font-size:16px; color:#fff; letter-spacing:4px; text-transform:uppercase; z-index:1; position:relative; }
+.header-d-title::after { content:''; display:block; margin:8px auto 0; width:40px; height:2px; background:#50d890; }
+/* animated lines */
+.dline { position:absolute; height:1px; background:linear-gradient(90deg,transparent,rgba(80,216,144,0.3),transparent); width:60%; }
+
+/* content stubs */
+.content-stub { padding:10px 14px; }
+.row { display:flex; gap:8px; margin-bottom:6px; }
+.lbar { width:8px; background:#50d890; border-radius:2px; flex-shrink:0; }
+.card-stub { flex:1; background:#1a1a1a; border-radius:3px; padding:8px; font-size:9px; color:#555; }
+.card-stub-title { color:#bbb; font-size:10px; margin-bottom:2px; }
+.list-tabs { display:flex; flex-direction:column; gap:4px; width:70px; }
+.tab-s { background:#1a1a1a; padding:4px 6px; border-radius:2px; border-left:2px solid transparent; font-size:8px; color:#555; }
+.tab-s.act { border-left-color:#50d890; color:#e0e0e0; background:rgba(80,216,144,0.06); }
+.detail-s { flex:1; background:#1a1a1a; border-radius:2px; padding:8px; }
+.grid-cards { display:grid; grid-template-columns:1fr 1fr 1fr; gap:5px; }
+.gc { background:#1a1a1a; border-radius:3px; height:36px; }
+</style>
+</head>
+<body>
+
+<h2 class="title">Page Header Treatment — which fits all inner pages?</h2>
+<p style="font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:16px">Same treatment will appear on Experience, Publications, Projects, Awards. Content area below stays different per page.</p>
+
+<div class="grid">
+
+  <!-- A: thin centered banner -->
+  <div class="opt" onclick="sel(this,'a')">
+    <div class="opt-label">Option A</div>
+    <div class="opt-name">Thin centered banner — video plays behind, just title shows</div>
+    <div class="preview">
+      <div class="mnav"><span class="mnav-back">← ananya singhal</span><div class="mnav-links"><span>experience</span><span>publications</span><span>projects</span><span>awards</span></div></div>
+      <div class="header-a">
+        <div class="header-a-title">publications</div>
+        <div class="header-a-line"></div>
+      </div>
+      <!-- content stub: card list -->
+      <div class="content-stub">
+        <div class="row"><div class="card-stub"><div class="card-stub-title">Structure-aware MPPCA Denoising — EMBC 2026</div>Ananya Singhal et al.</div></div>
+        <div class="row"><div class="card-stub"><div class="card-stub-title">ARMARecon: GNN for Dementia — ISBI 2026</div>Venkata Sesha, Ananya Singhal et al.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B: left title + right video strip -->
+  <div class="opt" onclick="sel(this,'b')">
+    <div class="opt-label">Option B</div>
+    <div class="opt-name">Left title + right video strip — editorial, horizontal split</div>
+    <div class="preview">
+      <div class="mnav"><span class="mnav-back">← ananya singhal</span><div class="mnav-links"><span>experience</span><span>publications</span><span>projects</span><span>awards</span></div></div>
+      <div class="header-b">
+        <div class="header-b-text">
+          <div class="header-b-title">experience</div>
+          <div class="header-b-sub">GE HealthCare · Dell · ZKTeco · NUS · IIIT-H</div>
+        </div>
+        <div class="header-b-visual">
+          <div class="tline" style="top:20%;width:80%;left:10%"></div>
+          <div class="tline" style="top:40%;width:60%;left:20%;opacity:0.4"></div>
+          <div class="tline" style="top:60%;width:90%;left:5%"></div>
+          <div class="tline" style="top:80%;width:50%;left:30%;opacity:0.3"></div>
+        </div>
+      </div>
+      <!-- experience two-pane stub -->
+      <div class="content-stub" style="display:flex;gap:8px">
+        <div class="list-tabs"><div class="tab-s act">GE HealthCare</div><div class="tab-s">Dell ×2</div><div class="tab-s">ZKTeco</div></div>
+        <div class="detail-s" style="font-size:8px;color:#555">GE HealthCare — AI Researcher<br><span style="color:#777">Voxel-adaptive denoising...</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C: no header, title inline -->
+  <div class="opt" onclick="sel(this,'c')">
+    <div class="opt-label">Option C</div>
+    <div class="opt-name">No separate header — page title sits inline above content</div>
+    <div class="preview">
+      <div class="mnav"><span class="mnav-back">← ananya singhal</span><div class="mnav-links"><span>experience</span><span>publications</span><span>projects</span><span>awards</span></div></div>
+      <div class="header-c">
+        <div class="header-c-title">awards</div>
+        <div class="header-c-count">7 awards</div>
+      </div>
+      <!-- awards grid stub -->
+      <div class="content-stub">
+        <div class="grid-cards">
+          <div class="gc"></div><div class="gc"></div><div class="gc"></div>
+          <div class="gc"></div><div class="gc"></div><div class="gc"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D: full banner same as publications -->
+  <div class="opt" onclick="sel(this,'d')">
+    <div class="opt-label">Option D</div>
+    <div class="opt-name">Full banner — same height as publications, video on all pages</div>
+    <div class="preview">
+      <div class="mnav"><span class="mnav-back">← ananya singhal</span><div class="mnav-links"><span>experience</span><span>publications</span><span>projects</span><span>awards</span></div></div>
+      <div class="header-d">
+        <div class="dline" style="top:25%;left:20%"></div>
+        <div class="dline" style="top:50%;left:10%;opacity:0.5"></div>
+        <div class="dline" style="top:75%;left:30%;opacity:0.3"></div>
+        <div class="header-d-title">projects</div>
+      </div>
+      <!-- awards grid stub -->
+      <div class="content-stub">
+        <div class="grid-cards">
+          <div class="gc"></div><div class="gc"></div><div class="gc"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p style="font-size:10px;color:rgba(255,255,255,0.2);margin-top:16px">The brain tractography video plays behind the header on all pages. Content area below stays unique per page — two-pane for experience, card grid for awards/projects, list for publications.</p>
+
+<script>
+function sel(el, c) {
+  document.querySelectorAll('.opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  try{fetch('/select',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'click',choice:c,text:el.querySelector('.opt-name').textContent})})}catch(e){}
+}
+</script>
+</body>
+</html>
