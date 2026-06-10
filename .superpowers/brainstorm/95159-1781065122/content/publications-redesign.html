@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#111; color:#e0e0e0; font-family:'Inter','Segoe UI',sans-serif; font-size:13px; }
+h2.pg { font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.3); text-transform:uppercase; padding:16px 20px 10px; border-bottom:1px solid rgba(255,255,255,0.06); }
+
+/* ── SHARED ELEMENTS ── */
+.pub-id { font-size:9px; color:#50d890; letter-spacing:1px; font-family:monospace; }
+.venue-chip { display:inline-block; padding:2px 8px; border:1px solid rgba(80,216,144,0.4); color:#50d890; border-radius:3px; font-size:9px; letter-spacing:0.5px; margin-right:6px; }
+.award-chip { display:inline-block; padding:2px 8px; background:rgba(80,216,144,0.1); color:#50d890; border-radius:3px; font-size:9px; }
+.authors { font-size:11px; color:#777; line-height:1.6; margin:4px 0 8px; }
+.authors .me { color:#e0e0e0; font-weight:500; }
+.abstract { font-size:11px; color:#666; line-height:1.7; }
+
+/* action buttons */
+.actions { display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; }
+.btn { display:inline-flex; align-items:center; gap:4px; padding:4px 10px; border:1px solid rgba(255,255,255,0.15); border-radius:3px; font-size:10px; color:rgba(255,255,255,0.6); text-decoration:none; cursor:pointer; background:transparent; transition:all .15s; letter-spacing:0.3px; }
+.btn:hover { border-color:#50d890; color:#50d890; }
+.btn.primary { border-color:rgba(80,216,144,0.5); color:#50d890; }
+.btn i { font-size:9px; }
+
+/* bibtex block */
+.bibtex-block { display:none; margin-top:10px; background:#0d0d0d; border:1px solid rgba(255,255,255,0.08); border-radius:3px; padding:10px 12px; font-family:monospace; font-size:10px; color:#888; line-height:1.6; white-space:pre; }
+.bibtex-block.open { display:block; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   OPTION A — Academic row (Natasha Jaques style)
+   thumbnail left · content right · full width
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.a-list { padding:0 20px 20px; }
+.a-item { display:flex; gap:20px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+.a-item:last-child { border-bottom:none; }
+.a-thumb { width:120px; flex-shrink:0; }
+.a-thumb-img { width:120px; height:80px; background:#1a1a1a; border-radius:3px; display:flex; align-items:center; justify-content:center; font-size:10px; color:#50d890; letter-spacing:1px; border:1px solid rgba(80,216,144,0.15); }
+.a-content { flex:1; }
+.a-title { font-size:13px; color:#fff; font-weight:500; line-height:1.5; margin-bottom:4px; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   OPTION B — Two-col: year left · content right
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.b-list { padding:0 20px 20px; }
+.b-item { display:grid; grid-template-columns:72px 1fr; gap:0; padding:20px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+.b-year { font-size:10px; color:#50d890; letter-spacing:0.5px; line-height:1.6; padding-top:2px; }
+.b-content { }
+.b-title { font-size:13px; color:#fff; font-weight:500; line-height:1.5; margin-bottom:4px; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   OPTION C — Cards with colored top border
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.c-grid { padding:16px 20px; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.c-card { background:#161616; border-radius:4px; border-top:2px solid #50d890; padding:16px; }
+.c-card .pub-id { display:block; margin-bottom:6px; }
+.c-title { font-size:12px; color:#fff; font-weight:500; line-height:1.5; margin-bottom:6px; }
+
+/* label */
+.opt-strip { background:#0d0d0d; border-bottom:1px solid rgba(255,255,255,0.06); padding:8px 20px; display:flex; align-items:center; justify-content:space-between; }
+.opt-strip span { font-size:10px; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.3); }
+.sel-btn { font-size:10px; padding:4px 12px; border:1px solid rgba(80,216,144,0.4); color:#50d890; background:transparent; border-radius:3px; cursor:pointer; }
+.sel-btn:hover, .sel-btn.picked { background:#50d890; color:#111; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<!-- ── OPTION A ── -->
+<div class="opt-strip">
+  <span>Option A — Thumbnail left · full content row · Natasha Jaques style</span>
+  <button class="sel-btn" id="btn-a" onclick="pick('a')">Select A</button>
+</div>
+<div class="a-list">
+
+  <div class="a-item">
+    <div class="a-thumb">
+      <div class="a-thumb-img">EMBC<br>2026</div>
+    </div>
+    <div class="a-content">
+      <div style="margin-bottom:6px"><span class="venue-chip">EMBC 2026</span><span class="award-chip"><i class="fas fa-file-alt" style="font-size:8px"></i> Invention Disclosure</span></div>
+      <div class="a-title"><span class="pub-id">[C.3, ID]</span> Structure-aware Adaptive Kernel MPPCA Denoising for Diffusion MRI</div>
+      <div class="authors"><span class="me">Ananya Singhal</span>, Dattesh Dayanand Shanbhag, Sudhanya Chatterjee</div>
+      <div class="abstract">Gradient-informed structural prior that dynamically adjusts kernel geometry per-voxel for high b-value diffusion MRI. 18% SNR gain, 96% boundary preservation vs. MPPCA baselines on HCP data.</div>
+      <div class="actions">
+        <a class="btn primary"><i class="fas fa-file-pdf"></i> PDF</a>
+        <a class="btn"><i class="fas fa-image"></i> Poster</a>
+        <a class="btn"><i class="fas fa-globe"></i> Project Page</a>
+        <a class="btn"><i class="fab fa-github"></i> Code</a>
+        <button class="btn" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-quote-right"></i> BibTeX</button>
+        <div class="bibtex-block">@inproceedings{singhal2026embc,
+  title={Structure-aware Adaptive Kernel MPPCA Denoising},
+  author={Singhal, Ananya and Shanbhag, Dattesh and Chatterjee, Sudhanya},
+  booktitle={EMBC 2026},
+  year={2026}
+}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="a-item">
+    <div class="a-thumb">
+      <div class="a-thumb-img">ICCV<br>2023</div>
+    </div>
+    <div class="a-content">
+      <div style="margin-bottom:6px"><span class="venue-chip">BIC @ ICCV 2023</span><span class="award-chip"><i class="fas fa-award" style="font-size:8px"></i> DEI Scholar</span></div>
+      <div class="a-title"><span class="pub-id">[W.1]</span> Deep Learning Framework using Sparse Diffusion MRI for Diagnosis of Frontotemporal Dementia</div>
+      <div class="authors">Abhishek Tiwari, <span class="me">Ananya Singhal</span>, Saurabh J. Shigwan, Rajeev Kumar Singh</div>
+      <div class="abstract">Novel deep learning framework for early FTD diagnosis using sparse diffusion measures. Enables efficient diagnosis while reducing scan time without compromising accuracy.</div>
+      <div class="actions">
+        <a href="https://ieeexplore.ieee.org/document/10350377" class="btn primary" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+        <a class="btn"><i class="fas fa-image"></i> Poster</a>
+        <a class="btn"><i class="fas fa-globe"></i> Project Page</a>
+        <a href="https://github.com/reachananya/Tract-based-fast-classification-for-Alzheimer-Disease" class="btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+        <button class="btn" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-quote-right"></i> BibTeX</button>
+        <div class="bibtex-block">@inproceedings{tiwari2023ftd,
+  title={Deep Learning Framework using Sparse Diffusion MRI for Diagnosis of FTD},
+  author={Tiwari, Abhishek and Singhal, Ananya and Shigwan, Saurabh J. and Singh, Rajeev Kumar},
+  booktitle={BioImage Computing Workshop, ICCV},
+  year={2023}
+}</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── OPTION B ── -->
+<div class="opt-strip" style="margin-top:4px">
+  <span>Option B — Year column left · content right · minimal, CV-adjacent</span>
+  <button class="sel-btn" id="btn-b" onclick="pick('b')">Select B</button>
+</div>
+<div class="b-list">
+
+  <div class="b-item">
+    <div class="b-year">EMBC<br>2026</div>
+    <div class="b-content">
+      <div style="margin-bottom:4px"><span class="venue-chip">EMBC 2026</span><span class="award-chip"><i class="fas fa-file-alt" style="font-size:8px"></i> Invention Disclosure</span></div>
+      <div class="b-title"><span class="pub-id">[C.3, ID]</span> Structure-aware Adaptive Kernel MPPCA Denoising for Diffusion MRI</div>
+      <div class="authors"><span class="me">Ananya Singhal</span>, Dattesh Dayanand Shanbhag, Sudhanya Chatterjee</div>
+      <div class="abstract">Gradient-informed structural prior for per-voxel kernel geometry adaptation. 18% SNR gain, 96% boundary preservation on HCP data at b=5000–10000 s/mm².</div>
+      <div class="actions">
+        <a class="btn primary"><i class="fas fa-file-pdf"></i> PDF</a>
+        <a class="btn"><i class="fas fa-image"></i> Poster</a>
+        <a class="btn"><i class="fas fa-globe"></i> Project Page</a>
+        <a class="btn"><i class="fab fa-github"></i> Code</a>
+        <button class="btn" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-quote-right"></i> BibTeX</button>
+        <div class="bibtex-block">@inproceedings{singhal2026embc,
+  title={Structure-aware Adaptive Kernel MPPCA Denoising},
+  author={Singhal, Ananya and Shanbhag, Dattesh and Chatterjee, Sudhanya},
+  booktitle={EMBC 2026}, year={2026}
+}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b-item">
+    <div class="b-year">BIC@<br>ICCV<br>2023</div>
+    <div class="b-content">
+      <div style="margin-bottom:4px"><span class="venue-chip">BIC @ ICCV 2023</span><span class="award-chip"><i class="fas fa-award" style="font-size:8px"></i> DEI Scholar</span></div>
+      <div class="b-title"><span class="pub-id">[W.1]</span> Deep Learning Framework using Sparse Diffusion MRI for Diagnosis of Frontotemporal Dementia</div>
+      <div class="authors">Abhishek Tiwari, <span class="me">Ananya Singhal</span>, Saurabh J. Shigwan, Rajeev Kumar Singh</div>
+      <div class="abstract">Deep learning framework for early FTD diagnosis using sparse diffusion measures, reducing scan time without compromising accuracy.</div>
+      <div class="actions">
+        <a href="https://ieeexplore.ieee.org/document/10350377" class="btn primary" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+        <a class="btn"><i class="fas fa-image"></i> Poster</a>
+        <a class="btn"><i class="fas fa-globe"></i> Project Page</a>
+        <a class="btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+        <button class="btn" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-quote-right"></i> BibTeX</button>
+        <div class="bibtex-block">@inproceedings{tiwari2023ftd,
+  title={Deep Learning Framework using Sparse Diffusion MRI for Diagnosis of FTD},
+  author={Tiwari, Abhishek and Singhal, Ananya and Shigwan, Saurabh J. and Singh, Rajeev Kumar},
+  booktitle={BioImage Computing Workshop, ICCV}, year={2023}
+}</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── OPTION C ── -->
+<div class="opt-strip" style="margin-top:4px">
+  <span>Option C — Cards grid · top-accent border · denser</span>
+  <button class="sel-btn" id="btn-c" onclick="pick('c')">Select C</button>
+</div>
+<div class="c-grid">
+
+  <div class="c-card">
+    <span class="pub-id">[C.3, ID]</span>
+    <div class="c-title">Structure-aware Adaptive Kernel MPPCA Denoising for Diffusion MRI</div>
+    <div style="margin-bottom:6px"><span class="venue-chip">EMBC 2026</span></div>
+    <div class="authors"><span class="me">Ananya Singhal</span>, Dattesh Shanbhag, Sudhanya Chatterjee</div>
+    <div class="actions">
+      <a class="btn primary"><i class="fas fa-file-pdf"></i> PDF</a>
+      <a class="btn"><i class="fas fa-globe"></i> Project</a>
+      <a class="btn"><i class="fab fa-github"></i> Code</a>
+      <button class="btn" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-quote-right"></i> Cite</button>
+      <div class="bibtex-block">@inproceedings{singhal2026embc, year={2026}}</div>
+    </div>
+  </div>
+
+  <div class="c-card">
+    <span class="pub-id">[W.1]</span>
+    <div class="c-title">Deep Learning Framework using Sparse Diffusion MRI for FTD Diagnosis</div>
+    <div style="margin-bottom:6px"><span class="venue-chip">BIC @ ICCV 2023</span><span class="award-chip">DEI Scholar</span></div>
+    <div class="authors">Abhishek Tiwari, <span class="me">Ananya Singhal</span> et al.</div>
+    <div class="actions">
+      <a class="btn primary"><i class="fas fa-file-pdf"></i> PDF</a>
+      <a class="btn"><i class="fas fa-globe"></i> Project</a>
+      <a class="btn"><i class="fab fa-github"></i> Code</a>
+      <button class="btn" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-quote-right"></i> Cite</button>
+      <div class="bibtex-block">@inproceedings{tiwari2023ftd, year={2023}}</div>
+    </div>
+  </div>
+
+  <div class="c-card">
+    <span class="pub-id">[C.2]</span>
+    <div class="c-title">ARMARecon: ARMA Convolutional Filter Based GNN for Dementia Classification</div>
+    <div style="margin-bottom:6px"><span class="venue-chip">ISBI 2026</span></div>
+    <div class="authors">Venkata Sesha, <span class="me">Ananya Singhal</span>, Saurabh J. Shigwan, Nitin Kumar</div>
+    <div class="actions">
+      <a class="btn"><i class="fas fa-file-pdf"></i> PDF</a>
+      <a class="btn"><i class="fas fa-globe"></i> Project</a>
+      <a class="btn"><i class="fab fa-github"></i> Code</a>
+      <button class="btn" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-quote-right"></i> Cite</button>
+      <div class="bibtex-block">@inproceedings{sesha2026isbi, year={2026}}</div>
+    </div>
+  </div>
+
+  <div class="c-card">
+    <span class="pub-id">[C.1]</span>
+    <div class="c-title">Early Diagnosis of Alzheimer through Swin-Transformer-Based DL Framework</div>
+    <div style="margin-bottom:6px"><span class="venue-chip">ACML 2023</span></div>
+    <div class="authors">Abhishek Tiwari, <span class="me">Ananya Singhal</span>, Saurabh J. Shigwan, Rajeev Kumar Singh</div>
+    <div class="actions">
+      <a class="btn primary"><i class="fas fa-file-pdf"></i> PDF</a>
+      <a class="btn"><i class="fas fa-globe"></i> Project</a>
+      <a class="btn"><i class="fab fa-github"></i> Code</a>
+      <button class="btn" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-quote-right"></i> Cite</button>
+      <div class="bibtex-block">@inproceedings{tiwari2023acml, year={2023}}</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function pick(choice) {
+  ['a','b','c'].forEach(x => document.getElementById('btn-'+x).classList.remove('picked'));
+  document.getElementById('btn-'+choice).classList.add('picked');
+  try{fetch('/select',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'click',choice,text:'Option '+choice.toUpperCase()})})}catch(e){}
+}
+</script>
+</body>
+</html>
