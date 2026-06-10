@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Structure-aware MPPCA Denoising — EMBC 2026</title>
+  <link rel="icon" href="../img/a_favicon_1.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../nav.css"/>
+  <link rel="stylesheet" href="paper.css"/>
+</head>
+<body>
+
+<div class="nav">
+  <a class="nav-back" href="../publications.html">publications</a>
+  <span class="nav-venue">EMBC 2026</span>
+</div>
+
+<div class="paper-shell">
+  <div class="paper-main">
+
+    <div class="paper-label">
+      <span>Conference Paper [C.3] · Invention Disclosure</span>
+      <span class="sep">·</span>
+      <span>2026</span>
+    </div>
+
+    <div class="paper-title">
+      Structure-aware Adaptive Kernel MPPCA Denoising for Diffusion MRI
+    </div>
+
+    <div class="paper-authors">
+      <span class="me">Ananya Singhal</span>, GE HealthCare &nbsp;·&nbsp;
+      Dattesh Dayanand Shanbhag &nbsp;·&nbsp;
+      Sudhanya Chatterjee
+    </div>
+
+    <div class="paper-venue-row">
+      <span class="pill">EMBC 2026</span>
+      <span class="sep">·</span>
+      <span><i class="fas fa-map-marker-alt" style="font-size:9px;margin-right:4px"></i>Toronto, Canada</span>
+      <span class="sep">·</span>
+      <span><i class="fas fa-file-alt" style="font-size:9px;margin-right:4px;color:#50d890"></i>Invention Disclosure — GE HealthCare</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="hero-wrap">
+      <div class="hero-placeholder">Poster · Coming Soon</div>
+    </div>
+    <div class="hero-caption">To be presented at Engineering in Medicine and Biology Society, Toronto, Canada.</div>
+
+    <div class="section">
+      <div class="section-label">Abstract</div>
+      <div class="abstract-text">
+        We present a structure-aware adaptive kernel denoising method for high b-value diffusion MRI that dynamically adjusts kernel geometry per-voxel using gradient-informed structural priors. The method leverages local tissue anisotropy to preserve sharp tumor boundaries essential for surgical planning, whilst aggressively suppressing noise in low-anisotropy regions.
+        <br><br>
+        We develop a gradient-to-kernel mapping algorithm that clusters voxel-wise gradient magnitudes via k-means and monotonically assigns discrete odd-integer kernel sizes — small kernels for high-gradient tissue boundaries, large kernels for homogeneous regions. This generates a per-voxel kernel map that autonomously adapts MPPCA denoising to local anatomical complexity across the full brain volume. On HCP (MGH-USC) data at b-values of 5000–10000 s/mm², the method delivers 18% SNR gain with 96% tissue boundary preservation versus fixed-size MPPCA baselines (NYU-MPPCA, DIPY-MPPCA), producing cleaner DWI and more accurate colour FA maps.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">BibTeX</div>
+      <div class="bibtex-block">@inproceedings{singhal2026embc,
+  title     = {Structure-aware Adaptive Kernel MPPCA Denoising
+               for Diffusion MRI},
+  author    = {Singhal, Ananya and Shanbhag, Dattesh Dayanand and
+               Chatterjee, Sudhanya},
+  booktitle = {Engineering in Medicine and Biology Society (EMBC)},
+  address   = {Toronto, Canada},
+  year      = {2026}
+}</div>
+    </div>
+
+  </div>
+
+  <div class="paper-sidebar">
+    <div class="sidebar-label">Quick Links</div>
+    <div class="quick-links">
+      <a class="qlink disabled">
+        <i class="fas fa-file-pdf"></i> PDF
+      </a>
+      <a class="qlink disabled">
+        <i class="fas fa-image"></i> Poster
+      </a>
+      <a class="qlink disabled">
+        <i class="fab fa-github"></i> Code
+      </a>
+      <button class="qlink" onclick="document.querySelector('.bibtex-block').scrollIntoView({behavior:'smooth'})">
+        <i class="fas fa-quote-right"></i> BibTeX
+      </button>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <span class="meta-head">Details</span>
+      <span>Conference [C.3, ID]</span>
+      <span>EMBC 2026</span>
+      <span>Toronto, Canada</span>
+      <span class="accent">Invention Disclosure</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

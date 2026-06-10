@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ARMARecon — ISBI 2026</title>
+  <link rel="icon" href="../img/a_favicon_1.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../nav.css"/>
+  <link rel="stylesheet" href="paper.css"/>
+</head>
+<body>
+
+<div class="nav">
+  <a class="nav-back" href="../publications.html">publications</a>
+  <span class="nav-venue">ISBI 2026</span>
+</div>
+
+<div class="paper-shell">
+  <div class="paper-main">
+
+    <div class="paper-label">
+      <span>Conference Paper [C.2]</span>
+      <span class="sep">·</span>
+      <span>2026</span>
+    </div>
+
+    <div class="paper-title">
+      ARMARecon: ARMA Convolutional Filter Based GNN for Neurodegenerative Dementia Classification
+    </div>
+
+    <div class="paper-authors">
+      Venkata Sesha &nbsp;·&nbsp;
+      <span class="me">Ananya Singhal</span>, Shiv Nadar Institute of Eminence &nbsp;·&nbsp;
+      Saurabh J. Shigwan &nbsp;·&nbsp;
+      Nitin Kumar
+    </div>
+
+    <div class="paper-venue-row">
+      <span class="pill">ISBI 2026</span>
+      <span class="sep">·</span>
+      <span><i class="fas fa-map-marker-alt" style="font-size:9px;margin-right:4px"></i>London, UK</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="hero-wrap">
+      <div class="hero-placeholder">Poster · Coming Soon</div>
+    </div>
+    <div class="hero-caption">To be presented at the International Symposium on Biomedical Imaging, London, UK.</div>
+
+    <div class="section">
+      <div class="section-label">Abstract</div>
+      <div class="abstract-text">
+        We present ARMARecon, a novel graph neural network integrating Autoregressive Moving Average (ARMA) spectral filtering with reconstruction-driven regularisation — the first approach to jointly address both over-smoothing and over-squashing in sparse-label neuroimaging graphs.
+        <br><br>
+        The framework represents entire cohorts as connected graphs where nodes encode neuroanatomical features and edges capture inter-subject similarity, enabling robust disease pattern extraction from limited training data. ARMA convolutions produce rational filters more expressive than standard polynomial filters, capturing long-range cortical dependencies without parameter explosion. Extensive ablation studies validate architectural choices including ARMA order selection, reconstruction weight tuning, and edge threshold selection.
+        <br><br>
+        On the ADNI dataset, ARMARecon achieves 98.3% accuracy for CN vs. MCI and 99.7% for CN vs. AD classification — more than 3% above GCN/GAT baselines.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">BibTeX</div>
+      <div class="bibtex-block">@inproceedings{sesha2026isbi,
+  title     = {ARMARecon: ARMA Convolutional Filter Based GNN for
+               Neurodegenerative Dementia Classification},
+  author    = {Sesha, Venkata and Singhal, Ananya and
+               Shigwan, Saurabh J. and Kumar, Nitin},
+  booktitle = {International Symposium on Biomedical Imaging (ISBI)},
+  address   = {London, UK},
+  year      = {2026}
+}</div>
+    </div>
+
+  </div>
+
+  <div class="paper-sidebar">
+    <div class="sidebar-label">Quick Links</div>
+    <div class="quick-links">
+      <a class="qlink disabled">
+        <i class="fas fa-file-pdf"></i> PDF
+      </a>
+      <a class="qlink disabled">
+        <i class="fas fa-image"></i> Poster
+      </a>
+      <a class="qlink disabled">
+        <i class="fab fa-github"></i> Code
+      </a>
+      <button class="qlink" onclick="document.querySelector('.bibtex-block').scrollIntoView({behavior:'smooth'})">
+        <i class="fas fa-quote-right"></i> BibTeX
+      </button>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <span class="meta-head">Details</span>
+      <span>Conference [C.2]</span>
+      <span>ISBI 2026</span>
+      <span>London, UK</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

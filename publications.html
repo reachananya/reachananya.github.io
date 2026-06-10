@@ -48,600 +48,154 @@
       <div class="page-title">Publications</div>
     </div>
 
-    <!-- Publication Types Legend -->
-    <div class="publication-types">
-      <em>C = Conference, W = Workshop, ID = Invention Disclosure</em>
-    </div>
-
-    <!-- PUBLICATIONS - REDESIGNED LAYOUT -->
     <div class="publications-container">
+      <div class="pub-legend">C = Conference &nbsp;·&nbsp; W = Workshop &nbsp;·&nbsp; ID = Invention Disclosure</div>
 
-      <!-- Publication Item - EMBC 2026 -->
-      <div class="publication-item" data-aos="fade-up" data-aos-duration="1000">
-        <div class="pub-image">
-          <div class="gallery-3d">
-            <div class="card-thumbnails">
-              <div class="card-thumbnail">
-                <div class="card-thumbnail-img" style="background:#1a1a2e;display:flex;align-items:center;justify-content:center;height:100%;color:#50d890;font-size:11px;letter-spacing:1px;text-align:center;padding:8px">EMBC<br>2026</div>
-              </div>
-            </div>
-          </div>
+      <!-- EMBC 2026 -->
+      <div class="pub-item">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">EMBC<br>2026</div>
         </div>
-
         <div class="pub-content">
-          <div class="pub-header">
-            <h2 class="pub-title">
-              <span class="pub-id">[C.3, ID]</span>
-              Structure-aware Adaptive Kernel MPPCA Denoising for Diffusion MRI
-            </h2>
-            <div class="pub-conference">
-              <span class="conference-badge">EMBC 2026</span>
-              <span class="conference-location"><i class="fas fa-map-marker-alt"></i> Toronto, Canada</span>
-              <span class="award-badge"><i class="fas fa-file-alt"></i> Invention Disclosure</span>
-            </div>
+          <div class="pub-venue-row">
+            <span class="venue-chip">EMBC 2026</span>
+            <span class="award-chip"><i class="fas fa-file-alt" style="font-size:8px"></i> Invention Disclosure</span>
           </div>
+          <a href="papers/embc2026.html" class="pub-title">
+            <span class="pub-id">[C.3, ID]</span>
+            Structure-aware Adaptive Kernel MPPCA Denoising for Diffusion MRI
+          </a>
           <div class="pub-authors">
-            <span class="author-highlight">Ananya Singhal</span>, Dattesh Dayanand Shanbhag, Sudhanya Chatterjee
+            <span class="me">Ananya Singhal</span>, Dattesh Dayanand Shanbhag, Sudhanya Chatterjee
           </div>
-          <div class="pub-abstract">
-            <p>A structure-aware adaptive kernel denoising method for high b-value diffusion MRI that dynamically adjusts kernel geometry per-voxel using gradient-informed structural priors, preserving sharp tissue boundaries while aggressively suppressing noise in homogeneous regions.</p>
-            <button class="abstract-toggle">Read More</button>
-            <div class="abstract-extended">
-              <p>We invent a gradient-to-kernel mapping algorithm that clusters voxel-wise gradient magnitudes via k-means and monotonically assigns discrete odd-integer kernel sizes — small kernels for high-gradient tissue boundaries, large kernels for homogeneous regions. This generates a per-voxel kernel map that autonomously adapts MPPCA denoising to local anatomical complexity across the full brain volume. Delivered 18% SNR gain with 96% tissue boundary preservation vs. fixed-size MPPCA baselines on HCP data at b-values of 5000–10000 s/mm².</p>
-            </div>
-          </div>
-          <div class="pub-links">
-            <!-- <a href="#" class="pub-link paper-link"><i class="fas fa-file-pdf"></i> Paper</a> -->
+          <div class="pub-abstract">Gradient-informed structural prior that dynamically adjusts kernel geometry per-voxel for high b-value diffusion MRI. 18% SNR gain with 96% tissue boundary preservation vs. fixed-size MPPCA baselines on HCP data at b-values of 5000–10000 s/mm².</div>
+          <div class="pub-actions">
+            <span class="pub-btn disabled"><i class="fas fa-file-pdf"></i> PDF</span>
+            <span class="pub-btn disabled"><i class="fas fa-image"></i> Poster</span>
+            <a href="papers/embc2026.html" class="pub-btn primary"><i class="fas fa-globe"></i> Project Page</a>
+            <span class="pub-btn disabled"><i class="fab fa-github"></i> Code</span>
+            <button class="pub-btn" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-quote-right"></i> BibTeX</button>
+            <div class="bibtex-inline">@inproceedings{singhal2026embc,
+  title  = {Structure-aware Adaptive Kernel MPPCA Denoising for Diffusion MRI},
+  author = {Singhal, Ananya and Shanbhag, Dattesh Dayanand and Chatterjee, Sudhanya},
+  booktitle = {EMBC 2026}, address = {Toronto, Canada}, year = {2026}
+}</div>
           </div>
         </div>
-        <div class="pub-year">EMBC <br> 2026</div>
       </div>
 
-      <div class="dotted-divider"></div>
-
-      <!-- Publication Item - ISBI 2026 -->
-      <div class="publication-item" data-aos="fade-up" data-aos-duration="1000">
-        <div class="pub-image">
-          <div class="gallery-3d">
-            <div class="card-thumbnails">
-              <div class="card-thumbnail">
-                <div class="card-thumbnail-img" style="background:#0d1b2a;display:flex;align-items:center;justify-content:center;height:100%;color:#50d890;font-size:11px;letter-spacing:1px;text-align:center;padding:8px">ISBI<br>2026</div>
-              </div>
-            </div>
-          </div>
+      <!-- ISBI 2026 -->
+      <div class="pub-item">
+        <div class="pub-thumb">
+          <div class="pub-thumb-placeholder">ISBI<br>2026</div>
         </div>
-
         <div class="pub-content">
-          <div class="pub-header">
-            <h2 class="pub-title">
-              <span class="pub-id">[C.2]</span>
-              ARMARecon: ARMA Convolutional Filter Based GNN for Neurodegenerative Dementia Classification
-            </h2>
-            <div class="pub-conference">
-              <span class="conference-badge">ISBI 2026</span>
-              <span class="conference-location"><i class="fas fa-map-marker-alt"></i> London, UK</span>
-            </div>
+          <div class="pub-venue-row">
+            <span class="venue-chip">ISBI 2026</span>
           </div>
+          <a href="papers/isbi2026.html" class="pub-title">
+            <span class="pub-id">[C.2]</span>
+            ARMARecon: ARMA Convolutional Filter Based GNN for Neurodegenerative Dementia Classification
+          </a>
           <div class="pub-authors">
-            Venkata Sesha, <span class="author-highlight">Ananya Singhal</span>, Saurabh J. Shigwan, Nitin Kumar
+            Venkata Sesha, <span class="me">Ananya Singhal</span>, Saurabh J. Shigwan, Nitin Kumar
           </div>
-          <div class="pub-abstract">
-            <p>A novel graph neural network integrating Autoregressive Moving Average (ARMA) spectral filtering with reconstruction-driven regularisation — the first approach to jointly address both over-smoothing and over-squashing in sparse-label neuroimaging graphs.</p>
-            <button class="abstract-toggle">Read More</button>
-            <div class="abstract-extended">
-              <p>The framework represents entire cohorts as connected graphs where nodes encode neuroanatomical features and edges capture inter-subject similarity, enabling robust disease pattern extraction from limited training data. ARMA convolutions produce rational filters more expressive than standard polynomial filters, capturing long-range cortical dependencies without parameter explosion. Achieved 98.3% accuracy for CN vs. MCI and 99.7% for CN vs. AD classification on ADNI (>3% above GCN/GAT baselines).</p>
-            </div>
-          </div>
-          <div class="pub-links">
-            <!-- <a href="#" class="pub-link paper-link"><i class="fas fa-file-pdf"></i> Paper</a> -->
+          <div class="pub-abstract">Novel GNN integrating ARMA spectral filtering with reconstruction-driven regularisation — first approach to jointly address over-smoothing and over-squashing in sparse-label neuroimaging graphs. 98.3% CN vs. MCI, 99.7% CN vs. AD on ADNI dataset.</div>
+          <div class="pub-actions">
+            <span class="pub-btn disabled"><i class="fas fa-file-pdf"></i> PDF</span>
+            <span class="pub-btn disabled"><i class="fas fa-image"></i> Poster</span>
+            <a href="papers/isbi2026.html" class="pub-btn primary"><i class="fas fa-globe"></i> Project Page</a>
+            <span class="pub-btn disabled"><i class="fab fa-github"></i> Code</span>
+            <button class="pub-btn" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-quote-right"></i> BibTeX</button>
+            <div class="bibtex-inline">@inproceedings{sesha2026isbi,
+  title  = {ARMARecon: ARMA Convolutional Filter Based GNN for Neurodegenerative Dementia Classification},
+  author = {Sesha, Venkata and Singhal, Ananya and Shigwan, Saurabh J. and Kumar, Nitin},
+  booktitle = {ISBI 2026}, address = {London, UK}, year = {2026}
+}</div>
           </div>
         </div>
-        <div class="pub-year">ISBI <br> 2026</div>
       </div>
 
-      <div class="dotted-divider"></div>
+      <!-- ICCV 2023 -->
+      <div class="pub-item">
+        <div class="pub-thumb">
+          <img src="img/iccv_poster1.jpeg" alt="ICCV 2023" class="pub-thumb-img">
+        </div>
+        <div class="pub-content">
+          <div class="pub-venue-row">
+            <span class="venue-chip">BIC @ ICCV 2023</span>
+            <span class="award-chip"><i class="fas fa-award" style="font-size:8px"></i> DEI Scholar</span>
+          </div>
+          <a href="papers/iccv2023.html" class="pub-title">
+            <span class="pub-id">[W.1]</span>
+            Deep Learning Framework using Sparse Diffusion MRI for Diagnosis of Frontotemporal Dementia
+          </a>
+          <div class="pub-authors">
+            Abhishek Tiwari, <span class="me">Ananya Singhal</span>, Saurabh J. Shigwan, Rajeev Kumar Singh
+          </div>
+          <div class="pub-abstract">Novel deep learning framework for early FTD diagnosis using sparse diffusion measures. Enables efficient diagnosis while reducing scan time without compromising accuracy. Presented at BioImage Computing Workshop, Paris.</div>
+          <div class="pub-actions">
+            <a href="https://ieeexplore.ieee.org/document/10350377" class="pub-btn primary" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+            <a href="img/poster_ICCV2023_final_mod-1.png" class="pub-btn" target="_blank"><i class="fas fa-image"></i> Poster</a>
+            <a href="papers/iccv2023.html" class="pub-btn primary"><i class="fas fa-globe"></i> Project Page</a>
+            <a href="https://github.com/reachananya/Tract-based-fast-classification-for-Alzheimer-Disease" class="pub-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+            <button class="pub-btn" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-quote-right"></i> BibTeX</button>
+            <div class="bibtex-inline">@inproceedings{tiwari2023ftd,
+  title  = {Deep Learning Framework using Sparse Diffusion MRI for Diagnosis of Frontotemporal Dementia},
+  author = {Tiwari, Abhishek and Singhal, Ananya and Shigwan, Saurabh J. and Singh, Rajeev Kumar},
+  booktitle = {BioImage Computing Workshop, ICCV 2023}, address = {Paris, France}, year = {2023}
+}</div>
+          </div>
+        </div>
+      </div>
 
-      <!-- Publication Item with 3D Cards -->
-      <div class="publication-item" data-aos="fade-up" data-aos-duration="1000">
-        <div class="pub-image">
-          <!-- 3D Card Gallery -->
-          <div class="gallery-3d">
-            <div class="card-container" data-index="0">
-              <div class="card-main">
-                <img src="img/iccv_poster1.jpeg" alt="Publication 1 Main Image" class="card-image">
-                <div class="card-overlay">
-                  <h4>Framework</h4>
-                </div>
-              </div>
-            </div>
-            <div class="card-thumbnails">
-              <div class="card-thumbnail" data-index="1">
-                <img src="img/iccv_poster2.png" alt="Publication 1 Thumbnail 1" class="card-thumbnail-img">
-                <div class="card-overlay">
-                  <h4>Results-21diff</h4>
-                </div>
-              </div>
-              <div class="card-thumbnail" data-index="2">
-                <img src="img/iccv_poster3.png" alt="Publication 1 Thumbnail 2" class="card-thumbnail-img">
-                <div class="card-overlay">
-                  <h4>Results-5diff</h4>
-                </div>
-              </div>
-            </div>
-          </div>
+      <!-- ACML 2023 -->
+      <div class="pub-item">
+        <div class="pub-thumb">
+          <img src="img/ACML_poster2.png" alt="ACML 2023" class="pub-thumb-img">
         </div>
-        
         <div class="pub-content">
-          <div class="pub-header">
-            <h2 class="pub-title">
-              <span class="pub-id">[W.1]</span>   <!-- Added more space between [W.1] and title -->
-              Deep Learning Framework using Sparse Diffusion MRI for Diagnosis of Frontotemporal Dementia
-            </h2>
-            <div class="pub-conference">
-              <a href="https://www.bioimagecomputing.com/bioimage-computing-iccv-2023/" class="conference-badge">BioImage Computing @ICCV 2023</a> <!-- Added href to make conference-badge a link -->
-              <span class="conference-location"><i class="fas fa-map-marker-alt"></i> Paris, France</span>
-              <span class="award-badge"><i class="fas fa-award"></i> DEI Scholar</span> <!-- Added DEI award badge -->
-            </div>
+          <div class="pub-venue-row">
+            <span class="venue-chip">ACML 2023</span>
           </div>
+          <a href="papers/acml2023.html" class="pub-title">
+            <span class="pub-id">[C.1]</span>
+            Early Diagnosis of Alzheimer through Swin-Transformer-Based Deep Learning Framework using Sparse Diffusion Measures
+          </a>
           <div class="pub-authors">
-            Abhishek Tiwari, <span class="author-highlight">Ananya Singhal</span>, Saurabh J. Shigwan, Rajeev Kumar Singh
+            Abhishek Tiwari, <span class="me">Ananya Singhal</span>, Saurabh J. Shigwan, Rajeev Kumar Singh
           </div>
-          <div class="pub-abstract">
-            <p>This research presents a novel deep learning framework for early diagnosis of Frontotemporal dementia (FTD), a devastating neurodegenerative disorder affecting the frontal and temporal lobes of the brain. FTD leads to cognitive decline and behavioral changes, occurring in approximately 15-22 people per 100,000 worldwide (1.2-1.8 million people globally). Early and accurate diagnosis is crucial for timely interventions and appropriate patient care.</p>
-            <button class="abstract-toggle">Read More</button>
-            <div class="abstract-extended">
-              <p>Our approach utilizes sparse diffusion measures extracted from neuroimaging data combined with advanced deep learning techniques to automatically learn relevant features from the data. The experimental results demonstrate promising potential in effectively distinguishing between healthy individuals and those with FTD, improving diagnostic accuracy and paving the way for future research in this critical area.</p>
-            </div>
-          </div>
-          <div class="pub-links">
-            <a href="https://ieeexplore.ieee.org/document/10350377" class="pub-link paper-link"><i class="fas fa-file-pdf"></i> Paper</a>
-            <!-- <a href="#" class="pub-link code-link"><i class="fas fa-code"></i> Code</a> -->
-            <a href="#" class="pub-link poster-link" data-poster-index="5"><i class="fas fa-image"></i> Poster</a>
-            <!-- <a href="#" class="pub-link video-link"><i class="fas fa-video"></i> Video</a> -->
+          <div class="pub-abstract">Swin-Transformer framework generating FA, AxD, and MD measurements using just 5 and 21 diffusion directions. Outperforms traditional linear least square methods while reducing scanning time by more than half on ADNI dataset.</div>
+          <div class="pub-actions">
+            <a href="https://proceedings.mlr.press/v222/tiwari24a/tiwari24a.pdf" class="pub-btn primary" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+            <a href="img/poster_ACML2023_final-1.png" class="pub-btn" target="_blank"><i class="fas fa-image"></i> Poster</a>
+            <a href="papers/acml2023.html" class="pub-btn primary"><i class="fas fa-globe"></i> Project Page</a>
+            <a href="https://github.com/reachananya/Tract-based-fast-classification-for-Alzheimer-Disease" class="pub-btn" target="_blank"><i class="fab fa-github"></i> Code</a>
+            <button class="pub-btn" onclick="this.nextElementSibling.classList.toggle('open')"><i class="fas fa-quote-right"></i> BibTeX</button>
+            <div class="bibtex-inline">@inproceedings{tiwari2023acml,
+  title  = {Early Diagnosis of Alzheimer through Swin-Transformer-Based DL Framework using Sparse Diffusion Measures},
+  author = {Tiwari, Abhishek and Singhal, Ananya and Shigwan, Saurabh J. and Singh, Rajeev Kumar},
+  booktitle = {Asian Conference on Machine Learning (ACML)}, address = {Istanbul, Turkey}, year = {2023}
+}</div>
           </div>
         </div>
-        <div class="pub-year">BIC@ICCV <br> 2023</div>
       </div>
-      
-      <div class="dotted-divider"></div>
-      
-      <!-- Publication Item 2 -->
-      <div class="publication-item" data-aos="fade-up" data-aos-duration="1000">
-        <div class="pub-image">
-          <div class="gallery-3d">
-            <!-- <div class="card-container" data-index="3">
-              <div class="card-main">
-                <img src="pub2_main.jpg" alt="Publication 2 Main Image" class="card-image">
-                <div class="card-overlay">
-                  <h4>Main Visualization</h4>
-                </div>
-              </div>
-            </div> -->
-            <div class="card-thumbnails">
-              <div class="card-thumbnail" data-index="4">
-                <img src="img/ACML_poster2.png" alt="Publication 2 Thumbnail 1" class="card-thumbnail-img">
-                <div class="card-overlay">
-                  <h4>Cingulum Abnormalities</h4>
-                </div>
-              </div>
-              <div class="card-thumbnail" data-index="5">
-                <img src="img/ACML_poster3.png" alt="Publication 2 Thumbnail 2" class="card-thumbnail-img">
-                <div class="card-overlay">
-                  <h4>Uncinat Abnormalities</h4>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="pub-content">
-          <div class="pub-header">
-            <h2 class="pub-title">
-              <span class="pub-id">[C.1]</span>   <!-- Added more space between [C.1] and title -->
-              Early Diagnosis of Alzheimer through Swin-Transformer-Based Deep Learning Framework using Sparse Diffusion Measures
-            </h2>
-            <div class="pub-conference">
-              <a href="https://www.acml-conf.org/2023/" class="conference-badge">ACML 2023</a> <!-- Added href to make conference-badge a link -->
-              <span class="conference-location"><i class="fas fa-map-marker-alt"></i> İstanbul, Turkey.</span>
-            </div>
-          </div>
-          <div class="pub-authors">
-            Abhishek Tiwari, <span class="author-highlight">Ananya Singhal</span>, Saurabh J. Shigwan, Rajeev Kumar Singh
-          </div>
-          <div class="pub-abstract">
-            <p>Our research investigates using Transformer-based deep learning to accelerate diffusion tensor imaging (DTI) processing and improve early Alzheimer's disease diagnosis. By applying advanced attention mechanisms, we've developed a model that generates critical quantitative measures using significantly fewer diffusion directions than traditional methods.
-            </p>
-            <button class="abstract-toggle">Read More</button>
-            <div class="abstract-extended">
-              <p>Our Swin-Transformer framework successfully generates fractional anisotropy (FA), axial diffusivity (AxD), and mean diffusivity (MD) measurements using just 5 and 21 diffusion directions.
-                Testing on the Alzheimer's Disease Neuroimaging Initiative (ADNI) dataset demonstrates that our approach outperforms traditional linear least square methods while reducing scanning time by more than half. This breakthrough has significant implications for improving both the accessibility and accuracy of early AD diagnosis in clinical settings.</p>
-            </div>
-          </div>
-          <div class="pub-links">
-            <a href="https://proceedings.mlr.press/v222/tiwari24a/tiwari24a.pdf" class="pub-link paper-link"><i class="fas fa-file-pdf"></i> Paper</a>
-            <a href="https://github.com/reachananya/Tract-based-fast-classification-for-Alzheimer-Disease" class="pub-link code-link"><i class="fas fa-code"></i> Code</a>
-            <a href="#" class="pub-link poster-link" data-poster-index="6"><i class="fas fa-image"></i> Poster</a>
-            <!-- <a href="#" class="pub-link video-link"><i class="fas fa-video"></i> Video</a> -->
-          </div>
-        </div>
-        <div class="pub-year">ACML <br> 2023</div>
-      </div>
-      
-      <div class="dotted-divider"></div>
-      
+
     </div>
 
-    <!-- Image Modal -->
-    <div class="image-modal">
-      <div class="modal-content">
-        <button class="modal-close">&times;</button>
-        <div class="modal-image-container">
-          <img src="" alt="" class="modal-image">
-          <button class="modal-arrow modal-prev"><i class="fas fa-chevron-left"></i></button>
-          <button class="modal-arrow modal-next"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="modal-nav">
-          <!-- Dots will be added dynamically -->
-        </div>
-        <div class="modal-caption"></div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      <p>Designed & Built with <i class="fas fa-heart pulse"></i> by Ananya Singhal</p>
-      <p>&copy; 2025 All Rights Reserved</p>      
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      // Initialize AOS
-      AOS.init();
-      
-      // Navigation scroll effect
-      window.addEventListener('scroll', function() {
-        const nav = document.querySelector('.main-nav');
-        if (window.scrollY > 50) {
-          nav.classList.add('nav-scrolled');
-        } else {
-          nav.classList.remove('nav-scrolled');
-        }
-      });
-      
-      // Abstract toggle functionality
-      const abstractToggles = document.querySelectorAll('.abstract-toggle');
-      abstractToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-          const extendedAbstract = this.nextElementSibling;
-          if (extendedAbstract.style.maxHeight) {
-            extendedAbstract.style.maxHeight = null;
-            this.textContent = 'Read More';
-          } else {
-            extendedAbstract.style.maxHeight = extendedAbstract.scrollHeight + 'px';
-            this.textContent = 'Read Less';
-          }
-        });
-      });
-      
-      // Modal functionality
-      const modal = document.querySelector('.image-modal');
-      const modalImage = document.querySelector('.modal-image');
-      const modalClose = document.querySelector('.modal-close');
-      const modalPrev = document.querySelector('.modal-prev');
-      const modalNext = document.querySelector('.modal-next');
-      const modalNav = document.querySelector('.modal-nav');
-      const modalCaption = document.querySelector('.modal-caption');
-      
-      // Gallery images
-      const galleryImages = [
-        { src: 'img/iccv_poster1.jpeg', caption: 'Publication 1 - Architecture' },
-        { src: 'img/iccv_poster2.png', caption: 'Publication 1 - Research results - 21 diffusion directions' },
-        { src: 'img/iccv_poster3.png', caption: 'Publication 1 - Research results - 5 diffusion directions' },
-        { src: 'img/ACML_poster2.png', caption: 'Publication 2 - Cingulum Abnormalities' },
-        { src: 'img/ACML_poster3.png', caption: 'Publication 2 - Uncinat Abnormalities' },
-        // poster images here:
-        { src: 'img/poster_ICCV2023_final_mod-1.png', caption: 'ICCV 2023 Poster' },
-        { src: 'img/poster_ACML2023_final-1.png', caption: 'ACML 2023 Poster' }
-      ];
-      
-      // Current image index
-      let currentIndex = 0;
-      
-      // Open modal
-      const openModal = (index) => {
-        currentIndex = index;
-        modalImage.src = galleryImages[index].src;
-        modalCaption.textContent = galleryImages[index].caption;
-        modal.classList.add('show');
-        updateNavDots();
-        document.body.style.overflow = 'hidden';
-      };
-      
-      // Close modal
-      const closeModal = () => {
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
-      };
-      
-      // Navigate to prev/next image
-      const navigateModal = (direction) => {
-        if (direction === 'prev') {
-          currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-        } else {
-          currentIndex = (currentIndex + 1) % galleryImages.length;
-        }
-        
-        modalImage.src = galleryImages[currentIndex].src;
-        modalCaption.textContent = galleryImages[currentIndex].caption;
-        updateNavDots();
-      };
-      
-      // Update navigation dots
-      const updateNavDots = () => {
-        modalNav.innerHTML = '';
-        
-        galleryImages.forEach((_, index) => {
-          const dot = document.createElement('div');
-          dot.className = 'modal-dot' + (index === currentIndex ? ' active' : '');
-          dot.addEventListener('click', () => {
-            currentIndex = index;
-            modalImage.src = galleryImages[index].src;
-            modalCaption.textContent = galleryImages[index].caption;
-            updateNavDots();
-          });
-          modalNav.appendChild(dot);
-        });
-      };
-      
-      // Add click event to cards
-      document.querySelectorAll('.card-container, .card-thumbnail').forEach(card => {
-        card.addEventListener('click', function() {
-          const index = parseInt(this.getAttribute('data-index'));
-          openModal(index);
-        });
-      });
-      
-      // Add click event to poster links
-      document.querySelectorAll('.poster-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault(); // Prevent default link behavior
-          const index = parseInt(this.getAttribute('data-poster-index'));
-          openModal(index);
-        });
-      });
-
-      // Modal close button
-      modalClose.addEventListener('click', closeModal);
-      
-      // Modal navigation
-      modalPrev.addEventListener('click', () => navigateModal('prev'));
-      modalNext.addEventListener('click', () => navigateModal('next'));
-      
-      // Close modal on escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModal();
-        if (e.key === 'ArrowLeft') navigateModal('prev');
-        if (e.key === 'ArrowRight') navigateModal('next');
-      });
-      
-      // Close modal when clicking outside of content
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-      });
-      
-      // Intersection Observer for Publication Year Animation
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5
-      };
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          const yearElement = entry.target.querySelector('.pub-year');
-          if (entry.isIntersecting) {
-            yearElement.classList.add('active');
-          } else {
-            yearElement.classList.remove('active');
-          }
-        });
-      }, observerOptions);
-      
-      document.querySelectorAll('.publication-item').forEach(item => {
-        observer.observe(item);
-      });
-    </script>
-    
-    <!-- Include navigation.js for mobile menu functionality -->
-    <script src="navigation.js"></script>
-    
-    <!-- Page-specific mobile navigation fix -->
-    <script>
-      // Wait for DOM to be fully loaded
-      document.addEventListener('DOMContentLoaded', function() {
-        // Get the hamburger menu and related elements
-        const hamburger = document.querySelector('.hamburger-menu');
-        const hamburgerIcon = document.querySelector('.hamburger-icon');
-        const mobileSidebar = document.querySelector('.mobile-sidebar');
-        const sidebarOverlay = document.querySelector('.sidebar-overlay');
-        
-        // Explicitly add click event to hamburger for index page
-        if (hamburger) {
-          hamburger.addEventListener('click', function() {
-            console.log('Publications page hamburger clicked');
-            hamburgerIcon.classList.toggle('hamburger-active');
-            mobileSidebar.classList.toggle('active');
-            sidebarOverlay.classList.toggle('active');
-            
-            if (mobileSidebar.classList.contains('active')) {
-              document.body.style.overflow = 'hidden';
-            } else {
-              document.body.style.overflow = '';
-            }
+  <script>
+    // Close all other bibtex blocks when one opens
+    document.querySelectorAll('.pub-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const next = this.nextElementSibling;
+        if (next && next.classList.contains('bibtex-inline')) {
+          document.querySelectorAll('.bibtex-inline.open').forEach(b => {
+            if (b !== next) b.classList.remove('open');
           });
         }
-        
-        // Explicitly add click event to overlay
-        if (sidebarOverlay) {
-          sidebarOverlay.addEventListener('click', function() {
-            console.log('Publications page overlay clicked');
-            hamburgerIcon.classList.remove('hamburger-active');
-            mobileSidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-          });
-        }
-        
-        // Also handle click on sidebar items
-        document.querySelectorAll('.sidebar-item').forEach(item => {
-          item.addEventListener('click', function() {
-            hamburgerIcon.classList.remove('hamburger-active');
-            mobileSidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-          });
-        });
       });
-      
-      // Function to toggle mobile navigation
-      function toggleMobileNav(event) {
-        event.stopPropagation();
-        const hamburgerIcon = document.querySelector('.hamburger-icon');
-        const mobileSidebar = document.querySelector('.mobile-sidebar');
-        const sidebarOverlay = document.querySelector('.sidebar-overlay');
-        
-        hamburgerIcon.classList.toggle('hamburger-active');
-        mobileSidebar.classList.toggle('active');
-        sidebarOverlay.classList.toggle('active');
-        
-        if (mobileSidebar.classList.contains('active')) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = '';
-        }
-      }
-    </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const modal = document.querySelector('.image-modal');
-        const modalImage = modal.querySelector('.modal-image');
-        const modalClose = modal.querySelector('.modal-close');
-        const modalPrev = modal.querySelector('.modal-prev');
-        const modalNext = modal.querySelector('.modal-next');
-        const modalNav = modal.querySelector('.modal-nav');
-        const modalCaption = modal.querySelector('.modal-caption');
-        
-        let currentImageIndex = 0;
-        let currentImages = [];
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        // Open modal when clicking on a publication image
-        document.querySelectorAll('.card-image img, .card-thumbnail img').forEach(img => {
-            img.addEventListener('click', function() {
-                const publication = this.closest('.publication-item');
-                currentImages = Array.from(publication.querySelectorAll('.card-image img, .card-thumbnail img')).map(img => ({
-                    src: img.src,
-                    alt: img.alt
-                }));
-                currentImageIndex = currentImages.findIndex(image => image.src === this.src);
-                openModal(currentImageIndex);
-            });
-        });
-        
-        // Close modal
-        modalClose.addEventListener('click', closeModal);
-        modal.addEventListener('click', e => {
-            if (e.target === modal) closeModal();
-        });
-        
-        // Navigation with arrows
-        modalPrev.addEventListener('click', showPreviousImage);
-        modalNext.addEventListener('click', showNextImage);
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', e => {
-            if (!modal.classList.contains('show')) return;
-            if (e.key === 'Escape') closeModal();
-            if (e.key === 'ArrowLeft') showPreviousImage();
-            if (e.key === 'ArrowRight') showNextImage();
-        });
-        
-        // Touch events for swipe
-        modal.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-        
-        modal.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const swipeLength = touchEndX - touchStartX;
-            
-            if (Math.abs(swipeLength) > swipeThreshold) {
-                if (swipeLength > 0) {
-                    showPreviousImage();
-                } else {
-                    showNextImage();
-                }
-            }
-        }
-        
-        function openModal(index) {
-            currentImageIndex = index;
-            updateModalImage();
-            updateNavigationDots();
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeModal() {
-            modal.classList.remove('show');
-            document.body.style.overflow = '';
-        }
-        
-        function showPreviousImage() {
-            currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
-            updateModalImage();
-            updateNavigationDots();
-        }
-        
-        function showNextImage() {
-            currentImageIndex = (currentImageIndex + 1) % currentImages.length;
-            updateModalImage();
-            updateNavigationDots();
-        }
-        
-        function updateModalImage() {
-            const image = currentImages[currentImageIndex];
-            modalImage.src = image.src;
-            modalImage.alt = image.alt;
-            modalCaption.textContent = image.alt;
-            
-            // Show/hide navigation arrows based on number of images
-            modalPrev.style.display = currentImages.length > 1 ? 'block' : 'none';
-            modalNext.style.display = currentImages.length > 1 ? 'block' : 'none';
-        }
-        
-        function updateNavigationDots() {
-            modalNav.innerHTML = '';
-            currentImages.forEach((_, index) => {
-                const dot = document.createElement('span');
-                dot.className = `modal-dot${index === currentImageIndex ? ' active' : ''}`;
-                dot.addEventListener('click', () => {
-                    currentImageIndex = index;
-                    updateModalImage();
-                    updateNavigationDots();
-                });
-                modalNav.appendChild(dot);
-            });
-        }
     });
-    </script>
+  </script>
   </body>
 </html>
 
