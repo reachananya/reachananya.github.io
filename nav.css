@@ -30,7 +30,7 @@
   font-family: sans-serif;
 }
 
-.nav-back:hover { opacity: 0.75; }
+.nav-back:hover { opacity: 0.75; color: #ffffff; }
 
 .top-nav-links {
   display: flex;
