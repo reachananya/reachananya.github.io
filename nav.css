@@ -59,3 +59,71 @@
   }
   .top-nav-links { gap: 14px; }
 }
+
+/* ── SHARED THIN PAGE HEADER ── */
+.page-header-thin {
+  position: relative;
+  height: 72px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.page-header-thin .video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.page-header-thin .video-bg video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+.page-header-thin .video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(17,17,17,0.85),
+    rgba(17,17,17,0.5),
+    rgba(17,17,17,0.85)
+  );
+  z-index: 1;
+}
+
+.page-header-thin .page-title {
+  position: relative;
+  z-index: 2;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+}
+
+.page-header-thin .page-title::after {
+  content: '';
+  display: block;
+  margin: 6px auto 0;
+  width: 32px;
+  height: 1.5px;
+  background: #50d890;
+}
+
+@media (max-width: 768px) {
+  .page-header-thin { height: 56px; }
+}

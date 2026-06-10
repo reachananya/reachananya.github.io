@@ -12,7 +12,7 @@ body {
 /* ── PAGE LAYOUT ── */
 .exp-page {
   display: flex;
-  height: calc(100vh - 61px);
+  height: calc(100vh - 133px);
   overflow: hidden;
 }
 
