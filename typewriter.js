@@ -33,7 +33,7 @@
         setTimeout(tick, speed);
       } else {
         setTimeout(function () {
-          cursor.remove();
+          cursor.style.visibility = 'hidden'; // keep space, no reflow
           if (onDone) onDone();
         }, 400);
       }
