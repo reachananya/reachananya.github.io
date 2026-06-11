@@ -125,14 +125,7 @@
   text-align: center;
 }
 
-.page-header-thin .page-title::after {
-  content: '';
-  display: block;
-  margin: 6px auto 0;
-  width: 32px;
-  height: 1.5px;
-  background: var(--accent);
-}
+/* underline removed — typewriter.js handles post-type decoration on landing */
 
 @media (max-width: 768px) {
   .page-header-thin { height: 56px; }
