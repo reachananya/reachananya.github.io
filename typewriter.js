@@ -61,10 +61,12 @@
         line.className = 'name-typed-line';
         nameHeader.appendChild(line);
 
-        // hide children, build plain target
+        // suppress ::after hint during typing
+        nameLink.classList.add('typing');
         nameLink.innerHTML = '';
         typeInto(nameLink, 'Ananya Singhal', 75, function () {
           // restore spans for hover/arrow JS
+          nameLink.classList.remove('typing');
           nameLink.innerHTML = '<strong><span>Ananya</span> <span>Singhal</span></strong>';
           // trigger line
           nameHeader.classList.add('name-typed');
