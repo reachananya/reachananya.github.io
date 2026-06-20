@@ -1,19 +1,9 @@
-// Typewriter effect — page titles + landing name
+// Typewriter effect — inner page titles only
 (function () {
 
   var CSS = [
     '.tw-cursor { color: #50d890; animation: tw-blink 0.65s step-end infinite; }',
     '@keyframes tw-blink { 0%,100%{opacity:1} 50%{opacity:0} }',
-    /* name underline emerges after typing */
-    '.name-typed-line {',
-    '  display: block;',
-    '  height: 2px;',
-    '  background: #50d890;',
-    '  width: 0;',
-    '  margin: 10px auto 0;',
-    '  transition: width 0.6s ease;',
-    '}',
-    '.name-typed .name-typed-line { width: 80px; }',
   ].join('\n');
 
   var style = document.createElement('style');
@@ -51,28 +41,5 @@
       typeInto(pageTitle, text, 55);
     }
 
-    // ── LANDING NAME ──
-    var nameHeader = document.querySelector('.main-title-header');
-    if (nameHeader) {
-      var nameLink = nameHeader.querySelector('.name-link');
-      if (nameLink) {
-        // add line element
-        var line = document.createElement('span');
-        line.className = 'name-typed-line';
-        nameHeader.appendChild(line);
-
-        // suppress ::after hint during typing
-        nameLink.classList.add('typing');
-        nameLink.innerHTML = '';
-        typeInto(nameLink, 'Ananya Singhal', 75, function () {
-          // restore spans for hover/arrow JS
-          nameLink.classList.remove('typing');
-          nameLink.innerHTML = '<strong><span>Ananya</span> <span>Singhal</span></strong>';
-          // trigger line
-          nameHeader.classList.add('name-typed');
-        });
-      }
-    }
-
-  });
+});
 })();

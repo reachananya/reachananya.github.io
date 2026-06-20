@@ -144,9 +144,6 @@ body {
   opacity: 1;
 }
 
-.name-link.typing::after {
-  display: none;
-}
 
 @media only screen and (max-width: 1000px){
   .demo .main-title{
