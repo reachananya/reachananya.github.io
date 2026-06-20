@@ -123,26 +123,6 @@ body {
   color: #50d890;
 }
 
-/* "about me →" hint appears below name on hover */
-.name-link::after {
-  content: 'about me →';
-  position: absolute;
-  bottom: -22px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 10px;
-  color: #50d890;
-  letter-spacing: 2px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  white-space: nowrap;
-  font-family: 'Orbitron', sans-serif;
-  pointer-events: none;
-}
-
-.name-link:hover::after {
-  opacity: 1;
-}
 
 
 @media only screen and (max-width: 1000px){
