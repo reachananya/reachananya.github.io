@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#111; color:#e0e0e0; font-family:'Inter','Segoe UI',sans-serif; font-size:13px; }
+h2.pg { font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.3); text-transform:uppercase; padding:14px 20px 10px; }
+
+/* shared */
+.tag { display:inline-block; padding:2px 8px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.45); border-radius:3px; font-size:9px; letter-spacing:0.5px; }
+.btn { display:inline-flex; align-items:center; gap:4px; padding:5px 12px; border:1px solid rgba(255,255,255,0.12); border-radius:3px; font-size:10px; color:rgba(255,255,255,0.5); text-decoration:none; transition:all .15s; }
+.btn:hover { border-color:#50d890; color:#50d890; }
+.btn.primary { border-color:rgba(80,216,144,0.35); color:#50d890; }
+
+/* video stub */
+.vid { background:#0d0d0d; border-radius:4px; border:1px solid rgba(255,255,255,0.07); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.15); font-size:10px; letter-spacing:1px; position:relative; overflow:hidden; }
+.vid::before { content:'▶'; position:absolute; font-size:18px; color:rgba(80,216,144,0.3); }
+.vid-label { position:absolute; bottom:6px; left:8px; font-size:8px; color:rgba(255,255,255,0.2); }
+
+.opt-strip { background:#0d0d0d; padding:8px 20px; border-bottom:1px solid rgba(255,255,255,0.05); border-top:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
+.opt-strip span { font-size:10px; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.3); }
+.sel { font-size:10px; padding:4px 12px; border:1px solid rgba(80,216,144,0.3); color:#50d890; background:transparent; border-radius:3px; cursor:pointer; }
+.sel:hover, .sel.picked { background:#50d890; color:#111; border-color:#50d890; }
+
+/* ── OPTION A: Full-row, video left thumbnail ── */
+.a-list { padding:0 20px 16px; }
+.a-item { display:flex; gap:20px; padding:20px 0; border-bottom:1px solid rgba(255,255,255,0.04); align-items:flex-start; }
+.a-vid { width:220px; height:130px; flex-shrink:0; }
+.a-body { flex:1; }
+.a-date { font-size:9px; color:rgba(255,255,255,0.25); letter-spacing:0.5px; margin-bottom:5px; }
+.a-title { font-size:14px; color:#fff; font-weight:500; margin-bottom:6px; line-height:1.4; }
+.a-desc { font-size:11px; color:#666; line-height:1.65; margin-bottom:8px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.a-tags { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:8px; }
+.a-links { display:flex; gap:6px; }
+
+/* ── OPTION B: Two-col grid, video on hover ── */
+.b-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:14px 20px 16px; }
+.b-card { background:#161616; border:1px solid rgba(255,255,255,0.06); border-radius:4px; overflow:hidden; }
+.b-card:hover { border-color:rgba(80,216,144,0.25); }
+.b-vid { height:130px; }
+.b-body { padding:14px; }
+.b-date { font-size:9px; color:rgba(255,255,255,0.2); margin-bottom:4px; }
+.b-title { font-size:13px; color:#fff; font-weight:500; margin-bottom:6px; line-height:1.4; }
+.b-desc { font-size:10px; color:#555; line-height:1.6; margin-bottom:8px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.b-tags { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:8px; }
+.b-links { display:flex; gap:6px; }
+
+/* ── OPTION C: Featured row (video right, content left) alternating ── */
+.c-list { padding:0 20px 16px; }
+.c-item { display:grid; grid-template-columns:1fr 280px; gap:24px; padding:24px 0; border-bottom:1px solid rgba(255,255,255,0.04); align-items:center; }
+.c-item.flip { grid-template-columns:280px 1fr; }
+.c-item.flip .c-vid { order:-1; }
+.c-vid { height:160px; }
+.c-num { font-size:32px; font-weight:700; color:rgba(80,216,144,0.15); line-height:1; margin-bottom:6px; }
+.c-date { font-size:9px; color:rgba(255,255,255,0.25); margin-bottom:6px; }
+.c-title { font-size:15px; color:#fff; font-weight:600; margin-bottom:8px; line-height:1.35; }
+.c-desc { font-size:11px; color:#666; line-height:1.65; margin-bottom:10px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.c-tags { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:10px; }
+.c-links { display:flex; gap:6px; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<!-- OPTION A -->
+<div class="opt-strip">
+  <span>Option A — Video thumbnail left · full row · like publications page</span>
+  <button class="sel" id="btn-a" onclick="pick('a')">Select A</button>
+</div>
+<div class="a-list">
+  <div class="a-item">
+    <div class="vid a-vid"><div class="vid-label">Diama_project_rec.mp4</div></div>
+    <div class="a-body">
+      <div class="a-date"><i class="far fa-calendar-alt" style="font-size:8px"></i> November 2022</div>
+      <div class="a-title">Diama: Lightweight Collaborative Code Editor</div>
+      <div class="a-desc">Browser-based IDE for novice developers. Monaco editor core, real-time collaborative editing via WebRTC, full filesystem access, PWA. 50% smaller footprint than conventional editors.</div>
+      <div class="a-tags"><span class="tag">React</span><span class="tag">WebRTC</span><span class="tag">Monaco</span><span class="tag">PWA</span><span class="tag">Y-js CRDT</span></div>
+      <div class="a-links">
+        <a class="btn primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        <a class="btn"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </div>
+  </div>
+  <div class="a-item">
+    <div class="vid a-vid"><div class="vid-label">mentor-me_project.mp4</div></div>
+    <div class="a-body">
+      <div class="a-date"><i class="far fa-calendar-alt" style="font-size:8px"></i> May 2022</div>
+      <div class="a-title">Mentor Me: Peer Mentorship Platform</div>
+      <div class="a-desc">Full-stack networking platform connecting students with mentors. Real-time messaging, secure auth, PWA, recommendation engine via skill-graph matching.</div>
+      <div class="a-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">Socket.io</span></div>
+      <div class="a-links">
+        <a class="btn primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        <a class="btn"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPTION B -->
+<div class="opt-strip">
+  <span>Option B — 2-column card grid · video above content</span>
+  <button class="sel" id="btn-b" onclick="pick('b')">Select B</button>
+</div>
+<div class="b-grid">
+  <div class="b-card">
+    <div class="vid b-vid"><div class="vid-label">Diama_project_rec.mp4</div></div>
+    <div class="b-body">
+      <div class="b-date">November 2022</div>
+      <div class="b-title">Diama: Collaborative Code Editor</div>
+      <div class="b-desc">Browser-based IDE. Monaco editor, WebRTC collaboration, PWA, filesystem access. 50% smaller than VS Code.</div>
+      <div class="b-tags"><span class="tag">React</span><span class="tag">WebRTC</span><span class="tag">PWA</span></div>
+      <div class="b-links">
+        <a class="btn primary" style="font-size:9px;padding:4px 8px"><i class="fas fa-external-link-alt"></i> Demo</a>
+        <a class="btn" style="font-size:9px;padding:4px 8px"><i class="fab fa-github"></i> Code</a>
+      </div>
+    </div>
+  </div>
+  <div class="b-card">
+    <div class="vid b-vid"><div class="vid-label">mentor-me_project.mp4</div></div>
+    <div class="b-body">
+      <div class="b-date">May 2022</div>
+      <div class="b-title">Mentor Me: Networking Platform</div>
+      <div class="b-desc">Student-mentor networking, real-time messaging, secure auth, skill-graph recommendations.</div>
+      <div class="b-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Socket.io</span></div>
+      <div class="b-links">
+        <a class="btn primary" style="font-size:9px;padding:4px 8px"><i class="fas fa-external-link-alt"></i> Demo</a>
+        <a class="btn" style="font-size:9px;padding:4px 8px"><i class="fab fa-github"></i> Code</a>
+      </div>
+    </div>
+  </div>
+  <div class="b-card">
+    <div class="vid b-vid"><div class="vid-label">Mirror_project.mp4</div></div>
+    <div class="b-body">
+      <div class="b-date">June 2022</div>
+      <div class="b-title">Mirror: Facial Recognition Auth</div>
+      <div class="b-desc">Web authentication via FaceNet + MTCNN, liveness detection, 93% accuracy.</div>
+      <div class="b-tags"><span class="tag">FaceNet</span><span class="tag">MTCNN</span><span class="tag">OpenCV</span></div>
+      <div class="b-links">
+        <a class="btn primary" style="font-size:9px;padding:4px 8px"><i class="fas fa-external-link-alt"></i> Demo</a>
+        <a class="btn" style="font-size:9px;padding:4px 8px"><i class="fab fa-github"></i> Code</a>
+      </div>
+    </div>
+  </div>
+  <div class="b-card">
+    <div class="vid b-vid"><div class="vid-label">Carma_project.mp4</div></div>
+    <div class="b-body">
+      <div class="b-date">August 2022</div>
+      <div class="b-title">Carma: Violence Detection</div>
+      <div class="b-desc">Real-time CCTV violence detection. LRCN + ConvLSTM, 83% F1, AWS Lambda + Firebase alerting.</div>
+      <div class="b-tags"><span class="tag">PyTorch</span><span class="tag">LRCN</span><span class="tag">AWS</span></div>
+      <div class="b-links">
+        <a class="btn" style="font-size:9px;padding:4px 8px"><i class="fab fa-github"></i> Code</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPTION C -->
+<div class="opt-strip">
+  <span>Option C — Alternating featured rows · video right/left · larger video</span>
+  <button class="sel" id="btn-c" onclick="pick('c')">Select C</button>
+</div>
+<div class="c-list">
+  <div class="c-item">
+    <div class="c-body">
+      <div class="c-num">01</div>
+      <div class="c-date">November 2022</div>
+      <div class="c-title">Diama: Lightweight Collaborative Code Editor</div>
+      <div class="c-desc">Browser-based IDE built on Monaco editor (VS Code engine). Real-time collaborative editing via WebRTC, full filesystem access, PWA. 50% smaller footprint than conventional editors, 95% Lighthouse score.</div>
+      <div class="c-tags"><span class="tag">React</span><span class="tag">WebRTC</span><span class="tag">Monaco</span><span class="tag">PWA</span><span class="tag">Y-js CRDT</span></div>
+      <div class="c-links">
+        <a class="btn primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        <a class="btn"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </div>
+    <div class="vid c-vid"><div class="vid-label">Diama_project_rec.mp4</div></div>
+  </div>
+  <div class="c-item flip">
+    <div class="vid c-vid"><div class="vid-label">mentor-me_project.mp4</div></div>
+    <div class="c-body">
+      <div class="c-num">02</div>
+      <div class="c-date">May 2022</div>
+      <div class="c-title">Mentor Me: Peer Mentorship Platform</div>
+      <div class="c-desc">Full-stack networking platform connecting students with mentors. Real-time messaging, secure auth, skill-graph recommendation engine. MongoDB Atlas, Socket.io, deployed on Vercel.</div>
+      <div class="c-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">Socket.io</span></div>
+      <div class="c-links">
+        <a class="btn primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        <a class="btn"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function pick(c) {
+  ['a','b','c'].forEach(x=>document.getElementById('btn-'+x).classList.remove('picked'));
+  document.getElementById('btn-'+c).classList.add('picked');
+  try{fetch('/select',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'click',choice:c})})}catch(e){}
+}
+</script>
+</body>
+</html>

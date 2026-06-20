@@ -743,6 +743,12 @@ body {
 .main-title-header strong span:first-child,
 .main-title-header strong span:last-child {
   color: white;
+  transition: color 0.3s ease;
+}
+
+.name-link:hover strong span:first-child,
+.name-link:hover strong span:last-child {
+  color: #50d890;
 }
 
 

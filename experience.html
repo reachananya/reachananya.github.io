@@ -158,6 +158,15 @@
           </ul>
         </div>
         <div class="detail-section">
+          <div class="detail-section-title">CTI-Based PSF Measurement &amp; Distortion Correction in MRI</div>
+          <ul class="detail-bullets">
+            <li>Developed a Constant Time Imaging (CTI) framework for voxel-wise Point Spread Function (PSF) measurement — by holding excitation-to-readout time constant, T2* contrast is eliminated and the PSF is isolated, enabling direct quantification of distortions that conventional sequences conflate with signal.</li>
+            <li>Designed a voxel-wise phase-encoding scheme that independently samples the local PSF at each spatial location, producing spatially varying distortion maps that capture tissue-dependent T2 relaxation differences, susceptibility gradients near air-tissue interfaces, and inter-voxel motion-induced phase corruption.</li>
+            <li>Decomposed four major PSF-broadening mechanisms: (i) T2 decay–driven exponential apodization of k-space along the readout axis, (ii) susceptibility-induced B₀ inhomogeneity causing geometric warp and signal pile-up, (iii) chemical shift displacement between fat and water resonances in frequency-encode and phase-encode directions, and (iv) through-plane rigid-body motion introducing inter-shot phase inconsistencies.</li>
+            <li>Built a correction pipeline that inverts the measured voxel-wise PSF prior to reconstruction, recovering spatial resolution in distortion-prone regions (orbitofrontal cortex, posterior fossa, air-tissue boundaries) where standard EPI protocols suffer significant blurring and geometric error.</li>
+          </ul>
+        </div>
+        <div class="detail-section">
           <div class="detail-tags">
             <span class="detail-tag">Python</span>
             <span class="detail-tag">Diffusion MRI</span>
@@ -165,6 +174,8 @@
             <span class="detail-tag">SimpleITK</span>
             <span class="detail-tag">NumPy</span>
             <span class="detail-tag">MRI Physics</span>
+            <span class="detail-tag">CTI</span>
+            <span class="detail-tag">PSF Estimation</span>
           </div>
         </div>
       </div>

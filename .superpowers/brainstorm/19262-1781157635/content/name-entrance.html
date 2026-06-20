@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#111; color:#e0e0e0; font-family:'Inter',sans-serif; }
+
+.strip { background:#0d0d0d; padding:8px 20px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.05); }
+.strip span { font-size:10px; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.3); }
+.sel { font-size:10px; padding:4px 12px; border:1px solid rgba(80,216,144,0.3); color:#50d890; background:transparent; border-radius:3px; cursor:pointer; }
+.sel:hover,.sel.picked { background:#50d890; color:#111; }
+
+.stage {
+  height: 200px;
+  display: flex; align-items:center; justify-content:center;
+  background: #111;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.replay { position:absolute; bottom:8px; right:10px; font-size:9px; color:rgba(255,255,255,0.2); letter-spacing:1px; }
+
+/* ─── OPTION A: Terminal Boot ─── */
+.terminal {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #c8c8c8;
+  text-align: left;
+  width: 360px;
+}
+.t-line { opacity:0; margin-bottom: 4px; }
+.t-line.green { color: #50d890; }
+.t-line.dim { color: rgba(255,255,255,0.3); }
+.t-name { font-size: 28px; font-weight:700; color: #fff; letter-spacing: 3px; opacity:0; margin-top: 10px; font-family: 'Courier New', monospace; }
+.t-cursor { color: #50d890; animation: blink .7s step-end infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* ─── OPTION B: Code Block Declaration ─── */
+.code-block {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  text-align: left;
+  line-height: 1.8;
+  width: 320px;
+}
+.kw { color: #c792ea; }
+.str { color: #c3e88d; }
+.key { color: #82aaff; }
+.pun { color: #89ddff; }
+.code-final { font-size: 32px; font-weight: 700; color: #fff; letter-spacing: 3px; font-family: 'Courier New', monospace; opacity:0; text-align:center; position:absolute; }
+.code-wrap { opacity:1; transition: opacity 0.5s; }
+
+/* ─── OPTION C: Character Scramble / Decode ─── */
+.scramble-name {
+  font-family: 'Courier New', monospace;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #fff;
+}
+.s-char { display:inline-block; }
+.s-char.locked { color: #fff; }
+.s-char.cycling { color: #50d890; }
+
+/* ─── OPTION D: Glitch + Snap ─── */
+.glitch-wrap {
+  position: relative;
+  font-family: 'Orbitron', monospace;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #fff;
+  text-align: center;
+}
+.glitch-wrap::before, .glitch-wrap::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+}
+.glitch-wrap::before {
+  color: #50d890;
+  animation: glitch1 0.15s infinite;
+  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+  transform: translateX(-3px);
+}
+.glitch-wrap::after {
+  color: #ff6b6b;
+  animation: glitch2 0.2s infinite;
+  clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+  transform: translateX(3px);
+}
+@keyframes glitch1 { 0%,100%{transform:translateX(-3px)} 50%{transform:translateX(3px)} }
+@keyframes glitch2 { 0%,100%{transform:translateX(3px)} 50%{transform:translateX(-3px)} }
+.glitch-wrap.resolved::before, .glitch-wrap.resolved::after { display:none; }
+.glitch-subtitle { font-family:'Courier New',monospace; font-size:12px; color:#50d890; letter-spacing:2px; opacity:0; margin-top:10px; transition:opacity 0.6s; }
+.glitch-subtitle.show { opacity:1; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- OPTION A -->
+<div class="strip">
+  <span>Option A — Terminal boot sequence · classic dev aesthetic</span>
+  <button class="sel" id="btn-a" onclick="pick('a')">Select A</button>
+</div>
+<div class="stage" id="stage-a" onclick="runA()" title="Click to replay">
+  <div class="terminal" id="term">
+    <div class="t-line dim" id="ta1">$ ./init_portfolio.sh</div>
+    <div class="t-line dim" id="ta2">> connecting to <span class="green">ananya_singhal</span>...</div>
+    <div class="t-line" id="ta3" style="color:#50d890">██████████████████ <span style="color:#c8c8c8">100%</span></div>
+    <div class="t-line dim" id="ta4">build: <span style="color:#c3e88d">successful</span> · 4 pubs · 0 errors</div>
+    <div class="t-name" id="ta5">ANANYA SINGHAL<span class="t-cursor">_</span></div>
+  </div>
+  <div class="replay">click to replay ↺</div>
+</div>
+
+<!-- OPTION B -->
+<div class="strip">
+  <span>Option B — Code block declaration · types as JS object, fades to name</span>
+  <button class="sel" id="btn-b" onclick="pick('b')">Select B</button>
+</div>
+<div class="stage" id="stage-b" onclick="runB()" title="Click to replay">
+  <div class="code-wrap" id="codeWrap">
+    <div class="code-block" id="codeBlock">
+      <div id="cb1"><span class="kw">const</span> <span class="key">me</span> <span class="pun">=</span> <span class="pun">{</span></div>
+      <div id="cb2" style="opacity:0">&nbsp;&nbsp;<span class="key">name</span><span class="pun">:</span> <span class="str">"Ananya Singhal"</span><span class="pun">,</span></div>
+      <div id="cb3" style="opacity:0">&nbsp;&nbsp;<span class="key">role</span><span class="pun">:</span> <span class="str">"AI Researcher"</span><span class="pun">,</span></div>
+      <div id="cb4" style="opacity:0">&nbsp;&nbsp;<span class="key">passion</span><span class="pun">:</span> <span class="str">"decode brains"</span></div>
+      <div id="cb5" style="opacity:0"><span class="pun">}</span></div>
+    </div>
+  </div>
+  <div class="code-final" id="codeFinal">ANANYA SINGHAL</div>
+  <div class="replay">click to replay ↺</div>
+</div>
+
+<!-- OPTION C -->
+<div class="strip">
+  <span>Option C — Character scramble · letters cycle green → snap white · decode effect</span>
+  <button class="sel" id="btn-c" onclick="pick('c')">Select C</button>
+</div>
+<div class="stage" id="stage-c" onclick="runC()" title="Click to replay">
+  <div class="scramble-name" id="scrambleName"></div>
+  <div class="replay">click to replay ↺</div>
+</div>
+
+<!-- OPTION D -->
+<div class="strip">
+  <span>Option D — Glitch → snap · corrupted text resolves with flash + role line fades in</span>
+  <button class="sel" id="btn-d" onclick="pick('d')">Select D</button>
+</div>
+<div class="stage" id="stage-d" onclick="runD()" title="Click to replay" style="flex-direction:column;gap:0">
+  <div class="glitch-wrap" id="glitchName" data-text="ANANYA SINGHAL">ANANYA SINGHAL</div>
+  <div class="glitch-subtitle" id="glitchSub">AI Researcher · GE HealthCare · 4 publications</div>
+  <div class="replay">click to replay ↺</div>
+</div>
+
+<script>
+// ── OPTION A: Terminal ──
+function runA() {
+  ['ta1','ta2','ta3','ta4','ta5'].forEach(id => {
+    document.getElementById(id).style.opacity = 0;
+    document.getElementById(id).style.transition = '';
+  });
+  setTimeout(()=>{
+    var delays = [100,600,1100,1700,2300];
+    ['ta1','ta2','ta3','ta4','ta5'].forEach((id,i) => {
+      setTimeout(()=>{
+        var el = document.getElementById(id);
+        el.style.transition = 'opacity 0.4s';
+        el.style.opacity = 1;
+      }, delays[i]);
+    });
+  },50);
+}
+runA();
+
+// ── OPTION B: Code Block → Name ──
+function runB() {
+  ['cb2','cb3','cb4','cb5'].forEach(id => document.getElementById(id).style.opacity=0);
+  document.getElementById('codeWrap').style.opacity = 1;
+  document.getElementById('codeWrap').style.transition = '';
+  document.getElementById('codeFinal').style.opacity = 0;
+  document.getElementById('codeFinal').style.transition = '';
+  var delays = [200, 600, 1000, 1400];
+  ['cb2','cb3','cb4','cb5'].forEach((id,i)=>{
+    setTimeout(()=>{
+      var el = document.getElementById(id);
+      el.style.transition='opacity 0.3s';
+      el.style.opacity=1;
+    }, delays[i]);
+  });
+  setTimeout(()=>{
+    document.getElementById('codeWrap').style.transition='opacity 0.5s';
+    document.getElementById('codeWrap').style.opacity=0;
+  }, 2200);
+  setTimeout(()=>{
+    var f = document.getElementById('codeFinal');
+    f.style.transition='opacity 0.7s';
+    f.style.opacity=1;
+  }, 2800);
+}
+runB();
+
+// ── OPTION C: Scramble ──
+var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&!?0123456789';
+var TARGET = 'ANANYA SINGHAL';
+
+function scrambleChar(el, finalChar, duration, delay) {
+  if (finalChar === ' ') { el.textContent = ' '; el.className='s-char'; return; }
+  setTimeout(function() {
+    el.className = 's-char cycling';
+    var start = Date.now();
+    var iv = setInterval(function() {
+      el.textContent = CHARS[Math.floor(Math.random()*CHARS.length)];
+      if (Date.now() - start >= duration) {
+        clearInterval(iv);
+        el.textContent = finalChar;
+        el.className = 's-char locked';
+      }
+    }, 50);
+  }, delay);
+}
+
+function runC() {
+  var container = document.getElementById('scrambleName');
+  container.innerHTML = '';
+  TARGET.split('').forEach(function(ch, i) {
+    var span = document.createElement('span');
+    span.className = 's-char';
+    span.textContent = ch === ' ' ? ' ' : CHARS[Math.floor(Math.random()*CHARS.length)];
+    container.appendChild(span);
+    scrambleChar(span, ch, 600, i * 80);
+  });
+}
+runC();
+
+// ── OPTION D: Glitch ──
+function runD() {
+  var el = document.getElementById('glitchName');
+  var sub = document.getElementById('glitchSub');
+  sub.className = 'glitch-subtitle';
+  el.className = 'glitch-wrap';
+  setTimeout(function() {
+    el.className = 'glitch-wrap resolved';
+    el.style.textShadow = '0 0 20px rgba(255,255,255,0.8)';
+    setTimeout(()=> el.style.textShadow='', 400);
+    sub.className = 'glitch-subtitle show';
+  }, 2000);
+}
+runD();
+
+// ── SELECT ──
+function pick(c) {
+  ['a','b','c','d'].forEach(x=>document.getElementById('btn-'+x).classList.remove('picked'));
+  document.getElementById('btn-'+c).classList.add('picked');
+  try{fetch('/select',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'click',choice:c})})}catch(e){}
+}
+</script>
+</body>
+</html>

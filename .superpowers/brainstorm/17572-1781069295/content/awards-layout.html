@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#111; color:#e0e0e0; font-family:'Inter','Segoe UI',sans-serif; font-size:13px; }
+
+.opt-strip { background:#0d0d0d; padding:8px 20px; border-bottom:1px solid rgba(255,255,255,0.05); border-top:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
+.opt-strip span { font-size:10px; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.3); }
+.sel { font-size:10px; padding:4px 12px; border:1px solid rgba(80,216,144,0.3); color:#50d890; background:transparent; border-radius:3px; cursor:pointer; }
+.sel:hover,.sel.picked { background:#50d890; color:#111; border-color:#50d890; }
+
+/* shared chips */
+.year-chip { display:inline-block; padding:2px 8px; border:1px solid rgba(80,216,144,0.3); color:#50d890; border-radius:3px; font-size:9px; letter-spacing:0.5px; }
+.amt { display:inline-block; padding:2px 8px; background:rgba(80,216,144,0.07); color:#50d890; border-radius:3px; font-size:9px; }
+.link-btn { display:inline-flex; align-items:center; gap:4px; padding:4px 10px; border:1px solid rgba(255,255,255,0.1); border-radius:3px; font-size:10px; color:rgba(255,255,255,0.4); text-decoration:none; }
+.link-btn:hover { border-color:#50d890; color:#50d890; }
+
+/* ── OPTION A: Clean table-style list ── */
+.a-wrap { padding:16px 20px; }
+.a-row { display:grid; grid-template-columns:56px 1fr auto; gap:16px; padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.04); align-items:start; }
+.a-year { font-size:11px; color:#50d890; letter-spacing:0.5px; padding-top:2px; }
+.a-title { font-size:13px; color:#fff; font-weight:500; margin-bottom:3px; }
+.a-issuer { font-size:10px; color:rgba(255,255,255,0.3); margin-bottom:6px; }
+.a-desc { font-size:11px; color:#555; line-height:1.6; }
+.a-right { text-align:right; white-space:nowrap; }
+
+/* ── OPTION B: 2-col cards, no banner ── */
+.b-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:14px 20px; }
+.b-card { background:#161616; border:1px solid rgba(255,255,255,0.06); border-radius:4px; padding:16px; }
+.b-card:hover { border-color:rgba(80,216,144,0.2); }
+.b-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px; }
+.b-title { font-size:12px; color:#fff; font-weight:500; line-height:1.4; flex:1; margin-right:8px; }
+.b-issuer { font-size:10px; color:rgba(255,255,255,0.3); margin-bottom:6px; }
+.b-desc { font-size:10px; color:#555; line-height:1.55; }
+
+/* ── OPTION C: Grouped by category, minimal rows ── */
+.c-wrap { padding:14px 20px; }
+.c-group { margin-bottom:24px; }
+.c-group-label { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.2); margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,0.05); }
+.c-row { display:flex; gap:12px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.03); align-items:flex-start; }
+.c-row:last-child { border-bottom:none; }
+.c-dot { width:6px; height:6px; border-radius:50%; background:#50d890; flex-shrink:0; margin-top:5px; }
+.c-body { flex:1; }
+.c-title { font-size:12px; color:#e0e0e0; font-weight:500; margin-bottom:2px; }
+.c-meta { font-size:10px; color:rgba(255,255,255,0.25); }
+.c-right { text-align:right; flex-shrink:0; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<!-- OPTION A -->
+<div class="opt-strip">
+  <span>Option A — Year left · title + issuer + desc · amount right</span>
+  <button class="sel" id="btn-a" onclick="pick('a')">Select A</button>
+</div>
+<div class="a-wrap">
+
+  <div class="a-row">
+    <div class="a-year">2024</div>
+    <div>
+      <div class="a-title">Grace Hopper Celebration Scholarship</div>
+      <div class="a-issuer">AnitaB.org India</div>
+      <div class="a-desc">Advancing Inclusion Scholarship to attend GHCI, India's largest gathering of women and nonbinary technologists. Includes year-round AnitaB.org membership.</div>
+    </div>
+    <div class="a-right"><span class="amt">GHCI 2024</span></div>
+  </div>
+
+  <div class="a-row">
+    <div class="a-year">2023</div>
+    <div>
+      <div class="a-title">Diversity, Equity &amp; Inclusion Travel Grant</div>
+      <div class="a-issuer">IEEE · ICCV 2023</div>
+      <div class="a-desc">EUR 900 grant for attending ICCV 2023 in Paris, recognising commitment to advancing diversity in computing research.</div>
+    </div>
+    <div class="a-right"><span class="amt">EUR 900</span></div>
+  </div>
+
+  <div class="a-row">
+    <div class="a-year">2022</div>
+    <div>
+      <div class="a-title">Harvard WECode Scholarship</div>
+      <div class="a-issuer">Harvard University</div>
+      <div class="a-desc">Merit-based award covering conference ticket and $200 travel aid for Harvard WECode 2022.</div>
+    </div>
+    <div class="a-right"><span class="amt">USD 200</span></div>
+  </div>
+
+  <div class="a-row">
+    <div class="a-year">2021</div>
+    <div>
+      <div class="a-title">Generation Google Scholarship (APAC)</div>
+      <div class="a-issuer">Google</div>
+      <div class="a-desc">One of three first-year students awarded across 14 Asia-Pacific countries. Recognising academic excellence and commitment to diversity in tech.</div>
+    </div>
+    <div class="a-right"><span class="amt">USD 1,000</span></div>
+  </div>
+
+  <div class="a-row">
+    <div class="a-year">2021</div>
+    <div>
+      <div class="a-title">Microsoft Learn Student Ambassador — Beta Level</div>
+      <div class="a-issuer">Microsoft</div>
+      <div class="a-desc">Promoted to Beta Level through demonstrated technical expertise, community engagement, and leadership promoting Microsoft technologies.</div>
+    </div>
+    <div class="a-right"><span class="year-chip">Beta</span></div>
+  </div>
+
+  <div class="a-row">
+    <div class="a-year">2021</div>
+    <div>
+      <div class="a-title">Udacity AWS Machine Learning Scholarship</div>
+      <div class="a-issuer">Udacity · AWS</div>
+      <div class="a-desc">Selected from competitive applicant pool for access to the exclusive AWS MLE Foundations course.</div>
+    </div>
+    <div class="a-right"><span class="year-chip">Merit</span></div>
+  </div>
+
+  <div class="a-row">
+    <div class="a-year">×3</div>
+    <div>
+      <div class="a-title">Education Scholarship — Indian Army</div>
+      <div class="a-issuer">Army Welfare Education Society</div>
+      <div class="a-desc">Awarded Rs. 10,000 on three occasions recognising outstanding academic performance. Merit-based scholarship for dependents of military personnel.</div>
+    </div>
+    <div class="a-right"><span class="amt">Rs. 30,000</span></div>
+  </div>
+
+  <div class="a-row">
+    <div class="a-year">×2</div>
+    <div>
+      <div class="a-title">Dean's List</div>
+      <div class="a-issuer">Shiv Nadar Institute of Eminence</div>
+      <div class="a-desc">Recognised twice for exceptional academic performance, placing among top-performing students in cohort.</div>
+    </div>
+    <div class="a-right"><span class="year-chip">Distinction</span></div>
+  </div>
+
+</div>
+
+<!-- OPTION B -->
+<div class="opt-strip">
+  <span>Option B — 2-column cards, no banner image</span>
+  <button class="sel" id="btn-b" onclick="pick('b')">Select B</button>
+</div>
+<div class="b-grid">
+
+  <div class="b-card">
+    <div class="b-top">
+      <div class="b-title">Grace Hopper Celebration Scholarship</div>
+      <span class="year-chip">2024</span>
+    </div>
+    <div class="b-issuer">AnitaB.org India</div>
+    <div class="b-desc">Advancing Inclusion Scholarship to attend GHCI, India's largest gathering of women and nonbinary technologists.</div>
+  </div>
+
+  <div class="b-card">
+    <div class="b-top">
+      <div class="b-title">Diversity, Equity &amp; Inclusion Travel Grant</div>
+      <span class="year-chip">2023</span>
+    </div>
+    <div class="b-issuer">IEEE · ICCV 2023 · EUR 900</div>
+    <div class="b-desc">Grant for attending ICCV 2023 in Paris, recognising commitment to advancing diversity in computing research.</div>
+  </div>
+
+  <div class="b-card">
+    <div class="b-top">
+      <div class="b-title">Generation Google Scholarship (APAC)</div>
+      <span class="year-chip">2021</span>
+    </div>
+    <div class="b-issuer">Google · USD 1,000</div>
+    <div class="b-desc">One of three first-year students awarded across 14 Asia-Pacific countries.</div>
+  </div>
+
+  <div class="b-card">
+    <div class="b-top">
+      <div class="b-title">Harvard WECode Scholarship</div>
+      <span class="year-chip">2022</span>
+    </div>
+    <div class="b-issuer">Harvard University · USD 200</div>
+    <div class="b-desc">Merit-based award for Harvard WECode conference covering ticket and travel expenses.</div>
+  </div>
+
+  <div class="b-card">
+    <div class="b-top">
+      <div class="b-title">MLSA Beta Level</div>
+      <span class="year-chip">2021</span>
+    </div>
+    <div class="b-issuer">Microsoft</div>
+    <div class="b-desc">Promoted to Beta Level for technical expertise and community leadership.</div>
+  </div>
+
+  <div class="b-card">
+    <div class="b-top">
+      <div class="b-title">Dean's List (2×)</div>
+      <span class="year-chip">×2</span>
+    </div>
+    <div class="b-issuer">Shiv Nadar IoE</div>
+    <div class="b-desc">Recognised twice for exceptional academic performance, placing among top-performing students.</div>
+  </div>
+
+</div>
+
+<!-- OPTION C -->
+<div class="opt-strip">
+  <span>Option C — Grouped by type · ultra-minimal rows</span>
+  <button class="sel" id="btn-c" onclick="pick('c')">Select C</button>
+</div>
+<div class="c-wrap">
+
+  <div class="c-group">
+    <div class="c-group-label">Scholarships &amp; Grants</div>
+    <div class="c-row">
+      <div class="c-dot"></div>
+      <div class="c-body"><div class="c-title">Grace Hopper Celebration Scholarship</div><div class="c-meta">AnitaB.org India · 2024</div></div>
+      <div class="c-right"><span class="amt">GHCI 2024</span></div>
+    </div>
+    <div class="c-row">
+      <div class="c-dot"></div>
+      <div class="c-body"><div class="c-title">DEI Travel Grant — ICCV 2023</div><div class="c-meta">IEEE · Paris, France · 2023</div></div>
+      <div class="c-right"><span class="amt">EUR 900</span></div>
+    </div>
+    <div class="c-row">
+      <div class="c-dot"></div>
+      <div class="c-body"><div class="c-title">Generation Google Scholarship (APAC)</div><div class="c-meta">Google · 2021 · 1 of 3 first-years across 14 countries</div></div>
+      <div class="c-right"><span class="amt">USD 1,000</span></div>
+    </div>
+    <div class="c-row">
+      <div class="c-dot"></div>
+      <div class="c-body"><div class="c-title">Harvard WECode Scholarship</div><div class="c-meta">Harvard University · 2022</div></div>
+      <div class="c-right"><span class="amt">USD 200</span></div>
+    </div>
+    <div class="c-row">
+      <div class="c-dot"></div>
+      <div class="c-body"><div class="c-title">Indian Army Education Scholarship (×3)</div><div class="c-meta">Army Welfare Education Society</div></div>
+      <div class="c-right"><span class="amt">Rs. 30k</span></div>
+    </div>
+    <div class="c-row">
+      <div class="c-dot"></div>
+      <div class="c-body"><div class="c-title">Udacity AWS Machine Learning Scholarship</div><div class="c-meta">Udacity · AWS · 2021</div></div>
+      <div class="c-right"><span class="year-chip">Merit</span></div>
+    </div>
+  </div>
+
+  <div class="c-group">
+    <div class="c-group-label">Academic Distinction</div>
+    <div class="c-row">
+      <div class="c-dot"></div>
+      <div class="c-body"><div class="c-title">Dean's List (×2)</div><div class="c-meta">Shiv Nadar Institute of Eminence · 2021, 2023</div></div>
+      <div class="c-right"><span class="year-chip">Top Cohort</span></div>
+    </div>
+    <div class="c-row">
+      <div class="c-dot"></div>
+      <div class="c-body"><div class="c-title">Microsoft Learn Student Ambassador — Beta Level</div><div class="c-meta">Microsoft · 2021</div></div>
+      <div class="c-right"><span class="year-chip">Beta</span></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function pick(c) {
+  ['a','b','c'].forEach(x=>document.getElementById('btn-'+x).classList.remove('picked'));
+  document.getElementById('btn-'+c).classList.add('picked');
+  try{fetch('/select',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'click',choice:c})})}catch(e){}
+}
+</script>
+</body>
+</html>
