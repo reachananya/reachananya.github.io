@@ -9,9 +9,9 @@ body {
   overflow-x:hidden;
 }
 
-/* ── PUBLICATIONS LIST ── */
+/* ── CONTAINER ── */
 .publications-container {
-  max-width:900px;
+  max-width:1040px;
   margin:0 auto;
   padding:40px 48px 80px;
 }
@@ -20,131 +20,165 @@ body {
   font-size:10px;
   color:var(--text-faint);
   letter-spacing:0.5px;
-  margin-bottom:32px;
+  margin-bottom:40px;
   font-style:italic;
 }
 
-.pub-item {
-  display:flex;
-  gap:24px;
-  padding:28px 0;
-  border-bottom:1px solid rgba(255,255,255,0.05);
-  align-items:flex-start;
+/* ── CARD ── */
+.pub-card {
+  padding:40px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
 }
 
-.pub-item:last-child { border-bottom:none; }
+.pub-card:last-child { border-bottom:none; }
 
-/* thumbnail */
-.pub-thumb {
-  width:130px;
-  flex-shrink:0;
-}
-
-.pub-thumb-img {
-  width:130px;
-  height:86px;
-  object-fit:cover;
-  border-radius:3px;
-  border:1px solid var(--border);
-  display:block;
-}
-
-.pub-thumb-placeholder {
-  width:130px;
-  height:86px;
-  background:var(--bg-card-alt);
-  border-radius:3px;
-  border:1px solid var(--accent-muted);
+/* top row: id + venue chips */
+.pub-header {
   display:flex;
   align-items:center;
-  justify-content:center;
-  font-size:10px;
-  color:var(--accent);
-  letter-spacing:1px;
-  text-align:center;
-  line-height:1.5;
-}
-
-/* content */
-.pub-content { flex:1; }
-
-.pub-venue-row {
-  display:flex;
   gap:8px;
-  align-items:center;
   flex-wrap:wrap;
-  margin-bottom:8px;
+  margin-bottom:18px;
 }
-
-.venue-chip {
-  padding:2px 8px;
-  border:1px solid rgba(80,216,144,0.3);
-  color:var(--accent);
-  border-radius:3px;
-  font-size:9px;
-  letter-spacing:0.5px;
-}
-
-.award-chip {
-  padding:2px 8px;
-  background:var(--accent-muted);
-  color:var(--accent);
-  border-radius:3px;
-  font-size:9px;
-}
-
-.pub-title {
-  font-size:14px;
-  font-weight:500;
-  color:var(--text-bright);
-  line-height:1.45;
-  margin-bottom:6px;
-  text-decoration:none;
-  display:block;
-  transition:color .15s;
-}
-
-.pub-title:hover { color:var(--accent); }
 
 .pub-id {
   font-size:10px;
   color:var(--accent);
   font-family:monospace;
-  margin-right:4px;
+  letter-spacing:0.5px;
 }
+
+.venue-chip {
+  padding:2px 9px;
+  border:1px solid rgba(80,216,144,0.35);
+  color:var(--accent);
+  border-radius:3px;
+  font-size:9px;
+  letter-spacing:0.5px;
+  font-family:'Orbitron',sans-serif;
+}
+
+.award-chip {
+  padding:2px 9px;
+  background:rgba(80,216,144,0.08);
+  border:1px solid rgba(80,216,144,0.2);
+  color:var(--accent);
+  border-radius:3px;
+  font-size:9px;
+  letter-spacing:0.3px;
+}
+
+/* ── BODY: figure left + info right ── */
+.pub-body {
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:32px;
+  align-items:start;
+}
+
+/* ── FIGURE ── */
+.pub-figure {
+  border-radius:6px;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.pub-figure img {
+  width:100%;
+  display:block;
+  object-fit:contain;
+  min-height:160px;
+  max-height:200px;
+  border-radius:6px;
+}
+
+.pub-figure-placeholder {
+  width:100%;
+  height:172px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  background:var(--bg-card-alt);
+  font-size:9px;
+  color:var(--text-xfaint);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-family:'Orbitron',sans-serif;
+}
+
+.pub-figure-placeholder .fig-venue {
+  font-size:18px;
+  color:rgba(80,216,144,0.25);
+  letter-spacing:2px;
+  font-family:'Orbitron',sans-serif;
+}
+
+/* ── INFO (right column) ── */
+.pub-info { display:flex; flex-direction:column; gap:0; }
+
+.pub-title {
+  font-size:16px;
+  font-weight:600;
+  color:var(--text-bright);
+  line-height:1.4;
+  margin-bottom:10px;
+  text-decoration:none;
+  display:block;
+  letter-spacing:-0.2px;
+  transition:color .15s;
+}
+
+.pub-title:hover { color:var(--accent); }
 
 .pub-authors {
-  font-size:11px;
-  color:var(--text-muted);
-  line-height:1.7;
-  margin-bottom:8px;
-}
-
-.pub-authors .me { color:var(--text-muted); font-weight:500; }
-
-.pub-abstract {
-  font-size:11px;
+  font-size:12px;
   color:var(--text-muted);
   line-height:1.7;
   margin-bottom:10px;
+}
+
+.pub-authors .me {
+  color:var(--text-bright);
+  font-weight:600;
+  text-decoration:underline;
+  text-underline-offset:2px;
+  text-decoration-color:rgba(80,216,144,0.5);
+}
+
+.pub-venue-full {
+  font-size:11px;
+  color:var(--text-faint);
+  font-style:italic;
+  margin-bottom:12px;
+  line-height:1.5;
+}
+
+.pub-abstract {
+  font-size:12px;
+  color:var(--text-muted);
+  line-height:1.75;
+  margin-bottom:14px;
   display:-webkit-box;
-  -webkit-line-clamp:2;
+  -webkit-line-clamp:3;
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
 
-/* action buttons */
+/* ── ACTIONS ── */
 .pub-actions {
   display:flex;
   gap:6px;
   flex-wrap:wrap;
+  align-items:center;
 }
 
 .pub-btn {
   display:inline-flex;
   align-items:center;
-  gap:4px;
-  padding:4px 10px;
+  gap:5px;
+  padding:5px 12px;
   border:1px solid rgba(255,255,255,0.12);
   border-radius:3px;
   font-size:10px;
@@ -157,9 +191,9 @@ body {
   font-family:inherit;
 }
 
-.pub-btn:hover { border-color:var(--accent); color:var(--accent); }
-.pub-btn.primary { border-color:rgba(80,216,144,0.35); color:var(--accent); }
-.pub-btn.disabled { opacity:.3; pointer-events:none; }
+.pub-btn:hover { border-color:var(--accent); color:var(--accent); background:rgba(80,216,144,0.04); }
+.pub-btn.primary { border-color:rgba(80,216,144,0.4); color:var(--accent); background:rgba(80,216,144,0.04); }
+.pub-btn.disabled { opacity:.25; pointer-events:none; }
 .pub-btn i { font-size:9px; }
 
 /* bibtex inline */
@@ -176,6 +210,7 @@ body {
   line-height:1.6;
   white-space:pre;
   overflow-x:auto;
+  width:100%;
 }
 
 .bibtex-inline.open { display:block; }
@@ -183,6 +218,7 @@ body {
 /* ── MOBILE ── */
 @media (max-width:768px) {
   .publications-container { padding:24px 20px 60px; }
-  .pub-item { flex-direction:column; gap:14px; }
-  .pub-thumb, .pub-thumb-img, .pub-thumb-placeholder { width:100%; height:160px; }
+  .pub-body { grid-template-columns:1fr; gap:18px; }
+  .pub-figure img { max-height:180px; }
+  .pub-title { font-size:14px; }
 }

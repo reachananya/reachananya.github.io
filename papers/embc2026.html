@@ -6,10 +6,10 @@
   <title>Structure-aware MPPCA Denoising — EMBC 2026</title>
   <link rel="icon" href="../img/a_favicon_1.png"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../nav.css"/>
   <link rel="stylesheet" href="paper.css"/>
-  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="../theme.css"/>
   <script src="../theme.js"></script>
 </head>
 <body>
@@ -18,10 +18,10 @@
   <a class="nav-back" href="../publications.html">publications</a>
   <span class="nav-venue">EMBC 2026</span>
   <div class="top-nav-links">
-        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
-          <i class="fas fa-sun icon-sun"></i>
-          <i class="fas fa-moon icon-moon"></i>
-        </button>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+      <i class="fas fa-sun icon-sun"></i>
+      <i class="fas fa-moon icon-moon"></i>
+    </button>
   </div>
 </div>
 
@@ -32,6 +32,8 @@
       <span>Conference Paper [C.3] · Invention Disclosure</span>
       <span class="sep">·</span>
       <span>2026</span>
+      <span class="sep">·</span>
+      <span>Toronto, Canada</span>
     </div>
 
     <div class="paper-title">
@@ -39,32 +41,87 @@
     </div>
 
     <div class="paper-authors">
-      <span class="me">Ananya Singhal</span>, GE HealthCare &nbsp;·&nbsp;
+      <span class="me">Ananya Singhal</span> &nbsp;·&nbsp;
       Dattesh Dayanand Shanbhag &nbsp;·&nbsp;
-      Sudhanya Chatterjee
+      Sudhanya Chatterjee<br>
+      <span style="font-size:11px;color:var(--text-faint)">GE HealthCare, Advanced Technology Group, Bangalore, India</span>
     </div>
 
     <div class="paper-venue-row">
       <span class="pill">EMBC 2026</span>
       <span class="sep">·</span>
-      <span><i class="fas fa-map-marker-alt" style="font-size:9px;margin-right:4px"></i>Toronto, Canada</span>
+      <span>Engineering in Medicine and Biology Society</span>
       <span class="sep">·</span>
-      <span><i class="fas fa-file-alt" style="font-size:9px;margin-right:4px;color:#50d890"></i>Invention Disclosure — GE HealthCare</span>
+      <span>Toronto, Canada</span>
+      <span class="sep">·</span>
+      <span style="color:var(--accent)"><i class="fas fa-file-alt" style="font-size:9px;margin-right:4px"></i>Invention Disclosure — GE HealthCare</span>
     </div>
 
     <div class="divider"></div>
 
-    <div class="hero-wrap">
-      <div class="hero-placeholder">Poster · Coming Soon</div>
-    </div>
-    <div class="hero-caption">To be presented at Engineering in Medicine and Biology Society, Toronto, Canada.</div>
-
     <div class="section">
       <div class="section-label">Abstract</div>
       <div class="abstract-text">
-        We present a structure-aware adaptive kernel denoising method for high b-value diffusion MRI that dynamically adjusts kernel geometry per-voxel using gradient-informed structural priors. The method leverages local tissue anisotropy to preserve sharp tumor boundaries essential for surgical planning, whilst aggressively suppressing noise in low-anisotropy regions.
+        We present a structure-aware adaptive kernel denoising method for high b-value diffusion MRI that dynamically adjusts denoising kernel geometry per-voxel using gradient-informed structural priors. Standard MPPCA denoising methods apply fixed kernel sizes uniformly across the brain — a critical limitation in oncology applications where preserving sharp tumor boundaries is clinically essential while simultaneously requiring aggressive noise suppression in surrounding tissue. Our method clusters voxel-wise gradient magnitudes via k-means and monotonically assigns discrete odd-integer kernel sizes, generating a per-voxel kernel map that autonomously adapts MPPCA denoising to local anatomical complexity. On HCP (MGH-USC) data at b-values of 5000–10000 s/mm², the method delivers an 18% SNR gain with 96% tissue boundary preservation versus fixed-size MPPCA baselines.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Motivation</div>
+      <div class="abstract-text">
+        High b-value diffusion MRI (b ≥ 5000 s/mm²) is essential for probing restricted diffusion in dense cellular environments — enabling axonal diameter estimation, tumour microstructure characterisation, and white matter pathology quantification at sub-micron resolution. However, signal-to-noise ratio degrades catastrophically at high b-values due to the T2 decay of the diffusion-attenuated signal, making denoising a prerequisite for clinical utility.
         <br><br>
-        We develop a gradient-to-kernel mapping algorithm that clusters voxel-wise gradient magnitudes via k-means and monotonically assigns discrete odd-integer kernel sizes — small kernels for high-gradient tissue boundaries, large kernels for homogeneous regions. This generates a per-voxel kernel map that autonomously adapts MPPCA denoising to local anatomical complexity across the full brain volume. On HCP (MGH-USC) data at b-values of 5000–10000 s/mm², the method delivers 18% SNR gain with 96% tissue boundary preservation versus fixed-size MPPCA baselines (NYU-MPPCA, DIPY-MPPCA), producing cleaner DWI and more accurate colour FA maps.
+        Existing denoising methods — including Marchenko-Pastur PCA (MPPCA), NYU-MPPCA, DIPY-MPPCA, and adaptive patching approaches — apply fixed kernel sizes uniformly across the image volume. This is fundamentally at odds with the heterogeneous anatomical landscape of the brain: a large kernel that effectively suppresses noise in homogeneous white matter will simultaneously blur the sharp boundaries between tumor core, infiltrated tissue, and healthy parenchyma — boundaries that are critical for surgical planning and margin delineation.
+        <br><br>
+        What is needed is a denoising method that is simultaneously <em>aggressive</em> where tissue is homogeneous and <em>conservative</em> where structural boundaries are present — adapting autonomously to local anatomical complexity without requiring manual parameter tuning.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Contributions</div>
+      <ol class="contrib-list">
+        <li>Gradient-informed structural prior: a per-voxel measure of local tissue anisotropy derived from the gradient magnitude of the b=0 reference image, capturing tissue boundary information without requiring explicit segmentation.</li>
+        <li>Gradient-to-kernel mapping algorithm: k-means clustering of voxel-wise gradient magnitudes into discrete bins with monotonic assignment to odd-integer MPPCA kernel sizes — small kernels (3×3×3) for high-gradient boundary voxels, large kernels (7×7×7 or larger) for low-gradient homogeneous regions.</li>
+        <li>Per-voxel kernel map generation spanning the full brain volume, enabling autonomous adaptation of MPPCA denoising to local anatomical complexity without manual tuning and without requiring retraining.</li>
+        <li>Delivers 18% SNR gain with 96% tissue boundary preservation versus fixed-size MPPCA baselines (NYU-MPPCA, DIPY-MPPCA) and adaptive patching methods on HCP (MGH-USC) data at b-values of 5000–10000 s/mm²; produces cleaner DWI volumes and more accurate colour FA maps.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Framework</div>
+      <div class="framework-placeholder">
+        <span class="fig-venue">EMBC</span>
+        <span>Architecture figure coming soon</span>
+      </div>
+      <div class="hero-caption" style="margin-top:12px">
+        <strong>Pipeline:</strong> High b-value DWI stack → b=0 reference gradient magnitude → k-means clustering of voxel-wise gradient magnitudes → monotonic kernel size assignment (small kernels at boundaries, large kernels in homogeneous regions) → per-voxel kernel map → spatially-adaptive MPPCA denoising applied independently per-voxel → denoised DWI stack + colour FA maps.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Key Results</div>
+      <div class="result-stats">
+        <div class="stat-item">
+          <div class="stat-value">18%</div>
+          <div class="stat-label">SNR gain vs. baselines</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">96%</div>
+          <div class="stat-label">tissue boundary preservation</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">b=10K</div>
+          <div class="stat-label">max b-value validated</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">HCP</div>
+          <div class="stat-label">MGH-USC dataset</div>
+        </div>
+      </div>
+      <div class="abstract-text">
+        Evaluated on the Human Connectome Project MGH-USC dataset at b-values of 5000, 7500, and 10000 s/mm², our voxel-adaptive method outperforms NYU-MPPCA, DIPY-MPPCA, and adaptive patching approaches on both SNR metrics and tissue boundary fidelity scores. Visual inspection confirms preserved tumor-to-normal tissue contrast in oncology cases and sharper white matter tract boundaries in tractography-relevant regions. The method requires no retraining and runs on standard GPU hardware with per-subject runtime comparable to fixed-kernel MPPCA.
+        <br><br>
+        This work is also filed as an Invention Disclosure at GE HealthCare, with the gradient-to-kernel mapping algorithm and per-voxel adaptation framework constituting the novel intellectual property.
       </div>
     </div>
 
@@ -106,6 +163,7 @@
       <span>EMBC 2026</span>
       <span>Toronto, Canada</span>
       <span class="accent">Invention Disclosure</span>
+      <span>GE HealthCare</span>
     </div>
   </div>
 </div>

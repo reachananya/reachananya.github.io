@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alzheimer Swin-Transformer Framework — ACML 2023</title>
+  <title>Swin-Transformer Sparse DTI — ACML 2023</title>
   <link rel="icon" href="../img/a_favicon_1.png"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../nav.css"/>
   <link rel="stylesheet" href="paper.css"/>
-  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="../theme.css"/>
   <script src="../theme.js"></script>
 </head>
 <body>
@@ -18,10 +18,10 @@
   <a class="nav-back" href="../publications.html">publications</a>
   <span class="nav-venue">ACML 2023</span>
   <div class="top-nav-links">
-        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
-          <i class="fas fa-sun icon-sun"></i>
-          <i class="fas fa-moon icon-moon"></i>
-        </button>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+      <i class="fas fa-sun icon-sun"></i>
+      <i class="fas fa-moon icon-moon"></i>
+    </button>
   </div>
 </div>
 
@@ -32,6 +32,8 @@
       <span>Conference Paper [C.1]</span>
       <span class="sep">·</span>
       <span>November 2023</span>
+      <span class="sep">·</span>
+      <span>İstanbul, Turkey</span>
     </div>
 
     <div class="paper-title">
@@ -40,51 +42,111 @@
 
     <div class="paper-authors">
       Abhishek Tiwari &nbsp;·&nbsp;
-      <span class="me">Ananya Singhal</span>, Shiv Nadar Institute of Eminence &nbsp;·&nbsp;
+      <span class="me">Ananya Singhal</span> &nbsp;·&nbsp;
       Saurabh J. Shigwan &nbsp;·&nbsp;
-      Rajeev Kumar Singh
+      Rajeev Kumar Singh<br>
+      <span style="font-size:11px;color:var(--text-faint)">Shiv Nadar Institution of Eminence, Delhi NCR, India</span>
     </div>
 
     <div class="paper-venue-row">
       <span class="pill">ACML 2023</span>
       <span class="sep">·</span>
-      <span><i class="fas fa-map-marker-alt" style="font-size:9px;margin-right:4px"></i>İstanbul, Turkey</span>
+      <span>Asian Conference on Machine Learning · İstanbul, Turkey</span>
     </div>
 
     <div class="divider"></div>
 
-    <div class="hero-wrap">
-      <img src="../img/poster_ACML2023_final-1.png" alt="ACML 2023 Poster">
-    </div>
-    <div class="hero-caption">Poster presented at the 15th Asian Conference on Machine Learning, İstanbul, Turkey.</div>
-
+    <!-- ABSTRACT -->
     <div class="section">
       <div class="section-label">Abstract</div>
       <div class="abstract-text">
-        Our research investigates using Transformer-based deep learning to accelerate diffusion tensor imaging (DTI) processing and improve early Alzheimer's disease diagnosis. By applying advanced attention mechanisms, we developed a model that generates critical quantitative measures using significantly fewer diffusion directions than traditional methods.
-        <br><br>
-        Our Swin-Transformer framework successfully generates fractional anisotropy (FA), axial diffusivity (AxD), and mean diffusivity (MD) measurements using just 5 and 21 diffusion directions. Testing on the Alzheimer's Disease Neuroimaging Initiative (ADNI) dataset demonstrates that our approach outperforms traditional linear least square methods while reducing scanning time by more than half. This breakthrough has significant implications for improving both the accessibility and accuracy of early AD diagnosis in clinical settings.
+        Standard DTI protocols require 40+ gradient directions — translating to 3-hour scans that cognitively impaired patients frequently cannot tolerate. We propose a Swin-Transformer framework that accurately estimates FA, AxD, and MD diffusion maps from only 5 or 21 directions, cutting scan time by over 50% while maintaining diagnostic accuracy for early Alzheimer's disease detection on the ADNI dataset.
       </div>
     </div>
 
+    <!-- MOTIVATION -->
     <div class="section">
-      <div class="section-label">Figures</div>
-      <div class="fig-grid">
-        <div class="fig-item">
-          <img src="../img/ACML_poster2.png" alt="Cingulum Abnormalities">
-          <div class="fig-cap">Cingulum abnormalities</div>
+      <div class="section-label">Motivation</div>
+      <ul class="motiv-list">
+        <li>Alzheimer's Disease affects 55M+ globally; DTI white matter biomarkers precede cognitive symptoms by years, but clinical DTI demands 40+ gradient directions ≈ 3-hour scans.</li>
+        <li>Elderly and cognitively impaired patients cannot sustain long scan sessions — existing protocols are inaccessible for the population that needs them most.</li>
+        <li>Linear least squares (LLS) reconstruction fails with fewer than ~20 directions due to noise amplification; a learning-based approach is needed to unlock sparse DTI.</li>
+        <li>A model that produces diagnostic-quality FA/AxD/MD maps from 5–21 directions enables faster, more accessible AD screening in clinical settings.</li>
+      </ul>
+    </div>
+
+    <!-- FRAMEWORK -->
+    <div class="section">
+      <div class="section-label">Framework</div>
+      <div class="framework-fig">
+        <img src="../img/Publications/ACML/acml23_architecture.png" alt="Swin-Transformer Architecture — Sparse DTI Estimation">
+      </div>
+      <p class="result-cap">
+        <strong style="color:rgba(255,255,255,0.5)">Pipeline:</strong> b=0 + sparse b=1000 DWI (5 or 21 directions) → Patch Partition (16×8) → 5 Swin Transformer Blocks with varied window/shift sizes → 6 parallel Dense Layers, each predicting one diffusion tensor component (D<sub>xx</sub>, D<sub>xy</sub>, D<sub>yy</sub>, D<sub>xz</sub>, D<sub>yz</sub>, D<sub>zz</sub>) → FA, AxD, MD maps. Each block uses shifted window multi-head self-attention (SW-MSA) + LayerNorm + MLP.
+      </p>
+    </div>
+
+    <!-- CONTRIBUTIONS -->
+    <div class="section">
+      <div class="section-label">Contributions</div>
+      <ol class="contrib-list">
+        <li>Swin-Transformer adapted for quantitative DTI estimation from 5 and 21 gradient directions — shifted-window attention captures local voxel correlations across patch boundaries, enabling generalisation across varying direction counts with a single model.</li>
+        <li>Physics-informed loss enforcing positive-definiteness of the estimated diffusion tensor, preventing implausible anisotropy patterns and ensuring biophysical coherence in clinical reconstructions.</li>
+        <li>50%+ scan time reduction while maintaining FA, AxD, MD accuracy; proposed method outperforms both LLS fitting and Transformer-DTI at 5 and 21 directions on the ADNI dataset.</li>
+        <li>TBSS analysis on ADNI identifies statistically significant white matter degradation in the Cingulum and Uncinate Fasciculus — two tracts known to degenerate early in AD — providing interpretable tract-level biomarkers from sparse acquisitions.</li>
+      </ol>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="section">
+      <div class="section-label">Results</div>
+
+      <div class="result-fig" style="max-width:75%;margin:0 auto;">
+        <img src="../img/Publications/ACML/acml23_results_41dir.png" alt="41-direction comparison: Ground Truth vs Proposed vs LLS">
+      </div>
+      <p class="result-cap">
+        <strong style="color:rgba(255,255,255,0.5)">41 directions (full protocol):</strong> Proposed method (b) matches ground truth (a) and is comparable to full LLS fitting (c) — validating the model before testing sparse regimes.
+      </p>
+
+      <div class="result-row">
+        <div>
+          <div class="result-fig">
+            <img src="../img/Publications/ACML/acml23_results_21dir.png" alt="21-direction comparison">
+          </div>
+          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">21 directions:</strong> Proposed outperforms LLS fitting and Transformer-DTI. FA structure well-preserved with half the directions.</p>
         </div>
-        <div class="fig-item">
-          <img src="../img/ACML_poster3.png" alt="Uncinat Abnormalities">
-          <div class="fig-cap">Uncinat abnormalities</div>
-        </div>
-        <div class="fig-item">
-          <img src="../img/poster_ACML2023_final-1.png" alt="Full Poster">
-          <div class="fig-cap">Full poster</div>
+        <div>
+          <div class="result-fig">
+            <img src="../img/Publications/ACML/acml23_results_5dir.png" alt="5-direction comparison">
+          </div>
+          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">5 directions:</strong> Proposed surpasses both LLS and Transformer-DTI. LLS produces severe artefacts at this regime; our model recovers clean FA/AxD/MD maps.</p>
         </div>
       </div>
     </div>
 
+    <!-- TBSS -->
+    <div class="section">
+      <div class="section-label">TBSS Analysis</div>
+      <div class="abstract-text" style="margin-bottom:16px">
+        Tract-Based Spatial Statistics (TBSS) pipeline on ADNI (20 CN vs. 20 MCI subjects) identifies significant white matter differences at p&lt;0.05 and p&lt;0.01. The proposed method preserves the same number of statistically significant voxels as ground truth — unlike LLS and Transformer-DTI which over- or under-report differences at sparse directions.
+      </div>
+      <div class="result-row">
+        <div>
+          <div class="result-fig">
+            <img src="../img/Publications/ACML/acml23_tbss_cingulum.png" alt="Cingulum TBSS">
+          </div>
+          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">Cingulum:</strong> Axial slice showing significant FA reductions (CN &gt; MCI in red, CN &lt; MCI in green). Proposed recovers cingulum pattern from sparse data.</p>
+        </div>
+        <div>
+          <div class="result-fig">
+            <img src="../img/Publications/ACML/acml23_tbss_fasciculus.png" alt="Uncinate Fasciculus TBSS">
+          </div>
+          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">Uncinate Fasciculus:</strong> Coronal slice revealing temporal lobe white matter degradation linked to early AD memory impairment.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BIBTEX -->
     <div class="section">
       <div class="section-label">BibTeX</div>
       <div class="bibtex-block">@inproceedings{tiwari2023acml,
@@ -100,16 +162,17 @@
 
   </div>
 
+  <!-- SIDEBAR -->
   <div class="paper-sidebar">
     <div class="sidebar-label">Quick Links</div>
     <div class="quick-links">
       <a href="https://proceedings.mlr.press/v222/tiwari24a/tiwari24a.pdf" class="qlink primary" target="_blank">
         <i class="fas fa-file-pdf"></i> PDF
       </a>
-      <a href="../img/poster_ACML2023_final-1.png" class="qlink" target="_blank">
+      <a href="../img/Publications/ACML/acml23-poster.png" class="qlink" target="_blank">
         <i class="fas fa-image"></i> Poster
       </a>
-      <a href="https://github.com/reachananya/Tract-based-fast-classification-for-Alzheimer-Disease" class="qlink" target="_blank">
+      <a href="https://github.com/reachananya/Early-diagnosis-of-Alzheimer-via-DL" class="qlink" target="_blank">
         <i class="fab fa-github"></i> Code
       </a>
       <button class="qlink" onclick="document.querySelector('.bibtex-block').scrollIntoView({behavior:'smooth'})">
@@ -119,9 +182,10 @@
     <div class="sidebar-divider"></div>
     <div class="sidebar-meta">
       <span class="meta-head">Details</span>
-      <span>Conference [C.1]</span>
-      <span>ACML 2023</span>
-      <span>İstanbul, Turkey</span>
+      <a href="https://www.acml-conf.org/2023/" target="_blank" style="color:rgba(255,255,255,0.55);text-decoration:none;display:block;line-height:1.7;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+        Asian Conference on Machine Learning 2023<br>
+        <span style="color:rgba(255,255,255,0.35);font-size:9px">İstanbul, Turkey · November 2023</span>
+      </a>
     </div>
   </div>
 </div>

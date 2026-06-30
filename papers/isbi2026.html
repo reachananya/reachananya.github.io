@@ -6,10 +6,10 @@
   <title>ARMARecon — ISBI 2026</title>
   <link rel="icon" href="../img/a_favicon_1.png"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../nav.css"/>
   <link rel="stylesheet" href="paper.css"/>
-  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="../theme.css"/>
   <script src="../theme.js"></script>
 </head>
 <body>
@@ -18,10 +18,10 @@
   <a class="nav-back" href="../publications.html">publications</a>
   <span class="nav-venue">ISBI 2026</span>
   <div class="top-nav-links">
-        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
-          <i class="fas fa-sun icon-sun"></i>
-          <i class="fas fa-moon icon-moon"></i>
-        </button>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+      <i class="fas fa-sun icon-sun"></i>
+      <i class="fas fa-moon icon-moon"></i>
+    </button>
   </div>
 </div>
 
@@ -31,50 +31,105 @@
     <div class="paper-label">
       <span>Conference Paper [C.2]</span>
       <span class="sep">·</span>
-      <span>2026</span>
+      <span>April 2026</span>
+      <span class="sep">·</span>
+      <span>London, UK</span>
     </div>
 
     <div class="paper-title">
-      ARMARecon: ARMA Convolutional Filter Based GNN for Neurodegenerative Dementia Classification
+      ARMARecon: ARMA Convolutional Filter Based Graph Neural Network for Neurodegenerative Dementia Classification
     </div>
 
     <div class="paper-authors">
-      Venkata Sesha &nbsp;·&nbsp;
-      <span class="me">Ananya Singhal</span>, Shiv Nadar Institute of Eminence &nbsp;·&nbsp;
+      VSS Tejaswi Abburi &nbsp;·&nbsp;
+      <span class="me">Ananya Singhal</span> &nbsp;·&nbsp;
       Saurabh J. Shigwan &nbsp;·&nbsp;
-      Nitin Kumar
+      Nitin Kumar<br>
+      <span style="font-size:11px;color:var(--text-faint)">Shiv Nadar Institute of Eminence, India &nbsp;·&nbsp; GE HealthCare, India</span>
     </div>
 
     <div class="paper-venue-row">
       <span class="pill">ISBI 2026</span>
       <span class="sep">·</span>
-      <span><i class="fas fa-map-marker-alt" style="font-size:9px;margin-right:4px"></i>London, UK</span>
+      <span>International Symposium on Biomedical Imaging</span>
+      <span class="sep">·</span>
+      <span>London, UK</span>
     </div>
 
     <div class="divider"></div>
 
-    <div class="hero-wrap">
-      <div class="hero-placeholder">Poster · Coming Soon</div>
-    </div>
-    <div class="hero-caption">To be presented at the International Symposium on Biomedical Imaging, London, UK.</div>
-
     <div class="section">
       <div class="section-label">Abstract</div>
       <div class="abstract-text">
-        We present ARMARecon, a novel graph neural network integrating Autoregressive Moving Average (ARMA) spectral filtering with reconstruction-driven regularisation — the first approach to jointly address both over-smoothing and over-squashing in sparse-label neuroimaging graphs.
+        We present ARMARecon, a novel graph neural network framework integrating Autoregressive Moving Average (ARMA) spectral filtering with reconstruction-driven regularisation — the first approach to jointly address both over-smoothing and over-squashing in sparse-label neuroimaging graphs. The framework represents entire patient cohorts as connected graphs where nodes encode neuroanatomical FA histogram features and edges capture inter-subject similarity, enabling robust disease pattern extraction from limited labelled data. ARMA convolutions produce rational polynomial filters strictly more expressive than standard GCN filters, capturing long-range cortical dependencies without parameter explosion. On ADNI and NIFD datasets, ARMARecon achieves 98.3% accuracy for CN vs. MCI and 99.7% for CN vs. AD — more than 3% above GCN, GAT, and ChebNet baselines.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Motivation</div>
+      <div class="abstract-text">
+        Graph Neural Networks offer a natural framework for modelling brain connectivity networks, where subjects form nodes and neuroanatomical similarities define edges. However, standard GNN architectures applied to neuroimaging suffer from two critical failure modes that become especially acute in small, clinically heterogeneous cohorts:
         <br><br>
-        The framework represents entire cohorts as connected graphs where nodes encode neuroanatomical features and edges capture inter-subject similarity, enabling robust disease pattern extraction from limited training data. ARMA convolutions produce rational filters more expressive than standard polynomial filters, capturing long-range cortical dependencies without parameter explosion. Extensive ablation studies validate architectural choices including ARMA order selection, reconstruction weight tuning, and edge threshold selection.
+        <strong style="color:var(--text-bright)">Over-smoothing</strong> — repeated graph convolutions wash out discriminative node features, collapsing all nodes toward the same representation as network depth increases. This is particularly damaging in neuroimaging where subtle inter-subject differences in FA histograms carry diagnostic signal.
         <br><br>
-        On the ADNI dataset, ARMARecon achieves 98.3% accuracy for CN vs. MCI and 99.7% for CN vs. AD classification — more than 3% above GCN/GAT baselines.
+        <strong style="color:var(--text-bright)">Over-squashing</strong> — information from distant nodes gets exponentially compressed through graph bottlenecks, preventing the model from capturing long-range cortical dependencies essential for distinguishing dementia subtypes.
+        <br><br>
+        Furthermore, neuroimaging studies typically involve small labelled cohorts (dozens to low hundreds of subjects), making sparse-label generalisation a central challenge. No prior method had jointly addressed both pathologies in this setting.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Contributions</div>
+      <ol class="contrib-list">
+        <li>ARMARecon: first GNN to simultaneously address over-smoothing and over-squashing in sparse-label neuroimaging graphs, via ARMA spectral filtering combined with an MSE reconstruction regularisation loss.</li>
+        <li>ARMA convolutional filters produce rational polynomial approximations — strictly more expressive than standard polynomial (GCN) filters — capturing long-range cortical dependencies and spectral nuances without parameter explosion.</li>
+        <li>Reconstruction-driven regularisation using an MLP decoder forces the ARMA encoder to preserve discriminative local features that pure classification objectives discard, preventing information collapse across layers.</li>
+        <li>Cohort-level graph construction: the entire dataset is represented as a single connected graph, where each node encodes a subject's 20-bin FA histogram features from 9 clinically relevant white matter ROIs, and edges capture inter-subject neuroanatomical similarity.</li>
+        <li>Outperforms SVM, MLP, Random Forest, GCN, GAT, ChebNet, and AE-GCN baselines across 90-10, 70-30, and 50-50 train-test splits with 20-fold cross-validation on ADNI and NIFD datasets.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Framework</div>
+      <div class="framework-fig">
+        <img src="../img/Publications/ISBI/isbi26-architecture.drawio.png" alt="ARMARecon Architecture">
+      </div>
+      <div class="hero-caption">
+        <strong>Pipeline:</strong> DWI images → Tensor Fitting → Fractional Anisotropy (FA) maps → JHU Atlas Registration → ROI Parcellation &amp; Feature Extraction (20-bin FA histograms from 9 white matter ROIs per subject) → Transductive Graph Construction across the full cohort (Â = D<sup>−½</sup>ÂD<sup>−½</sup>) → ARMA Graph Convolution + ReLU → Add skip connection → MLP Decoder (reconstruction branch) + Fully connected (classification branch) → Joint loss: L<sub>total</sub> = L<sub>CE</sub>(Ŷ, Y) + λ · L<sub>recon</sub>(X̂, X).
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Key Results</div>
+      <div class="result-stats">
+        <div class="stat-item">
+          <div class="stat-value">98.3%</div>
+          <div class="stat-label">CN vs. MCI accuracy</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">99.7%</div>
+          <div class="stat-label">CN vs. AD accuracy</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">>3%</div>
+          <div class="stat-label">above GCN/GAT baselines</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">1.0</div>
+          <div class="stat-label">AUC on CN vs. AD</div>
+        </div>
+      </div>
+      <div class="abstract-text">
+        Extensive experiments on ADNI (133 CN, 167 MCI, 88 AD — Siemens scanners) and NIFD (98 FTD, 48 healthy controls) datasets with 20-fold cross-validation across three train-test splits demonstrate consistent outperformance over all baselines. ARMARecon's joint classification and reconstruction objective produces feature representations that are both discriminative and structurally faithful to the underlying neuroanatomy, enabling robust generalisation in low-label regimes.
       </div>
     </div>
 
     <div class="section">
       <div class="section-label">BibTeX</div>
-      <div class="bibtex-block">@inproceedings{sesha2026isbi,
+      <div class="bibtex-block">@inproceedings{abburi2026isbi,
   title     = {ARMARecon: ARMA Convolutional Filter Based GNN for
                Neurodegenerative Dementia Classification},
-  author    = {Sesha, Venkata and Singhal, Ananya and
+  author    = {Abburi, VSS Tejaswi and Singhal, Ananya and
                Shigwan, Saurabh J. and Kumar, Nitin},
   booktitle = {International Symposium on Biomedical Imaging (ISBI)},
   address   = {London, UK},
@@ -90,7 +145,7 @@
       <a class="qlink disabled">
         <i class="fas fa-file-pdf"></i> PDF
       </a>
-      <a class="qlink disabled">
+      <a href="../img/Publications/ISBI/isbi26-poster.pdf" class="qlink" target="_blank">
         <i class="fas fa-image"></i> Poster
       </a>
       <a class="qlink disabled">
@@ -106,6 +161,7 @@
       <span>Conference [C.2]</span>
       <span>ISBI 2026</span>
       <span>London, UK</span>
+      <span>April 2026</span>
     </div>
   </div>
 </div>

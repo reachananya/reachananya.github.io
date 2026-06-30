@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FTD Deep Learning Framework — BIC @ ICCV 2023</title>
+  <title>Sparse dMRI Framework for FTD — BIC @ ICCV 2023</title>
   <link rel="icon" href="../img/a_favicon_1.png"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../nav.css"/>
   <link rel="stylesheet" href="paper.css"/>
-  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="../theme.css"/>
   <script src="../theme.js"></script>
 </head>
 <body>
@@ -18,10 +18,10 @@
   <a class="nav-back" href="../publications.html">publications</a>
   <span class="nav-venue">BIC @ ICCV 2023</span>
   <div class="top-nav-links">
-        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
-          <i class="fas fa-sun icon-sun"></i>
-          <i class="fas fa-moon icon-moon"></i>
-        </button>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+      <i class="fas fa-sun icon-sun"></i>
+      <i class="fas fa-moon icon-moon"></i>
+    </button>
   </div>
 </div>
 
@@ -32,6 +32,10 @@
       <span>Workshop Paper [W.1]</span>
       <span class="sep">·</span>
       <span>September 2023</span>
+      <span class="sep">·</span>
+      <span>Paris, France</span>
+      <span class="sep">·</span>
+      <span style="color:var(--accent)"><i class="fas fa-award" style="font-size:9px;margin-right:4px"></i>DEI Scholar · EUR 900</span>
     </div>
 
     <div class="paper-title">
@@ -40,50 +44,80 @@
 
     <div class="paper-authors">
       Abhishek Tiwari &nbsp;·&nbsp;
-      <span class="me">Ananya Singhal</span>, Shiv Nadar Institute of Eminence &nbsp;·&nbsp;
+      <span class="me">Ananya Singhal</span> &nbsp;·&nbsp;
       Saurabh J. Shigwan &nbsp;·&nbsp;
-      Rajeev Kumar Singh
+      Rajeev Kumar Singh<br>
+      <span style="font-size:11px;color:var(--text-faint)">Shiv Nadar Institute of Eminence, Delhi NCR, India</span>
     </div>
 
     <div class="paper-venue-row">
       <span class="pill">BIC @ ICCV 2023</span>
       <span class="sep">·</span>
-      <span><i class="fas fa-map-marker-alt" style="font-size:9px;margin-right:4px"></i>Paris, France</span>
+      <span>BioImage Computing Workshop, ICCV</span>
       <span class="sep">·</span>
-      <span><i class="fas fa-award" style="font-size:9px;margin-right:4px;color:#50d890"></i>DEI Scholar</span>
+      <span>Paris, France</span>
     </div>
 
     <div class="divider"></div>
 
-    <div class="hero-wrap">
-      <img src="../img/poster_ICCV2023_final_mod-1.png" alt="ICCV 2023 Poster">
-    </div>
-    <div class="hero-caption">Poster presented at BioImage Computing Workshop, ICCV 2023, Paris, France.</div>
-
     <div class="section">
       <div class="section-label">Abstract</div>
       <div class="abstract-text">
-        This research presents a novel deep learning framework for early diagnosis of Frontotemporal dementia (FTD), a devastating neurodegenerative disorder affecting the frontal and temporal lobes of the brain. FTD leads to cognitive decline and behavioural changes, occurring in approximately 15–22 people per 100,000 worldwide. Early and accurate diagnosis is crucial for timely interventions and appropriate patient care.
-        <br><br>
-        Our approach utilises sparse diffusion measures extracted from neuroimaging data combined with advanced deep learning techniques to automatically learn relevant features from the data. The experimental results demonstrate promising potential in effectively distinguishing between healthy individuals and those with FTD, improving diagnostic accuracy and paving the way for future research in this critical area.
+        We present a novel deep learning framework for early diagnosis of Frontotemporal Dementia (FTD) using sparse diffusion MRI measurements. FTD — a devastating neurodegenerative disorder affecting the frontal and temporal lobes — is frequently misdiagnosed due to overlapping behavioral symptoms, with an average time to correct diagnosis exceeding three years. Our approach demonstrates that FTD-specific white matter changes can be reliably detected using only 5–21 diffusion gradient directions rather than the standard 41, enabling faster and more accessible neuroimaging screening without compromising diagnostic accuracy.
       </div>
     </div>
 
     <div class="section">
-      <div class="section-label">Figures</div>
-      <div class="fig-grid">
-        <div class="fig-item">
-          <img src="../img/iccv_poster1.jpeg" alt="Framework overview">
-          <div class="fig-cap">Framework overview</div>
+      <div class="section-label">Motivation</div>
+      <div class="abstract-text">
+        Frontotemporal Dementia affects approximately 15–22 per 100,000 people worldwide and is the second most common form of early-onset dementia after Alzheimer's Disease. Unlike AD, FTD primarily targets the frontal and temporal lobes, producing personality changes, executive dysfunction, and language impairment — symptoms that are frequently mistaken for psychiatric disorders. This misdiagnosis delays appropriate care and prevents access to clinical trials.
+        <br><br>
+        Diffusion MRI provides sensitive biomarkers for white matter microstructural degeneration that distinguish FTD from healthy controls and from other dementias. However, standard clinical dMRI protocols demand 41+ diffusion gradient directions, translating to prolonged scan sessions that are impractical for agitated or cognitively impaired patients. A sparse-measurement framework that preserves diagnostic accuracy while reducing acquisition time would make dMRI-based FTD screening feasible in broader clinical and resource-limited settings.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Contributions</div>
+      <ol class="contrib-list">
+        <li>First demonstration that sparse diffusion MRI measurements (5–21 gradient directions) are sufficient for reliable FTD diagnosis, reducing acquisition time by over 50% compared to standard 41-direction protocols.</li>
+        <li>Swin-Transformer deep learning framework adapted for sparse DTI parameter estimation, with shifted-window attention capturing multi-scale voxel-neighbourhood correlations across patch boundaries.</li>
+        <li>Voxel-wise TBSS (Tract-Based Spatial Statistics) analysis mapping FTD-specific white matter degradation patterns, enabling tract-level classification without requiring full diffusion acquisition.</li>
+        <li>Validated on the NIFD (Neuroimaging in Frontotemporal Dementia) dataset; presented as an oral and poster at the BioImage Computing Workshop, ICCV 2023, Paris — awarded EUR 900 DEI Travel Grant.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Framework</div>
+      <div class="framework-fig">
+        <img src="../img/Publications/ICCV/iccv23_architecture.png" alt="Framework overview — Sparse dMRI for FTD Diagnosis">
+      </div>
+      <div class="hero-caption">
+        <strong>Framework:</strong> Sparse DWI images (5 or 21 b=1000 gradient directions + b=0) → DTI tensor fitting → voxel-wise FA, AxD, MD maps → TBSS skeleton analysis on white matter tracts → classification of FTD vs. healthy controls. The Swin-Transformer reconstructs full-quality diffusion tensor maps from sparse measurements via multi-scale shifted-window attention and a physics-informed loss.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Key Results</div>
+      <div class="result-stats">
+        <div class="stat-item">
+          <div class="stat-value">50%+</div>
+          <div class="stat-label">scan time reduction</div>
         </div>
-        <div class="fig-item">
-          <img src="../img/iccv_poster2.png" alt="Results — 21 directions">
-          <div class="fig-cap">Results — 21 directions</div>
+        <div class="stat-item">
+          <div class="stat-value">5</div>
+          <div class="stat-label">minimum gradient directions</div>
         </div>
-        <div class="fig-item">
-          <img src="../img/iccv_poster3.png" alt="Results — 5 directions">
-          <div class="fig-cap">Results — 5 directions</div>
+        <div class="stat-item">
+          <div class="stat-value">NIFD</div>
+          <div class="stat-label">validated dataset</div>
         </div>
+        <div class="stat-item">
+          <div class="stat-value">€900</div>
+          <div class="stat-label">DEI travel grant</div>
+        </div>
+      </div>
+      <div class="abstract-text">
+        Our sparse dMRI framework reliably identifies FTD-specific white matter changes in the frontal and temporal lobes from as few as 5 diffusion gradient directions. TBSS analysis reveals statistically significant degradation in tracts known to degenerate in FTD — including the uncinate fasciculus and superior longitudinal fasciculus — providing interpretable, tract-level biomarkers for early diagnosis. Results were presented as both a poster and oral presentation at the BioImage Computing Workshop, ICCV 2023.
       </div>
     </div>
 
@@ -124,6 +158,7 @@
       <span>Workshop [W.1]</span>
       <span>BIC @ ICCV 2023</span>
       <span>Paris, France</span>
+      <span>September 2023</span>
       <span class="accent">DEI Scholar</span>
     </div>
   </div>
