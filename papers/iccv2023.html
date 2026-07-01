@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sparse dMRI Framework for FTD — BIC @ ICCV 2023</title>
+  <title>Sparse dMRI for FTD — BIC @ ICCV 2023</title>
   <link rel="icon" href="../img/a_favicon_1.png"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -31,11 +31,11 @@
     <div class="paper-label">
       <span>Workshop Paper [W.1]</span>
       <span class="sep">·</span>
-      <span>September 2023</span>
+      <span>October 2023</span>
       <span class="sep">·</span>
       <span>Paris, France</span>
       <span class="sep">·</span>
-      <span style="color:var(--accent)"><i class="fas fa-award" style="font-size:9px;margin-right:4px"></i>DEI Scholar · EUR 900</span>
+      <span style="color:var(--accent)"><i class="fas fa-award" style="font-size:9px;margin-right:3px"></i>DEI Scholar · EUR 900</span>
     </div>
 
     <div class="paper-title">
@@ -47,80 +47,130 @@
       <span class="me">Ananya Singhal</span> &nbsp;·&nbsp;
       Saurabh J. Shigwan &nbsp;·&nbsp;
       Rajeev Kumar Singh<br>
-      <span style="font-size:11px;color:var(--text-faint)">Shiv Nadar Institute of Eminence, Delhi NCR, India</span>
+      <span style="font-size:11px;color:var(--text-faint)">Shiv Nadar Institution of Eminence, Delhi NCR, India</span>
     </div>
 
     <div class="paper-venue-row">
       <span class="pill">BIC @ ICCV 2023</span>
       <span class="sep">·</span>
-      <span>BioImage Computing Workshop, ICCV</span>
-      <span class="sep">·</span>
-      <span>Paris, France</span>
+      <span>BioImage Computing Workshop, ICCV · Paris, France</span>
     </div>
 
     <div class="divider"></div>
 
+    <!-- ABSTRACT -->
     <div class="section">
       <div class="section-label">Abstract</div>
       <div class="abstract-text">
-        We present a novel deep learning framework for early diagnosis of Frontotemporal Dementia (FTD) using sparse diffusion MRI measurements. FTD — a devastating neurodegenerative disorder affecting the frontal and temporal lobes — is frequently misdiagnosed due to overlapping behavioral symptoms, with an average time to correct diagnosis exceeding three years. Our approach demonstrates that FTD-specific white matter changes can be reliably detected using only 5–21 diffusion gradient directions rather than the standard 41, enabling faster and more accessible neuroimaging screening without compromising diagnostic accuracy.
+        Standard clinical dMRI for dementia diagnosis requires 40+ gradient directions — scans too long for agitated or cognitively impaired FTD patients. We present a Swin-Transformer framework that recovers diagnostic-quality FA, AxD, and MD diffusion maps from only 5–21 directions, enabling 50%+ scan time reduction while preserving FTD-specific white matter biomarkers identified via TBSS on the NIFD dataset.
       </div>
     </div>
 
+    <!-- MOTIVATION -->
     <div class="section">
       <div class="section-label">Motivation</div>
-      <div class="abstract-text">
-        Frontotemporal Dementia affects approximately 15–22 per 100,000 people worldwide and is the second most common form of early-onset dementia after Alzheimer's Disease. Unlike AD, FTD primarily targets the frontal and temporal lobes, producing personality changes, executive dysfunction, and language impairment — symptoms that are frequently mistaken for psychiatric disorders. This misdiagnosis delays appropriate care and prevents access to clinical trials.
-        <br><br>
-        Diffusion MRI provides sensitive biomarkers for white matter microstructural degeneration that distinguish FTD from healthy controls and from other dementias. However, standard clinical dMRI protocols demand 41+ diffusion gradient directions, translating to prolonged scan sessions that are impractical for agitated or cognitively impaired patients. A sparse-measurement framework that preserves diagnostic accuracy while reducing acquisition time would make dMRI-based FTD screening feasible in broader clinical and resource-limited settings.
-      </div>
+      <ul class="motiv-list">
+        <li>Frontotemporal Dementia affects ~15–22 per 100,000 people and is the most common early-onset dementia after AD — yet it takes on average 3+ years to correctly diagnose due to behavioral symptoms mimicking psychiatric disorders.</li>
+        <li>Diffusion MRI provides white matter microstructure biomarkers that distinguish FTD from healthy controls and other dementias, but standard protocols demand 40+ gradient directions → prolonged scans impractical for cognitively impaired, agitated patients.</li>
+        <li>Linear least squares (LLS) tensor fitting degrades severely below ~20 directions; a learning-based approach is needed to unlock clinically feasible sparse-dMRI protocols for FTD screening.</li>
+        <li>A model achieving diagnostic accuracy from 5–21 directions could make dMRI-based FTD screening accessible in resource-limited settings and for patients who cannot tolerate full-protocol scans.</li>
+      </ul>
     </div>
 
-    <div class="section">
-      <div class="section-label">Contributions</div>
-      <ol class="contrib-list">
-        <li>First demonstration that sparse diffusion MRI measurements (5–21 gradient directions) are sufficient for reliable FTD diagnosis, reducing acquisition time by over 50% compared to standard 41-direction protocols.</li>
-        <li>Swin-Transformer deep learning framework adapted for sparse DTI parameter estimation, with shifted-window attention capturing multi-scale voxel-neighbourhood correlations across patch boundaries.</li>
-        <li>Voxel-wise TBSS (Tract-Based Spatial Statistics) analysis mapping FTD-specific white matter degradation patterns, enabling tract-level classification without requiring full diffusion acquisition.</li>
-        <li>Validated on the NIFD (Neuroimaging in Frontotemporal Dementia) dataset; presented as an oral and poster at the BioImage Computing Workshop, ICCV 2023, Paris — awarded EUR 900 DEI Travel Grant.</li>
-      </ol>
-    </div>
-
+    <!-- FRAMEWORK -->
     <div class="section">
       <div class="section-label">Framework</div>
       <div class="framework-fig">
-        <img src="../img/Publications/ICCV/iccv23_architecture.png" alt="Framework overview — Sparse dMRI for FTD Diagnosis">
+        <img src="../img/Publications/ICCV/iccv23-architecture.png" alt="Swin-Transformer Framework — Sparse dMRI for FTD Diagnosis">
       </div>
-      <div class="hero-caption">
-        <strong>Framework:</strong> Sparse DWI images (5 or 21 b=1000 gradient directions + b=0) → DTI tensor fitting → voxel-wise FA, AxD, MD maps → TBSS skeleton analysis on white matter tracts → classification of FTD vs. healthy controls. The Swin-Transformer reconstructs full-quality diffusion tensor maps from sparse measurements via multi-scale shifted-window attention and a physics-informed loss.
-      </div>
+      <p class="result-cap">
+        <strong style="color:rgba(255,255,255,0.5)">Pipeline:</strong> b=0 + sparse b=1000 DWI (5 or 21 directions) → Patch Partition (16×8 input) → 5 Swin Transformer Blocks with varied window/shift sizes → 6 parallel Dense Layers predicting diffusion tensor components (D<sub>xx</sub>, D<sub>xy</sub>, D<sub>yy</sub>, D<sub>xz</sub>, D<sub>yz</sub>, D<sub>zz</sub>) → FA, AxD, MD maps → TBSS analysis on NIFD white matter skeleton → FTD vs. healthy classification.
+      </p>
     </div>
 
+    <!-- CONTRIBUTIONS -->
     <div class="section">
-      <div class="section-label">Key Results</div>
-      <div class="result-stats">
-        <div class="stat-item">
-          <div class="stat-value">50%+</div>
-          <div class="stat-label">scan time reduction</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">5</div>
-          <div class="stat-label">minimum gradient directions</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">NIFD</div>
-          <div class="stat-label">validated dataset</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">€900</div>
-          <div class="stat-label">DEI travel grant</div>
-        </div>
+      <div class="section-label">Contributions</div>
+      <ol class="contrib-list">
+        <li>First demonstration that sparse dMRI (5–21 gradient directions) is sufficient for reliable FTD diagnosis — reducing scan time by 50%+ while preserving diagnostic white matter biomarkers validated on the NIFD dataset.</li>
+        <li>Swin-Transformer adapted for sparse DTI parameter estimation: shifted-window multi-head self-attention captures local voxel correlations across patch boundaries, enabling a single model to generalise across differing direction counts.</li>
+        <li>Physics-informed loss function enforcing positive-definiteness and biophysical coherence in estimated diffusion tensors — preventing implausible anisotropy values at extreme sparse regimes (5 directions).</li>
+        <li>Voxel-wise TBSS analysis on NIFD mapping FTD-specific white matter degradation in the uncinate fasciculus and superior longitudinal fasciculus — two tracts known to degenerate early in FTD — providing interpretable tract-level biomarkers from sparse acquisitions.</li>
+      </ol>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="section">
+      <div class="section-label">Results</div>
+
+      <div class="result-fig" style="max-width:75%;margin:0 auto;">
+        <img src="../img/Publications/ICCV/iccv23_results_41dir.png" alt="41-direction comparison: Ground Truth vs Proposed vs LLS">
       </div>
-      <div class="abstract-text">
-        Our sparse dMRI framework reliably identifies FTD-specific white matter changes in the frontal and temporal lobes from as few as 5 diffusion gradient directions. TBSS analysis reveals statistically significant degradation in tracts known to degenerate in FTD — including the uncinate fasciculus and superior longitudinal fasciculus — providing interpretable, tract-level biomarkers for early diagnosis. Results were presented as both a poster and oral presentation at the BioImage Computing Workshop, ICCV 2023.
+      <p class="result-cap">
+        <strong style="color:rgba(255,255,255,0.5)">41 directions (full protocol):</strong> Proposed method matches ground truth FA, AxD, and MD maps and is comparable to full LLS fitting — validating reconstruction quality before testing sparse regimes.
+      </p>
+
+      <div class="result-row">
+        <div>
+          <div class="result-fig">
+            <img src="../img/Publications/ICCV/iccv23_results_21dir.png" alt="21-direction comparison">
+          </div>
+          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">21 directions:</strong> Proposed method outperforms LLS and Transformer-DTI. FA structure well-preserved at half the standard directions.</p>
+        </div>
+        <div>
+          <div class="result-fig">
+            <img src="../img/Publications/ICCV/iccv23_results_5dir.png" alt="5-direction comparison">
+          </div>
+          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">5 directions:</strong> Proposed surpasses both baselines. LLS produces severe artefacts; our model recovers clean diffusion maps.</p>
+        </div>
       </div>
     </div>
 
+    <!-- ERROR ANALYSIS -->
+    <div class="section">
+      <div class="section-label">Error Analysis</div>
+      <div class="abstract-text" style="margin-bottom:16px">
+        Boxplot comparisons of all six diffusion tensor components (D<sub>xx</sub>, D<sub>xy</sub>, D<sub>yy</sub>, D<sub>xz</sub>, D<sub>yz</sub>, D<sub>zz</sub>) across methods. Proposed method consistently achieves lower error distributions, with tighter interquartile ranges than LLS and Transformer-DTI — most notably at the extreme sparse regime of 5 directions.
+      </div>
+      <div class="result-row">
+        <div>
+          <div class="result-fig">
+            <img src="../img/Publications/ICCV/iccv23_error_5dir.png" alt="Error boxplots — 5 directions">
+          </div>
+          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">5 directions:</strong> Per-component error distributions. Proposed shows tightest spread across all 6 tensor components; LLS error variance is markedly higher.</p>
+        </div>
+        <div>
+          <div class="result-fig">
+            <img src="../img/Publications/ICCV/iccv23_error_21dir.png" alt="Error boxplots — 21 directions">
+          </div>
+          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">21 directions:</strong> All methods converge closer to ground truth, but Proposed retains a measurable accuracy advantage over both LLS and Transformer-DTI.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TBSS ANALYSIS -->
+    <div class="section">
+      <div class="section-label">TBSS Analysis</div>
+      <div class="abstract-text" style="margin-bottom:16px">
+        Tract-Based Spatial Statistics (TBSS) on NIFD (FTD patients vs. healthy controls) identifies statistically significant white matter FA reductions at p&lt;0.05. Proposed method recovers the same significant voxel clusters as ground truth from as few as 5 directions — unlike LLS which fails to replicate FTD-specific degeneration patterns at sparse regimes.
+      </div>
+      <div class="result-row">
+        <div>
+          <div class="result-fig">
+            <img src="../img/Publications/ICCV/iccv23_tbss_cingulum.png" alt="Cingulum TBSS — axial slice">
+          </div>
+          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">Cingulum (axial):</strong> Rows show 21-direction and 5-direction reconstructions. FA reductions in the cingulum bundle are preserved from sparse data — a key FTD biomarker tract.</p>
+        </div>
+        <div>
+          <div class="result-fig">
+            <img src="../img/Publications/ICCV/iccv23_tbss_fasciculus.png" alt="Uncinate Fasciculus TBSS — coronal slice">
+          </div>
+          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">Uncinate Fasciculus (coronal):</strong> Temporal lobe white matter degradation linked to frontal-temporal disconnection in FTD. Proposed recovers the spatial signature from sparse acquisitions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BIBTEX -->
     <div class="section">
       <div class="section-label">BibTeX</div>
       <div class="bibtex-block">@inproceedings{tiwari2023ftd,
@@ -136,16 +186,17 @@
 
   </div>
 
+  <!-- SIDEBAR -->
   <div class="paper-sidebar">
     <div class="sidebar-label">Quick Links</div>
     <div class="quick-links">
-      <a href="https://ieeexplore.ieee.org/document/10350377" class="qlink primary" target="_blank">
+      <a href="https://openaccess.thecvf.com/content/ICCV2023W/BIC/papers/Tiwari_Deep_Learning_Framework_Using_Sparse_Diffusion_MRI_for_Diagnosis_of_ICCVW_2023_paper.pdf" class="qlink primary" target="_blank">
         <i class="fas fa-file-pdf"></i> PDF
       </a>
-      <a href="../img/poster_ICCV2023_final_mod-1.png" class="qlink" target="_blank">
+      <a href="../img/Publications/ICCV/iccv23-poster.png" class="qlink" target="_blank">
         <i class="fas fa-image"></i> Poster
       </a>
-      <a href="https://github.com/reachananya/Tract-based-fast-classification-for-Alzheimer-Disease" class="qlink" target="_blank">
+      <a class="qlink disabled">
         <i class="fab fa-github"></i> Code
       </a>
       <button class="qlink" onclick="document.querySelector('.bibtex-block').scrollIntoView({behavior:'smooth'})">
@@ -155,11 +206,10 @@
     <div class="sidebar-divider"></div>
     <div class="sidebar-meta">
       <span class="meta-head">Details</span>
-      <span>Workshop [W.1]</span>
-      <span>BIC @ ICCV 2023</span>
-      <span>Paris, France</span>
-      <span>September 2023</span>
-      <span class="accent">DEI Scholar</span>
+      <a href="https://www.bioimagecomputing.com/bioimage-computing-iccv-2023/" target="_blank" style="color:rgba(255,255,255,0.55);text-decoration:none;display:block;line-height:1.7;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+        BioImage Computing Workshop, ICCV 2023<br>
+        <span style="color:rgba(255,255,255,0.35);font-size:9px">Paris, France · October 2023 · DEI Scholar</span>
+      </a>
     </div>
   </div>
 </div>

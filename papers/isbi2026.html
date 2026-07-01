@@ -45,85 +45,68 @@
       <span class="me">Ananya Singhal</span> &nbsp;·&nbsp;
       Saurabh J. Shigwan &nbsp;·&nbsp;
       Nitin Kumar<br>
-      <span style="font-size:11px;color:var(--text-faint)">Shiv Nadar Institute of Eminence, India &nbsp;·&nbsp; GE HealthCare, India</span>
+      <span style="font-size:11px;color:var(--text-faint)">Shiv Nadar Institution of Eminence, India &nbsp;·&nbsp; GE HealthCare, India</span>
     </div>
 
     <div class="paper-venue-row">
       <span class="pill">ISBI 2026</span>
       <span class="sep">·</span>
-      <span>International Symposium on Biomedical Imaging</span>
-      <span class="sep">·</span>
-      <span>London, UK</span>
+      <span>International Symposium on Biomedical Imaging · London, UK</span>
     </div>
 
     <div class="divider"></div>
 
+    <!-- ABSTRACT -->
     <div class="section">
       <div class="section-label">Abstract</div>
       <div class="abstract-text">
-        We present ARMARecon, a novel graph neural network framework integrating Autoregressive Moving Average (ARMA) spectral filtering with reconstruction-driven regularisation — the first approach to jointly address both over-smoothing and over-squashing in sparse-label neuroimaging graphs. The framework represents entire patient cohorts as connected graphs where nodes encode neuroanatomical FA histogram features and edges capture inter-subject similarity, enabling robust disease pattern extraction from limited labelled data. ARMA convolutions produce rational polynomial filters strictly more expressive than standard GCN filters, capturing long-range cortical dependencies without parameter explosion. On ADNI and NIFD datasets, ARMARecon achieves 98.3% accuracy for CN vs. MCI and 99.7% for CN vs. AD — more than 3% above GCN, GAT, and ChebNet baselines.
+        Standard GNNs applied to neuroimaging graphs suffer from over-smoothing and over-squashing — collapsing discriminative features and compressing long-range cortical dependencies. We present ARMARecon, which jointly addresses both failure modes via ARMA spectral filtering combined with reconstruction-driven regularisation, achieving 98.3% CN vs. MCI and 99.7% CN vs. AD accuracy on ADNI — more than 3% above GCN, GAT, and ChebNet baselines.
       </div>
     </div>
 
+    <!-- MOTIVATION -->
     <div class="section">
       <div class="section-label">Motivation</div>
-      <div class="abstract-text">
-        Graph Neural Networks offer a natural framework for modelling brain connectivity networks, where subjects form nodes and neuroanatomical similarities define edges. However, standard GNN architectures applied to neuroimaging suffer from two critical failure modes that become especially acute in small, clinically heterogeneous cohorts:
-        <br><br>
-        <strong style="color:var(--text-bright)">Over-smoothing</strong> — repeated graph convolutions wash out discriminative node features, collapsing all nodes toward the same representation as network depth increases. This is particularly damaging in neuroimaging where subtle inter-subject differences in FA histograms carry diagnostic signal.
-        <br><br>
-        <strong style="color:var(--text-bright)">Over-squashing</strong> — information from distant nodes gets exponentially compressed through graph bottlenecks, preventing the model from capturing long-range cortical dependencies essential for distinguishing dementia subtypes.
-        <br><br>
-        Furthermore, neuroimaging studies typically involve small labelled cohorts (dozens to low hundreds of subjects), making sparse-label generalisation a central challenge. No prior method had jointly addressed both pathologies in this setting.
-      </div>
+      <ul class="motiv-list">
+        <li>Graph Neural Networks offer a natural model for neuroimaging cohorts — subjects as nodes, neuroanatomical similarity as edges — but standard GNNs fail in clinically realistic small-cohort, sparse-label settings.</li>
+        <li><strong style="color:rgba(255,255,255,0.7)">Over-smoothing:</strong> repeated convolutions collapse all node representations toward the same embedding, destroying the subtle inter-subject FA differences that carry diagnostic signal.</li>
+        <li><strong style="color:rgba(255,255,255,0.7)">Over-squashing:</strong> information from distant nodes gets exponentially compressed through graph bottlenecks, preventing capture of long-range cortical dependencies essential for distinguishing dementia subtypes.</li>
+        <li>No prior method had jointly addressed both pathologies in sparse-label neuroimaging graphs. ARMARecon resolves both with a single unified objective.</li>
+      </ul>
     </div>
 
-    <div class="section">
-      <div class="section-label">Contributions</div>
-      <ol class="contrib-list">
-        <li>ARMARecon: first GNN to simultaneously address over-smoothing and over-squashing in sparse-label neuroimaging graphs, via ARMA spectral filtering combined with an MSE reconstruction regularisation loss.</li>
-        <li>ARMA convolutional filters produce rational polynomial approximations — strictly more expressive than standard polynomial (GCN) filters — capturing long-range cortical dependencies and spectral nuances without parameter explosion.</li>
-        <li>Reconstruction-driven regularisation using an MLP decoder forces the ARMA encoder to preserve discriminative local features that pure classification objectives discard, preventing information collapse across layers.</li>
-        <li>Cohort-level graph construction: the entire dataset is represented as a single connected graph, where each node encodes a subject's 20-bin FA histogram features from 9 clinically relevant white matter ROIs, and edges capture inter-subject neuroanatomical similarity.</li>
-        <li>Outperforms SVM, MLP, Random Forest, GCN, GAT, ChebNet, and AE-GCN baselines across 90-10, 70-30, and 50-50 train-test splits with 20-fold cross-validation on ADNI and NIFD datasets.</li>
-      </ol>
-    </div>
-
+    <!-- FRAMEWORK -->
     <div class="section">
       <div class="section-label">Framework</div>
       <div class="framework-fig">
         <img src="../img/Publications/ISBI/isbi26-architecture.drawio.png" alt="ARMARecon Architecture">
       </div>
-      <div class="hero-caption">
-        <strong>Pipeline:</strong> DWI images → Tensor Fitting → Fractional Anisotropy (FA) maps → JHU Atlas Registration → ROI Parcellation &amp; Feature Extraction (20-bin FA histograms from 9 white matter ROIs per subject) → Transductive Graph Construction across the full cohort (Â = D<sup>−½</sup>ÂD<sup>−½</sup>) → ARMA Graph Convolution + ReLU → Add skip connection → MLP Decoder (reconstruction branch) + Fully connected (classification branch) → Joint loss: L<sub>total</sub> = L<sub>CE</sub>(Ŷ, Y) + λ · L<sub>recon</sub>(X̂, X).
-      </div>
+      <p class="result-cap">
+        <strong style="color:rgba(255,255,255,0.5)">Pipeline:</strong> DWI → Tensor Fitting → FA maps → JHU Atlas Registration → ROI Parcellation (20-bin FA histograms from 9 white matter ROIs per subject) → Transductive Graph Construction (Â = D<sup>−½</sup>ÂD<sup>−½</sup>) → ARMA Graph Convolution + ReLU + skip connection → MLP Decoder (reconstruction branch) + FC (classification branch) → Joint loss: L<sub>CE</sub>(Ŷ, Y) + λ · L<sub>MSE</sub>(X̂, X).
+      </p>
     </div>
 
+    <!-- CONTRIBUTIONS -->
     <div class="section">
-      <div class="section-label">Key Results</div>
-      <div class="result-stats">
-        <div class="stat-item">
-          <div class="stat-value">98.3%</div>
-          <div class="stat-label">CN vs. MCI accuracy</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">99.7%</div>
-          <div class="stat-label">CN vs. AD accuracy</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">>3%</div>
-          <div class="stat-label">above GCN/GAT baselines</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">1.0</div>
-          <div class="stat-label">AUC on CN vs. AD</div>
-        </div>
-      </div>
+      <div class="section-label">Contributions</div>
+      <ol class="contrib-list">
+        <li>First GNN to simultaneously address over-smoothing and over-squashing in sparse-label neuroimaging graphs — ARMA spectral filtering prevents feature collapse while reconstruction regularisation preserves discriminative local structure.</li>
+        <li>ARMA convolutional filters produce rational polynomial approximations of the graph spectrum — strictly more expressive than standard polynomial GCN filters — capturing long-range cortical dependencies without parameter explosion.</li>
+        <li>Reconstruction-driven regularisation: an MLP decoder forces the ARMA encoder to preserve local features that pure classification objectives discard, preventing information collapse across deeper layers.</li>
+        <li>Cohort-level transductive graph: the full dataset forms one connected graph with nodes encoding 20-bin FA histograms from 9 clinically relevant white matter ROIs and edges capturing inter-subject neuroanatomical similarity.</li>
+        <li>Outperforms SVM, MLP, Random Forest, GCN, GAT, ChebNet, and AE-GCN across 90-10, 70-30, and 50-50 splits with 20-fold cross-validation on ADNI and NIFD datasets.</li>
+      </ol>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="section">
+      <div class="section-label">Results</div>
       <div class="abstract-text">
-        Extensive experiments on ADNI (133 CN, 167 MCI, 88 AD — Siemens scanners) and NIFD (98 FTD, 48 healthy controls) datasets with 20-fold cross-validation across three train-test splits demonstrate consistent outperformance over all baselines. ARMARecon's joint classification and reconstruction objective produces feature representations that are both discriminative and structurally faithful to the underlying neuroanatomy, enabling robust generalisation in low-label regimes.
+        Evaluated on ADNI (133 CN, 167 MCI, 88 AD — Siemens scanners) and NIFD (98 FTD, 48 healthy controls) with 20-fold cross-validation across three train-test splits. ARMARecon achieves <strong style="color:rgba(255,255,255,0.85)">98.3% accuracy</strong> for CN vs. MCI and <strong style="color:rgba(255,255,255,0.85)">99.7% accuracy</strong> for CN vs. AD (AUC = 1.0) — more than 3% above all GCN, GAT, and ChebNet baselines. The joint classification and reconstruction objective yields representations that are both discriminative and structurally faithful to the underlying neuroanatomy, enabling robust generalisation in low-label regimes.
       </div>
     </div>
 
+    <!-- BIBTEX -->
     <div class="section">
       <div class="section-label">BibTeX</div>
       <div class="bibtex-block">@inproceedings{abburi2026isbi,
@@ -139,16 +122,17 @@
 
   </div>
 
+  <!-- SIDEBAR -->
   <div class="paper-sidebar">
     <div class="sidebar-label">Quick Links</div>
     <div class="quick-links">
-      <a class="qlink disabled">
+      <a href="https://arxiv.org/pdf/2601.12067" class="qlink primary" target="_blank">
         <i class="fas fa-file-pdf"></i> PDF
       </a>
       <a href="../img/Publications/ISBI/isbi26-poster.pdf" class="qlink" target="_blank">
         <i class="fas fa-image"></i> Poster
       </a>
-      <a class="qlink disabled">
+      <a href="https://github.com/reachananya/Early-diagnosis-of-Alzheimer-via-DL" class="qlink" target="_blank">
         <i class="fab fa-github"></i> Code
       </a>
       <button class="qlink" onclick="document.querySelector('.bibtex-block').scrollIntoView({behavior:'smooth'})">
@@ -158,10 +142,10 @@
     <div class="sidebar-divider"></div>
     <div class="sidebar-meta">
       <span class="meta-head">Details</span>
-      <span>Conference [C.2]</span>
-      <span>ISBI 2026</span>
-      <span>London, UK</span>
-      <span>April 2026</span>
+      <a href="https://biomedicalimaging.org/2026/" target="_blank" style="color:rgba(255,255,255,0.55);text-decoration:none;display:block;line-height:1.7;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+        International Symposium on Biomedical Imaging 2026<br>
+        <span style="color:rgba(255,255,255,0.35);font-size:9px">London, UK · April 2026</span>
+      </a>
     </div>
   </div>
 </div>
