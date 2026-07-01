@@ -82,7 +82,7 @@
         <img src="../img/Publications/ACML/acml23_architecture.png" alt="Swin-Transformer Architecture — Sparse DTI Estimation">
       </div>
       <p class="result-cap">
-        <strong style="color:rgba(255,255,255,0.5)">Pipeline:</strong> b=0 + sparse b=1000 DWI (5 or 21 directions) → Patch Partition (16×8) → 5 Swin Transformer Blocks with varied window/shift sizes → 6 parallel Dense Layers, each predicting one diffusion tensor component (D<sub>xx</sub>, D<sub>xy</sub>, D<sub>yy</sub>, D<sub>xz</sub>, D<sub>yz</sub>, D<sub>zz</sub>) → FA, AxD, MD maps. Each block uses shifted window multi-head self-attention (SW-MSA) + LayerNorm + MLP.
+        <strong style="color:var(--text-muted)">Pipeline:</strong> b=0 + sparse b=1000 DWI (5 or 21 directions) → Patch Partition (16×8) → 5 Swin Transformer Blocks with varied window/shift sizes → 6 parallel Dense Layers, each predicting one diffusion tensor component (D<sub>xx</sub>, D<sub>xy</sub>, D<sub>yy</sub>, D<sub>xz</sub>, D<sub>yz</sub>, D<sub>zz</sub>) → FA, AxD, MD maps. Each block uses shifted window multi-head self-attention (SW-MSA) + LayerNorm + MLP.
       </p>
     </div>
 
@@ -105,7 +105,7 @@
         <img src="../img/Publications/ACML/acml23_results_41dir.png" alt="41-direction comparison: Ground Truth vs Proposed vs LLS">
       </div>
       <p class="result-cap">
-        <strong style="color:rgba(255,255,255,0.5)">41 directions (full protocol):</strong> Proposed method (b) matches ground truth (a) and is comparable to full LLS fitting (c) — validating the model before testing sparse regimes.
+        <strong style="color:var(--text-muted)">41 directions (full protocol):</strong> Proposed method (b) matches ground truth (a) and is comparable to full LLS fitting (c) — validating the model before testing sparse regimes.
       </p>
 
       <div class="result-row">
@@ -113,13 +113,13 @@
           <div class="result-fig">
             <img src="../img/Publications/ACML/acml23_results_21dir.png" alt="21-direction comparison">
           </div>
-          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">21 directions:</strong> Proposed outperforms LLS fitting and Transformer-DTI. FA structure well-preserved with half the directions.</p>
+          <p class="result-cap"><strong style="color:var(--text-muted)">21 directions:</strong> Proposed outperforms LLS fitting and Transformer-DTI. FA structure well-preserved with half the directions.</p>
         </div>
         <div>
           <div class="result-fig">
             <img src="../img/Publications/ACML/acml23_results_5dir.png" alt="5-direction comparison">
           </div>
-          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">5 directions:</strong> Proposed surpasses both LLS and Transformer-DTI. LLS produces severe artefacts at this regime; our model recovers clean FA/AxD/MD maps.</p>
+          <p class="result-cap"><strong style="color:var(--text-muted)">5 directions:</strong> Proposed surpasses both LLS and Transformer-DTI. LLS produces severe artefacts at this regime; our model recovers clean FA/AxD/MD maps.</p>
         </div>
       </div>
     </div>
@@ -135,13 +135,13 @@
           <div class="result-fig">
             <img src="../img/Publications/ACML/acml23_tbss_cingulum.png" alt="Cingulum TBSS">
           </div>
-          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">Cingulum:</strong> Axial slice showing significant FA reductions (CN &gt; MCI in red, CN &lt; MCI in green). Proposed recovers cingulum pattern from sparse data.</p>
+          <p class="result-cap"><strong style="color:var(--text-muted)">Cingulum:</strong> Axial slice showing significant FA reductions (CN &gt; MCI in red, CN &lt; MCI in green). Proposed recovers cingulum pattern from sparse data.</p>
         </div>
         <div>
           <div class="result-fig">
             <img src="../img/Publications/ACML/acml23_tbss_fasciculus.png" alt="Uncinate Fasciculus TBSS">
           </div>
-          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">Uncinate Fasciculus:</strong> Coronal slice revealing temporal lobe white matter degradation linked to early AD memory impairment.</p>
+          <p class="result-cap"><strong style="color:var(--text-muted)">Uncinate Fasciculus:</strong> Coronal slice revealing temporal lobe white matter degradation linked to early AD memory impairment.</p>
         </div>
       </div>
     </div>
@@ -182,13 +182,17 @@
     <div class="sidebar-divider"></div>
     <div class="sidebar-meta">
       <span class="meta-head">Details</span>
-      <a href="https://www.acml-conf.org/2023/" target="_blank" style="color:rgba(255,255,255,0.55);text-decoration:none;display:block;line-height:1.7;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <a href="https://www.acml-conf.org/2023/" target="_blank" style="color:var(--text-faint);text-decoration:none;display:block;line-height:1.7;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-faint)'">
         Asian Conference on Machine Learning 2023<br>
-        <span style="color:rgba(255,255,255,0.35);font-size:9px">İstanbul, Turkey · November 2023</span>
+        <span style="color:var(--text-xfaint);font-size:9px">İstanbul, Turkey · November 2023</span>
       </a>
     </div>
   </div>
 </div>
+
+<footer class="site-footer">
+  <p>Built and designed by Ananya Singhal. All rights reserved. &copy;</p>
+</footer>
 
 </body>
 </html>

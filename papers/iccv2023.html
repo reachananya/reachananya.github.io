@@ -84,7 +84,7 @@
         <img src="../img/Publications/ICCV/iccv23-architecture.png" alt="Swin-Transformer Framework — Sparse dMRI for FTD Diagnosis">
       </div>
       <p class="result-cap">
-        <strong style="color:rgba(255,255,255,0.5)">Pipeline:</strong> b=0 + sparse b=1000 DWI (5 or 21 directions) → Patch Partition (16×8 input) → 5 Swin Transformer Blocks with varied window/shift sizes → 6 parallel Dense Layers predicting diffusion tensor components (D<sub>xx</sub>, D<sub>xy</sub>, D<sub>yy</sub>, D<sub>xz</sub>, D<sub>yz</sub>, D<sub>zz</sub>) → FA, AxD, MD maps → TBSS analysis on NIFD white matter skeleton → FTD vs. healthy classification.
+        <strong style="color:var(--text-muted)">Pipeline:</strong> b=0 + sparse b=1000 DWI (5 or 21 directions) → Patch Partition (16×8 input) → 5 Swin Transformer Blocks with varied window/shift sizes → 6 parallel Dense Layers predicting diffusion tensor components (D<sub>xx</sub>, D<sub>xy</sub>, D<sub>yy</sub>, D<sub>xz</sub>, D<sub>yz</sub>, D<sub>zz</sub>) → FA, AxD, MD maps → TBSS analysis on NIFD white matter skeleton → FTD vs. healthy classification.
       </p>
     </div>
 
@@ -107,7 +107,7 @@
         <img src="../img/Publications/ICCV/iccv23_results_41dir.png" alt="41-direction comparison: Ground Truth vs Proposed vs LLS">
       </div>
       <p class="result-cap">
-        <strong style="color:rgba(255,255,255,0.5)">41 directions (full protocol):</strong> Proposed method matches ground truth FA, AxD, and MD maps and is comparable to full LLS fitting — validating reconstruction quality before testing sparse regimes.
+        <strong style="color:var(--text-muted)">41 directions (full protocol):</strong> Proposed method matches ground truth FA, AxD, and MD maps and is comparable to full LLS fitting — validating reconstruction quality before testing sparse regimes.
       </p>
 
       <div class="result-row">
@@ -115,13 +115,13 @@
           <div class="result-fig">
             <img src="../img/Publications/ICCV/iccv23_results_21dir.png" alt="21-direction comparison">
           </div>
-          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">21 directions:</strong> Proposed method outperforms LLS and Transformer-DTI. FA structure well-preserved at half the standard directions.</p>
+          <p class="result-cap"><strong style="color:var(--text-muted)">21 directions:</strong> Proposed method outperforms LLS and Transformer-DTI. FA structure well-preserved at half the standard directions.</p>
         </div>
         <div>
           <div class="result-fig">
             <img src="../img/Publications/ICCV/iccv23_results_5dir.png" alt="5-direction comparison">
           </div>
-          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">5 directions:</strong> Proposed surpasses both baselines. LLS produces severe artefacts; our model recovers clean diffusion maps.</p>
+          <p class="result-cap"><strong style="color:var(--text-muted)">5 directions:</strong> Proposed surpasses both baselines. LLS produces severe artefacts; our model recovers clean diffusion maps.</p>
         </div>
       </div>
     </div>
@@ -137,13 +137,13 @@
           <div class="result-fig">
             <img src="../img/Publications/ICCV/iccv23_error_5dir.png" alt="Error boxplots — 5 directions">
           </div>
-          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">5 directions:</strong> Per-component error distributions. Proposed shows tightest spread across all 6 tensor components; LLS error variance is markedly higher.</p>
+          <p class="result-cap"><strong style="color:var(--text-muted)">5 directions:</strong> Per-component error distributions. Proposed shows tightest spread across all 6 tensor components; LLS error variance is markedly higher.</p>
         </div>
         <div>
           <div class="result-fig">
             <img src="../img/Publications/ICCV/iccv23_error_21dir.png" alt="Error boxplots — 21 directions">
           </div>
-          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">21 directions:</strong> All methods converge closer to ground truth, but Proposed retains a measurable accuracy advantage over both LLS and Transformer-DTI.</p>
+          <p class="result-cap"><strong style="color:var(--text-muted)">21 directions:</strong> All methods converge closer to ground truth, but Proposed retains a measurable accuracy advantage over both LLS and Transformer-DTI.</p>
         </div>
       </div>
     </div>
@@ -159,13 +159,13 @@
           <div class="result-fig">
             <img src="../img/Publications/ICCV/iccv23_tbss_cingulum.png" alt="Cingulum TBSS — axial slice">
           </div>
-          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">Cingulum (axial):</strong> Rows show 21-direction and 5-direction reconstructions. FA reductions in the cingulum bundle are preserved from sparse data — a key FTD biomarker tract.</p>
+          <p class="result-cap"><strong style="color:var(--text-muted)">Cingulum (axial):</strong> Rows show 21-direction and 5-direction reconstructions. FA reductions in the cingulum bundle are preserved from sparse data — a key FTD biomarker tract.</p>
         </div>
         <div>
           <div class="result-fig">
             <img src="../img/Publications/ICCV/iccv23_tbss_fasciculus.png" alt="Uncinate Fasciculus TBSS — coronal slice">
           </div>
-          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">Uncinate Fasciculus (coronal):</strong> Temporal lobe white matter degradation linked to frontal-temporal disconnection in FTD. Proposed recovers the spatial signature from sparse acquisitions.</p>
+          <p class="result-cap"><strong style="color:var(--text-muted)">Uncinate Fasciculus (coronal):</strong> Temporal lobe white matter degradation linked to frontal-temporal disconnection in FTD. Proposed recovers the spatial signature from sparse acquisitions.</p>
         </div>
       </div>
     </div>
@@ -206,13 +206,17 @@
     <div class="sidebar-divider"></div>
     <div class="sidebar-meta">
       <span class="meta-head">Details</span>
-      <a href="https://www.bioimagecomputing.com/bioimage-computing-iccv-2023/" target="_blank" style="color:rgba(255,255,255,0.55);text-decoration:none;display:block;line-height:1.7;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <a href="https://www.bioimagecomputing.com/bioimage-computing-iccv-2023/" target="_blank" style="color:var(--text-faint);text-decoration:none;display:block;line-height:1.7;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-faint)'">
         BioImage Computing Workshop, ICCV 2023<br>
-        <span style="color:rgba(255,255,255,0.35);font-size:9px">Paris, France · October 2023 · DEI Scholar</span>
+        <span style="color:var(--text-xfaint);font-size:9px">Paris, France · October 2023 · DEI Scholar</span>
       </a>
     </div>
   </div>
 </div>
+
+<footer class="site-footer">
+  <p>Built and designed by Ananya Singhal. All rights reserved. &copy;</p>
+</footer>
 
 </body>
 </html>

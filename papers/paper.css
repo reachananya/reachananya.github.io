@@ -309,6 +309,8 @@ body {
 }
 [data-theme="light"] .sidebar-meta { color:var(--text-faint); }
 [data-theme="light"] .sidebar-meta .meta-head { color:var(--text-faint); }
+[data-theme="light"] .fig-item { border-color:rgba(0,0,0,0.1); }
+[data-theme="light"] .framework-placeholder .fig-venue { color:rgba(20,120,60,0.5); }
 
 /* ── MOBILE ── */
 @media (max-width:768px) {

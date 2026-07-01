@@ -74,3 +74,15 @@
 body {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
+
+/* ── SITE FOOTER ── */
+.site-footer {
+  text-align: center;
+  padding: 24px 0 40px;
+  color: var(--text-xfaint);
+  font-size: 11px;
+  border-top: 1px solid var(--border);
+  margin-top: 0;
+  letter-spacing: 0.5px;
+}
+[data-theme="light"] .site-footer { border-top-color: rgba(0,0,0,0.08); }

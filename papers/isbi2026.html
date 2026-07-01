@@ -69,8 +69,8 @@
       <div class="section-label">Motivation</div>
       <ul class="motiv-list">
         <li>Graph Neural Networks offer a natural model for neuroimaging cohorts — subjects as nodes, neuroanatomical similarity as edges — but standard GNNs fail in clinically realistic small-cohort, sparse-label settings.</li>
-        <li><strong style="color:rgba(255,255,255,0.7)">Over-smoothing:</strong> repeated convolutions collapse all node representations toward the same embedding, destroying the subtle inter-subject FA differences that carry diagnostic signal.</li>
-        <li><strong style="color:rgba(255,255,255,0.7)">Over-squashing:</strong> information from distant nodes gets exponentially compressed through graph bottlenecks, preventing capture of long-range cortical dependencies essential for distinguishing dementia subtypes.</li>
+        <li><strong style="color:var(--text)">Over-smoothing:</strong> repeated convolutions collapse all node representations toward the same embedding, destroying the subtle inter-subject FA differences that carry diagnostic signal.</li>
+        <li><strong style="color:var(--text)">Over-squashing:</strong> information from distant nodes gets exponentially compressed through graph bottlenecks, preventing capture of long-range cortical dependencies essential for distinguishing dementia subtypes.</li>
         <li>No prior method had jointly addressed both pathologies in sparse-label neuroimaging graphs. ARMARecon resolves both with a single unified objective.</li>
       </ul>
     </div>
@@ -82,7 +82,7 @@
         <img src="../img/Publications/ISBI/isbi26-architecture.drawio.png" alt="ARMARecon Architecture">
       </div>
       <p class="result-cap">
-        <strong style="color:rgba(255,255,255,0.5)">Pipeline:</strong> DWI → Tensor Fitting → FA maps → JHU Atlas Registration → ROI Parcellation (20-bin FA histograms from 9 white matter ROIs per subject) → Transductive Graph Construction (Â = D<sup>−½</sup>ÂD<sup>−½</sup>) → ARMA Graph Convolution + ReLU + skip connection → MLP Decoder (reconstruction branch) + FC (classification branch) → Joint loss: L<sub>CE</sub>(Ŷ, Y) + λ · L<sub>MSE</sub>(X̂, X).
+        <strong style="color:var(--text-muted)">Pipeline:</strong> DWI → Tensor Fitting → FA maps → JHU Atlas Registration → ROI Parcellation (20-bin FA histograms from 9 white matter ROIs per subject) → Transductive Graph Construction (Â = D<sup>−½</sup>ÂD<sup>−½</sup>) → ARMA Graph Convolution + ReLU + skip connection → MLP Decoder (reconstruction branch) + FC (classification branch) → Joint loss: L<sub>CE</sub>(Ŷ, Y) + λ · L<sub>MSE</sub>(X̂, X).
       </p>
     </div>
 
@@ -102,7 +102,7 @@
     <div class="section">
       <div class="section-label">Results</div>
       <div class="abstract-text">
-        Evaluated on ADNI (133 CN, 167 MCI, 88 AD — Siemens scanners) and NIFD (98 FTD, 48 healthy controls) with 20-fold cross-validation across three train-test splits. ARMARecon achieves <strong style="color:rgba(255,255,255,0.85)">98.3% accuracy</strong> for CN vs. MCI and <strong style="color:rgba(255,255,255,0.85)">99.7% accuracy</strong> for CN vs. AD (AUC = 1.0) — more than 3% above all GCN, GAT, and ChebNet baselines. The joint classification and reconstruction objective yields representations that are both discriminative and structurally faithful to the underlying neuroanatomy, enabling robust generalisation in low-label regimes.
+        Evaluated on ADNI (133 CN, 167 MCI, 88 AD — Siemens scanners) and NIFD (98 FTD, 48 healthy controls) with 20-fold cross-validation across three train-test splits. ARMARecon achieves <strong style="color:var(--text-bright)">98.3% accuracy</strong> for CN vs. MCI and <strong style="color:var(--text-bright)">99.7% accuracy</strong> for CN vs. AD (AUC = 1.0) — more than 3% above all GCN, GAT, and ChebNet baselines. The joint classification and reconstruction objective yields representations that are both discriminative and structurally faithful to the underlying neuroanatomy, enabling robust generalisation in low-label regimes.
       </div>
     </div>
 
@@ -142,13 +142,17 @@
     <div class="sidebar-divider"></div>
     <div class="sidebar-meta">
       <span class="meta-head">Details</span>
-      <a href="https://biomedicalimaging.org/2026/" target="_blank" style="color:rgba(255,255,255,0.55);text-decoration:none;display:block;line-height:1.7;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <a href="https://biomedicalimaging.org/2026/" target="_blank" style="color:var(--text-faint);text-decoration:none;display:block;line-height:1.7;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-faint)'">
         International Symposium on Biomedical Imaging 2026<br>
-        <span style="color:rgba(255,255,255,0.35);font-size:9px">London, UK · April 2026</span>
+        <span style="color:var(--text-xfaint);font-size:9px">London, UK · April 2026</span>
       </a>
     </div>
   </div>
 </div>
+
+<footer class="site-footer">
+  <p>Built and designed by Ananya Singhal. All rights reserved. &copy;</p>
+</footer>
 
 </body>
 </html>

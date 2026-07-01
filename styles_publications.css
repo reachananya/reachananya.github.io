@@ -222,3 +222,13 @@ body {
   .pub-figure img { max-height:180px; }
   .pub-title { font-size:14px; }
 }
+
+/* ── LIGHT THEME OVERRIDES ── */
+[data-theme="light"] .pub-card { border-bottom-color:var(--border); }
+[data-theme="light"] .venue-chip { border-color:rgba(20,120,60,0.4); }
+[data-theme="light"] .award-chip { background:rgba(20,120,60,0.08); border-color:rgba(20,120,60,0.25); }
+[data-theme="light"] .pub-figure-placeholder .fig-venue { color:rgba(20,120,60,0.5); }
+[data-theme="light"] .pub-authors .me { text-decoration-color:rgba(20,120,60,0.6); }
+[data-theme="light"] .pub-btn { border-color:rgba(0,0,0,0.15); color:rgba(0,0,0,0.55); }
+[data-theme="light"] .pub-btn:hover { background:rgba(20,120,60,0.06); }
+[data-theme="light"] .pub-btn.primary { border-color:rgba(20,120,60,0.45); }

@@ -38,7 +38,7 @@
     if (pageTitle) {
       var raw = pageTitle.textContent.trim();
       var text = '/' + raw;
-      typeInto(pageTitle, text, 55);
+      typeInto(pageTitle, text, 28);
     }
 
 });

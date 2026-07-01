@@ -83,7 +83,7 @@
         <img src="../img/Publications/EMBC/embc-architecture.png" alt="ak-MPPCA Pipeline — Structure-aware Adaptive Kernel MPPCA">
       </div>
       <p class="result-cap">
-        <strong style="color:rgba(255,255,255,0.5)">Pipeline:</strong> High b-value DWI stack → trace image at lowest b ≥ 100 → Sobel gradient magnitude with Gaussian smoothing (σ=4) → k-means clustering of voxel-wise gradient values into K bins → monotonic kernel assignment (high gradient → small kernel k<sub>l</sub>=5, low gradient → large kernel k<sub>u</sub>=9) → per-voxel odd-integer kernel size map → spatially-adaptive MPPCA denoising applied per-voxel → denoised DWI + colour FA maps.
+        <strong style="color:var(--text-muted)">Pipeline:</strong> High b-value DWI stack → trace image at lowest b ≥ 100 → Sobel gradient magnitude with Gaussian smoothing (σ=4) → k-means clustering of voxel-wise gradient values into K bins → monotonic kernel assignment (high gradient → small kernel k<sub>l</sub>=5, low gradient → large kernel k<sub>u</sub>=9) → per-voxel odd-integer kernel size map → spatially-adaptive MPPCA denoising applied per-voxel → denoised DWI + colour FA maps.
       </p>
     </div>
 
@@ -109,21 +109,21 @@
         <img src="../img/Publications/EMBC/embc2026_fig1_mgh1010.png" alt="MGH-1010 denoising comparison — b=10000">
       </div>
       <p class="result-cap">
-        <strong style="color:rgba(255,255,255,0.5)">MGH-1010 (b=10000 s/mm²):</strong> (a) noisy DWI · (b) ak-MPPCA proposed · (c) adaptive patching · (d–f) DIPY-MPPCA at 5/7/9 · (g–i) NYU-MPPCA at 5/7/9 · (j) trace image · (k) voxel-wise kernel map. Yellow arrows show structural detail preserved by proposed method.
+        <strong style="color:var(--text-muted)">MGH-1010 (b=10000 s/mm²):</strong> (a) noisy DWI · (b) ak-MPPCA proposed · (c) adaptive patching · (d–f) DIPY-MPPCA at 5/7/9 · (g–i) NYU-MPPCA at 5/7/9 · (j) trace image · (k) voxel-wise kernel map. Yellow arrows show structural detail preserved by proposed method.
       </p>
 
       <div class="result-fig">
         <img src="../img/Publications/EMBC/embc2026_fig1_mgh1006.png" alt="MGH-1006 denoising comparison — b=10000">
       </div>
       <p class="result-cap">
-        <strong style="color:rgba(255,255,255,0.5)">MGH-1006 (b=10000 s/mm²):</strong> Highlighted regions (yellow boxes) show where ak-MPPCA suppresses noise without blurring the boundary structure that fixed-size methods lose at kernel size 9.
+        <strong style="color:var(--text-muted)">MGH-1006 (b=10000 s/mm²):</strong> Highlighted regions (yellow boxes) show where ak-MPPCA suppresses noise without blurring the boundary structure that fixed-size methods lose at kernel size 9.
       </p>
 
       <div class="result-fig">
         <img src="../img/Publications/EMBC/embc2026_fig1_mgh1005.png" alt="MGH-1005 denoising comparison — b=5000">
       </div>
       <p class="result-cap">
-        <strong style="color:rgba(255,255,255,0.5)">MGH-1005 (b=5000 s/mm²):</strong> At lower b-value, ak-MPPCA maintains cleaner DWI than all baselines while the adaptive kernel map correctly identifies cortical boundary regions for conservative denoising.
+        <strong style="color:var(--text-muted)">MGH-1005 (b=5000 s/mm²):</strong> At lower b-value, ak-MPPCA maintains cleaner DWI than all baselines while the adaptive kernel map correctly identifies cortical boundary regions for conservative denoising.
       </p>
     </div>
 
@@ -139,20 +139,20 @@
           <div class="result-fig">
             <img src="../img/Publications/EMBC/embc2026_fig2_slice41.png" alt="Colour FA — slice 41">
           </div>
-          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">Slice 41:</strong> Noisy (top) vs. ak-MPPCA denoised (bottom). Directional coherence restored in crossing-fibre regions.</p>
+          <p class="result-cap"><strong style="color:var(--text-muted)">Slice 41:</strong> Noisy (top) vs. ak-MPPCA denoised (bottom). Directional coherence restored in crossing-fibre regions.</p>
         </div>
         <div>
           <div class="result-fig">
             <img src="../img/Publications/EMBC/embc2026_fig2_slice45.png" alt="Colour FA — slice 45">
           </div>
-          <p class="result-cap"><strong style="color:rgba(255,255,255,0.5)">Slice 45:</strong> Yellow arrows mark regions where ak-MPPCA recovers clean diffusion orientation from heavily noisy DWI.</p>
+          <p class="result-cap"><strong style="color:var(--text-muted)">Slice 45:</strong> Yellow arrows mark regions where ak-MPPCA recovers clean diffusion orientation from heavily noisy DWI.</p>
         </div>
       </div>
 
       <div class="result-fig" style="max-width:50%;margin:0 auto;">
         <img src="../img/Publications/EMBC/embc2026_fig2_slice48.png" alt="Colour FA — slice 48">
       </div>
-      <p class="result-cap" style="text-align:center"><strong style="color:rgba(255,255,255,0.5)">Slice 48:</strong> Deep white matter tracts show strong directional recovery after ak-MPPCA denoising.</p>
+      <p class="result-cap" style="text-align:center"><strong style="color:var(--text-muted)">Slice 48:</strong> Deep white matter tracts show strong directional recovery after ak-MPPCA denoising.</p>
     </div>
 
     <!-- BIBTEX -->
@@ -191,13 +191,17 @@
     <div class="sidebar-divider"></div>
     <div class="sidebar-meta">
       <span class="meta-head">Details</span>
-      <a href="https://embc.embs.org/2026/" target="_blank" style="color:rgba(255,255,255,0.55);text-decoration:none;display:block;line-height:1.7;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <a href="https://embc.embs.org/2026/" target="_blank" style="color:var(--text-faint);text-decoration:none;display:block;line-height:1.7;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-faint)'">
         Engineering in Medicine and Biology Society 2026<br>
-        <span style="color:rgba(255,255,255,0.35);font-size:9px">Toronto, Canada · 2026 · GE HealthCare Invention Disclosure</span>
+        <span style="color:var(--text-xfaint);font-size:9px">Toronto, Canada · 2026 · GE HealthCare Invention Disclosure</span>
       </a>
     </div>
   </div>
 </div>
+
+<footer class="site-footer">
+  <p>Built and designed by Ananya Singhal. All rights reserved. &copy;</p>
+</footer>
 
 </body>
 </html>

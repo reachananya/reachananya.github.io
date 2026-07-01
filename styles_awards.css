@@ -222,3 +222,13 @@ body {
   .award-row { grid-template-columns:44px 1fr; gap:12px; }
   .award-row-right { grid-column:2; flex-direction:row; justify-content:flex-start; }
 }
+
+/* ── LIGHT THEME OVERRIDES ── */
+[data-theme="light"] .toggle-btn { border-color:rgba(0,0,0,0.12); }
+[data-theme="light"] .toggle-btn:hover { border-color:rgba(0,0,0,0.2); }
+[data-theme="light"] .toggle-btn:hover:not(.active) { color:rgba(0,0,0,0.6); }
+[data-theme="light"] .year-chip { border-color:rgba(20,120,60,0.4); }
+[data-theme="light"] .award-row { border-color:rgba(0,0,0,0.07); }
+[data-theme="light"] .award-group-label { border-bottom-color:rgba(0,0,0,0.08); }
+[data-theme="light"] .award-group-row { border-bottom-color:rgba(0,0,0,0.06); }
+[data-theme="light"] .footer { border-top-color:rgba(0,0,0,0.08); }

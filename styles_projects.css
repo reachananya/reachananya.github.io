@@ -166,3 +166,11 @@ body {
   .project-num { font-size:32px; }
   .project-title { font-size:16px; }
 }
+
+/* ── LIGHT THEME OVERRIDES ── */
+[data-theme="light"] .project-item { border-bottom-color:rgba(0,0,0,0.08); }
+[data-theme="light"] .project-tag { background:rgba(0,0,0,0.05); border-color:rgba(0,0,0,0.12); color:rgba(0,0,0,0.55); }
+[data-theme="light"] .project-link { border-color:rgba(0,0,0,0.15); color:rgba(0,0,0,0.55); }
+[data-theme="light"] .project-video-wrap { border-color:rgba(0,0,0,0.1); }
+[data-theme="light"] .video-overlay-btn { border-color:rgba(0,0,0,0.2); }
+[data-theme="light"] .footer { border-top-color:rgba(0,0,0,0.08); }

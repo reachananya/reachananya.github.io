@@ -286,3 +286,8 @@ body {
     height: auto;
   }
 }
+
+/* ── LIGHT THEME OVERRIDES ── */
+[data-theme="light"] .social-icon { background:rgba(0,0,0,0.06); border-color:rgba(20,120,60,0.3); color:var(--text-muted); }
+[data-theme="light"] .edu-box { background:rgba(20,120,60,0.07); }
+[data-theme="light"] .badge { background:rgba(20,120,60,0.12); }
