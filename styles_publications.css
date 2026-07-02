@@ -215,6 +215,12 @@ body {
 
 .bibtex-inline.open { display:block; }
 
+/* ── TABLET ── */
+@media (max-width:1024px) and (min-width:769px) {
+  .publications-container { padding:32px 32px 60px; }
+  .pub-title { font-size:15px; }
+}
+
 /* ── MOBILE ── */
 @media (max-width:768px) {
   .publications-container { padding:24px 20px 60px; }

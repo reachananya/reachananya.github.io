@@ -130,3 +130,15 @@
 @media (max-width: 768px) {
   .page-header-thin { height: 56px; }
 }
+
+/* ── TABLET (769px–1024px) ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .top-nav { padding: 16px 32px; }
+  .top-nav-links { gap: 20px; }
+  .top-nav-links a { font-size: 10px; letter-spacing: 1px; }
+}
+
+/* ── HAMBURGER BREAKPOINT: hide text links, keep theme toggle ── */
+@media (max-width: 992px) {
+  .top-nav-links a { display: none; }
+}

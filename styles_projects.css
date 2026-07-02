@@ -155,6 +155,14 @@ body {
   border-top:1px solid rgba(255,255,255,0.05);
 }
 
+/* ── TABLET ── */
+@media (max-width:1024px) and (min-width:769px) {
+  .projects-container { padding:32px 32px 60px; }
+  .project-item { grid-template-columns:1fr 280px; gap:32px; }
+  .project-num { font-size:36px; }
+  .project-title { font-size:17px; }
+}
+
 /* ── MOBILE ── */
 @media (max-width:768px) {
   .projects-container { padding:28px 20px 60px; }

@@ -312,9 +312,18 @@ body {
 [data-theme="light"] .fig-item { border-color:rgba(0,0,0,0.1); }
 [data-theme="light"] .framework-placeholder .fig-venue { color:rgba(20,120,60,0.5); }
 
+/* ── TABLET ── */
+@media (max-width:1024px) and (min-width:769px) {
+  .nav { padding:14px 28px; flex-wrap:wrap; gap:8px; }
+  .paper-shell { padding:40px 28px 60px; gap:32px; }
+  .paper-shell { grid-template-columns:1fr 180px; }
+  .paper-title { font-size:28px; }
+  .paper-sidebar { top:80px; }
+}
+
 /* ── MOBILE ── */
 @media (max-width:768px) {
-  .nav { padding:12px 20px; }
+  .nav { padding:12px 20px; flex-wrap:wrap; gap:8px; }
   .paper-shell {
     grid-template-columns:1fr;
     gap:0; padding:32px 20px 60px;

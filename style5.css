@@ -121,6 +121,11 @@ body {
   .hero-text { white-space: normal; }
 }
 
+@media only screen and (max-width: 1024px) and (min-width: 901px) {
+  .hero-layout { gap: 24px; }
+  #portrait-canvas { width: 300px !important; height: 300px !important; }
+}
+
 @media only screen and (max-width: 900px) {
   .hero-layout { flex-direction: column; gap: 16px; }
   #portrait-canvas { width: 220px !important; height: 220px !important; }

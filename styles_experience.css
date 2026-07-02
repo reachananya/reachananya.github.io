@@ -180,6 +180,12 @@ body {
   letter-spacing: 0.5px;
 }
 
+/* ── TABLET ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .exp-list { min-width: 160px; width: 160px; }
+  .exp-tab-role, .exp-tab-date { font-size: 10px; }
+}
+
 /* ── MOBILE ── */
 @media (max-width: 768px) {
   body { overflow: auto; }

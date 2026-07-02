@@ -24,7 +24,7 @@ body {
 /* ── BIO COLUMN ── */
 .bio-col {
   width: 420px;
-  min-width: 340px;
+  min-width: 0;
   padding: 40px 36px;
   border-right: 1px solid var(--border);
   overflow-y: auto;
@@ -249,6 +249,12 @@ body {
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 6px;
+}
+
+/* ── TABLET ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .bio-col { width: 300px; padding: 28px 20px; }
+  .timeline-col { padding: 28px 20px; }
 }
 
 /* ── MOBILE ── */

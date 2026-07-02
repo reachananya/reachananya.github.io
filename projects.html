@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="styles_projects.css" />
     <link rel="stylesheet" href="nav.css" />
   <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="mobile-nav.css" />
   <script src="theme.js"></script>
   <script src="typewriter.js"></script>
 
@@ -27,6 +28,44 @@
   </head>
 
   <body>
+
+  <!-- Hamburger Menu -->
+  <div class="hamburger-menu" id="hamburger-menu">
+    <div class="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <!-- Mobile Sidebar -->
+  <div class="mobile-sidebar" id="mobile-sidebar">
+    <div class="sidebar-header"></div>
+    <div class="sidebar-content">
+      <a href="about.html" class="sidebar-item">
+        <span class="nav-number">00</span>
+        <span class="nav-text">About</span>
+      </a>
+      <a href="publications.html" class="sidebar-item">
+        <span class="nav-number">01</span>
+        <span class="nav-text">Publications</span>
+      </a>
+      <a href="experience.html" class="sidebar-item">
+        <span class="nav-number">02</span>
+        <span class="nav-text">Experience</span>
+      </a>
+      <a href="projects.html" class="sidebar-item">
+        <span class="nav-number">03</span>
+        <span class="nav-text">Projects</span>
+      </a>
+      <a href="awards.html" class="sidebar-item">
+        <span class="nav-number">04</span>
+        <span class="nav-text">Awards</span>
+      </a>
+    </div>
+    <div class="sidebar-footer"></div>
+  </div>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
     <nav class="top-nav">
       <a href="index.html" class="nav-back">ananya singhal</a>
       <div class="top-nav-links">
@@ -188,6 +227,20 @@
     <footer class="site-footer">
       <p>Built and designed by Ananya Singhal. All rights reserved. &copy;</p>
     </footer>
+
+  <script>
+  (function() {
+    var h = document.getElementById('hamburger-menu');
+    var icon = h && h.querySelector('.hamburger-icon');
+    var sb = document.getElementById('mobile-sidebar');
+    var ov = document.getElementById('sidebar-overlay');
+    function openNav() { if (!icon) return; icon.classList.add('hamburger-active'); sb.classList.add('active'); ov.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeNav() { if (!icon) return; icon.classList.remove('hamburger-active'); sb.classList.remove('active'); ov.classList.remove('active'); document.body.style.overflow = ''; }
+    if (h) h.addEventListener('click', openNav);
+    if (ov) ov.addEventListener('click', closeNav);
+    document.querySelectorAll('#mobile-sidebar .sidebar-item').forEach(function(i) { i.addEventListener('click', closeNav); });
+  })();
+  </script>
 
   </body>
 </html>
