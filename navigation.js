@@ -26,26 +26,29 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Start scrolling when page loads
-    startAutoScroll();
-    
-    // Pause when mouse enters
-    wrapper.addEventListener('mouseenter', function() {
-      clearInterval(autoScrollInterval);
-    });
-    
-    // Resume when mouse leaves (if not at bottom)
-    wrapper.addEventListener('mouseleave', function() {
-      if (!hasReachedBottom) {
-        startAutoScroll();
-      }
-    });
-    
-    // Stop auto-scroll if user manually scrolls
-    timeline.addEventListener('wheel', function() {
-      clearInterval(autoScrollInterval);
-      // Don't restart automatically after manual scroll
-    });
+    // Auto-scroll only applies on pages that have the updates timeline
+    if (timeline && wrapper) {
+      // Start scrolling when page loads
+      startAutoScroll();
+
+      // Pause when mouse enters
+      wrapper.addEventListener('mouseenter', function() {
+        clearInterval(autoScrollInterval);
+      });
+
+      // Resume when mouse leaves (if not at bottom)
+      wrapper.addEventListener('mouseleave', function() {
+        if (!hasReachedBottom) {
+          startAutoScroll();
+        }
+      });
+
+      // Stop auto-scroll if user manually scrolls
+      timeline.addEventListener('wheel', function() {
+        clearInterval(autoScrollInterval);
+        // Don't restart automatically after manual scroll
+      });
+    }
 
     // Function to check if small-title is wrapping and manage arrow visibility
     function checkTitleWrap() {
@@ -233,43 +236,4 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Debug logging on page load
-    window.addEventListener('load', function() {
-      console.log('Page fully loaded - navigation elements:');
-      console.log('- hamburgerMenu:', !!document.querySelector('.hamburger-menu'));
-      console.log('- hamburgerIcon:', !!document.querySelector('.hamburger-icon'));
-      console.log('- mobileSidebar:', !!document.querySelector('.mobile-sidebar'));
-      console.log('- sidebarClose:', !!document.querySelector('.sidebar-close'));
-      console.log('- sidebarOverlay:', !!document.querySelector('.sidebar-overlay'));
-    });
   });
-  
-  // Immediate initialization for mobile navigation
-  console.log('Immediate navigation check:');
-  console.log('- hamburgerMenu:', !!document.querySelector('.hamburger-menu'));
-  console.log('- hamburgerIcon:', !!document.querySelector('.hamburger-icon'));
-  console.log('- mobileSidebar:', !!document.querySelector('.mobile-sidebar'));
-  console.log('- sidebarClose:', !!document.querySelector('.sidebar-close'));
-  console.log('- sidebarOverlay:', !!document.querySelector('.sidebar-overlay'));
-  
-  // Add click handlers outside DOMContentLoaded if needed
-  const hamburgerMenuDirect = document.querySelector('.hamburger-menu');
-  if (hamburgerMenuDirect) {
-    console.log('Adding direct click handler to hamburger menu');
-    hamburgerMenuDirect.addEventListener('click', function() {
-      console.log('Direct hamburger click detected');
-      const hamburgerIcon = document.querySelector('.hamburger-icon');
-      const mobileSidebar = document.querySelector('.mobile-sidebar');
-      const sidebarOverlay = document.querySelector('.sidebar-overlay');
-      
-      if (hamburgerIcon) hamburgerIcon.classList.toggle('hamburger-active');
-      if (mobileSidebar) mobileSidebar.classList.toggle('active');
-      if (sidebarOverlay) sidebarOverlay.classList.toggle('active');
-      
-      if (mobileSidebar && mobileSidebar.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = '';
-      }
-    });
-  }

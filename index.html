@@ -88,8 +88,8 @@
   <body>
     <!-- Mobile Navigation (mimicking the structure from publications.html) -->
     <div class="mobile-nav-container">
-      <!-- Hamburger Menu Button on right side with inline onclick handler -->
-      <div class="hamburger-menu" onclick="toggleMobileNav(event)">
+      <!-- Hamburger Menu Button on right side -->
+      <div class="hamburger-menu">
         <div class="hamburger-icon">
           <span></span>
           <span></span>
@@ -267,66 +267,5 @@
     <script src="navigation.js"></script>
     <script src="canvas-handler.js"></script>
     <script src="portrait.js"></script>
-    
-    <!-- Index-specific mobile navigation fix -->
-    <script>
-      // Wait for DOM to be fully loaded
-      document.addEventListener('DOMContentLoaded', function() {
-        // Get the hamburger menu and related elements
-        const hamburger = document.querySelector('.hamburger-menu');
-        const hamburgerIcon = document.querySelector('.hamburger-icon');
-        const mobileSidebar = document.querySelector('.mobile-sidebar');
-        const sidebarOverlay = document.querySelector('.sidebar-overlay');
-        const sidebarClose = document.querySelector('.sidebar-close');
-        
-        // Explicitly add click event to hamburger for index page
-        if (hamburger) {
-          hamburger.addEventListener('click', function() {
-            console.log('Index page hamburger clicked');
-            hamburgerIcon.classList.toggle('hamburger-active');
-            mobileSidebar.classList.toggle('active');
-            sidebarOverlay.classList.toggle('active');
-            
-            if (mobileSidebar.classList.contains('active')) {
-              document.body.style.overflow = 'hidden';
-            } else {
-              document.body.style.overflow = '';
-            }
-          });
-        }
-        
-        // Explicitly add click event to close button
-        if (sidebarClose) {
-          sidebarClose.addEventListener('click', function() {
-            console.log('Index page sidebar close clicked');
-            hamburgerIcon.classList.remove('hamburger-active');
-            mobileSidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-          });
-        }
-        
-        // Explicitly add click event to overlay
-        if (sidebarOverlay) {
-          sidebarOverlay.addEventListener('click', function() {
-            console.log('Index page overlay clicked');
-            hamburgerIcon.classList.remove('hamburger-active');
-            mobileSidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-          });
-        }
-        
-        // Also handle click on sidebar items
-        document.querySelectorAll('.sidebar-item').forEach(item => {
-          item.addEventListener('click', function() {
-            hamburgerIcon.classList.remove('hamburger-active');
-            mobileSidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-          });
-        });
-      });
-    </script>
   </body>
 </html>

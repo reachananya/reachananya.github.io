@@ -184,6 +184,8 @@
   transition: all 0.25s ease;
   background-color: transparent;
   border-bottom: none;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
 }
 
 .sidebar-item:hover {
