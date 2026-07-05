@@ -328,6 +328,9 @@ body {
     grid-template-columns:1fr;
     gap:0; padding:32px 20px 60px;
   }
+  /* allow the single column to shrink to viewport width; without this the
+     white-space:pre bibtex block forces the whole page wider than the screen */
+  .paper-shell > * { min-width:0; }
   .paper-sidebar {
     position:static;
     margin-top:40px;

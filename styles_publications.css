@@ -160,10 +160,6 @@ body {
   color:var(--text-muted);
   line-height:1.75;
   margin-bottom:14px;
-  display:-webkit-box;
-  -webkit-line-clamp:3;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
 }
 
 /* ── ACTIONS ── */
@@ -225,8 +221,12 @@ body {
 @media (max-width:768px) {
   .publications-container { padding:24px 20px 60px; }
   .pub-body { grid-template-columns:1fr; gap:18px; }
-  .pub-figure img { max-height:180px; }
+  /* let grid tracks shrink below content width so wide bibtex / long titles
+     wrap or scroll inside the card instead of blowing out the page width */
+  .pub-body > * { min-width:0; }
+  .pub-figure img { max-height:180px; max-width:100%; }
   .pub-title { font-size:14px; }
+  .bibtex-inline { font-size:9px; }
 }
 
 /* ── LIGHT THEME OVERRIDES ── */

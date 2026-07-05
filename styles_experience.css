@@ -196,43 +196,40 @@ body {
     overflow: visible;
   }
 
-  .exp-list {
-    width: 100%;
-    min-width: unset;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding: 16px 0;
-    overflow-y: visible;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    padding: 12px;
-  }
-
-  .exp-group-label { display: none; }
-
-  .exp-tab {
-    padding: 6px 12px;
-    border-left: none;
-    border-bottom: 2px solid transparent;
-    border-radius: 4px;
-  }
-
-  .exp-tab.active {
-    border-left-color: transparent;
-    border-bottom-color: var(--accent);
-    background: var(--accent-muted);
-  }
-
-  .exp-tab-role, .exp-tab-date { display: none; }
-  .exp-tab-company { font-size: 11px; }
+  /* drop the company-tab selector on mobile — list every role directly */
+  .exp-list { display: none; }
 
   .exp-detail {
-    padding: 24px 20px;
+    padding: 8px 20px 40px;
     overflow-y: visible;
     height: auto;
+    counter-reset: exp;
   }
 
-  .detail-panel { display: block; margin-bottom: 32px; }
-  .detail-panel:not(.active) { opacity: 0.4; }
+  /* show all experiences, numbered like the projects page */
+  .detail-panel {
+    display: block;
+    counter-increment: exp;
+    margin-bottom: 0;
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+    opacity: 1;
+  }
+
+  .detail-panel:first-child {
+    border-top: none;
+    padding-top: 20px;
+  }
+
+  .detail-company::before {
+    content: counter(exp, decimal-leading-zero);
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: var(--accent-muted);
+    margin-bottom: 10px;
+  }
 }
